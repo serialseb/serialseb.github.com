@@ -3,6 +3,9 @@ layout: baseline
 title: What customers say
 ---
 
+Want to add your own testimonial on here? [Edit the file on github](https://github.com/serialseb/serialseb.github.com/edit/master/testimonials.md)
+ and add yours at the top.
+
 > Sebastien delivered an outstanding session about RESTful API:s and hypermedia during Øredev 2011. But what's equally
 > important - he really took the time to hang around the conference talking and debating with any attendee that
 > approached him. This is what makes a conference great, speakers, like Sebastien, that takes the time to have all those
