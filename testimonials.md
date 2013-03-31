@@ -25,3 +25,8 @@ Sebastien Rousseau, project manager, AKQA
 > techniques and technologies. He provides a real advantage to any customer or development team.
 
 Daniel Fernandes, developer
+
+> Seb brought a wealth of knowledge about WPF. Along with his excellent problem solving ability, he helped us develop a
+> great application for our client.
+
+Neil Mosafi, developer

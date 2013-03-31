@@ -8,4 +8,4 @@ fantastic trainer? Want to validate your architecture and coding practices to en
 existing development teams? Or maybe you want an exciting and vibrant speaker for your conference?
 
 Look no further. With over 15 years of experience at the wheels of projects large and small, we can help you become the best
-you can be!
+you can be.

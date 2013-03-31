@@ -1,14 +1,15 @@
 /* layout */
-body {  margin:0px;padding:0px; }
+body {  margin:0;padding:0; }
 
-nav.top { font-size: smaller; width: 100%; top: 0px; left: 0px;padding: 2px 10px; margin: 0px;  clear: both; }
+nav.top { font-size: smaller; width: 100%; top: 0; left: 0;padding: 2px 10px; margin: 0;  clear: both; }
 
-nav.top a:before { content: '| '; margin: 0px 5px; }
-nav.top a:first-child:before { content: ''; margin: 0px; }
+nav.top a:before { content: '| '; margin: 0 5px; }
+nav.top a:first-child:before { content: ''; margin: 0; }
 nav.left { float:left; padding-top: 69px;   }
-nav.left a { display: block; padding: 10px; text-align: right; border-right: solid 1px lightgray; border-bottom: solid 1px lightgray;margin-bottom: 10px }
+nav.left a { display: block; padding: 10px; text-align: right; border-right: solid 1px lightgray;
+             border-bottom: solid 1px lightgray;margin-bottom: 10px }
 nav.left a.current { border-right: solid 5px lightgray; }
-section.main { margin-left: 130px; }
+section.main { margin-left: 140px;  max-width: 500px; display: block;}
 section.main article h1 { border-bottom: solid 1px lightgray; }
 footer { clear: both; text-align: center; }
 
@@ -19,4 +20,6 @@ footer {  font-size: x-small; }
 nav.top { background: black; }
 nav.top, nav.top a { color: white; }
 nav a { color: black; }
+blockquote { text-align: justify; }
+blockquote + p { text-align: right; font-size:smaller; margin-bottom: 20px; }
 

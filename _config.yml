@@ -16,7 +16,7 @@ leftlinks:
     - url: /bio/index.html
       title: Bio
     - url: /rest.html
-      title: Practical Rest
+      title: Practical ReST
     - url: /speaker/
       title: Talks
     - url: /testimonials.html
