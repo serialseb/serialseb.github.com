@@ -1,0 +1,29 @@
+<!doctype html>
+
+
+<html>
+<head>
+    <title>{{ page.title }} - SerialSeb.com</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="lib/styles/baseline.css" />
+</head>
+<body>
+<nav class="top">
+    {%for currentLink in site.toplinks %}
+         <a href="{{ currentLink.url }}">{{currentLink.title}}</a>
+    {% endfor %}
+</nav>
+<nav class="left">
+    {% for currentLink in site.leftlinks %}
+        <a href="{{currentLink.url}}" class="{%if page.url == currentLink.url%}current{%endif%}">{{currentLink.title}}</a>
+    {% endfor %}
+</nav>
+<section class="main">
+    <h1>{{page.title}}</h1>
+    <article>
+        {{ content }}
+    </article>
+</section>
+<footer>© 1981-2013 Sebastien Lambla</footer>
+</body>
+</html>

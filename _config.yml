@@ -1,0 +1,21 @@
+name: serialseb.com
+toplinks:
+    - url         : http://serialseb.com
+      title    : SerialSeb
+    - url         : http://openrasta.org
+      title: OpenRasta
+    - url: http://openwrap.org
+      title: OpenWrap
+leftlinks:
+    - url: /index.html
+      title: Home
+    - url: http://codebetter.com/sebastienlambla/
+      title: Blog
+    - url: /bio/
+      title: Bio
+    - url: /work/
+      title: Work
+    - url: /talks/
+      title: Talks
+    - url: /testimonials/
+      title: Testimonials
