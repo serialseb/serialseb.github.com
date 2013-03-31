@@ -2,9 +2,9 @@ safe: true
 lsi: false
 pygments: true
 toplinks:
-    - url         : http://serialseb.com
-      title    : SerialSeb
-    - url         : http://openrasta.org
+    - url: http://serialseb.com
+      title: SerialSeb
+    - url: http://openrasta.org
       title: OpenRasta
     - url: http://openwrap.org
       title: OpenWrap
@@ -13,11 +13,11 @@ leftlinks:
       title: Home
     - url: http://codebetter.com/sebastienlambla/
       title: Blog
-    - url: /bio/
+    - url: /bio/index.html
       title: Bio
-    - url: /work/
-      title: Work
-    - url: /talks/
+    - url: /rest.html
+      title: Practical Rest
+    - url: /speaker/
       title: Talks
-    - url: /testimonials/
+    - url: /testimonials.html
       title: Testimonials

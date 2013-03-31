@@ -14,8 +14,9 @@ footer { clear: both; text-align: center; }
 
 /* font & color */
 body, a { font-family: sans-serif; color: black; }
-a { text-decoration: none; }
+a { text-decoration: none; color: dodgerblue; }
 footer {  font-size: x-small; }
 nav.top { background: black; }
 nav.top, nav.top a { color: white; }
+nav a { color: black; }
 
