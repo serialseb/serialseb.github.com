@@ -1,4 +1,6 @@
-name: serialseb.com
+safe: true
+lsi: false
+pygments: true
 toplinks:
     - url         : http://serialseb.com
       title    : SerialSeb
