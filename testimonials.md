@@ -6,6 +6,10 @@ title: What customers say
 Want to add your own testimonial on here? [Edit the file on github](https://github.com/serialseb/serialseb.github.com/edit/master/testimonials.md)
  and add yours at the top.
 
+> Seb has always been a great inspiration to me. Being an API guy myself, I've always looked up to him and if it wasn't for OpenRasta I wouldn't be where I am in my career. Thanks for that!
+
+Filip W, developer nd all that
+
 > Sebastien delivered an outstanding session about RESTful API:s and hypermedia during Øredev 2011. But what's equally
 > important - he really took the time to hang around the conference talking and debating with any attendee that
 > approached him. This is what makes a conference great, speakers, like Sebastien, that takes the time to have all those
