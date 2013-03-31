@@ -8,7 +8,7 @@ Want to add your own testimonial on here? [Edit the file on github](https://gith
 
 > Seb has always been a great inspiration to me. Being an API guy myself, I've always looked up to him and if it wasn't for OpenRasta I wouldn't be where I am in my career. Thanks for that!
 
-Filip W, developer nd all that
+Filip W, developer and all that
 
 > Sebastien delivered an outstanding session about RESTful API:s and hypermedia during Øredev 2011. But what's equally
 > important - he really took the time to hang around the conference talking and debating with any attendee that
