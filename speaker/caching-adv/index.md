@@ -12,3 +12,5 @@ deliveries:
       location: Oslo, Norway
       url: http://www.ndcoslo.com/
 ---
+
+Work in progress. Estimated availability from May 2013.
