@@ -6,15 +6,23 @@ nav.top { font-size: smaller; width: 100%; top: 0; left: 0;padding: 2px 10px; ma
 nav.top a:before { content: '| '; margin: 0 5px; }
 nav.top a:first-child:before { content: ''; margin: 0; }
 nav.left { float:left; padding-top: 69px;   }
-nav.left a { display: block; padding: 10px; text-align: right; border-right: solid 1px lightgray;
-             border-bottom: solid 1px lightgray;margin-bottom: 10px }
-nav.left a.current { border-right: solid 5px lightgray; }
-section.main { margin-left: 140px;  max-width: 500px; display: block;}
+nav.left > * { display: block; padding: 10px; text-align: right; border-right: solid 1px lightgray;
+               border-bottom: solid 1px lightgray;margin-bottom: 10px }
+nav.left > *.current { border-right: solid 5px lightgray; }
+section.main { margin-left: 140px;  display: block;}
 section.main article h1 { border-bottom: solid 1px lightgray; }
+/*section.main article { max-width: 640px;}*/
 footer { clear: both; text-align: center; }
-
+article aside { float: right; font-size: xx-small; border-left: solid 1px lightgray; padding: 5px;
+    background: linear-gradient(to left, #FFFFFF 90%, #8BA9EF 100%); margin-bottom: 30px; }
+article aside h2 { margin-bottom: 0px; }
+article aside ul { padding-left: 10px; margin: 0; text-align: left; list-style-type: none }
+article aside ul li { margin: 0;  }
+header h2 { display: inline; }
+header h2+time { marin-left: 20px;}
+header h2+time:before{content: 'on '}
 /* font & color */
-body, a { font-family: sans-serif; color: black; }
+body, a { font-family: sans-serif; color: black; font-size: 10pt; }
 a { text-decoration: none; color: dodgerblue; }
 footer {  font-size: x-small; }
 nav.top { background: black; }
@@ -23,3 +31,4 @@ nav a { color: black; }
 blockquote { text-align: justify; }
 blockquote + p { text-align: right; font-size:smaller; margin-bottom: 20px; }
 
+article.previous-talk { display: block; padding: 3px 3px 3px 5px; margin-bottom: 10px; border-left: solid 5px darkgray;}

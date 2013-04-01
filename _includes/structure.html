@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+    {%include head.html %}
+</head>
+<body>
+<nav class="top">
+    {% include top.html %}
+</nav>
+<nav class="left">
+    {% include left.html %}
+</nav>
+<section class="main">
+    <h1>{{page.title}}</h1>
+    {{ inner_content }}
+</section>
+<footer>{% include footer.html %}</footer>
+</body>
+</html>

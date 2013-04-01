@@ -1,0 +1,50 @@
+{% capture inner_content %}
+<article>
+    {%for last in page.deliveries limit:1 %}
+
+    <header><h2>{{last.conf}}</h2>
+    <time>{{last.date}}</time>
+        </header>
+    {{ content }}
+    {% if last.links %}
+    <aside>
+        <h2>Links</h2>
+        <ul>
+            {%for link in last.links %}
+            <li><a href="{{ link.url }}">{{link.title}}</a></li>
+            {%endfor%}
+        </ul>
+    </aside>
+    {% endif %}
+    <h2>Description</h2>
+    <p>{{page.description}}</p>
+    <div>
+        {%if last.slides %}<a href="{{last.slides}}">Slides</a>{%endif%}
+        {%if last.samples %}<a href="{{last.samples}}">Samples</a>{%endif%}
+        {%if last.video %}<a href="{{last.video}}">Video</a>{%endif%}
+    </div>
+    {% if last.quotes %}
+        <h2>Quotes</h2>
+        {% for quote in last.quotes %}
+        <q>{{ quote }}</q>
+        {% endfor %}
+    {% endif %}
+
+
+{% endfor %}
+</article>
+{% if page.deliveries > 1 %}
+<h1>Other deliveries</h1>
+{% endif %}
+{%for cur in page.deliveries offset:1 %}
+<article class="previous-talk">
+    <header>
+        <h2>{{cur.conf}}</h2>
+        <time>{{cur.date}}</time>
+        <address>{{cur.location}}</address>
+    </header>
+    {%if cur.title %}<div>Title: {{cur.title}}</div>{%endif%}
+</article>
+{%endfor%}
+{% endcapture %}
+{% include structure.html %}

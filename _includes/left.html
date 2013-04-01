@@ -1,0 +1,3 @@
+{% for currentLink in site.leftlinks %}
+<a href="{{currentLink.url}}" class="{%if page.url == currentLink.url%}current{%endif%}">{{currentLink.title}}</a>
+{% endfor %}
