@@ -3,8 +3,9 @@ layout: baseline
 title: Speaking around
 ---
 
-### Next conferences
- - NDC 2013 with [Advanced HTTP caching & patterns for ninja unicorns][]
+### Where is Seb gonna be?
+ - 29-May-2013 - London - Progressive.net
+ - 11-Jun-2013 - Oslo - NDC 2013 - [][caching-adv]
 
 ### Current talks & workshops
 

@@ -6,6 +6,10 @@ layout: baseline
    - 9-11 May 2013
    - Berlin, Germany
    - Submission closes 7th April 2013
+ - [Progressive.net](http://skillsmatter.com/event/open-source-dot-net/progressive-dot-net-tutorials-may-2013)
+   - 29-31 May 2013
+   - London, United Kingdom
+   - Submissions closed
  - [NDC 2012](http://ndcoslo.com)
    - 12-14 June 2013
    - Oslo, Norway

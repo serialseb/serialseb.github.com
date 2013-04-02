@@ -4,7 +4,7 @@ title: HTTP caching for ponies and unicorns
 description: |
     Caching is one of the most powerful feature of HTTP and ReSTful architecture, and also one of the most
     misunderstood. This session will review what can be done with HTTP, debunk a few myths and show some
-    commonly-implemented patterns you can implement in your own clients2.
+    commonly-implemented patterns you can implement in your own clients.
 deliveries:
     - conf: Oredev 2011
       location: Malmo, Sweden
