@@ -2,9 +2,9 @@
 layout: talk
 title: Links, forms and unicorns
 description: |
-    Caching is one of the most powerful feature of HTTP and ReSTful architecture, and also one of the most
-    misunderstood. This session will review what can be done with HTTP, debunk a few myths and show some
-    commonly-implemented patterns you can implement in your own clients2.
+    Hypermedia is the most powerful aspect of the web, a tried and tested technology that lets you link things with
+    other things. This session will start from a poorly designed, RPC-style API and evolve it by introducing links and
+    forms, resulting in decreased coupling, leaner clients and happier users.
 deliveries:
     - conf: Oredev 2011
       location: Malmo, UK
@@ -18,7 +18,6 @@ deliveries:
     - conf: Scottish Developers
       location: Edinburgh, United Kingdom
       date: 19-Jan-2012
-    -
 ---
 
 <iframe src="http://player.vimeo.com/video/37936696" width="500" height="300" frameborder="0"

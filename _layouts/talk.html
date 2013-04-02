@@ -2,7 +2,9 @@
 <article>
     {%for last in page.deliveries limit:1 %}
 
-    <header><h2>{{last.conf}}</h2>
+    <header>
+        <h2>{% if last.url %}<a href="{{last.url}}">{%endif%}{{last.conf}}{%if last.url%}</a>{%endif%}
+    </h2>
     <time>{{last.date}}</time>
         </header>
     {{ content }}

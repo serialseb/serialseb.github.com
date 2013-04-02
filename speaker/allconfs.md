@@ -1,0 +1,25 @@
+---
+title: All conferences in the year 2013
+layout: baseline
+---
+ - [Codemotion Berlin](http://berlin.codemotionworld.com/call-for-papers/)
+   - 9-11 May 2013
+   - Berlin, Germany
+   - Submission closes 7th April 2013
+ - [NDC 2012](http://ndcoslo.com)
+   - 12-14 June 2013
+   - Oslo, Norway
+   - Submissions closed
+ - [QCon New York](http://qconnewyork.com)
+   - 12-14 June 2013
+   - Submissions closed
+ - [Community Day 2013](http://www.communityday.be/cd/tabid/36/Default.aspx)
+   - 20th June 2013
+   - Submissions closed
+ - [Basta 2013](http://basta.net)
+   - 23-27 September 2013
+   - Submissions closed
+ - [Øredev 2013](http://oredev.com)
+   - 4-8 November 2013
+   - Malmö, Sweden
+   - Submissions closed

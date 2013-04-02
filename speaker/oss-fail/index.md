@@ -7,6 +7,7 @@ description: |
     In this session, and based on more than 6 years experience in open-source, I'll
     give you a few simple steps to follow to make sure no one uses your software, no one helps you build it and it never
     ever becomes a success.
+deliveries:
+  - conf: Work in progress
+    date: Jun-2013
 ---
-
-Work in progress. Estimated availability: June 2013.

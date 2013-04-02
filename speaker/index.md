@@ -42,3 +42,5 @@ Those talks have not been presented in a while, were a one-off or are just here 
 [mvc-intro]:randoms/mvc.html
 [openrasta-intro]: openrasta-intro/
 [composite]: composite.html
+
+[The definite conference submission list, for me and others](allconfs.html)

@@ -1,5 +1,5 @@
 ---
-title: Versions are evil - Doing without them in your web API
+title: Versions are evil - Doing without them in your http API
 layout: talk
 description: |
     People change. And when you don't recognize them anymore, sometimes you'd be right in thinking they're just not the
@@ -7,5 +7,7 @@ description: |
     going to pay later!
     We'll explore in practice what is wrong with versioning, and how we can manage change in our APIs
     over time without the need for them.
+deliveries:
+  - conf: Work in progress
+    date: Jun-2013
 ---
-Work in progress. Delivery June 2013.
