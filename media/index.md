@@ -16,4 +16,14 @@ with javascript and nodejs.
 
 # Pictures
 
-Coming...
+All these pictures are exclusive copyright of their owners. Redistribution and usage is only allowed to registered
+parties with a contractual relationship with Sebastien Lambla or Caffeine IT.
+
+Portrait
+![Head shot](/lib/img/profile.jpg)
+
+Portrait sunny funky
+![Head shot under the sun](/lib/img/sunface.jpg)
+
+Portrait passport
+![Head shot passport-style](/lib/img/face.jpg)
