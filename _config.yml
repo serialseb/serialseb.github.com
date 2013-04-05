@@ -9,7 +9,7 @@ toplinks:
     - url: http://openwrap.org
       title: OpenWrap
 leftlinks:
-    - url: /index.html
+    - url: /
       title: Home
     - url: http://codebetter.com/sebastienlambla/
       title: Blog
@@ -18,7 +18,7 @@ leftlinks:
     - url: /rest.html
       title: Practical ReST
     - url: /speaker/
-      title: Talks
+      title: Speaker
     - url: /media/
       title: Media pack
     - url: /testimonials.html

@@ -7,6 +7,22 @@ title: Speaking around
  - 29-May-2013 - London - Progressive.net
  - 11-Jun-2013 - Oslo - NDC 2013 - [][caching-adv]
 
+_Copyright notice_
+
+<small>
+Please note, the providing of the links to the videos, slides and does not grant you any additional rights. All content
+is copyrighted Sebastien Lambla and / or Caffeine IT and / or naughtyProd Limited.
+
+Each conference may release material independently from this site and may do so under a different licensing term, please
+check on each web site what license it's under. For the avoidance of doubt, if there is no license you have no license
+to use the content.
+
+Code license is usually in the codebase (most of the time I go for MIT).
+
+If you want to reuse, deliver or distribute some of the material presented here, it's usually fine but you have to
+contact us, let us know and get permission first.
+</small>
+
 ### Current talks & workshops
 
  - [Advanced HTTP caching & patterns for ninja unicorns][caching-adv]
@@ -19,8 +35,8 @@ title: Speaking around
 
 ### Past talks
 
-Those talks have not been presented in a while, were a one-off or are just here because they are good funny bits.
- If you want one of these talks for your user-group or conference, please contact me and we can discuss bringing
+Those talks have not been presented in a while, were a one-off or are just here because they are funny.
+ If you want one of these talks for your user-group or conference, please contact us and we can discuss bringing
  it back.
 
  - [When agile goes bad][agile-goes-bad]
