@@ -6,6 +6,13 @@ title: What customers say
 Want to add your own testimonial on here? [Edit the file on github](https://github.com/serialseb/serialseb.github.com/edit/master/testimonials.md)
  and add yours at the top.
 
+> I used OpenRasta during a code "boot-camp" to teach developers about ReST. We spent about 1 hour total talking about 
+> ReSt and some different theory. We then spent the next 3 hours showing and writing code. We created a basic CRUD
+> style controller, put some basic authentication into the pipeline and had a working service up and running by the time
+> the class was over. The feedback was great, and for most people it was easy to use OpenRasta to learn ReST.
+
+Nate Taylor, developer
+
 > Seb has always been a great inspiration to me. Being an API guy myself, I've always looked up to him and if it wasn't for OpenRasta I wouldn't be where I am in my career. Thanks for that!
 
 Filip W, developer and all that
