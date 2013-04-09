@@ -2,6 +2,8 @@ safe: true
 lsi: false
 pygments: true
 toplinks:
+    - url: http://kickstarter.org
+      title: Buy "Practical ReST"
     - url: http://serialseb.com
       title: SerialSeb
     - url: http://openrasta.org
@@ -15,7 +17,7 @@ leftlinks:
       title: Blog
     - url: /bio/index.html
       title: Bio
-    - url: /rest.html
+    - url: /rest/
       title: Practical ReST
     - url: /speaker/
       title: Speaker
