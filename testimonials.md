@@ -6,6 +6,14 @@ title: What customers say
 Want to add your own testimonial on here? [Edit the file on github](https://github.com/serialseb/serialseb.github.com/edit/master/testimonials.md)
  and add yours at the top.
 
+
+> Seb is articulate, passionate, courageous and fiercely intelligent; exactly the kind of person you want to have around
+> if you've got difficult problems to solve. I enjoyed working with him immensely and wouldn't hesitate to do so again.
+
+[Liz Keogh](http://lizkeogh.com), Lean and Agile consultant
+
+>
+>
 > I used OpenRasta during a code "boot-camp" to teach developers about ReST. We spent about 1 hour total talking about 
 > ReSt and some different theory. We then spent the next 3 hours showing and writing code. We created a basic CRUD
 > style controller, put some basic authentication into the pipeline and had a working service up and running by the time
