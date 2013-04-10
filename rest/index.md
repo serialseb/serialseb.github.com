@@ -11,8 +11,10 @@ for both nodejs and .net developers (with ruby and java content available on req
 to the class. Each attendee will get the online edition of the book and access to all the reference material used during
 the class.
 
-The book is a crowd-funded project. The more funding, the faster the book will be published! You can [order a copy now]
-on kickstarter or [read more about it](book.html).
+The book is a crowd-funded project. The more funding, the faster the book will be published! You can
+[order a copy now][kickstarter] on kickstarter or [read more about it](book.html).
+
+[kickstarter]: {{site.rest_kickstarter_url}}
 
 ## Latest news
 
