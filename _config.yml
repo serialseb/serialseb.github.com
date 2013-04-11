@@ -1,9 +1,9 @@
 safe: true
 lsi: false
 pygments: true
-rest_kickstarter_url: http://www.kickstarter.com/projects/serialseb/300458049?token=880070e4
+rest_kickstarter_url: http://www.kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems
 toplinks:
-    - url: http://www.kickstarter.com/projects/serialseb/300458049?token=880070e4
+    - url: http://www.kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems
       title: Buy "Practical ReST"
     - url: http://serialseb.com
       title: SerialSeb
