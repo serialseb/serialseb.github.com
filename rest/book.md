@@ -13,9 +13,9 @@ Practical ReST is a crowd-funded book, first of a kind: A full brain-dump of @se
 
 ReST APIs, ReST frameworks, we hear about ReST all the time. With so much disparate content available, and with so many opinions floating around about what is restful or what is not, it's a hard life being a developer on the web these days!
 
-ReST, or representational state transfer, is not hard to grasp, once you've spent enough time looking at it. I've done the blank staring, and now you can rip the benefits!
+ReST, or representational state transfer, is not hard to grasp, once you've spent enough time looking at it. I've done the blank staring, and now you can reap the benefits!
 
-Learn about what ReST is, what application state means, how to use links, how forms loose the coupling between client and server, how you can layer systems to rip the benefits of distributing load, how to do ReST with DDD and CQRS, and much more!
+Learn about what ReST is, what application state means, how to use links, how forms loose the coupling between client and server, how you can layer systems to reap the benefits of distributing load, how to do ReST with DDD and CQRS, and much more!
 
 The book
 
