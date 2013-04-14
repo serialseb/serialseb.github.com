@@ -6,6 +6,8 @@ title: What customers say
 Want to add your own testimonial on here? [Edit the file on github](https://github.com/serialseb/serialseb.github.com/edit/master/testimonials.md)
  and add yours at the top.
 
+> Seb is an intelligent, respected, and accomplished technologist. He was a huge personal help to me in ramping up on REST and provide my team continual advice as we were developing ASP.NET Web API. He is also a passionate supporter of the UK developer community having also been a big driver for the UK alt.net efforts.
+
 
 > Seb is articulate, passionate, courageous and fiercely intelligent; exactly the kind of person you want to have around
 > if you've got difficult problems to solve. I enjoyed working with him immensely and wouldn't hesitate to do so again.
