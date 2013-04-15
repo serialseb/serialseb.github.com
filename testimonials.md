@@ -5,6 +5,10 @@ title: What customers say
 
 Want to add your own testimonial on here? [Edit the file on github](https://github.com/serialseb/serialseb.github.com/edit/master/testimonials.md)
  and add yours at the top.
+ 
+ > I worked with Seb for nearly a year at a mutual client of ours; he demonstrated an enlightening depth of knowledge in his areas of expertise he is superb at spotting problems which can be solved with already discovered patterns. He has strong opinions on everything and is always willing to apply pragmatism when building software. He is worth hiring and always worth listening to - there are many things to be learned from him.
+
+[Rob Ashton](http://codeofrob.com), Freelance software nomad
 
 
 > Seb is articulate, passionate, courageous and fiercely intelligent; exactly the kind of person you want to have around
