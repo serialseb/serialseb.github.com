@@ -6,6 +6,7 @@ title: Speaking around
 ### Where is Seb gonna be?
  - 29-May-2013 - London - Progressive.net
  - 11-Jun-2013 - Oslo - NDC 2013 - [caching-adv][]
+ - 19-Jun-2013 - Vilnius
 
 _Copyright notice_
 
