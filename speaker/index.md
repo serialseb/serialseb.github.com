@@ -26,6 +26,7 @@ contact us, let us know and get permission first.
 
 ### Current talks & workshops
 
+ - [The simple life of ReSTful microservices][restful-microservices]
  - [OWIN, why, what and how?][owin-what-now]
  - [Advanced HTTP caching & patterns for ninja unicorns][caching-adv]
  - [How to fail an OSS projects in a few simple steps][oss-fail]
@@ -61,6 +62,7 @@ Those talks have not been presented in a while, were a one-off or are just here 
 [mvc-intro]:randoms/mvc.html
 [openrasta-intro]: openrasta-intro/
 [owin-what-now]: owin-what-now/
+[restful-microservices]: restful-microservices/
 [composite]: composite.html
 
 [The definite conference submission list, for me and others](allconfs.html)
