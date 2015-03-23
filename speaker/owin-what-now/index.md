@@ -10,4 +10,6 @@ description: |
 deliveries:
   - conf: Aberdeen
     date: Mar-2015
+  - conf: DotNetFringe Portland
+    date: 12-Apr-2015
 ---
