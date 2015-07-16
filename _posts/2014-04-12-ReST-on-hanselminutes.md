@@ -1,5 +1,5 @@
 ---
-layout: baseline
+layout: post
 ---
 Last week I finally managed to catch up with Scott for a little podcast talking about Practical ReST, the course and a
 few other bits and pieces.
