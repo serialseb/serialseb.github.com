@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About the Theme
-tags: [about, Jekyll, theme, responsive]
+title: Sebastien Lambla
+tags: [about, serialseb, Sebastien, distributed-systems,architect,developer]
 modified: 2014-08-08T20:53:07.573882-04:00
 comments: true
 image:
@@ -9,17 +9,9 @@ image:
   credit: WeGraphics
   creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/
 ---
+Confused about what ReST is? Have a project where quality issues are preventing you from releasing? In need of a
+fantastic trainer? Want to validate your architecture and coding practices to ensure the best possible use of your
+existing development teams? Or maybe you want an exciting and vibrant speaker for your conference?
 
-Minimal Mistakes is responsive Jekyll theme with large featured images and solid typography. As the name implies the styling is fairly minimal to make it easier for you to build on top of.
-
-## Minimal Mistakes is all about:
-
-* Responsive templates. Looking good on mobile, tablet, and desktop.
-* Gracefully degrading in older browsers. Compatible with Internet Explorer 8+ and all modern browsers. 
-* Minimal embellishments -- content first.
-* Optional large feature images for posts and pages.
-* Simple and clear permalink structure.
-* [Custom 404 page](http://mmistakes.github.io/minimal-mistakes/404.html) to get you started.
-* Support for Disqus Comments
-
-<a markdown="0" href="{{ site.url }}/theme-setup" class="btn">Install Minimal Mistakes Theme</a>
+Look no further. With over 15 years of experience at the wheels of projects large and small, we can help you become the
+best you can be.

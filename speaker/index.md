@@ -1,28 +1,12 @@
 ---
-layout: baseline
+layout: page
 title: Speaking around
 ---
 
 ### Where is Seb gonna be?
- - 29-May-2013 - London - Progressive.net
- - 11-Jun-2013 - Oslo - NDC 2013 - [caching-adv][]
- - 19-Jun-2013 - Vilnius
+ - Add template for talks in the future?
 
-_Copyright notice_
 
-<small>
-Please note, the providing of the links to the videos, slides and does not grant you any additional rights. All content
-is copyrighted Sebastien Lambla and / or Caffeine IT and / or naughtyProd Limited.
-
-Each conference may release material independently from this site and may do so under a different licensing term, please
-check on each web site what license it's under. For the avoidance of doubt, if there is no license you have no license
-to use the content.
-
-Code license is usually in the codebase (most of the time I go for MIT).
-
-If you want to reuse, deliver or distribute some of the material presented here, it's usually fine but you have to
-contact us, let us know and get permission first.
-</small>
 
 ### Current talks & workshops
 
@@ -66,3 +50,17 @@ Those talks have not been presented in a while, were a one-off or are just here 
 [composite]: composite.html
 
 [The definite conference submission list, for me and others](allconfs.html)
+
+###Copyright notice
+
+Please note, the providing of the links to the videos, slides and does not grant you any additional rights. All content
+is copyrighted Sebastien Lambla and / or Caffeine IT and / or naughtyProd Limited.
+
+Each conference may release material independently from this site and may do so under a different licensing term, please
+check on each web site what license it's under. For the avoidance of doubt, if there is no license you have no license
+to use the content.
+
+Code license is usually in the codebase (most of the time I go for MIT).
+
+If you want to reuse, deliver or distribute some of the material presented here, it's usually fine but you have to
+contact us, let us know and get permission first.
