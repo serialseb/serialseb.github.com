@@ -1,5 +1,5 @@
 ---
-layout: baseline
+layout: post
 title: Bringing ReST to Warsaw
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: baseline
+layout: post
 ---
 It was only yesterday that I announced the start of the kickstarter project on twitter.
 <blockquote class="twitter-tweet"><p>You heard it here first, fund my "Practical ReST" book now on kickstarter: <a href="http://t.co/uaLqkDER4W" title="http://www.kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems">kickstarter.com/projects/seria…</a></p>&mdash; serialseb (@serialseb) <a href="https://twitter.com/serialseb/status/322387173150183425">April 11, 2013</a></blockquote>

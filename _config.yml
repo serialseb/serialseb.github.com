@@ -1,6 +1,21 @@
+title: serialseb.com
 safe: true
 lsi: false
-pygments: true
+highlights: true
+locale: en_UK
+url:
+
+#jekyll config
+permalink:   /:categories/:title/
+sass:
+  sass_dir: _sass
+  style: compressed
+gems:
+  - jekyll-sitemap
+  - jekyll-mentions
+  - jemoji
+  - jekyll-redirect-from
+
 rest_kickstarter_url: http://www.kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems
 toplinks:
     - url: http://www.kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems
@@ -26,3 +41,37 @@ leftlinks:
       title: Media pack
     - url: /testimonials.html
       title: Testimonials
+
+# Site owner
+owner:
+  name: Sebastien Lambla
+  avatar: bio-photo.jpg
+  bio: "Distributed systems through and through."
+  email:
+  disqus-shortname:
+  twitter: serialseb
+  google:
+    plus: #username
+    analytics:
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
+  github: serialseb
+  stackoverflow: http://stackoverflow.com/users/48213/serialseb
+  linkedin: serialseb
+  xing: #username
+  instagram: #username
+  lastfm: #username
+  tumblr: #username
+  pinterest: #username
+  foursquare: #username
+  steam: #username
+  dribbble: #username
+  youtube: #username
+  soundcloud: #username
+  weibo: #username
+  flickr: #username
+  codepen: #username
+
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
