@@ -29,6 +29,11 @@
 {% endif %}
 
 <div id="main" role="main">
+  {% if include.nav == 'author' %}
+  <div class="article-author-side">
+    {% include _author-bio.html %}
+  </div>
+  {% endif %}
   {{ body }}
 </div><!-- /#main -->
 

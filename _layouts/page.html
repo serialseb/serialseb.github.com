@@ -1,7 +1,4 @@
 {% capture body %}
-  <div class="article-author-side">
-    {% include _author-bio.html %}
-  </div>
   <article class="page">
     <h1>{{ page.title }}</h1>
     <div class="article-wrap">
@@ -16,4 +13,4 @@
     {% endif %}
   </article>
 {% endcapture %}
-{% include _master.html name="page" %}
+{% include _master.html name="page" nav="author" %}

@@ -1,7 +1,4 @@
 {% capture body %}
-  <div class="article-author-side">
-    {% include _author-bio.html %}
-  </div>
   <article class="post">
     <div class="headline-wrap">
       {% if page.link %}
@@ -36,4 +33,4 @@
   </div><!-- /.related-articles -->
   {% endif %}
 {% endcapture %}
-{% include _master.html name="post" %}
+{% include _master.html name="post" nav="author" %}

@@ -5,9 +5,7 @@ tags: [about, serialseb, Sebastien, distributed-systems,architect,developer]
 modified: 2014-08-08T20:53:07.573882-04:00
 comments: true
 image:
-  feature: sample-image-2.jpg
-  credit: WeGraphics
-  creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/
+  feature: officehead.jpg
 ---
 Confused about what ReST is? Have a project where quality issues are preventing you from releasing? In need of a
 fantastic trainer? Want to validate your architecture and coding practices to ensure the best possible use of your
