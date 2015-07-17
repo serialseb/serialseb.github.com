@@ -1,5 +1,5 @@
 ---
-author: sebastienlambla
+
 comments: false
 date: 2011-06-18 21:16:30+00:00
 layout: post
@@ -16,91 +16,91 @@ So here’s what you can expect in OpenWrap 2.0. Note that I’ll blog and link 
 
 
 
-	
+
   * **Reliability improvements**
 
-	
+
   * A new remote repository architecture
 
-	
+
     * Multiple publishing endpoints
 
-	
+
     * Persisted authentication
 
-	
+
     * OpenWrap Publishing Protocol
 
-	
+
     * TeamCity integration
 
 
 
 
-	
+
   * Configuration
 
-	
+
     * Proxy configuration
 
 
 
 
-	
+
   * Scopes
 
-	
+
   * Templates
 
-	
+
   * Solution plugins
 
-	
+
     * Improved ReSharper integration
 
-	
+
     * ReSharper plugins
 
 
 
 
-	
+
   * Command system improvements
 
-	
+
     * UI Commands
 
 
 
 
-	
+
   * Package improvements
 
-	
+
     * Flavours
 
-	
+
     * NuGet tunneling
 
 
 
 
-	
+
   * Build improvements
 
-	
+
     * Build-time tools
 
-	
+
     * MSBuild extensibility points
 
 
 
 
-	
+
   * More project types supported
 
-	
+
   * Full support for Mono
 
 

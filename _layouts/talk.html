@@ -1,7 +1,4 @@
 {% capture body %}
-  <div class="article-author-side">
-    {% include _author-bio.html %}
-  </div>
   <article class="page">
       {%for last in page.deliveries limit:1 %}
       <h1>{{ page.title }}
@@ -35,7 +32,7 @@
   {% endfor %}
   </article>
   {% if page.deliveries > 1 %}
-  <h1>Also presented at</h1>
+  <h2>Also presented at</h2>
   {% endif %}
   {% for cur in page.deliveries offset:1 %}
   <article class="previous-talk">
@@ -48,4 +45,4 @@
   </article>
   {% endfor %}
 {% endcapture %}
-{% include _master.html name="talk" %}
+{% include _master.html name="talk" nav="author" %}

@@ -1,5 +1,5 @@
 ---
-author: sebastienlambla
+
 comments: false
 date: 2011-02-01 15:51:01+00:00
 layout: post
@@ -22,7 +22,7 @@ For example, html is usually served as **text/html**, where the content type is 
 
 The first step in minting your media type identifier is to decide in which content type it belongs. The list is [defined by the IANA](http://www.iana.org/assignments/media-types/), and contains such things as text, audio, video, model and the well-known application.
 
-Each of the IANA-defined content types have certain requirements that your media type need to conform to, and there’s a good reason for that: generic processing fall-back. When a user-agent (a browser or whatever you use as a web client) encounters a media type identifier it doesn’t understand specifically (say text/vnd.openwrap.descriptor), it can fall-back to the processing rule for the content type (text) and display things as if the format was actually text/plain. 
+Each of the IANA-defined content types have certain requirements that your media type need to conform to, and there’s a good reason for that: generic processing fall-back. When a user-agent (a browser or whatever you use as a web client) encounters a media type identifier it doesn’t understand specifically (say text/vnd.openwrap.descriptor), it can fall-back to the processing rule for the content type (text) and display things as if the format was actually text/plain.
 
 Let’s review the two most contentious content types.
 
@@ -68,7 +68,7 @@ I just love the name _vanity_ tree, also called the _personal_ tree. It’s wher
 
 ### The x- or x. prefix
 
-This is the main reason why I wrote this blog entry. The x- or x. prefixes are only to be used for _“unregistered, experimental, and for use only with the active agreement of the parties exchanging them”_. To go one further, because we already have the vendor and vanity trees, _“use of both "x-" and "x." forms is discouraged”_. 
+This is the main reason why I wrote this blog entry. The x- or x. prefixes are only to be used for _“unregistered, experimental, and for use only with the active agreement of the parties exchanging them”_. To go one further, because we already have the vendor and vanity trees, _“use of both "x-" and "x." forms is discouraged”_.
 
 Be aware that **I have no such agreement with anyone**, so any time you create one of those atrocities, you’re in breach of the standard and using something no one wants. You’re invading my personal space. You’re leaving poo all over the internet carpet and I have no clue as to what the heck your format is, as it’s not registered anywhere.
 

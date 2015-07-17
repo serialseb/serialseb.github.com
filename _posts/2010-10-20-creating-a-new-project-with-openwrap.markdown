@@ -1,5 +1,5 @@
 ---
-author: sebastienlambla
+
 comments: true
 date: 2010-10-20 11:36:00+00:00
 layout: post
@@ -27,7 +27,7 @@ The easiest way to create a new project is to use the _init-wrap _command with a
 
 
 
-    
+
     <div><strong>PS C:\src></strong><i> o init-wrap newProject -git</i></div>
     # OpenWrap v1.0.0.0 ['C:\Users\sebastien.lambla\AppData\Local\OpenWrap\wraps\_cache\openwrap-1.0.0.19240580\bin-net35\OpenWrap.dll']
     Specify either the path to the projects you want updated or -all to find all projects automatically.
@@ -73,7 +73,7 @@ Next, we need to inject OpenWrap in the build process of that project. Again, no
 
 
 
-    
+
     <div><strong>PS C:\src></strong><i> cd newProject</i></div>
     <div><strong>PS C:\src\newProject></strong><i> o init-wrap -all</i></div>
     # OpenWrap v1.0.0.0 ['C:\src\newProject\wraps\_cache\openwrap-1.0.0.19240887\bin-net35\OpenWrap.dll']
@@ -121,7 +121,7 @@ We'll write a log4net class in our newly-created project.
   4. {
 
 
-  5. 
+  5.
 
   6. }
 
@@ -144,7 +144,7 @@ As you can see, ReSharper tells us it doesn't recognize that class. Let's add th
 
 
 
-    
+
     <div><strong>PS C:\src\newProject></strong><i> o add-wrap log4net</i></div>
     # OpenWrap v1.0.0.0 ['C:\src\newProject\wraps\_cache\openwrap-1.0.0.19240887\bin-net35\OpenWrap.dll']
     Wrap descriptor found.
@@ -171,7 +171,7 @@ You now have functional code you're happy with, and you want to share your packa
 
 
 
-    
+
     <div><strong>PS C:\src\newProject></strong><i> o build-wrap -quiet</i></div>
     # OpenWrap v1.0.0.0 ['C:\src\newProject\wraps\_cache\openwrap-1.0.0.19240887\bin-net35\OpenWrap.dll']
     Output found - bin-net40: 'C:\src\newProject\wraps\_cache\log4net-1.2.10\bin-net20\log4net.xml'
@@ -197,7 +197,7 @@ Only thing left to do to start sharing your code is to publish it. I use the Net
 
 
 
-    
+
     <div><strong>PS C:\src\newProject></strong><i> o publish-wrap netshare .\newProject-0.0.1.19243541.wrap</i></div>
     # OpenWrap v1.0.0.0 ['C:\src\newProject\wraps\_cache\openwrap-1.0.0.19240887\bin-net35\OpenWrap.dll']
     Publishing package 'newProject-0.0.1.19243541.wrap' to 'netshare'
@@ -211,7 +211,7 @@ And I can verify that the package was indeed published properly by listing the p
 
 
 
-    
+
     <div><strong>PS C:\src\newProject></strong><i> o list-wrap -remote netshare</i></div>
     # OpenWrap v1.0.0.0 ['C:\src\newProject\wraps\_cache\openwrap-1.0.0.19240887\bin-net35\OpenWrap.dll']
      - newProject (versions: 0.0.1.19243541)

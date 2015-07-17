@@ -1,5 +1,4 @@
 ---
-author: sebastienlambla
 comments: true
 date: 2014-11-05 20:12:36+00:00
 layout: post
@@ -30,13 +29,13 @@ Go to the settings (http://192.168.1.254/  usually), and do the following, in o
 
 
 
-	
+
   1. Deactivate wireless. That access point has terrible coverage, you're better off without.
 
-	
+
   2. Put the hub in Bridge mode (Settings > Broadband > Routing at the end of the page, Bridge mode enabled)
 
-	
+
   3. At that point, you probably already tried that, and failed miserably to PPPoE. So instead go for the hidden page on the router, at http://192.168.1.254/thd_setup and set the encapsulation to LLC. Save
 
 

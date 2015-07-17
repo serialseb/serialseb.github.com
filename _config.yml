@@ -6,7 +6,7 @@ locale: en_UK
 url:
 
 #jekyll config
-permalink:   /:categories/:title/
+permalink: /blog/:categories/:title/
 sass:
   sass_dir: _sass
   style: compressed
@@ -45,8 +45,8 @@ leftlinks:
 # Site owner
 owner:
   name: Sebastien Lambla
-  avatar: bio-photo.jpg
-  bio: "Distributed systems through and through."
+  avatar: bio-seb.jpg
+  bio: "Passionately distributed systems, continuously improving."
   email:
   disqus-shortname:
   twitter: serialseb

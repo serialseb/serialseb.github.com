@@ -1,5 +1,5 @@
 ---
-author: sebastienlambla
+
 comments: true
 date: 2010-10-17 17:44:10+00:00
 layout: post

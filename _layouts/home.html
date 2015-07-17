@@ -1,7 +1,4 @@
 {% capture body %}
-  <div class="article-author-side">
-    {% include _author-bio.html %}
-  </div>
   <div id="index">
     <h3><a href="{{ site.url}}/posts/">Recent Posts</a></h3>
     {% for post in site.posts limit:5 %}
@@ -16,4 +13,4 @@
     {% endfor %}
   </div><!-- /#index -->
 {% endcapture %}
-{% include _master.html name="home" %}
+{% include _master.html name="home" nav="author" %}
