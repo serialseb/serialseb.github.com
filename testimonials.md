@@ -5,7 +5,11 @@ title: What customers say
 
 Want to add your own testimonial on here? [Edit the file on github](https://github.com/serialseb/serialseb.github.com/edit/master/testimonials.md)
  and add yours at the top.
- 
+
+ > Seb is amazing. I've had him speak at my events and been lucky enough to hear him. He has an amazing way of enthusing passionately about a subject, that he obviously knows inside out, and is able to relate that to listners in a way they can understand. Seb really knows what he's doing in terms of heading up a team and taking them in a direction. He's a brilliant catalyst for change. His vision and architecture will take a team in a direction they'd have never dreamed of, on a journey to delivering valuable, incredible software. A leader in his field.
+
+[Gemma Cameron](http://rubygem.me), Software Developer and Queen Bee of Manchester's Tech Community
+
  > I worked with Seb for nearly a year at a mutual client of ours; he demonstrated an enlightening depth of knowledge in his areas of expertise he is superb at spotting problems which can be solved with already discovered patterns. He has strong opinions on everything and is always willing to apply pragmatism when building software. He is worth hiring and always worth listening to - there are many things to be learned from him.
 
 [Rob Ashton](http://codeofrob.com), Freelance software nomad
