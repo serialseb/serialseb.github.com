@@ -1,0 +1,137 @@
+---
+layout: post
+title: A valuable reason for ATOM
+---
+
+<div class="Section1">
+   <p>
+      My brain has been wondering around lately, about how feeds and syndication can play
+      with the whole service oriented paradigm and the GXA stack. 
+   </p>
+   <p>
+      There are really two worlds in the blogging community: The simplistics and the technologists. 
+   </p>
+   <p>
+      For the <b>simplistics</b> (yes the word is mine, invented by shuffling letters around
+      in something that looks readable. I should fill a patent for that word), RSS works
+      and blogs work because they are technically simple (remember, <b>Really Simple</b> Syndication).
+      A feed is easily written, easily read (even without an aggregator), and doesn&rsquo;t
+      require much. 
+   </p>
+   <p>
+      For the <b>technologists</b>, blog-related technologies are limited and the kind of
+      functionality we could bring to people is inherently limited by the technology we&rsquo;re
+      using. Scoble says constantly that RSS is so much better than the web. Reality is,
+      syndication still relies on a very web like interaction; only the client side of things
+      you <b>see</b> and <b>use</b> is simpler and more productive. 
+   </p>
+   <p>
+      You could&rsquo;ve guessed by now that I&rsquo;m in the second category. But is the
+      first category really right anyway? Let&rsquo;s see the technologies around the RSS
+      format: 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      <span style='font-family: Symbol'>&middot;<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span> MetaWebLog
+      API. XML-RPC based, which I don&rsquo;t consider a simple format, and that have its
+      shares of interoperability issues. 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      <span style='font-family: Symbol'>&middot;<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span> Trackback,
+      Ping&hellip; Not complex in the way they work, but still complex concepts to adopt
+      from a web perspective. 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      <span style='font-family: Symbol'>&middot;<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span> Vocabulary,
+      which includes pings, trackbacks, permalinks, etc. Is this vocabulary simple? Does
+      my mother understand <b>anything to it</b>? 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      <span style='font-family: Symbol'>&middot;<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span> Are
+      we leveraging the underlying tool? REST-based APIs are not used, http content negotiation
+      is not either. And we&rsquo;re, once again, stuck into HTTP. It might be a coacroach,
+      but you know what, I wouldn&rsquo;t ride it for a competition. 
+   </p>
+   <p>
+      We&rsquo;re seeing a big paradigm shift (once again) to Services and SOAP. Is RSS
+      leveraged? Surely enough it could, you can always chunk arbitrary XML within a SOAP
+      envelope. So why the title, am I advocating RSS now? Hear me my friend, It&rsquo;s
+      not at all my point. The actual <b>format</b> of the &lt;item&gt;, I couldn&rsquo;t
+      care less. <b>RSS is not what matters</b>. With XSL-T widely available, at most I
+      would prefer a format with full type fidelity that I can turn into whatever I want
+      depending on what the subscriber consumes (remember, <b>content negotiation</b>&hellip;). 
+   </p>
+   <p>
+      I am advocating ATOM not as a file format, but as a process that should look at the
+      overall infrastructure, and define best practices, just like how Trackback, Ping and
+      other ad-hoc technologies developed themselves. Not through boards, not through committees,
+      but through open work and interoperability testing. What should ATOM do? 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      <span style='font-family: Symbol'>&middot;<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span> Leverage
+      WS-Security to provide authentication of a feed author. If I receive content from
+      Scoble, that&rsquo;s one thing. If I receive a stock alert from Bloomberg, that&rsquo;s
+      another thing. 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      <span style='font-family: Symbol'>&middot;<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span> Leverage
+      WS-Eventing and al. Having clouds is alright, but please, XML-RPC is dead, for god&rsquo;s
+      sake let it REST in peace. 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      <span style='font-family: Symbol'>&middot;<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span> Leverage
+      MTOM. Enclosures are good, but MTOM solves the same problem in a service oriented
+      way. 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      <span style='font-family: Symbol'>&middot;<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span> Leverage
+      WS-Federation for comments and to find a way to solve comment spam 
+   </p>
+   <p>
+      We have the underlying pipe technology, we lack the proper binding to a new service
+      oriented world for blogs and content management in general. 
+   </p>
+   <p>
+      I can hear people screaming, so many technologies to handle, this is going to be over
+      complex and won&rsquo;t ever get implemented. Remember, any market consolidates, any
+      market gets fewer players, and competition is driven by how you can provide your users
+      with the greatest flexibility. You don&rsquo;t write the API for MTOM or WS-Security,
+      it&rsquo;s already there (ok, not MTOM, but you get the point), just like you don&rsquo;t
+      reimplement the full XML-RPC stack each time you need it in one of your projects.
+      The effort does gives you things the current state of technology cannot: 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      <span style='font-family: Symbol'>&middot;<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span> Authentication
+      of the author of an item, a trackback, a comment&hellip; 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      <span style='font-family: Symbol'>&middot;<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span> Real
+      push technology 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      <span style='font-family: Symbol'>&middot;<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span> Discoverability
+      of new blogs in a virtual URL space 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      <span style='font-family: Symbol'>&middot;<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span> No
+      ties to HTTP in the technology, reuse of the idea of bindings 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      <span style='font-family: Symbol'>&middot;<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span> Standards
+      standards standards 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      <span style='font-family: Symbol'>&middot;<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span> Ship
+      more than just text with enclosures. Leverage your architecture as a content delivery
+      system. Just imagine if newsgator was sending updates to their software in a standard
+      way, push based mechanism and proper authentication? 
+   </p>
+   <p>
+      ATOM is not pushing forward these ideas (which were at the origin the ones that were
+      discussed), and ends up just mistaking RSS as an <b>architecture</b> when it is only
+      a <b>format</b>. 
+   </p>
+   <p>
+      &#160; 
+   </p>
+</div>
+<img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=551f2d74-a41d-4802-b8d1-8b79734a0350">

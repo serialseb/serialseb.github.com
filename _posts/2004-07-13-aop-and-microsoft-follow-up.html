@@ -1,0 +1,32 @@
+---
+layout: post
+title: AOP and Microsoft follow-up
+---
+
+<div class="Section1">
+   <p>
+      <a href="http://radio.javaranch.com/channel/val/2004/07/13/1089700841000.html">Val</a> does
+      a good job of summarizing of the <a href="http://blogs.msdn.com/ericgu/archive/2004/06/29/169394.aspx">discussion
+      Eric started</a> on AOP and Microsoft technologies, and I thought I would add a bit
+      more to the discussion. 
+   </p>
+   <p>
+      Jeroen in the comments say that Microsoft is watching what the industry does in AOP&hellip;
+      But to be really honest, Microsoft was one of the first in the industry to provide
+      interception and decoration of code with its COM+ Services. You can ask <a href="http://staff.newtelligence.net/clemensv/">Clemens</a> about
+      his experience hooking up in this COM+ pipeline! (I was looking for posts about it,
+      not sure he ever put down on the net what he explained in one conference I was at
+      in Paris). 
+   </p>
+   <p>
+      Moreover, I think it&rsquo;s fair enough to say that the interception layer has been
+      implemented in the .net world, through the use of the TransparentProxy / RealProxy
+      couple. What prevents that from being used more efficiently? It&rsquo;s as slow as
+      it gets. It needs a context on its own. <i>Some people</i> (I&rsquo;m not putting
+      names as I can&rsquo;t assert for sure, but I have my opinion on the matter) pushed
+      to have call contexts instead of object instances contexts, which results in it not
+      to be optimized before .net 3 or 4, maybe (according to <a href="http://blogs.msdn.com/cbrumme/archive/2003/07/14/51495.aspx">this
+      guy which should known what he&rsquo;s talking about</a>). And that&rsquo;s a shame. 
+   </p>
+</div>
+<img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=d1963e5b-6a69-4715-8141-8c9d20dae4fe">

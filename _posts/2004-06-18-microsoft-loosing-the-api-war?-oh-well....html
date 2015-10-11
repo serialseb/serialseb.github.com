@@ -1,0 +1,337 @@
+---
+layout: post
+title: Microsoft loosing the API war? Oh well...
+---
+
+<div class="Section1">
+   <p>
+      <i>(Please excuse the raw format of this post, it will get updated if I find something
+      really awful in the next few days)</i>. 
+   </p>
+   <p>
+      As <a href="http://www.thedatafarm.com/blog/PermaLink.aspx?guid=1fca9c28-060d-422e-a375-d171cf316380">no</a> <a href="http://weblogs.asp.net/rholloway/archive/2004/06/16/157725.aspx">one</a> <a href="http://blogs.geekdojo.net/justin/archive/2004/06/16/2238.aspx">really</a> <a href="http://blogs.geekdojo.net/justin/archive/2004/06/16/2238.aspx">wants</a> or
+      have time to answer (or just <a href="http://slashdot.org/article.pl?sid=04/06/16/209202">pretend</a>),
+      I thought, well, let&rsquo;s dig into this <b>huge</b> post. 
+   </p>
+   <p>
+      First, please, Joel darling, I love your writing style and your blog, but stop making
+      my life that difficult, and put the full length article separately from your blog! 
+   </p>
+   <p>
+      First and foremost, seeing Linux as a <b>huge</b> threat to windows is premature,
+      I completely agree with that. There&rsquo;s several points to this I&rsquo;d like
+      to ask. 
+   </p>
+   <p>
+      When you hear Linux taking hold of the server market, and even when you listen to
+      Microsoft fears about linux eating some of the market share they could gain over Unix,
+      I have a very strong feeling: The figures leading to these worldwide paranoia marketing
+      campaigns rely on very big customers (i.e. people running a <b>lot</b> of servers).
+      The figure in the SOHO market, both in terms of shipped units and deployed units,
+      is still largely in favor of Microsoft, and I&rsquo;m pretty sure Linux will have
+      to wait for quite a long time at the door before it can enter this market. 
+   </p>
+   <p>
+      For the desktop, Linux has progressed tremendously, no question asked about that.
+      But so did Microsoft Windows. Can you replace a windows in a corporate environment
+      (locked down, no administrative rights, no hardware plugging and unplugging everyday,
+      etc) by a similarly locked down linux? Yes, absolutely, and it won&rsquo;t make a
+      huge difference for the users. The Java Desktop System from Sun is a good example
+      of what can be achieved. 
+   </p>
+   <p>
+      But now think about the other side of the fence, and the development of applications.
+      (I&rsquo;ll dig into that a bit later on, to follow Joel&rsquo;s progression in his
+      article). Do you really think that a CRM call center wants to use a web application?
+      Do you think an administrative wants to complete all his reports and do his charting
+      on a web application? Exactly my point. Ease of development is the main issue with
+      a Linux desktop. Is Java bringing anything to the table for that? Well, java sucks
+      at desktop software (did I get the Slashdot kids angry enough just yet?). To be more
+      to the point (before someone else points to a <a href="http://www.eclipse.org/">counter
+      example</a>), Java developers sucks at writing desktop applications. Why? They don&rsquo;t
+      have the desktop software culture, they have the system application culture. 
+   </p>
+   <p>
+      The whole talk about stability, management, configurability and composability of the
+      windows platform was absolutely valid. But now <a href="http://www.microsoft.com/mom/">there</a> <a href="http://www.microsoft.com/windowsserver2003/">are</a> <a href="http://www.microsoft.com/windowsserversystem/wss2003/default.mspx">solutions</a> to
+      these problems, and pretty good ones with that. Why can&rsquo;t all these productions
+      happen anyway? Because they look at the current state of things, and try to imagine
+      what will happen in five or ten years (time taken for OS/2 to die nearly completely).
+      If Microsoft just stopped innovating, it would be valid. But what can compete with
+      Avalon and aero on linux today? Which project has been built to deliver something
+      in the same time-frame as longhorn? (only acceptable links are for projects that are
+      not still at version 0.0001 after four years of rewriting of the X server. If you
+      get me something interesting, I will update this post and its associated logic). 
+   </p>
+   <p>
+      All this to say, if Microsoft is still in the lead, it is because they know to adapt.
+      It is also because they can adapt their strategy to what the consumer needs. Does
+      the consumer need compatibility? Absolutely. Which leads me to my next point (and
+      Joel&rsquo;s). 
+   </p>
+   <p>
+      Joel says there are two camps at Microsoft, the <i>Raymond Chen Camp</i> that favor
+      compatibility <i>bug for bug</i>, and the <i>MSDN Camp</i> that doesn&rsquo;t want
+      to guarantee anything that is not documented, pushing an API specification as a moral
+      contract with a developer. Which side am I? Most people responded to that in one way
+      or another. My answer would be, both! Why would the two be incompatible? 
+   </p>
+   <p>
+      For backward compatibility, Joel talks about VB6 and VB.net. I worked with both technologies,
+      and can remember very clearly the first pages on the vb web site where object orientation,
+      full multi threading and the new class library were announced, before the NGWS (that
+      became the .net framework and CLR, and which were previously COM3) were announced
+      by Bill Gates. Did Microsoft say at the time that VB.vNext would be incompatible?
+      Never, and they presented it as an evolution of vb6, not as a break. Did the marketing
+      suck? Absolutely, we led vb6 developers to think vb.next was just the next enhanced
+      version, and not a complete change. I would have to agree with Joel when he says that.
+      Should&rsquo;ve Microsoft provided a better upgrade path to vb6 users? That&rsquo;s
+      a question I would tend to respond by the following: do you want to shape your community,
+      be its slave, or be in between? With vb.net we are in the &ldquo;in between&rdquo;,
+      a lot of vb weirdness are preserved (late binding anyone?), but a lot of things break
+      as well. I think that in this case, the msdn camp didn&rsquo;t win. The camp that
+      won was the one thinking you had to move over, and recreate something that was not
+      good enough any more, or would&rsquo;ve taken significant engineering time to preserve
+      for an overall bad result. Why would&rsquo;ve it be difficult to support vb6 out of
+      the box? VB was very limited, and you often relied (at least I did in the glory days)
+      on a lot of api calls, libraries wraps, and pure simple hacks to turn the data entry
+      language into proper efficient code. Would have it been possible to port that to .net?
+      I highly doubt that any vb hacked multi-threaded application would&rsquo;ve supported
+      it (one of the ugliest hack of vb6 was the use of winAPI calls to create threads and
+      execution of methods with the AdressOf keyword). 
+   </p>
+   <p>
+      Where I start disagreeing with Joel completely, absolutely, vehemently (can you spell
+      over reacting ?), is when he decry this, IIS6 and WinFX as not an &ldquo;evolution&rdquo;
+      but a &ldquo;break&rdquo;. Here, I have to ask&hellip; What is broken exactly Joel?
+      IIS5 was broken, IIS6 supports a new mode, and a compatibility mode for IIS5. Did
+      they tighten security? Yes. Did they did that and it broke some application? Yes.
+      Would&rsquo;ve it been reasonable to provide a compatibility hack so that applications
+      can be a danger to the overall system and work out of the box? I don&rsquo;t think
+      so. 
+   </p>
+   <p>
+      Is WinFX <b>replacing</b> win32? Frankly, doesn&rsquo;t seem to me like Win32 replaced
+      win16? COM replaced OLE 1? OLE replaced DDE? They are all evolutions of the others,
+      and each time they appear as a new technology, in addition to the old one. An example?
+      Microsoft is building indigo, and still fixing bugs in DCOM. They are fixing DCOM
+      but they still provide fixes for NetDDE (that no one in their right mind would ever
+      use ever ever again). They&rsquo;re building indigo, and they&rsquo;re hooking it
+      up with the COM stack to provide a two-way compatibility. They worked on .net and
+      made sure you could use .net from COM and COM from .net. 
+   </p>
+   <p>
+      Did .net 1.1 break a few things from 1.0? Yes, and that&rsquo;s why you have a way
+      to do side by side versioning on these libraries. But did win32 break a few behaviors
+      from win16? Yes it did, <a href="http://blogs.msdn.com/oldnewthing/archive/2004/06/14/155107.aspx">and
+      no it didn&rsquo;t matter</a>. 
+   </p>
+   <p>
+      Question to you joel. I made my company buy your software, fogBugz (if you have a
+      Cubiks company in your records, that&rsquo;s because of me and only me, and next time
+      am in the us I expect a dinner for that!). Anyway. If you want to add a new functionality,
+      like workflow management of a bug, with validation by managers, and integration with
+      the branching of source control software, are you going to implement that in the current
+      fogBugz software? As a consumer of your product, I would love that (nothing to pay
+      for it) but I really don&rsquo;t expect that to happen. My guess is that you&rsquo;ll
+      ship that in the next version. Will you break what has been done for previous versions?
+      Nope. But you will make sure to <b>add</b> stuff. That&rsquo;s where I completely
+      disagree with your analysis. What is important here is that the new apis are added <b>on
+      top of</b> the current apis. They are not <b>replacing</b> the previous api, nor are
+      they <b>breaking</b> the previous api. And that&rsquo;s, once again, exactly why NetDDE
+      still works even though DCOM have been there for years and Indigo is on the pipeline. 
+   </p>
+   <p>
+      Joel continues by saying that &ldquo;The old Microsoft, the Microsoft of Raymond Chen,
+      might have implemented things like Avalon, the new graphics system, as a series of
+      DLLs that can run on any version of Windows and which could be bundled with applications
+      that need them.&rdquo;. There are several reasons why he should know that&rsquo;s
+      not true. First, Microsoft like any commercial company needs to generate <b>new</b> revenues, <b>upgrades</b> revenues.
+      I really hope for the sake of your company that you&rsquo;re not going to freeze fogbugz
+      at its current version and offer all the new functionality for free to all of your
+      users. That would be immediate bankruptcy. Second reason is the scale of the change.
+      Microsoft will include http.sys (the http kernel driver used by win2003) in windows<sup>xp</sup> SP2
+      for free. That&rsquo;s right, this new server side technology, you&rsquo;ll get it
+      on the desktop for absolutely free, nothing, peanuts. Not a sausage. Indigo will be
+      available on win<sup>XP</sup>, win2k3 and Longhorn for free. Nothing. Peanuts. Not
+      even one sausage. Now if you look at <i>aero</i>, you&rsquo;re talking about a new
+      display infrastructure, a new driver model, a fully new subsystem, completely replacing
+      the previous one, while being completely <b>backward compatible</b> with GDI. If you
+      ship an update to an OS that replaces 100% of its graphics file system, you can&rsquo;t
+      support windows in the same way as you used to, because it will soon become two different
+      versions of windows. 
+   </p>
+   <p>
+      Joel goes on by <span lang="EN-GB">argumenting</span> against WinFS as a search technology.
+      I would just follow Robert&rsquo;s point number (7), WinFS is first and foremost a
+      technology for storing data, that relates to other data, adding meta-data to provide
+      &ldquo;intelligent&rdquo; management, not just text search. Text search already works
+      just fine on windows, thanks to the <a href="http://sqljunkies.com/WebLog/acencini/articles/716.aspx">Indexing
+      Server and the IFilter interfaces</a>. Here, we&rsquo;re talking more of other kind
+      of data, not only text. How can I relate a picture with the people on it, and ask
+      my operating system &ldquo;show me pictures of my boyfriend from last year&rdquo;?
+      If you try to text index it, you reach a wall you won&rsquo;t be able to overcome.
+      WinFS is not there only for text, we already know how to work with text. As you say,
+      it was not hot anymore I wasn&rsquo;t born yet. 
+   </p>
+   <p>
+      I would agree with Joel saying that memory management and easy of use of Visual Basic
+      have been upgrading developers productivity tremendously. Who wouldn&rsquo;t? 
+   </p>
+   <p>
+      But then, he says &ldquo;And yet, people aren't really using .NET much.&rdquo;. Do
+      you think that&rsquo;s because of .net itself? Let me tell you a story. I bet my carreer
+      three years ago on .net. That&rsquo;s right, for the first c# beta, I said, I will
+      be in .net and do only .net from now on. The market has been very hard for the first
+      two years. Where is it now? Companies start seeing .net as something to use because
+      of its productivity enhancements, but especially because it&rsquo;s old enough and
+      no one stood up and screamed &ldquo;We were ruined because we chose .net&rdquo;. It
+      takes time for a new technology to build confidence in the manager paying the check
+      for a new development project. You do sign checks and you still didn&rsquo;t sign
+      anything for .net, you should know. .net starts seeing a <b>huge</b> progress in the
+      corporate environment, and it&rsquo;s gradually replacing most of the Java developments
+      (same trend in the financial services industry for that matter). 
+   </p>
+   <p>
+      The point of .net was to provide a common execution environment, and cross language
+      interoperability. The .net framework was mainly written to provide c# <b>and</b> vb.net
+      the same api. Why? Because the vb api was always limited, there was never enough resources
+      to put in there all the things the vb crowd wanted. Microsoft thought that if you
+      could combine a big api, you could reduce development cost while increasing functionality.
+      Yes they did reinvent the wheel. But so did they when they created OLE/COM, or when
+      they created win32 even though they had win16. It&rsquo;s just the same story over
+      and over again. 
+   </p>
+   <p>
+      Avalon is a new API for graphics. True enough. It is still backward compatible with
+      gdi though. If you write a winforms application now, you&rsquo;ll be able to write
+      them in the future. If you write them now, they will still run on longhorn. But frankly,
+      can we really push GDI any further? No, and that&rsquo;s frankly for the best. Once
+      again, I will say, there is <b>absolutely nothing new</b>. GDI+ was implemented on
+      the win2k OS, and never retrofitted back in windows98 and Me. Ctctrl3d.dll or whatever
+      the name of the common 3d controls under windows95 was not ported back to windows
+      3. And yet, a user interface for windows 3 is still working today. An API doesn&rsquo;t
+      disappear. The MSDOS subsystem is <b>still in the operating system, protecting your
+      investment</b>. Yes you will have to learn again, a new technology, and that cost
+      money and is frightening. But that&rsquo;s also what makes this industry moving (like
+      any other one for that matter), and what lets you ship new versions of your software.
+      Your company, Joel, is the best counter example to your argument. You decided not
+      to port to .net for cost reason. And you can still ship your software. And it works.
+      And will in the foreseeable future. Yet you&rsquo;re alarmed that you&rsquo;re being
+      let down. Where are the extensions to the vb4 runtime? There was none, it was added
+      to the vb5 runtime. Same thing. Again. And again. And again. Oh, and we still have
+      the sky above us. And I still got a job, and so does your company! 
+   </p>
+   <p>
+      As for Microsoft wanting you to stop upgrading fogBugz, which we bought, even though
+      we knew about Team System, in common with vault, that I made my company buy too&hellip;
+      I will leave it to <a href="http://software.ericsink.com/item_10169.html">Eric</a> to
+      explain why Microsoft probably doesn&rsquo;t care much about fogbugz. 
+   </p>
+   <p>
+      When you say that &ldquo;no developer with a day job has time to keep up with all
+      the new development tools coming out of redmond&rdquo;, are you suggesting most of
+      my blog roll is actually fake professional people? A lot of people find the time to
+      know in advance what they are going to do. If you want to succeed, you must aim high.
+      If you aim high, you need to be on top. If you need to be on top, you always find
+      the time to know beforehand where your industry, where what makes your day job possible
+      is going. That&rsquo;s why I have both longhorn and Whidbey installed. And my day
+      job is a real day job. That&rsquo;s what makes the difference between my salary and
+      the one from my &ldquo;enterprise developers&rdquo; pals which are still feeling very
+      sentimentally about vb6 and how cool it was. 
+   </p>
+   <p>
+      And then the discussion slip to supposed &ldquo;lock in&rdquo;. There, I don&rsquo;t
+      understand. How would the win32 api be more open than the winFX api? How would the
+      first one be less of a lock in than the second one? If you write code correctly against
+      .net, you&rsquo;re actually more open than when writing against win32, as technologies
+      like mono let you run natively on linux, unix, freebsd, solaris, ibm mainframes, macosx&hellip;
+      So where is the lock in exactly? 
+   </p>
+   <p>
+      WinFX is only for longhorn, and that may be the lock-in: The fact that something new
+      is only available in the new platform because it&rsquo;s such a change that backporting
+      it to old platforms would cost the same thing as providing a new version, which present
+      both support and marketing advantages (Are you running Windows FX or WindowsXP? Instead
+      of &ldquo;Are you running WindowsXP or WindowsXP+Avalon+SP3?). That is not lock in,
+      that is a new api. Each version of windows, <b>historically</b> has introduced new
+      APIs, Windows98 SE introduced new APIs compared to Windows98. Did some software rely
+      on that? Yes. Could they just not use it and keep on doing Windows95 compatible applications? <b>Yes
+      yes and yes.</b> You have choice, and these technologies continue to be supported.
+      If you have a bug in one of the win32 apis, and fill a ticket with Microsoft and have
+      a support contract (like any serious developer team should have), then they will go
+      down there and investigate, and provide you with a solution or a fix for that api.
+      It may even get fixed in the next service pack. Is Win32 getting anywhere? No, no
+      no no no&hellip; Not even imaginable. What you may discover though is that, even on
+      Longhorn, the win32 api has been extended. See <a href="http://ian.winprog.org/archives/000024.html#more">this
+      post</a> for a short example. 
+   </p>
+   <p>
+      And there, I just don&rsquo;t get it. Joel switch to an over focusing on web applications.
+      Yes, GMail is sweet. So is Oddpost. I know of a few other web sites which are just
+      cool as well. But nothing, nothing can replace an efficient rich client application.
+      Do you think I would read 500 feeds from a web application? No, I&rsquo;m using <a href="http://www.newsgator.com/">newsgator</a> and
+      outlook. Would I manage the 100 mails I receive a day from a web application? Not
+      in your wildest deams. Would I do development, picture management, video editing and
+      sorting (you know, just normal family divx videos, lots of them), from a web application?
+      No, never ever. The web sucks, it is slow, forces me into waiting in between two pages.
+      The only good thing about the web is the &ldquo;liveness&rdquo; of the data and the
+      rich formatting. Guess what, Microsoft is providing Indigo for the first one and Avalon
+      for the second! The web is nice to read web sites, I guess. I&rsquo;m still not sure
+      the browser paradigm will keep on living on for years though. People are bored of
+      the &ldquo;click, wait, see white screen, load page, click again&rdquo;. 
+   </p>
+   <p>
+      Then, I don&rsquo;t understand anymore. Joel informs us that it&rsquo;s over, the
+      web have won. My experience might be slightly different, but I see lots of windows
+      applications being written. I don&rsquo;t see CRM call centers being web based in
+      the near future. There is space for both technologies, one that <b>REACH</b> users
+      whatever their computer or browser is, and one that is <b>RICH</b> and empowers users
+      to work faster and better. Don&rsquo;t tell me you manage everything from a web site?
+      Why the hell would you have a computer then? Why didn&rsquo;t web tablets succeed
+      back in the late 90s&hellip; Why did Be die? 
+   </p>
+   <p>
+      (ok, I really needed to play drama queen and sound really nervous in there, Joel does
+      say &ldquo;I love my rich client applications and would go nuts if I had to use web
+      versions of the applications I use daily&rdquo;, but I can&rsquo;t really start a
+      big argument if I agree with him , or if he agrees with me, can I?) 
+   </p>
+   <p>
+      Development positions&hellip; Yes, low level people are paid more because there are
+      very few of them. Who knows what happens if you marshal a MBR object across appDomains?
+      Not many people. How the remoting sinks work? Not many either. Do those that knows
+      get paid better? Yeap (except for me obviously lol). That&rsquo;s just a simple matter
+      of a minority of developers interested in <i>how it works</i> rather than <i>what
+      does it let me do</i>. This was true in the COM days. It was even true in the VB6
+      days. 
+   </p>
+   <p>
+      Do most people refuse to move back from their web development position? I don&rsquo;t
+      think they refuse. They are waiting for the right technology that will let them have
+      the same level of freedom than they have on the web. That&rsquo;s why Microsoft says,
+      all in all, that the <b>very rich client</b> is back. It&rsquo;s cool, easy to use,
+      and so rich that I don&rsquo;t have to bother with a web site anymore, unless I want
+      to <b>reach</b>. It will take years to do the conversion, but if the technology is
+      cool enough, it will get users moving, which in turn will get devs moving, etc&hellip;
+      As always, enterprise applications will be the last to move, in 10 to 15 years! 
+   </p>
+   <p>
+      Could HTML have won? It would have with a richer model than the pull one, if standards
+      for manipulating the dom and its events appeared back when the browser war was hot,
+      and if the w3c didn&rsquo;t turn into that huge unable to achieve monster that, these
+      days, only shines when standardizing or clarifying what was done by others (shame
+      to say that, considering how much I supported the w3c all these years). 
+   </p>
+   <p>
+      HTML didn&rsquo;t win. It&rsquo;s one of the less bad technologies available, but
+      everybody working on it feels frustrated. Microsoft is betting on providing enough
+      candies for you not to get frustrated anymore. And in my opinion, it is going to work.
+      Would I bet my career on it now? No. .net is just the right migration path. Future
+      will tell (and hopefully prove Microsoft and me right). 
+   </p>
+   <p>
+      So, Joel&hellip; Where did you invite me for dinner already? 
+   </p>
+</div>
+<img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=69f0dc60-0898-4825-89ef-e1e62861e8f8">

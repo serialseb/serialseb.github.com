@@ -1,0 +1,847 @@
+---
+layout: post
+title: ReaderWriterLock, Dispose pattern can also increase reliability
+---
+
+<div class=Section1>
+   <p class=MsoNormal style="MARGIN-BOTTOM: 12pt">
+      <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">[<strong>Update 29/07/2004:</strong> Just
+      updated the code, the old one was... broken to say the least :)]</span>
+   </p>
+   <p class=MsoNormal style="MARGIN-BOTTOM: 12pt">
+      <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">Following <a title=http://www.interact-sw.co.uk/iangblog/2004/03/23/locking href="http://www.interact-sw.co.uk/iangblog/2004/03/23/locking">Ian&#8217;s
+      snippet about multithreading</a>, and although I <b>love</b> the <i>lock</i> keyword
+      as much as everybody, a Monitor is in my experience nearly always a bad choice. Why
+      would you ask? What kind of weird thing the good old technologist have against the
+      Monitor?<br>
+      <br>
+      Well most of the time what you <b>really</b> want is let several threads read, but
+      only one thread only write. Oh, and you don&#8217;t want to let someone write while
+      you&#8217;re reading, nor do you want anyone reading while you write.<br>
+      <br>
+      Let&#8217;s have a very quick overview of the <i>ReaderWriterLock</i> object. A <i>ReaderWriterLock</i> is
+      a synchronization object that lets several <b>readers</b> acquire a <b>reader lock</b> at
+      the same time. If any reader lock has been acquired, other reader locks will happily
+      be given, but a request for a writer lock won&#8217;t be given until <b>all</b> the
+      reader locks are released.<br>
+      <br>
+      Not so complex you would tell me, and you wouldn&#8217;t be wrong. But to be really
+      honest, the api for this object is cluttered, too complex, and as such, the code using
+      it becomes <img height=1 src="cid:image001.png@01C42933.A2D5AD80" width=1 border=0><b>very<img height=1 src="cid:image001.png@01C42933.A2D5AD80" width=1 border=0></b> unreadable&#8230;
+      And multi threaded unreadable code is an absolute no-go.<br>
+      <br>
+      Let&#8217;s see what the methods are:</span> 
+   </p>
+   <ul style="MARGIN-TOP: 0cm" type=disc>
+      <li class=MsoNormal style="MARGIN-BOTTOM: 12pt">
+         <b><span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">AcquireReaderLock</span></b> <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">to
+         acquire a reader lock and provide a TimeSpan as a timeout value.</span> 
+      <li class=MsoNormal style="MARGIN-BOTTOM: 12pt">
+         <b><span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">AcquireWriterLock</span></b> <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">to
+         acquire a writer lock, and provide a TimeSpan as a timeout value.</span> 
+      <li class=MsoNormal style="MARGIN-BOTTOM: 12pt">
+         <b><span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">ReleaseReaderLock</span></b> <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">to
+         release a reader lock.</span> 
+      <li class=MsoNormal style="MARGIN-BOTTOM: 12pt">
+         <b><span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">ReleaseWriterLock</span></b> <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">to
+         release a writer lock.</span> 
+      </li>
+   </ul>
+   <p class=MsoNormal style="MARGIN-BOTTOM: 12pt">
+      <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">
+      <br>
+      Quite simple isn&#8217;t it? Now let&#8217;s see a few others as well:</span> 
+   </p>
+   <ul style="MARGIN-TOP: 0cm" type=disc>
+      <li class=MsoNormal style="MARGIN-BOTTOM: 12pt">
+         <b><span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">UpgradeToWriterLock</span></b> <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">gets
+         tricky, it lets you switch from your reader lock to a writer lock (and of course only
+         if you&#8217;re the only reader does it return immediately)</span> 
+      <li class=MsoNormal style="MARGIN-BOTTOM: 12pt">
+         <b><span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">DowngradeFromWriterLock</span></b> <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">let&#8217;s
+         you release this upgrade.</span> 
+      <li class=MsoNormal style="MARGIN-BOTTOM: 12pt">
+         <b><span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">ReleaseLock, RestoreLock</span></b> <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">you
+         don&#8217;t really want to know about them, won&#8217;t need them, they are evil because
+         they don&#8217;t timeout. If you want to know more, msdn is your friend.</span> 
+      </li>
+   </ul>
+   <p class=MsoNormal style="MARGIN-BOTTOM: 12pt">
+      <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">
+      <br>
+      So why exactly can&#8217;t I just <b>AcquireWriterLock</b> when I already have <b>AcquireReaderLock</b>?
+      Remember that I said the ReaderWriterLock doesn&#8217;t let you acquire a writer lock
+      unless <b>all</b> reader locks have been released&#8230; Which is why you have a different
+      path! So my typical code would look like that:</span> 
+   </p>
+   <div style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 4pt; BACKGROUND: #ffff99; PADDING-BOTTOM: 1pt; BORDER-LEFT: windowtext 1pt solid; PADDING-TOP: 1pt; BORDER-BOTTOM: windowtext 1pt solid">
+      <p class=MsoNormal style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; BACKGROUND: #ffff99; MARGIN-BOTTOM: 12pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">
+         <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">
+         <br>
+         </span><span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">private</span> ReaderWriterLock
+         myLock;<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">private</span> Hashtable
+         myObjectCache = <span style="COLOR: blue">new</span> Hashtable();<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">public</span> <span style="COLOR: blue">void</span> DoSomethingWithALock()<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         myLock.AcquireReaderLock(TimeSpan.FromSeconds(30));<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">try<br>
+         </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         {<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: green">//
+         let's see if i have this object in cache<br>
+         </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         StrongTypedObject myObject = myObjectCache[<span style="COLOR: fuchsia">"noItHasNothingToDoWithAKey"</span>] <span style="COLOR: blue">as</span> StrongTypedObject;<br>
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">if</span> (myObject
+         == <span style="COLOR: blue">null</span>)<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         {<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: green">//
+         if not i'll load it<br>
+         </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         StrongTypedObject myNewObject = <span style="COLOR: blue">new</span> StrongTypedObject(<span style="COLOR: fuchsia">"orWithChains"</span>);<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: green">//
+         and now I need a write access...<br>
+         </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         LockCookie myCookie = myLock.UpgradeToWriterLock(TimeSpan.FromMinutes(1));<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">try<br>
+         </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         {<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         myObjectCache[<span style="COLOR: fuchsia">"noItHasNothingToDoWithAKey"</span>] =
+         myNewObject;<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         }<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">finally<br>
+         </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         {<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         myLock.DowngradeFromWriterLock(<span style="COLOR: blue">ref</span> myCookie);<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         }<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         }<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         }<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">finally<br>
+         </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         {<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         myLock.ReleaseReaderLock();<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         }<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span> 
+      </p>
+   </div>
+   <p class=MsoNormal style="MARGIN-BOTTOM: 12pt">
+      <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+      <br>
+      <br>
+      </span><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">Ok so as you can see, the
+      code is a bit complex. Now the question is, what happens if I want to factor out the
+      creation of the object in a separate method? That&#8217;s where it becomes a real
+      challenge. If I do that, I can either put in this new method the lock upgrade, or
+      leave it to the caller to set it up. What is the problem with the lock upgrade being
+      integrated with the method?<br>
+      <br>
+      Well this method will be called from different points in your code, or worse, in other
+      people code. You then <b>require</b> the caller to set up the correct lock environment
+      (acquiring a reader lock) before calling your method. Not a good thing<sup>TM</sup>.<br>
+      <br>
+      The best way to go is obviously to detect if when called, the method is already under
+      a reader lock or not. This is the code doing it:</span> 
+   </p>
+   <div style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 4pt; BACKGROUND: #ffff99; PADDING-BOTTOM: 1pt; BORDER-LEFT: windowtext 1pt solid; PADDING-TOP: 1pt; BORDER-BOTTOM: windowtext 1pt solid">
+      <p class=MsoNormal style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; BACKGROUND: #ffff99; MARGIN-BOTTOM: 12pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">public</span> <span style="COLOR: blue">void</span> CreateMyDoSomethingObject()<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">bool</span> isReaderLockHeldOnEntry
+         = myLock.IsReaderLockHeld;<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         LockCookie myCookie = <span style="COLOR: blue">null</span>;<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">if</span> (isReaderLockHeldOnEntry)<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         myCookie = myLock.UpgradeToWriterLock(TimeSpan.FromSeconds(30));<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">else<br>
+         </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         myLock.AcquireWriterLock(TimeSpan.FromSeconds(30));<br>
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">try<br>
+         </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         {<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         StrongTypedObject myNewObject = <span style="COLOR: blue">new</span> StrongTypedObject(<span style="COLOR: fuchsia">"orWithChains"</span>);<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         myObjectCache[<span style="COLOR: fuchsia">"noItHasNothingToDoWithAKey"</span>] =
+         myNewObject;<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         }<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">finally<br>
+         </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         {<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">if</span> (isReaderLockHeldOnEntry)<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         myLock.DowngradeFromWriterLock(<span style="COLOR: blue">ref</span> myCookie);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">else<br>
+         </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         myLock.ReleaseWriterLock();<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         }<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span> 
+      </p>
+   </div>
+   <p class=MsoNormal style="MARGIN-BOTTOM: 12pt">
+      <span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">It&#8217;s already nearly unreadable.
+      Now try to have several locks, and you end up with a very complex thing that is not
+      readable by mortal people anymore.<br>
+      <br>
+      Which is why I implemented the RWLock object following Ian&#8217;s code. With it,
+      you can rewrite the code as:</span> 
+   </p>
+   <div style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 4pt; BACKGROUND: #ffff99; PADDING-BOTTOM: 1pt; BORDER-LEFT: windowtext 1pt solid; PADDING-TOP: 1pt; BORDER-BOTTOM: windowtext 1pt solid">
+      <p class=MsoNormal style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; BACKGROUND: #ffff99; MARGIN-BOTTOM: 12pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">
+         <br>
+         </span><span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">public</span> <span style="COLOR: blue">void</span> CreateMyDoSomethingObject()<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="COLOR: blue">using</span> (RWLock.LockWriter(myLock,
+         TimeSpan.FromMinutes(1)))<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         {<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         StrongTypedObject myNewObject = <span style="COLOR: blue">new</span> StrongTypedObject(<span style="COLOR: fuchsia">"orWithChains"</span>);<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         myObjectCache[<span style="COLOR: fuchsia">"noItHasNothingToDoWithAKey"</span>] =
+         myNewObject;<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         }<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span> 
+      </p>
+   </div>
+   <p class=MsoNormal style="MARGIN-BOTTOM: 12pt">
+      <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+      <br>
+      <br>
+      </span><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">As you can see, it&#8217;s
+      much much less cluttered. The LockWriter method either upgrade to a writer lock or
+      acquire a new writer lock, depending on the state of the lock on the current thread
+      when the method was called. Now you can ensure good synchronization, and neither have
+      to have a lot of code or leave the caller to deal himself with setting the locks right.<br>
+      <br>
+      The full code for the class (also attached as a .zip file)</span> 
+   </p>
+   <div style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 4pt; BACKGROUND: #ffff99; PADDING-BOTTOM: 1pt; BORDER-LEFT: windowtext 1pt solid; PADDING-TOP: 1pt; BORDER-BOTTOM: windowtext 1pt solid"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial"> 
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">using</span><span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" /> System;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">using</span><span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000> System.Threading;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: green; FONT-FAMILY: 'Courier New'">// (C) 2004
+         Sebastien Lambla for blog.thetechnologist.net<o:p></o:p>
+         </span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: green; FONT-FAMILY: 'Courier New'">// Unlimited
+         use license given to Cubiks Ltd for the Cubiks Online platform.<o:p></o:p>
+         </span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">namespace</span><span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000> Cubiks.Threading<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">#if</span><span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000> DEBUG<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 1"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">public</span><font color=#000000> </font><span style="COLOR: blue">class</span><font color=#000000> RWLock
+         : IDisposable<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">#else<o:p></o:p>
+         </span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: gray; FONT-FAMILY: 'Courier New'">public struct
+         RWLock : IDisposable<o:p></o:p>
+         </span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">#endif<o:p></o:p>
+         </span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 2"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">private</span><font color=#000000> </font><span style="COLOR: blue">static</span><font color=#000000> TimeSpan
+         timeout = TimeSpan.FromSeconds(5);<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+         <o:p>
+            <font color=#000000>&nbsp;</font>
+         </o:p>
+         </span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 2"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">public</span><font color=#000000> </font><span style="COLOR: blue">static</span><font color=#000000> RWLock
+         LockReader(ReaderWriterLock lockObject)<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">return</span><font color=#000000> LockReader
+         (lockObject, timeout);<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+         <o:p>
+            <font color=#000000>&nbsp;</font>
+         </o:p>
+         </span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 2"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">public</span><font color=#000000> </font><span style="COLOR: blue">static</span><font color=#000000> RWLock
+         LockReader(ReaderWriterLock o, TimeSpan timeout)<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>RWLock
+         tl = </font><span style="COLOR: blue">new</span><font color=#000000> RWLock(o);<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">try<o:p></o:p>
+         </span></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>o.AcquireReaderLock(timeout);<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">catch</span><font color=#000000> (ApplicationException
+         e)<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">#if</span><span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000> DEBUG<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>System.GC.SuppressFinalize(tl);<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">#endif<o:p></o:p>
+         </span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 4"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">throw</span><font color=#000000>;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">return</span><font color=#000000> tl;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 2"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">public</span><font color=#000000> </font><span style="COLOR: blue">static</span><font color=#000000> RWLock
+         LockWriter(ReaderWriterLock o)<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">return</span><font color=#000000> LockWriter(o,
+         timeout);<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 2"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">public</span><font color=#000000> </font><span style="COLOR: blue">static</span><font color=#000000> RWLock
+         LockWriter(ReaderWriterLock o, TimeSpan timeout)<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>RWLock
+         tl = </font><span style="COLOR: blue">new</span><font color=#000000> RWLock(o);<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+         <o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">try<o:p></o:p>
+         </span></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 4"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">if</span><font color=#000000> (o.IsReaderLockHeld)<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>tl.lockCookie
+         = o.UpgradeToWriterLock(timeout);<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>tl.lockType
+         = LockType.WriterFromReader;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 4"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">else<o:p></o:p>
+         </span></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>o.AcquireWriterLock(timeout);<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>tl.lockType
+         = LockType.Writer;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">catch</span><font color=#000000> (ApplicationException)<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">#if</span><span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000> DEBUG<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>System.GC.SuppressFinalize(tl);<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">#endif<o:p></o:p>
+         </span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 4"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">throw</span><font color=#000000>;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">return</span><font color=#000000> tl;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+         <o:p>
+            <font color=#000000>&nbsp;</font>
+         </o:p>
+         </span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 2"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">private</span><font color=#000000> ReaderWriterLock
+         target;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 2"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">private</span><font color=#000000> LockType
+         lockType;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 2"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">private</span><font color=#000000> LockCookie
+         lockCookie;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 2"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">private</span><font color=#000000> RWLock
+         (ReaderWriterLock o)<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>lockType
+         = LockType.None;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>lockCookie
+         = </font><span style="COLOR: blue">new</span><font color=#000000> LockCookie();<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>target
+         = o;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+         <o:p>
+            <font color=#000000>&nbsp;</font>
+         </o:p>
+         </span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 2"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">public</span><font color=#000000> </font><span style="COLOR: blue">void</span><font color=#000000> Dispose
+         ()<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+         <o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">try<o:p></o:p>
+         </span></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 4"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">switch</span><font color=#000000> (</font><span style="COLOR: blue">this</span><font color=#000000>.lockType)<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 5"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">case</span><font color=#000000> LockType.Reader:<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>target.ReleaseReaderLock();<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 6"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">break</span><font color=#000000>;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 5"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">case</span><font color=#000000> LockType.Writer:<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>target.ReleaseWriterLock();<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 6"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">break</span><font color=#000000>;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 5"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">case</span><font color=#000000> LockType.WriterFromReader:<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>target.DowngradeFromWriterLock(</font><span style="COLOR: blue">ref</span><font color=#000000> lockCookie);<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 6"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">break</span><font color=#000000>;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 5"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">default</span><font color=#000000>:<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>System.Diagnostics.Debug.WriteLine(</font><span style="COLOR: fuchsia">"Problem,
+         no lock acquired!"</span><font color=#000000>);<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></font><span style="COLOR: blue">break</span><font color=#000000>;<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">catch</span><font color=#000000> (ApplicationException
+         exception)<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>System.Diagnostics.Debug.WriteLine(exception.ToString());<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">catch</span><font color=#000000> (Exception
+         e)<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>System.Diagnostics.Debug.WriteLine(e.ToString());<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: green">//
+         It's a bad error if someone forgets to call Dispose,<o:p></o:p>
+         </span></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: green">//
+         so in Debug builds, we put a finalizer in to detect<o:p></o:p>
+         </span></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: green">//
+         the error. If Dispose is called, we suppress the<o:p></o:p>
+         </span></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: green">//
+         finalizer.<o:p></o:p>
+         </span></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">#if</span><span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000> DEBUG<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>GC.SuppressFinalize(</font><span style="COLOR: blue">this</span><font color=#000000>);<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">#endif<o:p></o:p>
+         </span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">
+         <o:p>
+            <font color=#000000>&nbsp;</font>
+         </o:p>
+         </span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">#if</span><span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000> DEBUG<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>~RWLock()<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: green">//
+         If this finalizer runs, someone somewhere failed to<o:p></o:p>
+         </span></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: green">//
+         call Dispose, which means we've failed to leave<o:p></o:p>
+         </span></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 3"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: green">//
+         a monitor!<o:p></o:p>
+         </span></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>System.Diagnostics.Debug.Fail(</font><span style="COLOR: fuchsia">"Undisposed
+         lock"</span><font color=#000000>);<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">#endif<o:p></o:p>
+         </span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><span style="mso-tab-count: 2"><font color=#000000>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></span><span style="COLOR: blue">private</span><font color=#000000> </font><span style="COLOR: blue">enum</span><font color=#000000> LockType<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>None,<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Reader,<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Writer,<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>WriterFromReader<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><span style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p>
+         </font></span>
+      </p>
+      <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt">
+         <span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000>}</font></span>
+      </p>
+      <br>
+      <br>
+      </span>
+   </div>
+   <p class=MsoNormal>
+   </p>
+</div>
+<a href="/content/binary/RWLock1.zip">RWLock1.zip (1.04 KB)</a><img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=a1dd3efd-8715-4653-a16a-10c125046174">

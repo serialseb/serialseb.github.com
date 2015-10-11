@@ -1,0 +1,158 @@
+---
+layout: post
+title: XPathDocument Stream closing
+---
+
+<div class="Section1">
+   <p>
+      Today I encountered a really annoying documentation bug in the xml side of .net. Whenever
+      you create an XPathDocument using the Stream based constructor, whenever the construction
+      returns, your stream is closed. 
+   </p>
+   <div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#FFFF99'>
+      <p class="MsoNormal" style='background:#FFFF99;text-autospace:none;border:none; padding:0cm'>
+         <span style='font-size:10.0pt;font-family:"Courier New"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+         documentStream = <span style='color:blue'>new</span> MemoryStream();</span> 
+      </p>
+      <p class="MsoNormal" style='background:#FFFF99;text-autospace:none;border:none; padding:0cm'>
+         <span style='font-size:10.0pt;font-family:"Courier New"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+         XslFoEngine.CopyStream(message.BodyStream,documentStream);</span> 
+      </p>
+      <p class="MsoNormal" style='background:#FFFF99;text-autospace:none;border:none; padding:0cm'>
+         <span style='font-size:10.0pt;font-family:"Courier New"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+         documentStream.Position = 0;</span> 
+      </p>
+      <p style='background:#FFFF99;border:none;padding:0cm'>
+         <span style='font-size: 10.0pt;font-family:"Courier New"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span> <span lang="FR" style='font-size:10.0pt;font-family:"Courier New"'>XPathDocument
+         document = <span style='color:blue'>new</span> XPathDocument(documentStream);</span><span lang="FR">&#160;</span> 
+      </p>
+   </div>
+   <p>
+      You wouldn&rsquo;t expect the Stream to be closed, but it is. What is happening behind
+      the scene is that the following constructors wrap whatever you throw at them with
+      an XmlTextReader object, call the Init(XmlReader) method, which itself close the reader,
+      in turn closing the stream. 
+   </p>
+   <div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#CCFFCC'>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt'>Initializes a new instance of the <b>XPathDocument</b> class.</span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[Visual&#160;Basic] <a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic1.htm">Public
+         Sub New(Stream)</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[C#]</span><span style='font-size:10.0pt'><a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic1.htm">public
+         XPathDocument(Stream);</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[C++] <a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic1.htm">public:
+         XPathDocument(Stream*);</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[JScript] <a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic1.htm">public
+         function XPathDocument(Stream);</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt'>Initializes a new instance of the <b>XPathDocument</b> class.</span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[Visual&#160;Basic] <a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic2.htm">Public
+         Sub New(String)</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[C#]</span><span style='font-size:10.0pt'><a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic2.htm">public
+         XPathDocument(string);</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[C++] <a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic2.htm">public:
+         XPathDocument(String*);</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[JScript] <a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic2.htm">public
+         function XPathDocument(String);</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt'>Initializes a new instance of the <b>XPathDocument</b> class.</span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[Visual&#160;Basic] <a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic3.htm">Public
+         Sub New(TextReader)</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[C#]</span><span style='font-size:10.0pt'><a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic3.htm">public
+         XPathDocument(TextReader);</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[C++] <a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic3.htm">public:
+         XPathDocument(TextReader*);</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[JScript] <a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic3.htm">public
+         function XPathDocument(TextReader);</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt'>Initializes a new instance of the <b>XPathDocument</b> class.</span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[Visual&#160;Basic] <a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic4.htm">Public
+         Sub New(XmlReader)</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[C#]</span><span style='font-size:10.0pt'><a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic4.htm">public
+         XPathDocument(XmlReader);</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[C++] <a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic4.htm">public:
+         XPathDocument(XmlReader*);</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[JScript] <a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic4.htm">public
+         function XPathDocument(XmlReader);</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt'>Initializes a new instance of the <b>XPathDocument</b> class.</span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[Visual&#160;Basic] <a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic5.htm">Public
+         Sub New(String, XmlSpace)</a></span> 
+      </p>
+      <p class="MsoNormal" style='background:#CCFFCC;border:none;padding:0cm'>
+         <span style='font-size:10.0pt;display:none'>[C#]</span><span style='font-size:10.0pt'><a href="ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1033/cpref/html/frlrfsystemxmlxpathxpathdocumentclassctortopic5.htm">public
+         XPathDocument(string, XmlSpace);</a></span> 
+      </p>
+   </div>
+   <p>
+      Only way to go around the problem, create the reader yourself, but don&rsquo;t close
+      it. 
+   </p>
+   <div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt; background:#FFFF99'>
+      <p class="MsoNormal" style='background:#FFFF99;text-autospace:none;border:none; padding:0cm'>
+         <span style='font-size:10.0pt;font-family:"Courier New"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+         documentStream = <span style='color:blue'>new</span> MemoryStream();</span> 
+      </p>
+      <p class="MsoNormal" style='background:#FFFF99;text-autospace:none;border:none; padding:0cm'>
+         <span style='font-size:10.0pt;font-family:"Courier New"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+         XslFoEngine.CopyStream(message.BodyStream,documentStream);</span> 
+      </p>
+      <p class="MsoNormal" style='background:#FFFF99;text-autospace:none;border:none; padding:0cm'>
+         <span style='font-size:10.0pt;font-family:"Courier New"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+         documentStream.Position = 0;</span> 
+      </p>
+      <p style='background:#FFFF99;border:none;padding:0cm'>
+         <span style='font-size: 10.0pt;font-family:"Courier New"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+         XPathDocument document = <span style='color:blue'>new</span> XPathDocument(<span style='color:blue'>new</span> XmlTextReader(documentStream));</span> 
+      </p>
+   </div>
+   <p>
+      <i>PS: I will respond to IanG comments on my ReaderWriterLock entry with some statistics
+      later this week on when / how to use this pattern (high contention), as I fully agree
+      with him that you shouldn&rsquo;t just <b>assume</b> without testing. In this specific
+      case, the contention is really high on a very high load long living threads environment.
+      More on that later.</i> 
+   </p>
+   <p>
+      &#160; 
+   </p>
+</div>
+<img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=5d505cfc-d514-4e9f-a5e8-e2041840923e">

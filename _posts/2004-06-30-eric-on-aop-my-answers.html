@@ -1,0 +1,65 @@
+---
+layout: post
+title: Eric on AOP, my answers
+---
+
+<div class=Section1>
+   <p>
+      Eric asks <a href="http://blogs.msdn.com/ericgu/archive/2004/06/30/169843.aspx">here </a>what
+      scenarios would AOP encapsulate for us and would be useful for us. Here are a few
+      I can think of: 
+   </p>
+   <p style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt">
+      <span style="FONT-FAMILY: Symbol">&#183;<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span> Automatic
+      Transaction, pooling declaration (see EntrepriseServices) 
+   </p>
+   <p style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt">
+      <span style="FONT-FAMILY: Symbol">&#183;<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span> Automatic
+      Object relocation (see remoting, but think message pipe) 
+   </p>
+   <p style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt">
+      <span style="FONT-FAMILY: Symbol">&#183;<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span> Logging
+      certainly 
+   </p>
+   <p style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt">
+      <span style="FONT-FAMILY: Symbol">&#183;<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span> An
+      alternative to code injection and hooks (that WILL be required at some point or another,
+      windows have it, and there&#8217;s no other way to put a compatibility layer on compiled
+      files) 
+   </p>
+   <p style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt">
+      <span style="FONT-FAMILY: Symbol">&#183;<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span> Viewable:
+      Let&#8217;s add behavior to a method when it can be called from WMI for example. 
+   </p>
+   <p>
+      Are these doable without AOP support? Yes, by using two main patterns: 
+   </p>
+   <p style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt">
+      <span style="FONT-FAMILY: Symbol">&#183;<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span> Context
+      Bound Objects and sinks: Suffers from the loss of garbage collector in IPC and cross
+      appdomains configuration (frankly, a domain where the Microsoft story is just plain
+      bad) 
+   </p>
+   <p style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt">
+      <span style="FONT-FAMILY: Symbol">&#183;<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span> Providing
+      an architecture and using reflection: doable, but then you need to: 
+   </p>
+   <p style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt">
+      <span style="FONT-FAMILY: 'Courier New'">o<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span> Standardize
+      on a constructor pattern, such as abstract factories. Means changing an API, ok for
+      new code like indigo, sucks for old code. 
+   </p>
+   <p style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt">
+      <span style="FONT-FAMILY: 'Courier New'">o<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span> Rewrite
+      code and recompile, which means AOP modules can&#8217;t be swapped at deployment time
+      without recompilation. 
+   </p>
+   <p>
+      The main tenant of AOP is to be able to NOT couple the aspect and the code. If you
+      do couple, then CBO is ok (if someone can get cbrumme to launch a project for a faster
+      tp creation, correct the distributed garbage collection across processes and appdomains
+      on a single machine), and the custom construction patterns is fine. If not, then you
+      can&#8217;t do much&#8230; 
+   </p>
+</div>
+<img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=6aa7bbd8-d07b-42a6-97ee-c795464314d2">

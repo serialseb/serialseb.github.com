@@ -1,0 +1,113 @@
+---
+layout: post
+title: ' Making dasBlog (and ASP.net) XHTML 1.0 Strict Compliant'
+---
+
+<div class="Section1">
+   <p>
+      Over the last week or so, I’ve been modifying the dasBlog source code quite heavily
+      to make it Xhtml 1.0 Strict compliant. I also want to make it content type negotiation
+      enabled, and as such serve application/xhtml+xml mime types instead of just text/html
+      (more on that later). 
+   </p>
+   <p>
+      The goals for this project: 
+   </p>
+   <ul>
+      <li>
+         Render only XML formatted XHTML 1.0 Strict markup;</li>
+      <li>
+         Clean up the markup being used, and beautify it; 
+      </li>
+      <li>
+         Give an option to minimize the size of a page. 
+      </li>
+   </ul>
+   <p>
+      The scope of the problem is large, as both asp.net and dasBlog lack most of the support
+      for it. Over the next couple of weeks, I’ll publish several articles on how I fixed
+      a bunch of issues: 
+   </p>
+   <ul>
+      <li>
+         Links don’t have proper character entity escaping (turning &amp; into &amp;amp; in
+         urls like <a href="http://test.com/?firstparam&amp;secondparam" title="http://test.com/?firstparam&amp;secondparam">http://test.com?firstparam&amp;secondparam</a> ). 
+      </li>
+      <li>
+         WebControls push style blocks in the body of the page. 
+      </li>
+      <li>
+         Different components misuse the Write* family of methods on the <span style="font-family: &quot;Courier New&quot;;">HtmlTextWriter</span> object
+         that is used to render markup in the HTTP pipeline of asp.net. 
+      </li>
+      <li>
+         Blog entries are not stored or processed as proper Xhtml content. There needs to be
+         clean-up of the code, both when an entry is being added <b>and</b> when pulling an
+         entry from the dasblog store. Storing as Xhtml only content and publishing proper
+         namespaced html content will be a next step in the project. 
+      </li>
+      <li>
+         The <span style="font-family: &quot;Courier New&quot;;">__doPostback</span> and other
+         javascript infrastructure code rendered by asp.net are not DOM compliant and use name
+         attributes on several tags. 
+      </li>
+      <li>
+         Several elements, including input and form, have a name attribute instead of / alongside
+         an id attribute. 
+      </li>
+      <li>
+         Input elements are not wrapped in the proper controls 
+      </li>
+      <li>
+         Javascript blocks are not properly CDATA escaped, nor are style blocks. 
+      </li>
+      <li>
+         Javascript blocks contain the language attribute that was deprecated in HTML 4.01
+         and is not supported by the strict DTD. 
+      </li>
+      <li>
+         Several elements use inappropriate attributes (language when using scripts in onclick
+         blocks etc) 
+      </li>
+   </ul>
+   <p>
+      This non-exhaustive list is what <b>must</b> be fixed before we can start thinking
+      of being compliant. There’s also a couple of things I wanted to achieve to clean the
+      markup rendered by dasBlog: 
+   </p>
+   <ul>
+      <li>
+         Aggregate the different javascript pieces into one script block inside the page, for
+         the code that changes on each request. 
+      </li>
+      <li>
+         Output the fixed javascript code used by some controls in .js files embed in the assemblies
+         and serve them separately. 
+      </li>
+      <li>
+         Do these two things for style blocks as well. 
+      </li>
+   </ul>
+   <p>
+      I decided to fix these problems by: 
+   </p>
+   <ul>
+      <li>
+         Adding the proper API to the base asp.net page used in dasBlog to write javascript
+         and style content in the header of the page 
+      </li>
+      <li>
+         Inhering from <span style="font-family: &quot;Courier New&quot;;">HtmlTextWriter</span> and
+         building a new <span style="font-family: &quot;Courier New&quot;;">XhtmlTextWriter</span>. 
+      </li>
+      <li>
+         Overriding all the Write* methods on <span style="font-family: &quot;Courier New&quot;;">HtmlTextWriter</span> and
+         pipe them through the proper <span style="font-family: &quot;Courier New&quot;;">AddAttribute</span> / <span style="font-family: &quot;Courier New&quot;;">BeginElement</span> methods
+         (involving parsing html content and cleaning it / piping it on the fly). 
+      </li>
+   </ul>
+   <p>
+      I’ll write at least two articles on the subject over the next couple of weeks. 
+   </p>
+</div>
+<img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=f2608d83-b55e-4971-acc3-e0b9b31a9806">

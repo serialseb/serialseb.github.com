@@ -1,0 +1,35 @@
+---
+layout: post
+title: A Java bug
+---
+
+<div class="Section1">
+   <p>
+      While debugging a former colleague code, a Java servlet&#160;running under TomCat,
+      we found the following interesting bug (interesting because google is not reporting
+      a lot of results!). 
+   </p>
+   <p>
+      Whenever you create a URL object pointing to a normal file url (<a href="file:///c:/document.xml">file://c:/document.xml</a>)
+      and try to call the openStream method, you get this <b>very informative</b> exception: 
+   </p>
+   <div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt'>
+      <p style='background:#FFFF99'>
+         <i>UnknownHostException: C</i> 
+      </p>
+   </div>
+   <p>
+      It seems that the URL object is picking the ftp transport to try and initialize the
+      connection, and that&rsquo;s where the bug is. Trying <a href="file:///c:/document.xml">file:///c:/document.xml</a> doesn&rsquo;t
+      work either, nor does <a href="file:///c:/document.xml">file:///c|/document.xml</a>.
+      The correct solution is in fact: 
+   </p>
+   <p>
+      file:c:/document.xml which is turned internally to file:/c:/document.xml 
+   </p>
+   <p>
+      If anyone has an explanation on the reason of this weird behavior, I&rsquo;d love
+      to hear it! 
+   </p>
+</div>
+<img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=43982fa3-8f75-494a-8392-360364071c3b">

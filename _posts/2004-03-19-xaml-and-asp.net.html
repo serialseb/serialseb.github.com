@@ -1,0 +1,110 @@
+---
+layout: post
+title: XAML and asp.net
+---
+
+<p>
+   I wanted to blog about it for a while, but i just found one of the things i wrote
+   on the longhorn newsgroups (yes, I will return to newsgroups starting next week).
+   Reproduced here. Parts I edited are in between [].
+</p>
+<p>
+   As you probably can guess, it is far from being THAT simple, and would in fact require
+   a common top technology from which targetted content could be deployed. Asp.net surely
+   enough have the flexibility to provide that, so does Avalon. And I know someone very
+   intelligent on the net likes this idea, so it validates my point.
+</p>
+<p>
+   <b>Sebastien:</b>
+   <br />
+   Also note that because of the custom device renderers included in asp.net, it [should]
+   be possible to serve nearly transparently XAML data from an asp.net page. 
+</p>
+<p>
+   <b>Chris Sells [MSFT] (VIP):</b>
+   <br />
+   That sounds interesting, Sebastien. Care to elaborate? 
+</p>
+<p>
+   <b>Sebastien:</b>
+   <br />
+<p>
+   Well, I didn't investigate the feasibility fully yet, which should only be next week,
+   but: 
+</p>
+<p>
+   ASP.net support the idea of web controls using device renderers to intelligently render
+   content to any format. As it goes, it should be possible to target completely different
+   languages, like SVG or XAML, from the control. I could even go as far as saying there's
+   nothing preventing, AFAIK, pure code being generated, but that would be a pain to
+   code. 
+</p>
+<p>
+   Now, using this adapter, it is possible to target XAML, and provide a rich XAML based
+   rendering technology on top of the ASP.net controls, and effectively switch automatically
+   from HTML to XAML rendering. 
+</p>
+<p>
+   Now there are a few limitations: 1. Internet exlorer doesn't compile on the fly. This
+   should definitly be resolved by using SSE, compile on run time on the client side
+   and analyze security on the fly, for embed code. This pauses the same problem as scripting
+   languages. IMO, the correct way to do it would be either of the following: 
+</p>
+<p>
+   XAML is generated from the ASP.net controls, but has a contract with the code behind
+   that can be pre compiled by the developer and loaded in real time over the wire for
+   execution. SSE plays its role there too. 
+</p>
+<p>
+   Avalon/ASP.net compatible controls, where the control can either work on the server
+   side like asp.net controls, providing for an adapter based system to render to cHTML,
+   xHTML, WML, etc, and that can be downloaded in real time as compiled XAML, executed
+   on the client to provide for more avalon like features (3d, etc). What I'm talking
+   about here is a full merge between web based and windows based controls, for the goal
+   of defining one interface, and have it execute seemlessly as a compiled application,
+   a web application and an http exe. Without the associated problems. 
+</p>
+<p>
+   2. Internet explorer doesn't have, as of now, integrated namespace dependent rendering
+   support. What I'm talking about is what I told Don Box a few months / weeks ago: Instead
+   of parsing XML data to simply initialize the object model, provide for different XAML
+   controls based on the namespace. I'm getting confusing there. let's say (pseudo xml): <pre>
+
+<xaml xmlns="schemas-xaml" xmlns:wordml="schemas-wordml>
+<control>
+<wordML:TextBox />
+</control>
+</xaml>
+</pre>
+In here, the control is a serialization of a xaml control, including a child
+content being a word textbox control. What happens here is that the
+navigator should, depending on the namespace ownership of the element,
+delegate the rendering to a custom control, that should be installed as a
+plug-in. But instead of going through the current mapping, you implicitly
+accept two things:
+<ul>
+<li>The XAML code should be able to be distributed as a plain XAML file, and
+only the code behind being compiled.</li>
+<li>The redirection accepts the namespace definition. As an extra bonus, you
+get a way to cancel the versionning by namespace problem in the current
+infoset.</li>
+</ul>
+</p><p>
+How would that work:<br />
+Publish your plug-in as a ClickOnce component being able to deploy and
+update remotely. Register it as the manager for a namespace. Whenever you
+start rendering, ask for each plug-in what to do, how to render,
+recursively. Unknown tags should be treated as embed data for the parent
+container. This would be a fully new internet navigator, capable of handling
+any kind of documents in a much more powerfull way than plug-ins. Obviously,
+solution described in 1) can be reused. And you keep the whole concept of
+XAML, the object model to xml serialization handling everything.
+</p><p>
+There's a whole lot of work to do on merging all these control technologies
+together, to provide one mutli purpose api, powerfull enough (at least a
+subset) to handle both web and windows applications.
+</p><p>
+Oh, uh, yeah, if you want to know more, please send me my contract as soon
+as possible, there's not much time left to work on that for longhorn. lol
+:-)
+</p></p><img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=420a7c44-c514-49cc-91ad-b66910faafa3">

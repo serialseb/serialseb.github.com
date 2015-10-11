@@ -1,0 +1,51 @@
+---
+layout: post
+title: About plug-in development and office...
+---
+
+<div class="Section1">
+   <p>
+      Andrew <a href="http://blogs.officezealot.com/whitechapel/archive/2005/01/16/3862.aspx">writes</a> about
+      the 40 (!!) different ways of writing a plug-in, and this is just for Office. 
+   </p>
+   <p>
+      A quote that I find interesting and up to debate: 
+   </p>
+   <p style='margin-left:36.0pt'>
+      <span style=';font-family:Arial'>Wouldn’t it be nice to have VSTO support for Outlook?
+      Wouldn’t it be nice to have VSTO support for all Office apps, plus Visual Studio,
+      Visio, and (let’s say) AutoCAD and PhotoShop? Wouldn’t it be nice to have a single,
+      standard mechanism for loading add-ins/customizations/plug-ins into all Office applications,
+      plus any other application that wants to play by the same rules?</span> 
+   </p>
+   <p>
+      Well I think that what VBA was providing, and it was a great achievement. Anyone remember
+      VSA? Visual Studio for Applications? Where did that project go? 
+   </p>
+   <p>
+      I am not against common extensibility points, but the biggest issue with VBA, that
+      I believe led to VSA’s failure, is the tight coupling between the <b><span style='font-weight:bold'>IDE</span></b> and
+      the <b><span style='font-weight: bold'>toolkit</span></b>. Obviously, with VBA it
+      was a winner. One language, one IDE, one integration story. But in the .net world,
+      we have many languages that are not coupled with the IDE, issues like loading / unloading
+      plug-ins dynamically, running them in their own AppDomain, different security models
+      (although that’s pretty much resolved by policy), and as such, the problem of marshalling
+      the object model of an application across an AppDomain, and the inherent disappearance
+      of garbage collection (a fact sadly completely ignored by many). 
+   </p>
+   <p>
+      So… would it be nice? Probably. But I would strongly suggest, for the toolkit side
+      of things, that the framework need to involve (cross-AppDomain garbage collection
+      when run in process anyone?), and the focus should be on a proper template system
+      and a set of common interfaces for the toolkit part. 
+   </p>
+   <p>
+      For a limited case, there’s already an <a href="http://workspaces.gotdotnet.com/eap">Extensibility
+      Application Block</a> from my friend <a href="http://weblogs.asp.net/rosherove/">Roy
+      Osherove</a>. 
+   </p>
+   <p>
+      Any comments? 
+   </p>
+</div>
+<img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=b9893272-45f2-4794-886e-e208bf623c47">
