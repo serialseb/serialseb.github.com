@@ -1,0 +1,31 @@
+---
+layout: post
+title: The IDE of the Future, the Discussion Continues
+modified:
+categories:
+excerpt:
+tags: []
+image:
+  feature:
+date: 2003-11-09T13:48:10+00:00
+---
+
+Richard [answers[](http://www.tallent.us/PermaLink.aspx?guid=153acbd9-1dbf-4e87-8a4f-d08c46e4db79) to my [comment](http://www.tallent.us/CommentView.aspx?guid=3678ccf3-b97e-448a-a37b-165aae89bc16) to his web site about the IDE of the future, and more specifically the XAML way of coding.
+
+Richard has a great overview of mixing different languages in the IDE, letting you write your code using "sections" which could be written in c#, vb, regex, uml or whatever, as integrated snippets. While I do agree developers, as we move forward, need to know a wide range of languages (C#, regular expressions, UML, XSD, XPath and XQuery, SQL, etc), and that encapsulating cross technologies in strings is inherently a bad thing, i strongly believe that code separation is the only way to achieve it reasonably. Just imagine the problems involved in having a graphics designer embed in code.
+
+Building on the principle I talked about in my comment, each language has a specific Role. XAML is used as a descriptive language to initialize object graphs, Regex is used specifically for text processing, etc. The current IDEs don't deliver on this integration.
+
+Yes you should be able to have one file written in c#, the other in vb, and the third being a dtq file providing a GUI on an SQL query. And all these should be able to reference and use each others inside the same project.
+
+Richard says "ASP.NET with a code-behind VB file with a bunch of business logic is every bit as messy and wrong as one of those old VB6 projects we've all probably had to deal with.", but also says "Why not just have a richer IDE document window that can take on all of the code that code into a class and view each piece in the ways that make sense to the programmer?". (Anyone interested in the discussion is strongly advised to go and read the entry I'm talking about, you need to get the whole picture to rely on my quotes).
+
+Now, what is different between the two approaches? My opinion on the matter is that they both end up in clutter. If I start writing my code using T-SQL, XQuery, C# and Perl.net code in the same file, using different views in the same document interface, I end up leaving a legacy the next developer might not be able to deal with. The reality is that, although in my team I'm very proficient in all of these languages, most of my colleagues deal with half of it. As a team, they can manage and rely on each others if I leave the code to them. The reality is that as much as each of these languages are very efficient for one domain, most developers can't handle all of these languages.
+
+The last part of the discussion is the most interesting IMO. Richard talks about a visual designer being an Interface to a language, and the code view being another. I can't agree more. But I can't agree on the systematic comparison with winforms, which are an anomaly of the IDE. The visual designer tries to spit code and tries to rely on it when showing the designer. This is the wrong approach, because you tightly couple the designer with the underlying code being generated, which can change. Layer separation is not the problem here, Domain separation is. The real mistake is trying to add these interfaces on languages that can't cope with it. Forms generated code is akward, unmaintainable, requires the specific designer to work with, and can be broken badly. Typed Datasets are the exact same problem, because you rely on code being generated from one language which, in itself, is sufficient, to a language which is not domain specific to your concern. writing an XSD in C# is absurd and you should not rely on it. dtq files are the right way to go, if only they were actually usable from your code project, which is not the case today.
+
+Forms have a few interesting properties. First, there's a layout and a style. XAML provides for a clean separation of concerns, by providing a view on these aspects of the design. This let a graphical designer modify the layout, style, etc, without risking changing code. He can then work more efficiently with the developer, as he's not tied to code generation. Integrating vectors in a form, 3d animations, can all be done without the developer investing too much of it's time making sure the designer doesn't break anything. This is the principle of domain separation.
+
+If you work a bit on the MVC patterns, especially things like the User Interface Process Application Block, you will see an approach where the form, the XAML document you are talking about, have properties and methods that deal with layout. They also have methods that deal with navigations, and to follow the domain separation mantra, we use a controller to know which intelligence to do with what the form came with. These controllers are the ones being notified of something to be done, and can do it efficiently.
+
+MVC is a pattern that is not widely used in .net, much more in Java. If used intelligently, you can get a lot from it, increasing code maintainability, separation of concerns, and team work. XAML adds a new separation because there's a need: The typical developer can't deal with providing fancy graphics and vectors. That's the sad sad reality, I'm bad at including any grpahics element to an app, that's why I rely on a designer. XAML provides for a separation in the view between the declarative layout, the layout interaction which can be implemented in code behind. Add MVC and you have a great way to work as a team.
