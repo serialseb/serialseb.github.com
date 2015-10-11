@@ -3,7 +3,7 @@ safe: true
 lsi: false
 highlights: true
 locale: en_UK
-url:
+url: #http://serialseb.com
 
 #jekyll config
 permalink: /blog/:categories/:title/
@@ -15,6 +15,7 @@ gems:
   - jekyll-mentions
   - jemoji
   - jekyll-redirect-from
+  - jeyll-feed
 
 rest_kickstarter_url: http://www.kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems
 toplinks:
