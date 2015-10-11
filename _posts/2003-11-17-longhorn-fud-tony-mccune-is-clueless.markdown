@@ -1,0 +1,25 @@
+---
+layout: post
+title: Longhorn FUD: Tony McCune Is Clueless
+modified:
+categories:
+excerpt:
+tags: [Longhorn]
+image:
+  feature:
+date: 2003-11-17T17:32:34+00:00
+---
+[This](http://zdnet.com.com/2100-1107_2-5108026.html?tag=zdfd.newsfeed) article is one of the THE most stupid article I’ve ever read.
+
+Myth #1: Never heard of Open licenses? Microsoft is doing a lot of work to provide for suitable packages. Oh, and saying people only use Word… Maybe you’ve been independent for too long and don’t remember how real people work in an office.
+
+Myth #2: This guy is absolutely insane. He goes on and on saying how Microsoft is locking you on the server side with Longhorn. Hello Mr McCune, if you attended the PDC, or even took some information on it before writing this, you would know Longhorn (and you ARE talking about Longhorn there aren’t you) is a client platform. Talking about “You’ll have the freedom to use your choice of middleware and hardware, including Windows” to my mother might be interesting and a compelling reason to choose Linux. If he was talking about writing software for real people out there, well, I’m afraid you’ll have to do a reality check Mr. McCune, doing client side software in Java is not compelling for anyone at the moment, unless you want to sell it to people who share an ideology with you. Yeah, try to write 3d ui, video, real time compositing UIs using Java (or Win32 for that matter) and come back after your reality check.
+
+Myth #3: See above. “Java has made great strides in usability”, I beg you pardon? Are you talking about the so called Community Process? Now this is interesting. As for Java not being tied to a platform… Do you have any, and I say ANY, non trivial J2EE application that can be moved between two application servers? Reality check again. I wouldn’t publish on ZDNet saying that I can swap my Microsoft .net components on Mono without carefully planning to do so. And I wouldn’t do it for an already written server side application. You know why? Cause I wouldn’t even want to see the light of day again, by fear of being looked at the stupid Java Zealot bragging about a product without even knowing what it’s all about.
+
+Myth #4: Alright, a few things here. First of all, learn how to read. That would be handy. Not three, but two versions. First, Whidbey (and not Whidby) will be released next year with a version 2.0 of the framework, available on all supported .net platforms. Then, a Longhorn Orcas version (Not Oracas) that will feature Longhorn specific tools for the Longhorn specific API. Can you develop using an old version of the language on the new version of the framework? Yes you can run the programs, compile the programs, use the programs, and publish the programs. You can also run each of these versions at the same time. Or just use all of these applications with a single framework version. Best thing is, you say “Developers must continually update their skills which costs customers time and money”. Interesting, how you as a consultant would see Developers having to learn new things as a bad thing? Or are you out of job because you’re still thinking Java will change the world? Yeah, more likely.
+
+Myth #5: Excuse me, IBM wrote an OS running on anything from a hand held to a mainframe? This is really interesting. Oh, you meant Linux? Like you can use GIMP out of the box from an iPaq? Oh, prove it; I’d love to see that.
+And if you did go to the PDC (Please show me the ticket, I’d love to know where you were hidden for your absolute lack of knowledge makes me believe you could have been locked in a toilet with [this guy](https://web.archive.org/web/20031119013643/http://thetechnologist.is-a-geek.com/blog/ct.ashx?id=977c0757-73fd-4b9a-88cb-dfe60f8dc62b&url=http://neopoleon.com/blog/posts/1267.aspx)), you would know for sure that the whole SOA and Web Services stack (Indigo, which I’m sure you’ll love to write Indigeno)  is done by IBM and Microsoft using common protocols that are published standards. But it cannot be otherwise, as 50% of it comes from IBM which “are agnostic and run on virtually every operating system and device”… Wait wait, you mean that each service will be able to talk to a Mainframe, an iPaq and windows? Welcome to the real world.
+
+In the name of the sane Development community, I would advise anyone who survived the reading of that piece of flame to discard it, make a lot of fun about the clueless author, and blame ZDNet for letting that kind of articles from getting through. Even Slashdot wouldn’t have published something that clueless.

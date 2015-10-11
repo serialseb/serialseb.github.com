@@ -1,0 +1,24 @@
+---
+layout: post
+title: SharpReader 0.9.3.1
+modified:
+categories:
+excerpt:
+tags: []
+image:
+  feature:
+date: 2003-11-12T11:07:07+00:00
+---
+
+First, in an earlier blog, I said that I would pay a beer to my first reader using RSS bandit. Where are you?
+
+For my reader using (don’t you love log files?)
+
+```log
+SharpReader/0.9.3.0 (.NET CLR 1.1.4322.573; WinNT 5.1.2600.0)
+```
+
+Upgrade! And Hi! :-)
+
+SharpReader 0.9.3.1 is now available for download at sharpreader.net.
+[Luke Hutteman's public virtual MemoryStream](http://www.hutteman.com/weblog/2003/11/09-140.html)
