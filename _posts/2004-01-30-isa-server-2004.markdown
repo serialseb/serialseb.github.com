@@ -1,0 +1,21 @@
+---
+layout: post
+title: ISA Server 2004
+modified:
+categories:
+excerpt:
+tags: []
+image:
+  feature:
+date: 2004-01-30T15:05:48+00:00
+---
+
+There will be a lot of posts today, I have quite a serious backlog and don’t want to do one of these HUGE posts that only [Chris Brumme](http://blogs.msdn.com/cbrumme/) can successfully write.
+
+Back to the point, the ISA Server 2004 beta, code name stingray, which you can find here, has a brand new UI, and that changes everything. It is more configurable, publishing of servers works much better, etc.
+
+However, if you try to get your ISA Server on a machine with DNS and DHCP (as I do on my internal network, serving my 3 computers, honey’s computer, flat mates computers and even the street computer, there’s a gotcha.
+
+First, head to [this article](https://web.archive.org/web/20040215203222/http://blog.thetechnologist.net/ct.ashx?id=1e6b4321-26d4-490c-b505-05250d3a83c0&url=http%3a%2f%2fwww.isaserver.org%2farticles%2fisa2004beta2.html) on the [ISA Server community site](https://web.archive.org/web/20040215203222/http://blog.thetechnologist.net/ct.ashx?id=1e6b4321-26d4-490c-b505-05250d3a83c0&url=http%3a%2f%2fwww.isaserver.org%2farticles%2fisa2004beta2.html). Thomas describes what needs to be done to get DNS working, and drop a hint on DHCP. You have to allow incoming DHCP (server) protocol using a routing rule on the “All Networks” network set. This is not a feature but a known bug in the beta 2. I hear you saying: But my poor poor Sebastien, you must still be drunk from that night to ask me to allow any DHCP request going through my network? Fear not my friend. First you’re not supposed to put the beta 2 in production. Second, you just have to only allow the DHCP RESPONSE to go through wherever you want to allocate them. Finally, you shouldn’t rely on DHCP addressing to secure your network.
+
+I’m going to see tonight if you can still secure your network to prevent some kind of DHCP request attack by adding a second rule blocking the request on the external Network set.

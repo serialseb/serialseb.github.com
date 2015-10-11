@@ -1,0 +1,1071 @@
+---
+layout: post
+title: Asp.net hosting undocumented
+---
+
+		<div class="Section1">
+   <p>
+      <i>I’ve wanted to write about the full ASP.net stack for a long time, and thanks to
+      Roy, I now find the time and the will to go down the rabbit hole. If you thought the
+      whole aspx page model is already complex, you’re going to discover that this is only
+      the tip of the iceberg of what is really happening. </i> 
+   </p>
+   <h1><span lang="EN-GB" style='font-size:16.0pt;font-family:Arial;mso-ansi-language:
+EN-GB'>The
+      life of an HTTP Request<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </h1>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>We’re going to get down the rabbit
+      hole, and look at what happens whenever your browser sends an HTTP request to your
+      beloved .net server. You thought it was simple, boy were you wrong! Please note that
+      I’m going to talk about two cases: IIS5 (Windows 2000 and windows XP) and IIS6 (Windows
+      Server 2003).<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>Whenever you type a URL, your browser
+      establishes a connection to your web server, and start sending a piece of very simple
+      text, called an HTTP Request. On the listening side, you’ve got a web server (how
+      obvious is that), that is reading this data. The server, in our case IIS, relies on
+      an extensibility model: ISAPI extensions and filters, which are C++ dlls that can
+      be initialized by the server and process the request on their own. As a side note
+      and for general culture, an extension is attached to a file extension while a filter
+      is always in the IIS process and is there for every request. Asp.net have both a filter
+      and an extension, but we’ll only concentrate on the filter for today.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>As some of you probably know, ISAPI
+      filters are used for most of the popular Microsoft IIS centric pieces of software,
+      including plain ol’ ASP, FrontPage extensions, and obviously asp.net.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <h2><i><span lang="EN-GB" style='font-size:14.0pt;font-family:Arial;mso-ansi-language:
+EN-GB'>You
+      called me?<u2:p></u2:p>
+      </span></i>
+      <o:p></o:p>
+   </h2>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>But IIS itself is no longer only
+      one and one only. IIS5 was there way before .net, and rely on the same mechanism as
+      his parents. Junior, IIS6, is a child of the .net era, and a completely new creation.
+      While they look the same, inside they are completely different.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      IIS5 runs in user space. That’s where programs execute and enjoy all the protection
+      and care from their home. That means that IIS5 is more or less the same kind of application
+      as what you and I are used to write. Well. You. If you write in C++. And love unmanaged
+      code.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>The IIS5 process is <b>inetinfo.exe</b>,
+      and listens by itself on the correct port to process the incoming calls. Whenever
+      he receives an http request, he’s going to look at all of its isapi extensions to
+      find the one handling it. If none is found, the request is going to return the file
+      resource requested, or one of the numerous error codes you all love. If a filter is
+      found, he’s going to initialize the filter somewhere, depending on the <i>application
+      protection</i> that you defined in your MMC snap-in.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <ul type="disc">
+      <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'>
+         <b><span lang="EN-GB" style='mso-ansi-language:EN-GB'>Low</span></b><span lang="EN-GB" style='mso-ansi-language:EN-GB'>:
+         the isapi dll is going to be loaded inside the inetinfo.exe. That means that in case
+         of a problem, the whole web server, no request can be processed anymore.<u2:p></u2:p>
+         </span><span lang="EN-GB"></span>
+         <o:p></o:p>
+      </li>
+      <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'>
+         <b><span lang="EN-GB" style='mso-ansi-language:EN-GB'>Medium</span></b><span lang="EN-GB" style='mso-ansi-language:EN-GB'>:
+         in that case, all the dlls are loaded in an external process, the beloved dllhost.exe.
+         That’s where a lot of different things are put by the COM+ infrastructure for out
+         of process execution, and the one which is a headache because you never know which
+         application in it is provoking this 100% CPU usage. On the other hand, when the process
+         crash or when you kill it, your web server still process incoming requests. Obviously,
+         you still loose an undefined number of processes.<u2:p></u2:p>
+         </span><span lang="EN-GB"></span>
+         <o:p></o:p>
+      </li>
+      <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'>
+         <b><span lang="EN-GB" style='mso-ansi-language:EN-GB'>High</span></b><span lang="EN-GB" style='mso-ansi-language:EN-GB'>:
+         In this mode, one dllhost.exe is spawned for each isapi dll. Good thing, in case it
+         dies, everything else is preserved. Bad thing, it is very heavy, as a new process
+         is created (and that’s heavy on windows), plus the COM+ infrastructure handling. You
+         pay the price of boundaries. Nothing is free.<u2:p></u2:p>
+         </span><span lang="EN-GB"></span>
+         <o:p></o:p>
+      </li>
+   </ul>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      Or is it? IIS6, the beloved new born, took over this concept, and gave administrators
+      a fantastic tool. Sometimes, you want several of these isapi filters to be grouped
+      into one out of process dllhost, because if they die, you don’t mind going to only
+      one ceremony. Let me explain that a bit further.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>Instead of staying into the living
+      room, on the couch, listening for the doorbell to ring, drinking a beer, yelling in
+      front of tv… bad… childhood… memories… must… forget… IIS6 relies on two components:
+      http.sys and w3wp.exe.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>The http.sys, as its name strongly
+      suggest, is a kernel mode driver. Its role is to listen on a tcp port, and fetch the
+      data around as needed. That means that instead of executing into the user space, it
+      is going down in the basement. It’s dark, and as is popular to say, “in kernel mode
+      no one can hear you scream”. If there were a problem down there, chances are that
+      your operating system would die instantly. So why in the name of god did mommy Microsoft
+      put the first of the now revealed twins in such a dangerous place?<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      It all comes down to drivers, context switches, and other very low level technologies
+      that I would be incapable of understanding fully. Or willing to, for that matter.
+      But to understand, you only need two assertions:<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <ul type="disc">
+      <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo2;tab-stops:list 36.0pt'>
+         <span lang="EN-GB" style='mso-ansi-language:EN-GB'>Network drivers runs in kernel
+         mode. That’s the first one. Drivers runs into the kernel, as does the tcp stack and
+         disk access. All the pipes runs under the floor, in the basement.<u2:p></u2:p>
+         </span><span lang="EN-GB"></span>
+         <o:p></o:p>
+      </li>
+      <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo2;tab-stops:list 36.0pt'>
+         <span lang="EN-GB" style='mso-ansi-language:EN-GB'>In kernel mode, you have a very
+         nifty function. You can ask for data to be copied straight from disk to the network
+         card, without it going through user mode, memory and cpu. <b>That’s</b> what I call
+         low overhead.<u2:p></u2:p>
+         </span><span lang="EN-GB"></span>
+         <o:p></o:p>
+      </li>
+   </ul>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>I know you look at that, and I
+      can certainly hear the sound of your “aaaaaaaaah aaaaaaaaaah” moment. The http.sys
+      driver can process all the requests very efficiently. But I can also feel you being
+      afraid of the dark. If I execute unknown code down in the kernel, that could be a
+      serious issue right? Absolutely right, and that’s exactly why the http.sys driver
+      doesn’t do it at all.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      Whenever http.sys receives a request, it is first going to look if its own separate
+      cache already has the requested information. When this test is positive, it can send
+      it straight down the pipe very efficiently, and that’s the 175% performance increase
+      figures you saw when Windows Server 2003 was released. If it doesn’t find it, it’s
+      going to look at the request, and fetch it to an <i>application pool</i>.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      Just like for each vdir in IIS5 you can set an isolation mode to host your isapi.dll,
+      in IIS6 each web site can be part of an application pool. An application pool can
+      contain several web sites, and that’s the beauty of it. It is done by spawning a worker
+      process for each application pool. The name of this new host you’ll often encounter
+      is w3wp.exe, which I believe is an acronym of “we 3nded wildly pissed”. To be fair,
+      a certain category of extremist developers try to expand it into “world wide web worker
+      process”, but as you can see, this is highly improbable.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>Each one of these worker processes
+      execute the isapi dll in process, so in a pure IIS6 environment you wouldn’t use dllhost
+      anymore. In case of crash, your web server always continues to execute incoming requests,
+      and only your isapi dlls set on your application pool dies. As http.sys relies on
+      w3wp to process user code, as long as it doesn’t die on itself, the driver has no
+      external risk associated with foreign code execution.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      Whenever an asp.net request comes in, both IIS5 and IIS6 delegate the work to the
+      asp.net ISAPI extension.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <h2><i><span lang="EN-GB" style='font-size:14.0pt;font-family:Arial;mso-ansi-language:
+EN-GB'>Meet
+      ASPNET_ISAPI.dll<u2:p></u2:p>
+      </span></i>
+      <o:p></o:p>
+   </h2>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>For .net, our ISAPI extension is
+      named ASPNET_ISAPI.dll. Whenever an incoming request match the file extension to which
+      the isapi filter is attached, IIS is going to initialize this dll. What is it doing?
+      Here again, IIS5 and IIS6 differ wildly.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      In IIS5, the extension is going to check on the presence of the asp.net worker process.
+      This is going to be the process hosting the CLR, and executing all your .net code.
+      The worker process is aspnet_wp.exe (once again an acronym: “ASP Naysayers End There.
+      We’re Pissed!”. As always there’s a sense of continuity in Microsoft software naming
+      schemes.).<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>To go more into details (and we’re
+      much into details, or you wouldn’t be that far in the article), the isapi is going
+      to check if the worker process is present or not. If not it creates it. In both case,
+      it is going to create an asynchronous named pipe, onto which the request is going
+      to be sent, after a handshake which will ensure proper communication and allow for
+      transmitting authentication information.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>It is interesting to notice that,
+      because there can only be one asp.net worker process, all of your asp.net applications
+      are running in one process. That invalidates completely the <i>application protection</i> feature
+      of IIS5, even more if you choose to run it under different credentials.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>There’s also a special case. The
+      ISAPI dll actually reads the machine.config file whenever IIS5 is started. If you
+      configured, in the processModel element, the enabled attribute to false, the worker
+      process is not going to be used, and is instead going to be hosted internally in the
+      inetinfo.exe process.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>Finally, on the security side,
+      from what I’ve said you could assume that setting the process impersonation in your
+      machine.config file would not work. It does, but instead of executing the worker process
+      under a different credential, IIS sets the token to the correct credential on the
+      thread executing the request, which is then set in the application domain of your
+      web application.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      In IIS6, the extension doesn’t spawn anything, and will only give the control back
+      to w3wp.exe, which host the CLR itself.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      On both sides, we now have a CLR loaded, and an HTTP request. What next?<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <h2><i><span lang="EN-GB" style='font-size:14.0pt;font-family:Arial;mso-ansi-language:
+EN-GB'>
+      <u2:p></u2:p>
+      Let’s have fun in the HTTP Pipeline<u2:p></u2:p>
+      </span></i>
+      <o:p></o:p>
+   </h2>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>The next step is obviously to be
+      able to link the unmanaged code containing the request (the worker process side) with
+      the managed code turning it into an aspx page, an asmx web service, or in anything
+      else that can be generated from ASP.net.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      Whenever a first request comes in for an http application (or virtual directory),
+      the first thing the worker process is doing is to create a new AppDomain. This execution
+      unit that is very similar to a process in the unmanaged world is going to provide
+      the isolation needed by each application to run securely. How is this done? Through
+      COM interop.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      If you look at the <i>System.Web.Hosting</i> namespace, you’re going to see a few
+      public types, and many private types. The first two we’re interested in are <i>IISAPIRuntime</i> and <i>IAppDomainFactory</i>.
+      Both types are exposed as COM interfaces. The actual implementations we are interested
+      in are in fact ISAPIRuntime and AppDomainFactory. Let’s see how.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <h2><i><span lang="EN-GB" style='font-size:14.0pt;font-family:Arial;mso-ansi-language:
+EN-GB'>
+      <u2:p></u2:p>
+      Creating the AppDomain<u2:p></u2:p>
+      </span></i>
+      <o:p></o:p>
+   </h2>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>Let’s assume that no previous AppDomain
+      were created for your web application when the first request goes through. The worker
+      process is going to call the following method on the AppDomainFactory object.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+background:#FFFF99;-moz-background-clip: initial;-moz-background-origin: initial;
+-moz-background-inline-policy: initial;background-attachment:scroll;background-position-x:
+0%;background-position-y:50%'>
+      <span lang="EN-GB" style='font-size:10.0pt;
+font-family:"Courier New";color:blue;mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      public</span><span lang="EN-GB" style='font-size:10.0pt;font-family:"Courier New";mso-ansi-language:
+EN-GB'> <span style='color:blue'>object</span> Create(<span style='color:blue'>string</span> module, <span style='color:blue'>string</span> typeName, <span style='color:blue'>string</span> appId, <span style='color:blue'>string</span> appPath, <span style='color:blue'>string</span> strUrlOfAppOrigin, <span style='color:blue'>int</span> iZone) 
+      <u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      Let’s look at it for a bit. First thing you might see is how all the parameters are
+      actually blittable types. This makes calling from a COM world much easier.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>The second thing you see is that
+      it’s given a <i>module</i> (that is, more or less, an assembly file), a <i>typeName</i>,
+      and a few other parameters that are quite self descriptive. Also note that the return
+      value is an object, as this is going to be very important. Let’s look at what this
+      method is doing.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      After some sanity checks on the <i>appPath</i>, the method is establishing the properties
+      of the new <b>AppDomain</b> to create, and this is done through an <i>AppDomainSetup</i> object.
+      What exactly is configured? This is the list of properties being set for the new AppDomain:<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0" style='border-collapse:collapse;mso-padding-alt:0cm 0cm 0cm 0cm'>
+      <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+         <td width="307" valign="top" style='width:230.3pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+               <u2:p></u2:p>
+               PrivateBinPath<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+         <td width="307" valign="top" style='width:230.3pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>“bin”<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+      </tr>
+      <tr style='mso-yfti-irow:1'>
+         <td width="307" valign="top" style='width:230.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>PrivateBinPathProbe<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+         <td width="307" valign="top" style='width:230.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext -moz-use-text-color'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>*<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+      </tr>
+      <tr style='mso-yfti-irow:2'>
+         <td width="307" valign="top" style='width:230.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>ShadowCopyFiles<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+         <td width="307" valign="top" style='width:230.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext -moz-use-text-color'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>True<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+      </tr>
+      <tr style='mso-yfti-irow:3'>
+         <td width="307" valign="top" style='width:230.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>ApplicationBase<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+         <td width="307" valign="top" style='width:230.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext -moz-use-text-color'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>The appPath formatted (and validated)
+               as a Uri.<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <i><span lang="EN-GB" style='font-size:8.0pt;mso-ansi-language:EN-GB'>Interestingly
+               enough, the cleaning method used, which I used as well in many projects, is to create
+               a new Uri and return the passed argument as Uri.ToString()<u2:p></u2:p>
+               </span></i>
+               <o:p></o:p>
+            </p>
+         </td>
+      </tr>
+      <tr style='mso-yfti-irow:4'>
+         <td width="307" valign="top" style='width:230.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>ApplicationName<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+         <td width="307" valign="top" style='width:230.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext -moz-use-text-color'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>appName<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+      </tr>
+      <tr style='mso-yfti-irow:5'>
+         <td width="307" valign="top" style='width:230.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>ConfigurationFile<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+         <td width="307" valign="top" style='width:230.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext -moz-use-text-color'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>web.config<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+      </tr>
+      <tr style='mso-yfti-irow:6;mso-yfti-lastrow:yes'>
+         <td width="307" valign="top" style='width:230.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>DisallowCodeDownload<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+         <td width="307" valign="top" style='width:230.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext -moz-use-text-color'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>true<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+      </tr>
+   </table>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      The other action taken is to add to an <i>IDictionary</i> object (really a <i>Hashtable</i>)
+      a set of properties that I’m going to deal with later.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      The next step is creating an <i>Evidence</i> in which the code is going to execute.
+      What is it setting? Interestingly enough, it is copying the Host evidences and the
+      Assembly evidences from the current AppDomain. In other words, your inherit the main
+      AppDomain Evidence objects.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>Another nice thing to know is that
+      whenever this Evidence based list is constructed, the framework is going to look at
+      the Host evidences. If any Zone evidence is defined (see <i>System.Security.Policy.Zone</i>),
+      the Zone for “My Computer” is automatically added to the evidences.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>Finally, a new Host evidence is
+      added using the strUrlOfAppOrigin.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      The new <i>AppDomain</i> is finally created, with the <i>Evidence</i> and the <i>AppDomainSetup</i> that
+      were just created. Remember the properties I was talking about earlier? They are applied
+      to the AppDomain using the AppDomain.SetData(string name, object data).<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <i><span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      As a side note, the way the store used by the SetData is manipulated could be a future
+      entry subject…<u2:p></u2:p>
+      </span></i>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      Anyway, here is what is defined at the AppDomain store level:<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0" style='border-collapse:collapse;mso-padding-alt:0cm 0cm 0cm 0cm'>
+      <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+         <td width="307" valign="top" style='width:230.3pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+               <u2:p></u2:p>
+               .appDomain<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+         <td width="307" valign="top" style='width:230.3pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>*<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+      </tr>
+      <tr style='mso-yfti-irow:1'>
+         <td width="307" valign="top" style='width:230.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>.appId<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+         <td width="307" valign="top" style='width:230.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext -moz-use-text-color'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>appId<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+      </tr>
+      <tr style='mso-yfti-irow:2'>
+         <td width="307" valign="top" style='width:230.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>.appPath<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+         <td width="307" valign="top" style='width:230.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext -moz-use-text-color'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>appPath<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+      </tr>
+      <tr style='mso-yfti-irow:3'>
+         <td width="307" valign="top" style='width:230.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>.appVPath<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+         <td width="307" valign="top" style='width:230.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext -moz-use-text-color'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>appVPath<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+      </tr>
+      <tr style='mso-yfti-irow:4'>
+         <td width="307" valign="top" style='width:230.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>.domainId<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+         <td width="307" valign="top" style='width:230.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext -moz-use-text-color'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>domainId<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+      </tr>
+      <tr style='mso-yfti-irow:5;mso-yfti-lastrow:yes'>
+         <td width="307" valign="top" style='width:230.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>.appName<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+         <td width="307" valign="top" style='width:230.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;border-color:-moz-use-text-color windowtext windowtext -moz-use-text-color'>
+            <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+               <span lang="EN-GB" style='mso-ansi-language:EN-GB'>appName<u2:p></u2:p>
+               </span>
+               <o:p></o:p>
+            </p>
+         </td>
+      </tr>
+   </table>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      Are we done yet? No. After setting AppDomain properties, creating a suitable Evidence
+      object, adding runtime information, the last piece is to apply a policy. How is this
+      done? At first I started to dig into the details of the exact procedure, but it seems
+      to me just more valuable to see what the permission sets are:<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <ul type="disc">
+      <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo3;tab-stops:list 36.0pt'>
+         <span lang="EN-GB" style='mso-ansi-language:EN-GB'>A parent <b>UnionCodeGroup</b> containing
+         an <b>AllMembershipCondition</b> and a <b>PolicyStatement</b> with a <b>PermissionSet</b> constructued
+         with <i>PermissionState.None</i>;<u2:p></u2:p>
+         </span><span lang="EN-GB"></span>
+         <o:p></o:p>
+      </li>
+      <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo3;tab-stops:list 36.0pt'>
+         <span lang="EN-GB" style='mso-ansi-language:EN-GB'>A first child <b>UnionCodeGroup</b> containing
+         a <b>StrongNameMembershipCondition</b> based on the Microsoft strong name public key,
+         and a <b>PerimissionSet</b> constructed with <i>PermissionState.Unrestricted</i>
+         <u2:p></u2:p>
+         </span><span lang="EN-GB"></span>
+         <o:p></o:p>
+      </li>
+      <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo3;tab-stops:list 36.0pt'>
+         <span lang="EN-GB" style='mso-ansi-language:EN-GB'>A second child <b>UnionCodeGroup</b> with
+         an <b>UrlMembershipCondition</b> set to the application url, associated with a PermissionState
+         constructed on both the <b>Url</b> and <b>Zone</b>, from the application <i>strUrl</i> and <i>iZone</i> parameter,
+         but without the permissions of type <b>UrlIdentityPermission</b> and <b>ZoneIdentityPermission</b>.<u2:p></u2:p>
+         </span><span lang="EN-GB"></span>
+         <o:p></o:p>
+      </li>
+   </ul>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      This might sound a bit obscure to most of us, so here is my attempt at providing a
+      definition of the permissions defined on our AppDomain.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>By default, the appdomain have
+      no permission at all (<i>PermissionState.None</i>) for all of the code in it (the <b>AllMembershipCondition</b>).<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>We then open up this by providing
+      an unrestricted permission set (<i>PermissionState.Unrestricted</i>) to the Microsoft
+      signed dlls (<b>StrongNameMembershipCondition</b>).<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>Finally, we add the permissions
+      defined for the application, based on its url and it’s zone. 
+      <u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      Finally, we have our Evidence object, that is apply through the call to <i>domain.SetAppDomainPolicy(myPolicy)</i>.
+      The last step, and the most simple one for that matter, is to create an object from
+      an assembly (the <i>module</i> argument) with a type (<i>the typeName</i> argument).<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      What an already tedious process. Thankfully, the runtime will only do it once. My
+      guess, as unreliable as it is, is that the worker process keeps a reference to the
+      different objects and associates them to each application, reusing them whenever needed.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      Before we move forward, a tiny gem. In the case where the <i>strUrlOfAppOrigin</i> argument
+      is null or zero length, the framework automatically assume this url: <b><a href="http://blog.thetechnologist.net/ct.ashx?id=2212a7d2-5a91-4d14-8365-e11698c19dee&amp;url=http%3a%2f%2flocalhost%2fASP_Plus" title="http://localhost/ASP_Plus"> http://localhost/ASP_Plus</a></b>.
+      For those of you who might not remember it, ASP+ was the code name for asp.net before
+      the big naming scheme change around beta 2 of .net.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      We’ve seen how the AppDomain is constructed and how an object is created from it.
+      The biggest question now is… What object? If you followed the article attentively,
+      you already feel the answer coming. Because the worker process is not handling .net
+      code itself and goes through a COM layer, we already know that the object created
+      is going to be <b>ISAPIRuntime</b>, marshalled to COM using the <b>IISAPIRuntime</b> interface.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <h3><span lang="EN-GB" style='font-size:13.0pt;font-family:Arial;mso-ansi-language:
+EN-GB'>
+      <u2:p></u2:p>
+      Her royal </span><span lang="EN-GB" style='mso-ansi-language:
+EN-GB'>majesty Runtime
+      the first<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </h3>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      So here we are, with a fully built <b>ISAPIRuntime</b> object. The declared IISAPIRuntime
+      interface have four methods:<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <ul type="disc">
+      <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo4;tab-stops:list 36.0pt'>
+         <b><span lang="EN-GB" style='mso-ansi-language:EN-GB'>StartProcessing</span></b><span lang="EN-GB" style='mso-ansi-language:EN-GB'> is
+         called one time just after the AppDomain creation. I have no idea why it is there
+         to be honest, my best guess being that the managed asp.net team decided to remove
+         in later phases initialization code that was done at that point.<u2:p></u2:p>
+         </span><span lang="EN-GB"></span>
+         <o:p></o:p>
+      </li>
+      <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo4;tab-stops:list 36.0pt'>
+         <b><span lang="EN-GB" style='mso-ansi-language:EN-GB'>StopProcessing</span></b><span lang="EN-GB" style='mso-ansi-language:EN-GB'> is
+         called whenever the application stops processing incoming requests, provoking automatically
+         the death of the AppDomain.<u2:p></u2:p>
+         </span><span lang="EN-GB"></span>
+         <o:p></o:p>
+      </li>
+      <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo4;tab-stops:list 36.0pt'>
+         <b><span lang="EN-GB" style='mso-ansi-language:EN-GB'>DoGCCollect</span></b><span lang="EN-GB" style='mso-ansi-language:EN-GB'> is
+         a bit of a surprise, and I’m sure the .net architects would certainly have a very
+         good explanation as to why it is there. The actual action is to call exactly 10 times <b>GC.Collect()</b>.
+         My guess here would be a desperate attempt at the worker process to resume some of
+         its memory under high load, but I can’t say for sure. Anyone with more information?<u2:p></u2:p>
+         </span><span lang="EN-GB"></span>
+         <o:p></o:p>
+      </li>
+      <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo4;tab-stops:list 36.0pt'>
+         <b><span lang="EN-GB" style='mso-ansi-language:EN-GB'>ProcessRequest</span></b><span lang="EN-GB" style='mso-ansi-language:EN-GB'> is
+         the one that is interesting here, as it is really the beginning of the managed HTTP
+         pipeline.<u2:p></u2:p>
+         </span><span lang="EN-GB"></span>
+         <o:p></o:p>
+      </li>
+   </ul>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      The ProcessRequest method takes an <b>IntPtr</b> argument, named ecb, and an int argument
+      named iWRType. Because we are receiving this method call from unmanaged code, we have
+      to get a bit messy and go through pointers to get the http request itself.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      First and foremost, the ProcessRequest is going to create an object of type <b>HttpWorkerRequest</b>.
+      Not so simple in fact, as through a class factory pattern, the actual object can be
+      one of several types (your mileage may vary):<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <ul type="disc">
+      <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo5;tab-stops:list 36.0pt'>
+         <span lang="EN-GB" style='mso-ansi-language:EN-GB'>The ISAPIWorkerRequest type is
+         the mother of all worker request objects in the ISAPI runtime. The class factory for
+         the types we’re interested in is implemented in the static method CreateWorkerRequest.
+         One of three types of objects can then be created:<u2:p></u2:p>
+         </span><span lang="EN-GB"></span>
+         <o:p></o:p>
+      </li>
+      <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo5;tab-stops:list 36.0pt'>
+         <span lang="EN-GB" style='mso-ansi-language:EN-GB'>If the process model is used (that’s
+         our iWRType parameter), that is if it’s different than zero, an <b>ISAPIWorkerRequestOutOfProc</b> object
+         is created;<u2:p></u2:p>
+         </span><span lang="EN-GB"></span>
+         <o:p></o:p>
+      </li>
+      <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo5;tab-stops:list 36.0pt'>
+         <span lang="EN-GB" style='mso-ansi-language:EN-GB'>If not and if the IIS Version is
+         more than or equal to six, an <b>ISAPIWorkerRequestInProcForIIS6</b> object is created.<u2:p></u2:p>
+         </span><span lang="EN-GB"></span>
+         <o:p></o:p>
+      </li>
+      <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo5;tab-stops:list 36.0pt'>
+         <span lang="EN-GB" style='mso-ansi-language:EN-GB'>And finally, if not, an <b>ISAPIWorkerRequestInProc</b> object
+         is created.<u2:p></u2:p>
+         </span><span lang="EN-GB"></span>
+         <o:p></o:p>
+      </li>
+   </ul>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      Before returning, the Initialize method is called on whichever object happens to be
+      created, at which point the data starts to be fetched from the worker process. I won’t
+      go into how it is done, but suffice it to say that yes, some data is loaded in memory
+      before anything can happen, and that’s the http header, encrypted in a tab separated
+      way (yes there are funny stuff happening in the worker process).<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      Once the fully constructed <b>ISAPIWorkerRequest</b> is created, we finally end up
+      in the “official” HTTP Pipeline, through the call to HttpRuntime.ProcessRequest.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <h3><span lang="EN-GB" style='font-size:13.0pt;font-family:Arial;mso-ansi-language:
+EN-GB'>
+      <u2:p></u2:p>
+      Her majesty Runtime the second<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </h3>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>Well, yes, the naming convention
+      is a bit awkward, but it does reflect the reality of two chained runtimes. The first
+      one is responsible for the link between the unmanaged and the managed world, the second
+      one is all good managed implementation.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>The wonders with calling a static
+      method like the HttpRuntime.ProcessRequest is that on the first call, a lot of things
+      are going to happen to construct this object. The static constructor for HttpRuntime
+      is going to first call the Initialize method. It is the place where the registry is
+      traversed to find the Path key that you can find yourself in HKLM\Software\Microsoft\ASP.NET\<i>version</i>\Path,
+      and initialize the s_installDirectory private variable.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      An instance of HttpRuntime is then going to be created, and the Init method is going
+      to be called on this instance. Here, everything related to the http runtime is initialized,
+      and that’s where the information set through the call to <i>SetData</i> are important…
+      It’s here that all this information is fetched back in our object. It is also at this
+      moment that we initialize the file monitors on the content of the web site, the cache
+      and the profiler.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      We’re nearly getting to the point where we reach the part of the http pipeline which
+      is very well documented on the web, so there’s no reason to increase even more the
+      size of this article. But there are still a few interesting points.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      What is happening once we call our ProcessRequest method? Intuitively, you would think
+      that your request is actually processed. In fact, it is not. Or should I say, it is
+      not <b>necessarily</b> processed.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      Whenever you call the ProcessRequest method, your HttpWorkerRequest object may go
+      into a queue. Depending on how many available threads the worker process have, it
+      may either be queued and you in fact execute the previously queued request, you may
+      execute it immediately, or you may just not be able to process it.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p></u2:p>
+      Why is that important? If you dig through the documentation for asp.net <b>IHttpHandler</b> class,
+      you’ll notice that another <b>IHttpAsyncHandler</b> class exists. By releasing early
+      the execution thread, you let asp.net queue other incoming requests to your application.
+      More than “for higher performance”, it is about “higher throughput”. By queuing more,
+      you don’t block precious thread resources.<u2:p></u2:p>
+      <o:p></o:p>
+      </span>
+   </p>
+   <h2><i><span lang="EN-GB" style='font-size:14.0pt;font-family:Arial;mso-ansi-language:
+EN-GB'>A
+      final word<u2:p></u2:p>
+      </span></i><span lang="EN-GB" style='mso-ansi-language:
+EN-GB'>
+      <o:p></o:p>
+      </span> 
+   </h2>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>We’ve been through the whole stack
+      from the HTTP request up to the beginning of the official asp.net http pipeline. But
+      if you look at many other articles on the subject of asp.net hosting,you might notice
+      that they in fact talk about two other classes: <b>ApplicationHost</b> and <b>SimpleWorkerRequest</b>.
+      What exactly is the difference with this scheme?<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>
+      <u2:p>&nbsp;</u2:p>
+      </span> 
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>As the name strongly suggest, <b>ApplicationHost</b> is
+      a class that has been created to help application developers host asp.net outside
+      of the IIS environment. It is a separate mechanism that IIS doesn’t use at all. However,
+      by calling the <i>CreateApplicationHost</i> method, you go through the exact same
+      process as the <b>IISAPIRuntime</b> interface, with one strong difference: The code
+      explicitly check for the underlying platform being NT.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>As for <b>SimpleWorkerRequest</b>,
+      it is a very simple “data” class that lets you either execute your asp.net pages within
+      the isolation mechanism of AppDomains, through the first constructor and the <i>CreateApplicationHost</i> method,
+      or from your own AppDomain through the second constructor of that class.<u2:p></u2:p>
+      </span>
+      <o:p></o:p>
+   </p>
+   <h2><i><span lang="EN-GB" style='font-size:14.0pt;font-family:Arial;mso-ansi-language:
+EN-GB'>
+      <u2:p></u2:p>
+      Conculsion<u2:p></u2:p>
+      </span></i>
+      <o:p></o:p>
+   </h2>
+   <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>
+      <span lang="EN-GB" style='mso-ansi-language:EN-GB'>We’ve gone very deeply in the unofficial
+      asp.net relationship with IIS. What do you want to see in the future? How mono works?
+      How things are modified in asp.net 2.0? Or uncover some secrets from the “official”
+      http pipeline?</span>
+      <o:p></o:p>
+   </p>
+   <p class="MsoNormal">
+      <o:p>&nbsp;</o:p>
+   </p>
+</div>
+<img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=2212a7d2-5a91-4d14-8365-e11698c19dee">

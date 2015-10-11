@@ -1,0 +1,71 @@
+---
+layout: post
+title: SOA messages being objects?
+---
+
+<div class="Section1">
+   <p>
+      In the latest event in the discussion about SOA and objects with Steve, he <a href="http://dotnetjunkies.com/WebLog/seichert/archive/2004/03/01/8172.aspx">responds</a> to
+      me the following:&#160;&ldquo;I&rsquo;d argue that you are passing objects, they&rsquo;re
+      just wrapped up in messages.&rdquo; 
+   </p>
+   <p>
+      Steve, yes, my point is to support your previous assessments that what matters is
+      not how are your objects on the inside done or how much logic they may have, but the
+      WSDL and the XSD, and the policy, applied to your service (in a WS based service).
+      But to understand my point, I&rsquo;ll go back to what I said <a href="http://blog.thetechnologist.net/PermaLink,guid,0dc52f8a-da9f-4eb1-ba91-b7b28248fb8d.aspx">here</a>:
+      the ASMX is evil in the sense that it convinces people there&rsquo;s no difference
+      between expressing an object in XML (serialization) and passing XML messages around.
+      This assumption is only valid in simple cases. 
+   </p>
+   <p>
+      Let&rsquo;s make a simple comparison: Is a word document better off being a dump of
+      the object layout in word, or as an xml document? Which one is tightly couple and
+      a maintenance hell? Which one can support versioning and the open content model, <b>and</b> things
+      like inherit by extension? Response: The first was the word file format, a mess to
+      keep backward compatible according to office devs, and difficult to envolve. And it
+      was exactly that, an OLE Stream file&hellip; 
+   </p>
+   <p>
+      Objects limit you to a CLR view. The problem with starting from saying you map objects
+      in XML is that you: 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      1.<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;</span> Restrict
+      your view of how other systems are going to consume your web service, that won&rsquo;t
+      use the same objects as you, or the same language, or the same platform, or even the
+      same paradigm. There ARE going to be a lot of people using batch files to query web
+      services. I&rsquo;m already doing it, and it&rsquo;s far more productive for certain
+      tasks than code. 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      2.<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;</span> Restrict
+      your view on how extensible your data will be. An object can only be modified through
+      inheritance or interfaces in the .net world. In the xsd world, validation is there,
+      inheritance by restriction and inheritance by extension. These intrinsic values of
+      XML are lost when you try to stick with objects.<br />
+      Let me expand a bit. When you map on objects, you either map to an XmlNode for the
+      open content model, or you die upon deserialization. You are sensitive to changes
+      in the data being sent. If you deal with an xml message, you don&rsquo;t really care
+      what is happening in the extension points you provide. You&rsquo;ll always be able
+      to ignore the data not interesting to you, and access what you need. You&rsquo;re
+      more open. 
+   </p>
+   <p style='margin-left:36.0pt;text-indent:-18.0pt'>
+      3.<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;</span> End
+      up providing a bad message format, as you don&rsquo;t design your xsd first. I agree
+      that not everybody agrees on contract design first, but I strongly do, and believe
+      that the architects around the world should unite to speak as one voice for schema
+      design first. Why design first? Because you can then talk about the schema as being
+      the contract of your service, and very early know what your service is doing, why,
+      and how. And you let other people expand it. 
+   </p>
+   <p>
+      I&rsquo;m not saying asmx is the source of all things evil (although I&rsquo;m tempted).
+      I&rsquo;m saying that to think about the object mapping feature of asmx as the way
+      to go works only in simple cases no gateway no proxy no router no header processing
+      no non-.net or no non-oolanguage cases. As soon as you try and move forward&hellip;
+      It becomes so much more complex. 
+   </p>
+</div>
+<img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=abeada93-723f-41b9-a9d0-2da2d66330d5">
