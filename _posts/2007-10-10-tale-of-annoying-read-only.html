@@ -1,0 +1,26 @@
+---
+layout: post
+title: The tale of the annoying read-only ConfigurationElement
+date: '2007-10-10T11:46:00.001+01:00'
+author: Sebastien Lambla
+tags:
+- .net2
+modified_time: '2007-10-10T11:46:08.394+01:00'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-7786947347498688423
+blogger_orig_url: http://serialseb.blogspot.com/2007/10/tale-of-annoying-read-only.html
+---
+
+<p>One of the piece of code I disseminate on each project I work on is a lightweight factory builder. The idea is that you declare which interfaces are implemented by which types, or constructed by which builder. It's perfect for replacing all the types you abstract when unit testing, and put the responsibility of the dependency injection on the configuration file.</p> <p>Here's a small example of how one would declare an interface as having a concrete implementation.</p> <div style="border-right: gray 1px solid; padding-right: 4px; border-top: gray 1px solid; padding-left: 4px; font-size: 8pt; padding-bottom: 4px; margin: 20px 0px 10px; overflow: auto; border-left: gray 1px solid; width: 97.5%; cursor: text; line-height: 12pt; padding-top: 4px; border-bottom: gray 1px solid; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; max-height: 200px"><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #0000ff">&lt;</span><span style="color: #800000">factories</span><span style="color: #0000ff">&gt;</span>
+  <span style="color: #0000ff">&lt;</span><span style="color: #800000">factory</span> <span style="color: #ff0000">interface-type</span><span style="color: #0000ff">="CaffeineIT.Blog.IConfigProvider, CaffeineIT.Blog.Demo"</span>
+           <span style="color: #ff0000">concrete-type</span><span style="color: #0000ff">="CaffeineIT.Blog.SettingsConfigProvider, CaffeineIT.Blog.Demo"</span> <span style="color: #0000ff">/&gt;</span>
+<span style="color: #0000ff">&lt;/</span><span style="color: #800000">factories</span><span style="color: #0000ff">&gt;</span></pre></div>
+<p>Very straightforward. From your code you initialize the type like so.</p>
+<div style="border-right: gray 1px solid; padding-right: 4px; border-top: gray 1px solid; padding-left: 4px; font-size: 8pt; padding-bottom: 4px; margin: 20px 0px 10px; overflow: auto; border-left: gray 1px solid; width: 97.5%; cursor: text; line-height: 12pt; padding-top: 4px; border-bottom: gray 1px solid; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; max-height: 200px"><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #0000ff">var</span> myConfig = FactoryActivator<span style="color: #cc6633">.CreateInstance</span><span style="color: #006080">&lt;</span>IConfigProvider<span style="color: #006080">&gt;</span>();</pre></div>
+<p>The problem when unit testing my configuration sections is that they're read-only by default. That means I need to do some black magic swapping config files around when running my tests.</p>
+<p>Well, it's not very well documented, but with the help of reflector, you discover the secret so many have kept to themselves. To make your ConfigurationElement read-write, override the SetReadOnly method and do nothing.</p>
+<div style="border-right: gray 1px solid; padding-right: 4px; border-top: gray 1px solid; padding-left: 4px; font-size: 8pt; padding-bottom: 4px; margin: 20px 0px 10px; overflow: auto; border-left: gray 1px solid; width: 97.5%; cursor: text; line-height: 12pt; padding-top: 4px; border-bottom: gray 1px solid; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; max-height: 200px"><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #0000ff">protected</span> <span style="color: #0000ff">override</span> <span style="color: #0000ff">void</span> SetReadOnly()
+{
+    <span style="color: #008000">//do nothing!</span>
+}</pre></div>
+<p>I don't know about you but I feel like I'm cheating.</p>
+<div class="wlWriterSmartContent" id="0767317B-992E-4b12-91E0-4F059A8CECA8:373ddc7f-938a-406b-870e-09cbe50191e3" contenteditable="false" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a href="http://technorati.com/tags/.net" rel="tag">.net</a>, <a href="http://technorati.com/tags/.config" rel="tag">.config</a></div>

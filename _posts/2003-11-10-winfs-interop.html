@@ -1,0 +1,39 @@
+---
+layout: post
+title: WinFS Interop
+---
+
+<p>
+   Ken ask a <a href="http://dotnetjunkies.com/weblog/kenbrubaker/posts/3398.aspx">question</a>&nbsp;on
+   winFS interop. From what we got from the newsgroups (you should really come and see
+   them), WinFS has two ways of copying file and metadata.
+</p>
+<p>
+   The first way is to preserve the content by serailizing everything, the object, the
+   relations, in a big binary blob that will be deserialized when copied over winFS again
+   (used for contacts for example).
+</p>
+<p>
+   The second way is the Type handler fetching the metadata back into the file (less
+   than optimal solution, but can be supported in most file formats by using extensibility
+   headers in jpeg, tags in MP3, etc...).
+</p>
+<p>
+   To be absolutely accurate, a quote from Ward Beattie from MSFT:
+</p>
+<blockquote dir=ltr style="MARGIN-RIGHT: 0px"> 
+<p>
+   <font color=#a52a2a>There are really two kinds of copy operations out of WinFS. Toby
+   is<br>
+   referring to the lossless export supported by the WinFS API. If the item is<br>
+   backed by a Win32 file (e.g. a jpeg file), then you can also copy the file<br>
+   stream only using the Win32 API. In this case, the file stream will contain<br>
+   the modified metadata PROVIDED that the system has a demoter which can push<br>
+   the metadata properties into the file (not all file formats can support<br>
+   this). Sanjay's presentation for session CLI326 includes an overview of this<br>
+   mechanism.</font>
+</p>
+</blockquote> 
+<p dir=ltr>
+   &nbsp;
+</p>

@@ -1,0 +1,12 @@
+---
+layout: post
+title: Updating Hyper-V to RTM
+date: '2008-08-04T03:04:00.001+01:00'
+author: Sebastien Lambla
+tags: 
+modified_time: '2008-08-04T04:27:45.287+01:00'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-4562958196686509231
+blogger_orig_url: http://serialseb.blogspot.com/2008/08/updating-hyper-v-to-rtm.html
+---
+
+<p>As is usually the case when you’re under pressure to push a new release of an app for a client, something goes horribly wrong.</p>  <p>What went wrong tonight is simple: my Server Core install was never updated to hyper-v RTM, but windows update did its job fine on one of the client VMs that also runs Server 2008. Suddenly, the whole server is down.</p>  <p>Second install on the core install and still failing. I wonder how I’m going to apologize profusely to my client tomorrow. Oh the joy.</p>  <p>[Update 03:22: License wasnt activated properly, trying yet another install…]</p>  <p>[Update 04:05: Need my bed. Trying an uninstall of the role, followed by an update with the .msu. If that works I’ll reinstall the Hyper-V role tomorrow]</p>  <p>[Update 04:13: Apparently uninstalling the role rebooted the machine which then updated itself on its won with the RTM version. Don’t know if I should cry or laugh. Reinstalling the role now (seeing as there’s one less boot as previously expected, I have a boot to spare)]</p>  <p>[Update 04:27: All back in order, machines are up. Lost 6 hours of my life, less than impressed.]</p>  

@@ -1,0 +1,2394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" xmlns:pingback="http://madskills.com/public/xml/rss/module/pingback/" version="2.0">
+  <channel>
+    <title>The Technologist blog</title>
+    <link>http://thetechnologist.is-a-geek.com/blog/</link>
+    <description>Longhorn, .net and XML, the wild side.</description>
+    <copyright>Sebastien Lambla</copyright>
+    <lastBuildDate>Thu, 20 Nov 2003 14:16:48 GMT</lastBuildDate>
+    <generator>newtelligence dasBlog 1.4.3297.0</generator>
+    <managingEditor>sebastien.lambla@6sens.com</managingEditor>
+    <webMaster>sebastien.lambla@6sens.com</webMaster>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=980ee0cf-56ed-4373-a606-d4e93cff10ac</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=980ee0cf-56ed-4373-a606-d4e93cff10ac</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=980ee0cf-56ed-4373-a606-d4e93cff10ac</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=980ee0cf-56ed-4373-a606-d4e93cff10ac</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <div class="Section1">
+          <p>
+         I just wanted to blog it before Ingo does… 
+      </p>
+          <p>
+         He’s been <a href="http://www.ingorammer.com/weblog/archives/001350.html">waiting</a> for
+         his Dell for a few days, got it, and started installing everything. And now he’s
+         crazy over Hyper-threading. And you know how I know it? Just because his messenger
+         name changed. This might become a new form of communication. 
+      </p>
+          <p>
+            <i>This was an absolutely useless post. For anyone not willing to read that kind of
+         posts, I keep them in the Blogging category, so you can ignore them more easily.</i>
+          </p>
+        </div>
+      </body>
+      <title>Ingo loves his Hyper Threaded Dell 5150</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=980ee0cf-56ed-4373-a606-d4e93cff10ac</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=980ee0cf-56ed-4373-a606-d4e93cff10ac</link>
+      <pubDate>Thu, 20 Nov 2003 14:16:48 GMT</pubDate>
+      <description>&lt;div class="Section1"&gt;
+   &lt;p&gt;
+      I just wanted to blog it before Ingo does&amp;#8230; 
+   &lt;/p&gt;
+   &lt;p&gt;
+      He&amp;#8217;s been &lt;a href="http://www.ingorammer.com/weblog/archives/001350.html"&gt;waiting&lt;/a&gt; for
+      his Dell for a few days, got it, and started installing everything. And now he&amp;#8217;s
+      crazy over Hyper-threading. And you know how I know it? Just because his messenger
+      name changed. This might become a new form of communication. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;i&gt;This was an absolutely useless post. For anyone not willing to read that kind of
+      posts, I keep them in the Blogging category, so you can ignore them more easily.&lt;/i&gt; 
+   &lt;/p&gt;
+&lt;/div&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=980ee0cf-56ed-4373-a606-d4e93cff10ac</comments>
+      <category>Blogging</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=3369d9dd-2e1b-4db8-a087-0ac08ee26064</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=3369d9dd-2e1b-4db8-a087-0ac08ee26064</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=3369d9dd-2e1b-4db8-a087-0ac08ee26064</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=3369d9dd-2e1b-4db8-a087-0ac08ee26064</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <div class="Section1">
+          <p>
+         As some of my beloved readers thinks I can’t give credit to someone slapping
+         Longhorn, here is an article from eweek: 
+      </p>
+          <p>
+            <a href="http://www.eweek.com/article2/0,4149,1388616,00.asp">http://www.eweek.com/article2/0,4149,1388616,00.asp</a>
+          </p>
+          <p>
+         This guy at least knows what Longhorn is and intend on being. A few comments though:
+         (that’s why I have a blog you know, giving my opinion without anyone asking
+         for it :-) ) 
+      </p>
+          <div style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 4pt; BACKGROUND: #ffff99; PADDING-BOTTOM: 1pt; BORDER-LEFT: windowtext 1pt solid; PADDING-TOP: 1pt; BORDER-BOTTOM: windowtext 1pt solid">
+            <p style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; BACKGROUND: #ffff99; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">
+              <span style="COLOR: #333333">Developers don't hunt for brilliant technology -- their
+            instincts tell them to go to where the volume is, because that's where they can monetize
+            part of that $80 billion.</span>
+            </p>
+          </div>
+          <p>
+            <span style="COLOR: #333333">I can’t disagree more strongly to that. Developers
+         are just like flies. They go where the nice colored light bulb is, because they like
+         it k00l, </span>because they are g33ks. (I think Slashdot writes it like that). 
+      </p>
+          <p>
+         Longhorn provides more than just APIs. It’s more than a platform. It’s
+         an entry in the world where being cool is as important as being technically challenging.
+         Why? Because even people typing all day on their computer like nifty funny user interfaces.
+         It’s not only about technical excellence, it is about bringing back some cool
+         experience on the windows platform. 
+      </p>
+          <p>
+         If you think about it, Microsoft is pretty clever. They know they would have a hard
+         time convincing terminal mode guys and linux aficionados from going full way into
+         an OS. They know Java and Linux can provide data entry user interfaces. To keep their
+         advantage on the desktop, they have to go somewhere else, somewhere where people enjoy
+         the cool factor. This is your mother, you, your children, maybe even your dog. Anyone
+         who just likes it cool. Apple survived because of that coolness factor and are building
+         their whole product line on it. Microsoft started doing it with windows xp, as a form
+         of “will it work?”. Now that they know it does, they are going there full
+         time. 
+      </p>
+          <p>
+         Another quote: 
+      </p>
+          <div style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 4pt; BACKGROUND: #ffff99; PADDING-BOTTOM: 1pt; BORDER-LEFT: windowtext 1pt solid; PADDING-TOP: 1pt; BORDER-BOTTOM: windowtext 1pt solid">
+            <p style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; BACKGROUND: #ffff99; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">
+              <span style="COLOR: #333333">Curtis Sasaki [vice president of engineering, desktop
+            solutions] is going to drive those priorities based on what customers tell us, not
+            because I come in and say I have a vision of what is interesting that could be delivered.
+            We don't run the company that way. I run the company based on what it's going to take
+            to close [the sale with] the Indian Ministry of IT.</span>
+            </p>
+          </div>
+          <p>
+         Now this is also where Microsoft and Sun differ a lot. Schzartz listen to consumers,
+         and try to bring them exactly what they asked for, not more. Microsoft listen to their
+         customer, but rather than trying to deliver features A and B, big teams are organized,
+         design is done for the next 2 or 3 years, and A, B, C and D become part of a big plan,
+         a big building block. This is what Indigo is, this is what Avalon is. This is looking
+         into the future, not into what people want today. 
+      </p>
+          <p>
+         Schwartz is absolutely right by saying that being an end node on the network is not
+         enough. But now again, peer 2 peer technologies are there exactly to transform end
+         nodes into central communicating nodes. And this is going to be integrated in windows.
+         Just like JXTA is integrated in Java. (Stay tuned for my rants on the JXTA technology). 
+      </p>
+          <p>
+         Yes, the PC is only <b>one</b> of the devices we’re using. But it’s the
+         most powerful, the most connected, the one we’re the most used to. If you get
+         it even more compelling by providing rich interactive fun clients to deal with data,
+         and let it integrate with any device anywhere at any time (WinFS Sync), then you’ve
+         got the killer app. People won’t abandon their PC to switch to Java phones.
+         Ever. 
+      </p>
+        </div>
+      </body>
+      <title>At least one good article against Longhorn</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=3369d9dd-2e1b-4db8-a087-0ac08ee26064</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=3369d9dd-2e1b-4db8-a087-0ac08ee26064</link>
+      <pubDate>Thu, 20 Nov 2003 14:00:28 GMT</pubDate>
+      <description>&lt;div class=Section1&gt;
+   &lt;p&gt;
+      As some of my beloved readers thinks I can&amp;#8217;t give credit to someone slapping
+      Longhorn, here is an article from eweek: 
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;a href="http://www.eweek.com/article2/0,4149,1388616,00.asp"&gt;http://www.eweek.com/article2/0,4149,1388616,00.asp&lt;/a&gt; 
+   &lt;/p&gt;
+   &lt;p&gt;
+      This guy at least knows what Longhorn is and intend on being. A few comments though:
+      (that&amp;#8217;s why I have a blog you know, giving my opinion without anyone asking
+      for it :-) ) 
+   &lt;/p&gt;
+   &lt;div style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 4pt; BACKGROUND: #ffff99; PADDING-BOTTOM: 1pt; BORDER-LEFT: windowtext 1pt solid; PADDING-TOP: 1pt; BORDER-BOTTOM: windowtext 1pt solid"&gt;
+      &lt;p style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; BACKGROUND: #ffff99; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none"&gt;
+         &lt;span style="COLOR: #333333"&gt;Developers don't hunt for brilliant technology -- their
+         instincts tell them to go to where the volume is, because that's where they can monetize
+         part of that $80 billion.&lt;/span&gt; 
+      &lt;/p&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+      &lt;span style="COLOR: #333333"&gt;I can&amp;#8217;t disagree more strongly to that. Developers
+      are just like flies. They go where the nice colored light bulb is, because they like
+      it k00l, &lt;/span&gt;because they are g33ks. (I think Slashdot writes it like that). 
+   &lt;/p&gt;
+   &lt;p&gt;
+      Longhorn provides more than just APIs. It&amp;#8217;s more than a platform. It&amp;#8217;s
+      an entry in the world where being cool is as important as being technically challenging.
+      Why? Because even people typing all day on their computer like nifty funny user interfaces.
+      It&amp;#8217;s not only about technical excellence, it is about bringing back some cool
+      experience on the windows platform. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      If you think about it, Microsoft is pretty clever. They know they would have a hard
+      time convincing terminal mode guys and linux aficionados from going full way into
+      an OS. They know Java and Linux can provide data entry user interfaces. To keep their
+      advantage on the desktop, they have to go somewhere else, somewhere where people enjoy
+      the cool factor. This is your mother, you, your children, maybe even your dog. Anyone
+      who just likes it cool. Apple survived because of that coolness factor and are building
+      their whole product line on it. Microsoft started doing it with windows xp, as a form
+      of &amp;#8220;will it work?&amp;#8221;. Now that they know it does, they are going there full
+      time. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      Another quote: 
+   &lt;/p&gt;
+   &lt;div style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 4pt; BACKGROUND: #ffff99; PADDING-BOTTOM: 1pt; BORDER-LEFT: windowtext 1pt solid; PADDING-TOP: 1pt; BORDER-BOTTOM: windowtext 1pt solid"&gt;
+      &lt;p style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; BACKGROUND: #ffff99; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none"&gt;
+         &lt;span style="COLOR: #333333"&gt;Curtis Sasaki [vice president of engineering, desktop
+         solutions] is going to drive those priorities based on what customers tell us, not
+         because I come in and say I have a vision of what is interesting that could be delivered.
+         We don't run the company that way. I run the company based on what it's going to take
+         to close [the sale with] the Indian Ministry of IT.&lt;/span&gt; 
+      &lt;/p&gt;
+   &lt;/div&gt;
+   &lt;p&gt;
+      Now this is also where Microsoft and Sun differ a lot. Schzartz listen to consumers,
+      and try to bring them exactly what they asked for, not more. Microsoft listen to their
+      customer, but rather than trying to deliver features A and B, big teams are organized,
+      design is done for the next 2 or 3 years, and A, B, C and D become part of a big plan,
+      a big building block. This is what Indigo is, this is what Avalon is. This is looking
+      into the future, not into what people want today. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      Schwartz is absolutely right by saying that being an end node on the network is not
+      enough. But now again, peer 2 peer technologies are there exactly to transform end
+      nodes into central communicating nodes. And this is going to be integrated in windows.
+      Just like JXTA is integrated in Java. (Stay tuned for my rants on the JXTA technology). 
+   &lt;/p&gt;
+   &lt;p&gt;
+      Yes, the PC is only &lt;b&gt;one&lt;/b&gt; of the devices we&amp;#8217;re using. But it&amp;#8217;s the
+      most powerful, the most connected, the one we&amp;#8217;re the most used to. If you get
+      it even more compelling by providing rich interactive fun clients to deal with data,
+      and let it integrate with any device anywhere at any time (WinFS Sync), then you&amp;#8217;ve
+      got the killer app. People won&amp;#8217;t abandon their PC to switch to Java phones.
+      Ever. 
+   &lt;/p&gt;
+&lt;/div&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=3369d9dd-2e1b-4db8-a087-0ac08ee26064</comments>
+      <category>Longhorn</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=64690e18-e0ca-42b7-887b-f82476be7cea</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=64690e18-e0ca-42b7-887b-f82476be7cea</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=64690e18-e0ca-42b7-887b-f82476be7cea</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=64690e18-e0ca-42b7-887b-f82476be7cea</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+      It seems my little entry generated quite a lot of feedback. Mostly I've been accused
+      of just trusting Bill Gates word on groundless discussion. So here is a second post,
+      facts, just facts mam.
+   </p>
+        <p>
+          <strong>Myth #1</strong>: 
+   </p>
+        <p>
+      Fact: People in an office use more than word, whoever they are. Where can you see
+      it? In any office, including mine. You want some pictures?
+   </p>
+        <p>
+      Fact: Microsoft is remodeling their licenses to try to give more choice. But they
+      are not always successful, can do some mistakes. Where:
+   </p>
+        <p>
+          <a href="http://www.computerworld.com/managementtopics/management/itspending/story/0,10801,72214,00.html">http://www.computerworld.com/managementtopics/management/itspending/story/0,10801,72214,00.html</a>
+        </p>
+        <p>
+          <strong>Myth #2</strong>:
+   </p>
+        <p>
+      Fact: Longhorn is a client side platform, not an API. WinFX is an API for the client
+      side. Indigo is for both the client and the server side. You can use Longhorn to access
+      an LDAP directory and a Web Service GXA stack sitting on a server running another
+      platform.
+   </p>
+        <p>
+      Fact: Longhorn is windows, so you develop software for windows. And people like it.
+      No one really cares about having the 3d accelerated Desktop Composition Engine running
+      on Linux.
+   </p>
+        <p>
+      Fact: Java can't do that.
+   </p>
+        <p>
+      Fact: Middleware doesn't have anything to do with Longhorn.
+   </p>
+        <p>
+      Fact: Middleware can be inter-operable through GXA and Web Services, in an inter-operable
+      way.
+   </p>
+        <p>
+          <strong>Myth #3</strong>:
+   </p>
+        <p>
+      Fact: The Java Community Process is plainly slow at defining new standards to improve
+      the language.
+   </p>
+        <p>
+          <a href="http://www.eweek.com/print_article/0,3048,a=108119,00.asp">http://www.eweek.com/print_article/0,3048,a=108119,00.asp</a>
+        </p>
+        <p>
+      Fact: Microsoft and Java are both innovating, but they are on different release cycles.
+      Oh, that, and Longhorn is not .net and Longhorn can still run Java. Doesn't have anything
+      to do with the underlying Longhorn API (WinFX).
+   </p>
+        <p>
+          <strong>Myth #4</strong>:
+   </p>
+        <p>
+      Fact: Visual studio versions road map.
+   </p>
+        <p>
+          <a href="http://msdn.microsoft.com/vstudio/productinfo/roadmap.aspx">http://msdn.microsoft.com/vstudio/productinfo/roadmap.aspx</a>
+        </p>
+        <p>
+      Fact: Side by side execution works.
+   </p>
+        <p>
+          <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnnetdep/html/sidexsidenet.asp">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnnetdep/html/sidexsidenet.asp</a>
+        </p>
+        <p>
+      Fact: the framework provide compatibility.
+   </p>
+        <p>
+          <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpovrversioncompatibility.asp">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpovrversioncompatibility.asp</a>
+          <br />
+      "The .NET Framework supports both backward and forward compatibility"
+   </p>
+        <p>
+      Fact: Developers must learn new things all the time, this is only a question of staying
+      competitive. This has nothing to do with how much you charge your clients. And it's
+      true for windows, for java, for Linux, for any single piece of software on this planet.
+   </p>
+        <p>
+          <strong>Myth #5</strong>:
+   </p>
+        <p>
+      Fact: Linux cannot run out of the box on any platform. The kernel can be modified
+      to support it.
+   </p>
+        <p>
+          <a href="http://www.handhelds.org/geeklog/index.php">http://www.handhelds.org/geeklog/index.php</a>
+        </p>
+        <p>
+      Fact: Windows doesn't run everywhere. The kernel can be modified to be re-targeted.
+      XBox, Windows on IA-32, IA-64, AMD64, and in the past PowerPC and MIPS. Looking forward,
+      XBox2 on the G5 processor.
+   </p>
+        <p>
+      Fact: The WS-* specifications on top of which Indigo is built are done by Microsoft,
+      IBM, BEA, TIBCO, etc... For example, WS-ReliableMessaging states the following:
+   </p>
+        <p>
+          <font face="Courier New">WS-ReliableMessaging was published as a public specification
+      on 13 March<br />
+      2003. This is the first joint BEA/IBM/Microsoft/TIBCO Software publication<br />
+      of the specification.'</font>
+          <br />
+        </p>
+        <p>
+      Fact: All of these specifications are provided to the community royalty free.
+   </p>
+        <p>
+      Fact: Some are standardized by other groups. WS-Security by Oasis, for example.
+   </p>
+        <p>
+       
+   </p>
+        <p>
+      I think I brought enough facts on the table. Now if you really want to debunk the
+      facts, please do it. (I'm starting to getting impatient at finally seeing a correct
+      argument).
+   </p>
+      </body>
+      <title>More on Longhorn FUD</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=64690e18-e0ca-42b7-887b-f82476be7cea</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=64690e18-e0ca-42b7-887b-f82476be7cea</link>
+      <pubDate>Wed, 19 Nov 2003 16:10:58 GMT</pubDate>
+      <description>&lt;p&gt;
+   It seems my little entry generated quite a lot of feedback. Mostly I've been accused
+   of just trusting Bill Gates word on groundless discussion. So here is a second post,
+   facts, just facts mam.
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;strong&gt;Myth #1&lt;/strong&gt;: 
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: People in an office use more than word, whoever they are. Where can you see
+   it? In any office, including mine. You want some pictures?
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: Microsoft is remodeling their licenses to try to give more choice. But they
+   are not always successful, can do some mistakes. Where:
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;a href="http://www.computerworld.com/managementtopics/management/itspending/story/0,10801,72214,00.html"&gt;http://www.computerworld.com/managementtopics/management/itspending/story/0,10801,72214,00.html&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;strong&gt;Myth #2&lt;/strong&gt;:
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: Longhorn is a client side platform, not an API. WinFX is an API for the client
+   side. Indigo is for both the client and the server side. You can use Longhorn to access
+   an LDAP directory and a Web Service GXA stack sitting on a server running another
+   platform.
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: Longhorn is windows, so you develop software for windows. And people like it.
+   No one really cares about having the 3d accelerated Desktop Composition Engine running
+   on Linux.
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: Java can't do that.
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: Middleware doesn't have anything to do with Longhorn.
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: Middleware can be inter-operable through GXA and Web Services, in an inter-operable
+   way.
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;strong&gt;Myth #3&lt;/strong&gt;:
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: The Java Community Process is plainly slow at defining new standards to improve
+   the language.
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;a href="http://www.eweek.com/print_article/0,3048,a=108119,00.asp"&gt;http://www.eweek.com/print_article/0,3048,a=108119,00.asp&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: Microsoft and Java are both innovating, but they are on different release cycles.
+   Oh, that, and Longhorn is not .net and Longhorn can still run Java. Doesn't have anything
+   to do with the underlying Longhorn API (WinFX).
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;strong&gt;Myth #4&lt;/strong&gt;:
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: Visual studio versions road map.
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;a href="http://msdn.microsoft.com/vstudio/productinfo/roadmap.aspx"&gt;http://msdn.microsoft.com/vstudio/productinfo/roadmap.aspx&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: Side by side execution works.
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnnetdep/html/sidexsidenet.asp"&gt;http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnnetdep/html/sidexsidenet.asp&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: the framework provide compatibility.
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpovrversioncompatibility.asp"&gt;http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpovrversioncompatibility.asp&lt;/a&gt;
+   &lt;br&gt;
+   "The .NET Framework supports both backward and forward compatibility"
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: Developers must learn new things all the time, this is only a question of staying
+   competitive. This has nothing to do with how much you charge your clients. And it's
+   true for windows, for java, for Linux, for any single piece of software on this planet.
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;strong&gt;Myth #5&lt;/strong&gt;:
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: Linux cannot run out of the box on any platform. The kernel can be modified
+   to support it.
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;a href="http://www.handhelds.org/geeklog/index.php"&gt;http://www.handhelds.org/geeklog/index.php&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: Windows doesn't run everywhere. The kernel can be modified to be re-targeted.
+   XBox, Windows on IA-32, IA-64, AMD64, and in the past PowerPC and MIPS. Looking forward,
+   XBox2 on the G5 processor.
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: The WS-* specifications on top of which Indigo is built are done by Microsoft,
+   IBM, BEA, TIBCO, etc... For example, WS-ReliableMessaging states the following:
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;font face="Courier New"&gt;WS-ReliableMessaging was published as a public specification
+   on 13 March&lt;br&gt;
+   2003. This is the first joint BEA/IBM/Microsoft/TIBCO Software publication&lt;br&gt;
+   of the specification.'&lt;/font&gt;
+   &lt;br&gt;
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: All of these specifications are provided to the community royalty free.
+&lt;/p&gt;
+&lt;p&gt;
+   Fact: Some are standardized by other groups. WS-Security by Oasis, for example.
+&lt;/p&gt;
+&lt;p&gt;
+   &amp;nbsp;
+&lt;/p&gt;
+&lt;p&gt;
+   I think I brought enough facts on the table. Now if you really want to debunk the
+   facts, please do it. (I'm starting to getting impatient at finally seeing a correct
+   argument).
+&lt;/p&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=64690e18-e0ca-42b7-887b-f82476be7cea</comments>
+      <category>Longhorn</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=977c0757-73fd-4b9a-88cb-dfe60f8dc62b</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=977c0757-73fd-4b9a-88cb-dfe60f8dc62b</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=977c0757-73fd-4b9a-88cb-dfe60f8dc62b</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=977c0757-73fd-4b9a-88cb-dfe60f8dc62b</wfw:commentRss>
+      <slash:comments>6</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <div class="Section1">
+          <p>
+          <a href="http://zdnet.com.com/2100-1107_2-5108026.html?tag=zdfd.newsfeed">This</a> article
+         is <s>one of the</s> THE most stupid article I’ve ever read. 
+      </p>
+          <p>
+            <b>
+              <span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">Myth #1</span>
+            </b>
+            <span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">:
+         Never heard of Open licenses? Microsoft is doing a lot of work to provide for suitable
+         packages. Oh, and saying people only use Word… Maybe you’ve been independent
+         for too long and don’t remember how real people work in an office.</span>
+          </p>
+          <p>
+            <b>
+              <span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">Myth #2</span>
+            </b>
+            <span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">:
+         This guy is absolutely insane. He goes on and on saying how Microsoft is locking you
+         on the server side with Longhorn. Hello Mr McCune, if you attended the PDC, or even
+         took some information on it before writing this, you would know Longhorn (and you
+         ARE talking about Longhorn there aren’t you) is a client platform. Talking about
+         “You’ll have the freedom to use your choice of middleware and hardware,
+         including Windows” to my mother might be interesting and a compelling reason
+         to choose Linux. If he was talking about writing software for real people out there,
+         well, I’m afraid you’ll have to do a reality check Mr. McCune, doing client
+         side software in Java is not compelling for anyone at the moment, unless you want
+         to sell it to people who share an ideology with you. Yeah, try to write 3d ui, video,
+         real time compositing UIs using Java (or Win32 for that matter) and come back after
+         your reality check.</span>
+          </p>
+          <p>
+            <b>
+              <span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">Myth #3</span>
+            </b>
+            <span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">:
+         See above. “Java has made great strides in usability”, I beg you pardon?
+         Are you talking about the so called Community Process? Now this is interesting. As
+         for Java not being tied to a platform… Do you have any, and I say ANY, non trivial
+         J2EE application that can be moved between two application servers? Reality check
+         again. I wouldn’t publish on ZDNet saying that I can swap my Microsoft .net
+         components on Mono without carefully planning to do so. And I wouldn’t do it
+         for an already written server side application. You know why? Cause I wouldn’t
+         even want to see the light of day again, by fear of being looked at the stupid Java
+         Zealot bragging about a product without even knowing what it’s all about.</span>
+          </p>
+          <p>
+            <b>
+              <span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">Myth #4</span>
+            </b>
+            <span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">:
+         Alright, a few things here. First of all, learn how to read. That would be handy.
+         Not three, but two versions. First, <b>Whidbey</b> (and not <b>Whidby</b>) will be
+         released next year with a version 2.0 of the framework, available on all supported
+         .net platforms. Then, a Longhorn <b>Orcas</b> version (Not <b>Oracas</b>) that will
+         feature Longhorn specific tools for the Longhorn specific API. Can you develop using
+         an old version of the language on the new version of the framework? Yes you can run
+         the programs, compile the programs, use the programs, and publish the programs. You
+         can also run each of these versions at the same time. Or just use all of these applications
+         with a single framework version. Best thing is, you say “Developers must continually
+         update their skills which costs customers time and money”. Interesting, how
+         you as a consultant would see Developers having to learn new things as a bad thing?
+         Or are you out of job because you’re still thinking Java will change the world?
+         Yeah, more likely.</span>
+          </p>
+          <p>
+            <b>
+              <span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">Myth #5</span>
+            </b>
+            <span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">:
+         Excuse me, IBM wrote an OS running on anything from a hand held to a mainframe? This
+         is really interesting. Oh, you meant Linux? Like you can use GIMP out of the box from
+         an iPaq? Oh, prove it; I’d love to see that.<br />
+         And if you did go to the PDC (Please show me the ticket, I’d love to know where
+         you were hidden for your absolute lack of knowledge makes me believe you could have
+         been locked in a toilet with <a href="http://neopoleon.com/blog/posts/1267.aspx">this
+         guy</a>), you would know for sure that the whole SOA and Web Services stack (<b>Indigo</b>,
+         which I’m sure you’ll love to write <b>Indigeno</b>)  is done by
+         IBM and Microsoft using common protocols that are published standards. But it cannot
+         be otherwise, as 50% of it comes from IBM which “are agnostic and run on virtually
+         every operating system and device”… Wait wait, you mean that each service
+         will be able to talk to a Mainframe, an iPaq and windows? Welcome to the real world.</span>
+          </p>
+          <p>
+            <span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">In the name of the sane Development
+         community, I would advise anyone who survived the reading of that piece of flame to
+         discard it, make a lot of fun about the clueless author, and blame ZDNet for letting
+         that kind of articles from getting through. Even Slashdot wouldn’t have published
+         something that clueless. </span>
+          </p>
+        </div>
+      </body>
+      <title>Longhorn FUD: Tony McCune is clueless</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=977c0757-73fd-4b9a-88cb-dfe60f8dc62b</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=977c0757-73fd-4b9a-88cb-dfe60f8dc62b</link>
+      <pubDate>Mon, 17 Nov 2003 17:32:34 GMT</pubDate>
+      <description>&lt;div class=Section1&gt;
+   &lt;p&gt;
+      &amp;nbsp;&lt;a href="http://zdnet.com.com/2100-1107_2-5108026.html?tag=zdfd.newsfeed"&gt;This&lt;/a&gt; article
+      is &lt;s&gt;one of the&lt;/s&gt; THE most stupid article I&amp;#8217;ve ever read. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;b&gt;&lt;span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial"&gt;Myth #1&lt;/span&gt;&lt;/b&gt;&lt;span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial"&gt;:
+      Never heard of Open licenses? Microsoft is doing a lot of work to provide for suitable
+      packages. Oh, and saying people only use Word&amp;#8230; Maybe you&amp;#8217;ve been independent
+      for too long and don&amp;#8217;t remember how real people work in an office.&lt;/span&gt; 
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;b&gt;&lt;span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial"&gt;Myth #2&lt;/span&gt;&lt;/b&gt;&lt;span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial"&gt;:
+      This guy is absolutely insane. He goes on and on saying how Microsoft is locking you
+      on the server side with Longhorn. Hello Mr McCune, if you attended the PDC, or even
+      took some information on it before writing this, you would know Longhorn (and you
+      ARE talking about Longhorn there aren&amp;#8217;t you) is a client platform. Talking about
+      &amp;#8220;You&amp;#8217;ll have the freedom to use your choice of middleware and hardware,
+      including Windows&amp;#8221; to my mother might be interesting and a compelling reason
+      to choose Linux. If he was talking about writing software for real people out there,
+      well, I&amp;#8217;m afraid you&amp;#8217;ll have to do a reality check Mr. McCune, doing client
+      side software in Java is not compelling for anyone at the moment, unless you want
+      to sell it to people who share an ideology with you. Yeah, try to write 3d ui, video,
+      real time compositing UIs using Java (or Win32 for that matter) and come back after
+      your reality check.&lt;/span&gt; 
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;b&gt;&lt;span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial"&gt;Myth #3&lt;/span&gt;&lt;/b&gt;&lt;span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial"&gt;:
+      See above. &amp;#8220;Java has made great strides in usability&amp;#8221;, I beg you pardon?
+      Are you talking about the so called Community Process? Now this is interesting. As
+      for Java not being tied to a platform&amp;#8230; Do you have any, and I say ANY, non trivial
+      J2EE application that can be moved between two application servers? Reality check
+      again. I wouldn&amp;#8217;t publish on ZDNet saying that I can swap my Microsoft .net
+      components on Mono without carefully planning to do so. And I wouldn&amp;#8217;t do it
+      for an already written server side application. You know why? Cause I wouldn&amp;#8217;t
+      even want to see the light of day again, by fear of being looked at the stupid Java
+      Zealot bragging about a product without even knowing what it&amp;#8217;s all about.&lt;/span&gt; 
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;b&gt;&lt;span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial"&gt;Myth #4&lt;/span&gt;&lt;/b&gt;&lt;span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial"&gt;:
+      Alright, a few things here. First of all, learn how to read. That would be handy.
+      Not three, but two versions. First, &lt;b&gt;Whidbey&lt;/b&gt; (and not &lt;b&gt;Whidby&lt;/b&gt;) will be
+      released next year with a version 2.0 of the framework, available on all supported
+      .net platforms. Then, a Longhorn &lt;b&gt;Orcas&lt;/b&gt; version (Not &lt;b&gt;Oracas&lt;/b&gt;) that will
+      feature Longhorn specific tools for the Longhorn specific API. Can you develop using
+      an old version of the language on the new version of the framework? Yes you can run
+      the programs, compile the programs, use the programs, and publish the programs. You
+      can also run each of these versions at the same time. Or just use all of these applications
+      with a single framework version. Best thing is, you say &amp;#8220;Developers must continually
+      update their skills which costs customers time and money&amp;#8221;. Interesting, how
+      you as a consultant would see Developers having to learn new things as a bad thing?
+      Or are you out of job because you&amp;#8217;re still thinking Java will change the world?
+      Yeah, more likely.&lt;/span&gt; 
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;b&gt;&lt;span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial"&gt;Myth #5&lt;/span&gt;&lt;/b&gt;&lt;span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial"&gt;:
+      Excuse me, IBM wrote an OS running on anything from a hand held to a mainframe? This
+      is really interesting. Oh, you meant Linux? Like you can use GIMP out of the box from
+      an iPaq? Oh, prove it; I&amp;#8217;d love to see that.&lt;br&gt;
+      And if you did go to the PDC (Please show me the ticket, I&amp;#8217;d love to know where
+      you were hidden for your absolute lack of knowledge makes me believe you could have
+      been locked in a toilet with &lt;a href="http://neopoleon.com/blog/posts/1267.aspx"&gt;this
+      guy&lt;/a&gt;), you would know for sure that the whole SOA and Web Services stack (&lt;b&gt;Indigo&lt;/b&gt;,
+      which I&amp;#8217;m sure you&amp;#8217;ll love to write &lt;b&gt;Indigeno&lt;/b&gt;) &amp;nbsp;is done by
+      IBM and Microsoft using common protocols that are published standards. But it cannot
+      be otherwise, as 50% of it comes from IBM which &amp;#8220;are agnostic and run on virtually
+      every operating system and device&amp;#8221;&amp;#8230; Wait wait, you mean that each service
+      will be able to talk to a Mainframe, an iPaq and windows? Welcome to the real world.&lt;/span&gt; 
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial"&gt;In the name of the sane Development
+      community, I would advise anyone who survived the reading of that piece of flame to
+      discard it, make a lot of fun about the clueless author, and blame ZDNet for letting
+      that kind of articles from getting through. Even Slashdot wouldn&amp;#8217;t have published
+      something that clueless. &lt;/span&gt;
+   &lt;/p&gt;
+&lt;/div&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=977c0757-73fd-4b9a-88cb-dfe60f8dc62b</comments>
+      <category>Longhorn</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=e9cd246e-2141-4a54-8f16-c357667606a2</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=e9cd246e-2141-4a54-8f16-c357667606a2</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=e9cd246e-2141-4a54-8f16-c357667606a2</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=e9cd246e-2141-4a54-8f16-c357667606a2</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <title>The peer 2 peer history, part 1</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=e9cd246e-2141-4a54-8f16-c357667606a2</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=e9cd246e-2141-4a54-8f16-c357667606a2</link>
+      <pubDate>Sat, 15 Nov 2003 12:07:38 GMT</pubDate>
+      <description>&lt;div class="Section1"&gt;
+   &lt;p&gt;
+      Hello dear readers, as promised, the first part of my peer 2 peer history. I&amp;#8217;ll
+      try to remember what happened since I started being involved in this movement, and
+      will go up to seeing what Microsoft is planning with Longhorn. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      What exactly is peer2peer? To put it simply, a peer 2 peer technology enables communication
+      between computers with nearly no intervention form a server. Another explanation would
+      be that, in a perfect p2p world, there would be no client, and only servers. Basically,
+      what the web was before dial-up ISP appeared. The internet was a p2p architecture
+      at its heart. So, why the focus in 2000 on this &amp;#8220;new&amp;#8221; peer to peer architecture?
+      Because&amp;#8230; 
+   &lt;/p&gt;
+   &lt;p&gt;
+      A long time ago, Napster was released. I won&amp;#8217;t go through why and how it appeared
+      or why and how it got crushed. Napster was a so-called p2p application, that let people
+      connect to a server to know what files other people are sharing, and download these
+      files directly from these other people. Technically, napster had nothing interesting
+      to talk about, so I won&amp;#8217;t go through it. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      A short while after the Napster, a new software, gnutella, was released by Nullsoft.
+      The story of gnutella is quite interesting. To put it short, it was published, lasted
+      for a few days on AOL servers before &lt;a href="http://www.cnn.com/2000/TECH/ptech/03/15/gnutella/"&gt;disappearing&lt;/a&gt;.&amp;#160;The
+      technology being gnutella is quite interesting. Instead of relying on a central server
+      to advertise files the user is sharing, the connection to a gnutella network is quite
+      different: 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt'&gt;
+      &lt;span style='font-family: Symbol'&gt;&amp;middot;&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/span&gt;&lt;/span&gt;The
+      first step is to connect to the network. Because there is no server, the client must
+      find a new IP address to connect to. This is the &lt;b&gt;bootstrap&lt;/b&gt; stage. In the first
+      few days of gnutella, this meant going on IRC, asking for an IP, and try connecting.
+      Later on, each software vendor established their own public IP to let people connect
+      faster. 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt'&gt;
+      &lt;span style='font-family: Symbol'&gt;&amp;middot;&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/span&gt;&lt;/span&gt;Once
+      you&amp;#8217;re connected, you send a search. Your search is just a string, and is sent
+      to the computer you&amp;#8217;re connected to. This computer sends you back the list of
+      files containing the string, and forward your request to all the computers it&amp;#8217;s
+      connected to, which in turn reply and forward. This method is called a &lt;b&gt;broadcast&lt;/b&gt;,
+      and was the most common operation on the network, and the one taking up most of the
+      bandwidth users had. Your search was forwarded to a maximum of 7 hops, which meant
+      quite a lot of computers. The network data contained two counts, TTL for time to live,
+      and HOPS for the number of computers already seen. 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt'&gt;
+      &lt;span style='font-family: Symbol'&gt;&amp;middot;&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/span&gt;&lt;/span&gt;When
+      you wanted to download a file, you connected &lt;b&gt;out of band&lt;/b&gt; using HTTP to the
+      other computer having the file. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      The software used to connect to the gnutella network was named a &lt;b&gt;servent&lt;/b&gt;, a
+      contraction of server and client. The big deal here is that everything was running
+      without a central server, without a central authority, and without any form of potential
+      failure point. The network was bootstrapped, autonomous and living a life on its own. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      When I joined the gnutella community, in late march 2000, I met a lot of people, mainly
+      on IRC. These people were both very smart, dedicated, and willing to move things forward.
+      Let&amp;#8217;s face it, the first releases of the gnutella software from nullsoft was
+      crap. Ugly, not working, had bugs, etc. And there was no reason to call it gnu as
+      the source code was absolutely not open source. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      The people I met started deciphering the gnutella network protocol, which was a fast
+      and easy process considering the very low complexity of the data structures. I even
+      wrote a client in VB at the time, just for fun. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      After just a few weeks of dicussing mainly with Gene Khan, which took upon himself
+      to be the contact point for anything gnutella related in the world, and with people
+      such as Ben Houston, a few things were very apparent: 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt'&gt;
+      &lt;span style='font-family: Symbol'&gt;&amp;middot;&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/span&gt;&lt;/span&gt;Information
+      on the current gnutella protocol was sparse, developers were missing a place to discuss
+      about the current technology to implement their own software. 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt'&gt;
+      &lt;span style='font-family: Symbol'&gt;&amp;middot;&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/span&gt;&lt;/span&gt;People
+      needed a place to ask questions such as &amp;#8220;What is the IP address&amp;#8221;, or &amp;#8220;Where
+      can I download a client&amp;#8221;. Newbie&amp;#8217;s questions. 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt'&gt;
+      &lt;span style='font-family: Symbol'&gt;&amp;middot;&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/span&gt;&lt;/span&gt;The
+      gnutella protocol sucked and badly needed to be replaced / extended. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      So in April, we split the gnutella IRC forum and web site in three. One, gnutella,
+      would be the PR group, and handling all the public (understand not developers) questions.
+      The second, gnutella-dev, would help the developers&amp;#8217; community to implement
+      the gnutella protocol and behavior recommendations, to help create more software using
+      gnutella. The third one, gnutella-ng, was the place where we were supposed to create
+      a new gnutella protocol, erasing what mistakes we did in the past, while reusing the
+      concepts of gnutella, to create a better world. I was the main architect of all these
+      changes, and only took gnutella-ng in hands. Gene was keeping gnutella, and gnutella-dev
+      was to be very open to anyone. I&amp;#8217;m afraid I don&amp;#8217;t remember who was in
+      charge of it. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      All these web sites were handled on wego.com. &lt;a href="http://gnutellang.wego.com/"&gt;http://gnutellang.wego.com&lt;/a&gt; won&amp;#8217;t
+      get you very far, but once upon a time, it was a very busy web site. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;i&gt;Continued in part 2, soon.&lt;/i&gt; 
+   &lt;/p&gt;
+   &lt;p&gt;
+      &amp;#160; 
+   &lt;/p&gt;
+&lt;/div&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=e9cd246e-2141-4a54-8f16-c357667606a2</comments>
+      <category>Longhorn|Peer 2 Peer</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=50eb0cb0-d28d-4554-bec3-8be5d8b7ecf6</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=50eb0cb0-d28d-4554-bec3-8be5d8b7ecf6</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=50eb0cb0-d28d-4554-bec3-8be5d8b7ecf6</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=50eb0cb0-d28d-4554-bec3-8be5d8b7ecf6</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <div class="Section1">
+          <p>
+         Oh, when the day ends just like that, things just get brighter. 
+      </p>
+          <p>
+         I just received my copy of Longhorn (well, already had it installed but…), the
+         SDK and Whidbey. There’s some serious coding to do this week-end. First impressions,
+         the DVD are nice :-)
+      </p>
+          <p align="center">
+            <img height="352" src="/blog/content/binary/pdc.jpg" width="288" border="0" />
+          </p>
+          <p>
+         Thanks to the MSDN team for delivering it so fast. PDC was Love, longhorn is love.
+         I love you. 
+      </p>
+          <p>
+         By the way, all the pictures on this web site are taken from the excellent T610 phone
+         from sony ericsson.
+      </p>
+        </div>
+      </body>
+      <title>Longhorn DVD are there</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=50eb0cb0-d28d-4554-bec3-8be5d8b7ecf6</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=50eb0cb0-d28d-4554-bec3-8be5d8b7ecf6</link>
+      <pubDate>Fri, 14 Nov 2003 16:35:26 GMT</pubDate>
+      <description>&lt;div class=Section1&gt;
+   &lt;p&gt;
+      Oh, when the day ends just like that, things just get brighter. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      I just received my copy of Longhorn (well, already had it installed but&amp;#8230;), the
+      SDK and Whidbey. There&amp;#8217;s some serious coding to do this week-end. First impressions,
+      the DVD are nice :-)
+   &lt;/p&gt;
+   &lt;p align=center&gt;
+      &lt;img height=352 src="/blog/content/binary/pdc.jpg" width=288 border=0&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
+      Thanks to the MSDN team for delivering it so fast. PDC was Love, longhorn is love.
+      I love you. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      By the way, all the pictures on this web site are taken from the excellent T610 phone
+      from sony ericsson.
+   &lt;/p&gt;
+&lt;/div&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=50eb0cb0-d28d-4554-bec3-8be5d8b7ecf6</comments>
+      <category>Longhorn</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=0f506ce9-3461-4921-b09d-fe88ee5aff14</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=0f506ce9-3461-4921-b09d-fe88ee5aff14</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=0f506ce9-3461-4921-b09d-fe88ee5aff14</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=0f506ce9-3461-4921-b09d-fe88ee5aff14</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <div class="Section1">
+          <p>
+         Am finishing my Task based MVC modifications to the excellent User Interface Process
+         today, and here is one thing that comes over and over in my code. This pattern is
+         absolutely frightening. Let’s go through it together: 
+      </p>
+          <div style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 4pt; BACKGROUND: #ffff99; PADDING-BOTTOM: 1pt; BORDER-LEFT: windowtext 1pt solid; PADDING-TOP: 1pt; BORDER-BOTTOM: windowtext 1pt solid; mso-element: para-border-div">
+            <p class="MsoNormal" style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; BACKGROUND: #ffff99; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">
+              <span style="FONT-FAMILY: 'Courier New'">      <font color="blue"><span style="COLOR: blue">public</span></font><font color="blue"><span style="COLOR: blue">sealed</span></font><font color="blue"><span style="COLOR: blue">class</span></font> DumbFactory</span> <br /><span style="FONT-FAMILY: 'Courier New'">      {</span> <br /><span style="FONT-FAMILY: 'Courier New'">            <font color="green"><span style="COLOR: green">//
+            cache pattern and dual lock volatile pattern, all at the same time :)</span></font></span> <br /><span style="FONT-FAMILY: 'Courier New'">            <font color="blue"><span style="COLOR: blue">private</span></font><font color="blue"><span style="COLOR: blue">static</span></font><font color="blue"><span style="COLOR: blue">object</span></font> SyncRoot
+            = new Object();</span> <br /><span style="FONT-FAMILY: 'Courier New'">            <font color="blue"><span style="COLOR: blue">private</span></font><font color="blue"><span style="COLOR: blue">static</span></font><font color="blue"><span style="COLOR: blue">volatile</span></font> NavigationTask
+            tasks;</span> <br /><span style="FONT-FAMILY: 'Courier New'">            <font color="blue"><span style="COLOR: blue">private</span></font><font color="blue"><span style="COLOR: blue">static</span></font> NavigationTask
+            Tasks</span> <br /><span style="FONT-FAMILY: 'Courier New'">           
+            {</span> <br /><span style="FONT-FAMILY: 'Courier New'">                  <font color="blue"><span style="COLOR: blue">get</span></font></span> <br /><span style="FONT-FAMILY: 'Courier New'">                 
+            {</span> <br /><span style="FONT-FAMILY: 'Courier New'">                        <font color="blue"><span style="COLOR: blue">if</span></font> (tasks
+            == <font color="blue"><span style="COLOR: blue">null</span></font>)</span> <br /><span style="FONT-FAMILY: 'Courier New'">                              <font color="blue"><span style="COLOR: blue">lock</span></font> (SyncRoot)</span> <br /><span style="FONT-FAMILY: 'Courier New'">                                    <font color="blue"><span style="COLOR: blue">if</span></font> (tasks
+            == <font color="blue"><span style="COLOR: blue">null</span></font>)</span> <br /><span style="FONT-FAMILY: 'Courier New'">                                         
+            FetchTasks();</span><br /><span style="FONT-FAMILY: 'Courier New'">                      <font color="blue"><span style="COLOR: blue">return</span></font> tasks;</span></p>
+            <p class="MsoNormal" style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; BACKGROUND: #ffff99; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">
+              <span style="FONT-FAMILY: 'Courier New'">                 
+            }</span>
+              <br />
+                           
+            }<br /><span style="FONT-FAMILY: 'Courier New'">          <font color="blue"><span style="COLOR: blue">public</span></font><font color="blue"><span style="COLOR: blue">static</span></font> ITask
+            Get(<font color="blue"><span style="COLOR: blue">string</span></font> name, Guid taskId)<br /></span><span style="FONT-FAMILY: 'Courier New'">         
+            {</span><br /><span style="FONT-FAMILY: 'Courier New'">               
+            ...</span> <br /><span style="FONT-FAMILY: 'Courier New'">         
+            }</span> <br /><span style="FONT-FAMILY: 'Courier New'">          <font color="blue"><span style="COLOR: blue">private</span></font><font color="blue"><span style="COLOR: blue">static</span></font><font color="blue"><span style="COLOR: blue">void</span></font> FetchTasks()</span> <br /><span style="FONT-FAMILY: 'Courier New'">         
+            {</span> <br /><span style="FONT-FAMILY: 'Courier New'">                
+            ...</span> <br /><span style="FONT-FAMILY: 'Courier New'">         
+            }<br /></span><span style="FONT-FAMILY: 'Courier New'">      }</span></p>
+          </div>
+          <p class="MsoNormal">
+            <span style="FONT-FAMILY: 'Courier New'">
+            </span> This, as you can see, is a bit
+         of a departure from the original dual lock statement. A few notes: 
+      </p>
+          <ul style="MARGIN-TOP: 0cm" type="disc">
+            <li class="MsoNormal" style="mso-list: l2 level1 lfo3">
+              <span class="NormalWebChar">The</span>
+              <font color="blue">
+                <span style="COLOR: blue; FONT-FAMILY: 'Courier New'">volatile</span>
+              </font> statement
+            prevents memory caching that would prevent the dual lock to succeed on some architectures 
+         </li>
+            <li class="MsoNormal" style="mso-list: l2 level1 lfo3">
+            The <font color="blue"><span style="COLOR: blue; FONT-FAMILY: 'Courier New'">lock</span></font> is
+            done on an object, not on typeof(type). Pretty simple, if you lock on a type, then
+            in inheritance, if a type inherit from your class and call tasks, you end up locking
+            two different objects, the type of the parent and the type of the child. But sealed
+            is there you say. Well, sealed is only a hint, so whatever you do, you may still end
+            up inheriting. And if you remove it and subclass your object, this problem will be
+            forgotten until the bug hit you in the face. 
+         </li>
+            <li class="MsoNormal" style="mso-list: l2 level1 lfo3">
+            Another way to implement that would be to do a Interlocked.ConpareExchange with a
+            synchronization primitive. A bit too complex imo, so unless my app end up running
+            on a 32 way box, I can live with that solution. 
+         </li>
+          </ul>
+          <p class="MsoNormal">
+         More reading on the subject 
+      </p>
+          <ul style="MARGIN-TOP: 0cm" type="disc">
+            <li class="MsoNormal" style="mso-list: l0 level1 lfo4">
+            Chris Brumme on the .net Memory Model <a href="http://blogs.gotdotnet.com/cbrumme/PermaLink.aspx/480d3a6d-1aa8-4694-96db-c69f01d7ff2b">here</a>. 
+         </li>
+            <li class="MsoNormal" style="mso-list: l0 level1 lfo4">
+            Victor on the implementation of the SR object in .net (anyone using reflector on the
+            bits know what I’m talking about :-) ) <a href="http://weblogs.asp.net/vga/posts/31688.aspx">here</a>. 
+         </li>
+          </ul>
+          <p class="MsoNormal">
+         Enjoy! (I’ll do my p2p paper tonight if I can). 
+      </p>
+        </div>
+      </body>
+      <title>The most frightening pattern in .net</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=0f506ce9-3461-4921-b09d-fe88ee5aff14</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=0f506ce9-3461-4921-b09d-fe88ee5aff14</link>
+      <pubDate>Fri, 14 Nov 2003 12:01:38 GMT</pubDate>
+      <description>&lt;div class=Section1&gt;
+   &lt;p&gt;
+      Am finishing my Task based MVC modifications to the excellent User Interface Process
+      today, and here is one thing that comes over and over in my code. This pattern is
+      absolutely frightening. Let&amp;#8217;s go through it together: 
+   &lt;/p&gt;
+   &lt;div style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 4pt; BACKGROUND: #ffff99; PADDING-BOTTOM: 1pt; BORDER-LEFT: windowtext 1pt solid; PADDING-TOP: 1pt; BORDER-BOTTOM: windowtext 1pt solid; mso-element: para-border-div"&gt;
+      &lt;p class=MsoNormal style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; BACKGROUND: #ffff99; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none"&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;public&lt;/span&gt;&lt;/font&gt; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;sealed&lt;/span&gt;&lt;/font&gt; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;class&lt;/span&gt;&lt;/font&gt; DumbFactory&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; {&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;font color=green&gt;&lt;span style="COLOR: green"&gt;//
+         cache pattern and dual lock volatile pattern, all at the same time :)&lt;/span&gt;&lt;/font&gt;&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;private&lt;/span&gt;&lt;/font&gt; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;static&lt;/span&gt;&lt;/font&gt; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;object&lt;/span&gt;&lt;/font&gt; SyncRoot
+         = new Object();&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;private&lt;/span&gt;&lt;/font&gt; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;static&lt;/span&gt;&lt;/font&gt; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;volatile&lt;/span&gt;&lt;/font&gt; NavigationTask
+         tasks;&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;private&lt;/span&gt;&lt;/font&gt; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;static&lt;/span&gt;&lt;/font&gt; NavigationTask
+         Tasks&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+         {&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;get&lt;/span&gt;&lt;/font&gt;&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+         {&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;if&lt;/span&gt;&lt;/font&gt; (tasks
+         == &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;null&lt;/span&gt;&lt;/font&gt;)&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;lock&lt;/span&gt;&lt;/font&gt; (SyncRoot)&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;if&lt;/span&gt;&lt;/font&gt; (tasks
+         == &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;null&lt;/span&gt;&lt;/font&gt;)&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+         FetchTasks();&lt;/span&gt;
+         &lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;return&lt;/span&gt;&lt;/font&gt; tasks;&lt;/span&gt; 
+      &lt;/p&gt;
+      &lt;p class=MsoNormal style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; BACKGROUND: #ffff99; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none"&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+         }&lt;/span&gt;
+         &lt;br&gt;
+         &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+         }&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;public&lt;/span&gt;&lt;/font&gt; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;static&lt;/span&gt;&lt;/font&gt; ITask
+         Get(&lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;string&lt;/span&gt;&lt;/font&gt; name, Guid taskId)&lt;br&gt;
+         &lt;/span&gt;&lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+         {&lt;/span&gt;
+         &lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+         ...&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+         }&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;private&lt;/span&gt;&lt;/font&gt; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;static&lt;/span&gt;&lt;/font&gt; &lt;font color=blue&gt;&lt;span style="COLOR: blue"&gt;void&lt;/span&gt;&lt;/font&gt; FetchTasks()&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+         {&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+         ...&lt;/span&gt;&amp;nbsp;&lt;br&gt;
+         &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+         }&lt;br&gt;
+         &lt;/span&gt;&lt;span style="FONT-FAMILY: 'Courier New'"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;/span&gt; 
+      &lt;/p&gt;
+   &lt;/div&gt;
+   &lt;p class=MsoNormal&gt;
+      &lt;span style="FONT-FAMILY: 'Courier New'"&gt;&lt;/span&gt;&amp;nbsp;This, as you can see, is a bit
+      of a departure from the original dual lock statement. A few notes: 
+   &lt;/p&gt;
+   &lt;ul style="MARGIN-TOP: 0cm" type=disc&gt;
+      &lt;li class=MsoNormal style="mso-list: l2 level1 lfo3"&gt;
+         &lt;span class=NormalWebChar&gt;The&lt;/span&gt; &lt;font color=blue&gt;&lt;span style="COLOR: blue; FONT-FAMILY: 'Courier New'"&gt;volatile&lt;/span&gt;&lt;/font&gt; statement
+         prevents memory caching that would prevent the dual lock to succeed on some architectures 
+      &lt;li class=MsoNormal style="mso-list: l2 level1 lfo3"&gt;
+         The &lt;font color=blue&gt;&lt;span style="COLOR: blue; FONT-FAMILY: 'Courier New'"&gt;lock&lt;/span&gt;&lt;/font&gt; is
+         done on an object, not on typeof(type). Pretty simple, if you lock on a type, then
+         in inheritance, if a type inherit from your class and call tasks, you end up locking
+         two different objects, the type of the parent and the type of the child. But sealed
+         is there you say. Well, sealed is only a hint, so whatever you do, you may still end
+         up inheriting. And if you remove it and subclass your object, this problem will be
+         forgotten until the bug hit you in the face. 
+      &lt;li class=MsoNormal style="mso-list: l2 level1 lfo3"&gt;
+         Another way to implement that would be to do a Interlocked.ConpareExchange with a
+         synchronization primitive. A bit too complex imo, so unless my app end up running
+         on a 32 way box, I can live with that solution. 
+      &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;p class=MsoNormal&gt;
+      More reading on the subject 
+   &lt;/p&gt;
+   &lt;ul style="MARGIN-TOP: 0cm" type=disc&gt;
+      &lt;li class=MsoNormal style="mso-list: l0 level1 lfo4"&gt;
+         Chris Brumme on the .net Memory Model &lt;a href="http://blogs.gotdotnet.com/cbrumme/PermaLink.aspx/480d3a6d-1aa8-4694-96db-c69f01d7ff2b"&gt;here&lt;/a&gt;. 
+      &lt;li class=MsoNormal style="mso-list: l0 level1 lfo4"&gt;
+         Victor on the implementation of the SR object in .net (anyone using reflector on the
+         bits know what I&amp;#8217;m talking about :-) ) &lt;a href="http://weblogs.asp.net/vga/posts/31688.aspx"&gt;here&lt;/a&gt;. 
+      &lt;/li&gt;
+   &lt;/ul&gt;
+   &lt;p class=MsoNormal&gt;
+      Enjoy! (I&amp;#8217;ll do my p2p paper tonight if I can). 
+   &lt;/p&gt;
+&lt;/div&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=0f506ce9-3461-4921-b09d-fe88ee5aff14</comments>
+      <category>Development|.net</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=660ac526-83f8-4921-ab78-2e27ee8282de</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=660ac526-83f8-4921-ab78-2e27ee8282de</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=660ac526-83f8-4921-ab78-2e27ee8282de</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=660ac526-83f8-4921-ab78-2e27ee8282de</wfw:commentRss>
+      <slash:comments>3</slash:comments>
+      <title>Life of a Longhorn blogger</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=660ac526-83f8-4921-ab78-2e27ee8282de</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=660ac526-83f8-4921-ab78-2e27ee8282de</link>
+      <pubDate>Thu, 13 Nov 2003 23:23:12 GMT</pubDate>
+      <description>&lt;div class="Section1"&gt;
+   &lt;p&gt;
+      No new posts tonight. Scoble talked about it a while back, but when life becomes busy,
+      things have a tendancy to go bad, especially if they can. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      Being a geek, I&amp;rsquo;m working on Longhorn. I have side projects which sucks a lot
+      of my coding time already. My day work is exhaustingly linear in the amount of coding
+      I do. I also have a family life. Here is my schedule: 
+   &lt;/p&gt;
+   &lt;p&gt;
+      &amp;#160; 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1'&gt;&lt;![if !supportLists]&gt;
+      &lt;span style='mso-list:Ignore'&gt;-&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;/span&gt;&lt;/span&gt;&lt;![endif]&gt; 7,
+      wake up. Try to. 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1'&gt;&lt;![if !supportLists]&gt;
+      &lt;span style='mso-list:Ignore'&gt;-&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;/span&gt;&lt;/span&gt;&lt;![endif]&gt; 8
+      wake up, really. 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1'&gt;&lt;![if !supportLists]&gt;
+      &lt;span style='mso-list:Ignore'&gt;-&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;/span&gt;&lt;/span&gt;&lt;![endif]&gt; 9,
+      at work up and running 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1'&gt;&lt;![if !supportLists]&gt;
+      &lt;span style='mso-list:Ignore'&gt;-&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;/span&gt;&lt;/span&gt;&lt;![endif]&gt; 11,
+      at work, starts coding (can&amp;rsquo;t before) 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1'&gt;&lt;![if !supportLists]&gt;
+      &lt;span style='mso-list:Ignore'&gt;-&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;/span&gt;&lt;/span&gt;&lt;![endif]&gt; Day
+      goes on 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1'&gt;&lt;![if !supportLists]&gt;
+      &lt;span style='mso-list:Ignore'&gt;-&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;/span&gt;&lt;/span&gt;&lt;![endif]&gt; 17:30,
+      stop working 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1'&gt;&lt;![if !supportLists]&gt;
+      &lt;span style='mso-list:Ignore'&gt;-&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;/span&gt;&lt;/span&gt;&lt;![endif]&gt; 18:30
+      really stop working and go home 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1'&gt;&lt;![if !supportLists]&gt;
+      &lt;span style='mso-list:Ignore'&gt;-&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;/span&gt;&lt;/span&gt;&lt;![endif]&gt; 19:00
+      maximum, Gym (4 times a week) 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1'&gt;&lt;![if !supportLists]&gt;
+      &lt;span style='mso-list:Ignore'&gt;-&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;/span&gt;&lt;/span&gt;&lt;![endif]&gt; 20:30,
+      dinner. After that, movie. No choice here, it&amp;rsquo;s the &amp;ldquo;right thing to do&amp;rdquo;
+      to get your half off your toes 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1'&gt;&lt;![if !supportLists]&gt;
+      &lt;span style='mso-list:Ignore'&gt;-&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;/span&gt;&lt;/span&gt;&lt;![endif]&gt; 23:00,
+      try to catch up on blogs, newsgroups, and code 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1'&gt;&lt;![if !supportLists]&gt;
+      &lt;span style='mso-list:Ignore'&gt;-&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;/span&gt;&lt;/span&gt;&lt;![endif]&gt; Now,
+      here, depends on a lot of factors. You can get into troubles and have a few fights
+      with your half about your so called lack of attention (even though you&amp;rsquo;re paying
+      for both and working 10 hours a day to get more money home, sacrifice your week ends
+      and most of your coding time, just to be able to keep a survivable standard for the
+      household while you&amp;rsquo;re the only one with a job). 
+   &lt;/p&gt;
+   &lt;p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1'&gt;&lt;![if !supportLists]&gt;
+      &lt;span style='mso-list:Ignore'&gt;-&lt;span style='font:7.0pt "Times New Roman"'&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;/span&gt;&lt;/span&gt;&lt;![endif]&gt; So
+      tonight I was heading to bed, but after not going to bed exactly 10 seconds after
+      my half stood up to get there, fight. I&amp;rsquo;m in no mood to go to bed now. But I&amp;rsquo;m
+      tired, so I&amp;rsquo;ll go anyway. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      Boring kind of &amp;ldquo;how a busy life can suck up most of your joy&amp;rdquo; on a depressive
+      night. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      How do married geeks out there can handle that kind of situations? Comments welcomed.&amp;#160; 
+   &lt;/p&gt;
+&lt;/div&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=660ac526-83f8-4921-ab78-2e27ee8282de</comments>
+      <category>Out of band</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=cda11592-14ee-4021-86c5-468fd70328b2</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=cda11592-14ee-4021-86c5-468fd70328b2</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=cda11592-14ee-4021-86c5-468fd70328b2</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=cda11592-14ee-4021-86c5-468fd70328b2</wfw:commentRss>
+      <slash:comments>3</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+      Just wanted to say Hi! to Julien, a french working at Microsoft.
+   </p>
+        <p>
+      You can find him here :
+   </p>
+        <p>
+          <a href="http://www.3deurope.com/Blog/PermaLink.aspx?bId=05c66227-5c67-4381-87d7-d9fb1149f868">http://www.3deurope.com/Blog/PermaLink.aspx?bId=05c66227-5c67-4381-87d7-d9fb1149f868</a>
+        </p>
+        <p>
+      So, hi to you Julien, hope to meet you in Redmond soon!
+   </p>
+        <p>
+          <em>For those of you not following, I'm french living in London and one way or another
+      will be a proud Microsoft emplyee at some point in the future.</em>
+        </p>
+        <p>
+      I'll do the first part of the history of the peer2peer bubble and what does it means
+      now with Microsoft tonight. Stay tuned! (For my 3 subscribers).
+   </p>
+      </body>
+      <title>Blogroll: A french at Microsoft</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=cda11592-14ee-4021-86c5-468fd70328b2</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=cda11592-14ee-4021-86c5-468fd70328b2</link>
+      <pubDate>Thu, 13 Nov 2003 09:39:38 GMT</pubDate>
+      <description>&lt;p&gt;
+   Just wanted to say Hi! to Julien, a french working at Microsoft.
+&lt;/p&gt;
+&lt;p&gt;
+   You can find him here :
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;a href="http://www.3deurope.com/Blog/PermaLink.aspx?bId=05c66227-5c67-4381-87d7-d9fb1149f868"&gt;http://www.3deurope.com/Blog/PermaLink.aspx?bId=05c66227-5c67-4381-87d7-d9fb1149f868&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+   So, hi to you Julien, hope to meet you in Redmond soon!
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;em&gt;For those of you not following, I'm french living in London and one way or another
+   will be a proud Microsoft emplyee at some point in the future.&lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+   I'll do the first part of the history of the peer2peer bubble and what does it means
+   now with Microsoft tonight. Stay tuned! (For my 3 subscribers).
+&lt;/p&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=cda11592-14ee-4021-86c5-468fd70328b2</comments>
+      <category>Blogging</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=fa184c52-b602-4838-95e1-00c7fca09d8d</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=fa184c52-b602-4838-95e1-00c7fca09d8d</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=fa184c52-b602-4838-95e1-00c7fca09d8d</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=fa184c52-b602-4838-95e1-00c7fca09d8d</wfw:commentRss>
+      <slash:comments>3</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <div class="Section1">
+          <p>
+         A long long time ago, there was a <a href="http://www.aspzone.com/posts/179.aspx">discussion </a> (and <a href="http://dotnetjunkies.com/weblog/sudhakar/posts/559.aspx">here</a>)
+         about the BitVector32 class being buggy. My main problem was that it was not feature
+         complete, and I still had to rely on a lot of bit shifting, which is, for people like
+         me, very error prone. Associated with a good code generator, this class is a perfect
+         tool to build UNION like structures in .net without relying on the marshaling classes. 
+      </p>
+          <p>
+         Roy mentions that I should mention the bug in the original implementation:
+      </p>
+          <p>
+            <em>"<font size="2">the indexer always returns false for bit #31"</font></em>
+          </p>
+          <p>
+            <font size="2">While this problem in itself would have been enough to rewrite the
+         original code, you'll see that my API is really different. My main problem was to
+         be able to deal with different types (a 3bits value, 3 bools as bits, and all the
+         awful things C++ developers just writing their structs on a network pipe make us,
+         poor .net people without a UNION thing, incapable of handling). 
+         </font>
+          </p>
+          <p>
+         I developed this piece of code, so here it is for your pleasure. Notice that this
+         piece of code is provided for your use for free as long as you pay me a beer (or a
+         RedBull). Oh, and acknowledgments never hurts! 
+      </p>
+          <p>
+         Enjoy.
+      </p>
+          <p>
+         Edit: Sorry about the previous entry, forgot that IIS doesn't want to serve .cs files
+         whatever happens :)
+      </p>
+        </div>
+        <a href="/blog/content/binary/BitVector32.zip">BitVector32.zip (1.31 KB)</a>
+      </body>
+      <title>BitVector replacement</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=fa184c52-b602-4838-95e1-00c7fca09d8d</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=fa184c52-b602-4838-95e1-00c7fca09d8d</link>
+      <pubDate>Wed, 12 Nov 2003 13:02:30 GMT</pubDate>
+      <description>&lt;div class=Section1&gt;
+   &lt;p&gt;
+      A long long time ago, there was a &lt;a href="http://www.aspzone.com/posts/179.aspx"&gt;discussion &lt;/a&gt;&amp;nbsp;(and &lt;a href="http://dotnetjunkies.com/weblog/sudhakar/posts/559.aspx"&gt;here&lt;/a&gt;)
+      about the BitVector32 class being buggy. My main problem was that it was not feature
+      complete, and I still had to rely on a lot of bit shifting, which is, for people like
+      me, very error prone. Associated with a good code generator, this class is a perfect
+      tool to build UNION like structures in .net without relying on the marshaling classes. 
+   &lt;/p&gt;
+   &lt;p&gt;
+      Roy mentions that I should mention the bug in the original implementation:
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;em&gt;"&lt;font size=2&gt;the indexer always returns false for bit #31"&lt;/font&gt;&lt;/em&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;font size=2&gt;While this problem in itself would have been enough to rewrite the original
+      code, you'll see that my API is really different. My main problem was to be able to
+      deal with different types (a 3bits value, 3 bools as bits, and all the awful things
+      C++ developers just writing their structs on a network pipe make us, poor .net people
+      without&amp;nbsp;a UNION thing, incapable of handling). 
+   &lt;/p&gt;
+   &gt; 
+   &lt;p&gt;
+      I developed this piece of code, so here it is for your pleasure. Notice that this
+      piece of code is provided for your use for free as long as you pay me a beer (or a
+      RedBull). Oh, and acknowledgments never hurts! 
+   &lt;/p&gt;
+   &lt;p&gt;
+      Enjoy.
+   &lt;/p&gt;
+   &lt;p&gt;
+      Edit: Sorry about the previous entry, forgot that IIS doesn't want to serve .cs files
+      whatever happens :)
+   &lt;/p&gt;
+&lt;/div&gt;
+&lt;a href="/blog/content/binary/BitVector32.zip"&gt;BitVector32.zip (1.31 KB)&lt;/a&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=fa184c52-b602-4838-95e1-00c7fca09d8d</comments>
+      <category>Development|.net</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=2dd4f690-bfd7-4186-88e1-c34b7fec1b17</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=2dd4f690-bfd7-4186-88e1-c34b7fec1b17</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=2dd4f690-bfd7-4186-88e1-c34b7fec1b17</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=2dd4f690-bfd7-4186-88e1-c34b7fec1b17</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <title>SharpReader 0.9.3.1</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=2dd4f690-bfd7-4186-88e1-c34b7fec1b17</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=2dd4f690-bfd7-4186-88e1-c34b7fec1b17</link>
+      <pubDate>Wed, 12 Nov 2003 11:07:07 GMT</pubDate>
+      <description>&lt;div class="Section1"&gt;
+   &lt;p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'&gt;
+      &lt;span style=';font-family:Arial'&gt;First, in an earlier blog, I said that I would pay
+      a beer to my first reader using RSS bandit. Where are you?&lt;/span&gt; 
+   &lt;/p&gt;
+   &lt;p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'&gt;
+      &lt;span style=';font-family:Arial'&gt;For my reader using (don&amp;rsquo;t you love log files?)&lt;/span&gt; 
+   &lt;/p&gt;
+   &lt;p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto; margin-left:36.0pt'&gt;
+      &lt;i&gt;&lt;span style='; font-family:Arial;font-style:italic'&gt;SharpReader/0.9.3.0 (.NET CLR
+      1.1.4322.573; WinNT 5.1.2600.0)&lt;/span&gt;&lt;/i&gt; 
+   &lt;/p&gt;
+   &lt;p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'&gt;
+      &lt;span style=';font-family:Arial'&gt;Upgrade! And Hi! :-)&lt;/span&gt; 
+   &lt;/p&gt;
+   &lt;p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto; margin-left:36.0pt'&gt;
+      &lt;span style='; font-family:Arial'&gt;SharpReader 0.9.3.1 is now available for download
+      at &lt;a href="http://www.sharpreader.net" title="http://www.sharpreader.net/"&gt;sharpreader.net&lt;/a&gt;.&lt;br /&gt;
+      [&lt;a href="http://www.hutteman.com/weblog/2003/11/09-140.html" title="http://www.hutteman.com/weblog/2003/11/09-140.html"&gt;Luke
+      Hutteman's public virtual MemoryStream&lt;/a&gt;]&lt;/span&gt; 
+   &lt;/p&gt;
+&lt;/div&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=2dd4f690-bfd7-4186-88e1-c34b7fec1b17</comments>
+      <category>Blogging</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=760a2825-38e6-4bf2-a35c-5f9ecfa2bf51</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=760a2825-38e6-4bf2-a35c-5f9ecfa2bf51</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=760a2825-38e6-4bf2-a35c-5f9ecfa2bf51</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=760a2825-38e6-4bf2-a35c-5f9ecfa2bf51</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+      To answer <a href="http://www.hanselman.com/blog/PermaLink.aspx?guid=33f50d62-4ff7-4750-b6bc-535621b8dca1">this </a>from
+      Scott, let me tell you my story.
+   </p>
+        <p>
+      Any day at any new project coding session. Meeting for an hour or two with R&amp;D
+      to understand what they want. This is the moment I suffer the most in my work. I've
+      worked as a contractor before, and the beauty of this job is that you really need
+      to understand what the guy in front of you wants to <strong>accomplish</strong>. You
+      have to understand what he needs, so you have to understand his work. Up to the point
+      where you can do it instead of him (which most of the time is the case as, once your
+      software is done, the guy just use it to do the job). But you know this is only the
+      tip of the iceberg. You can start feeling the coldness of the diagrams flowing through
+      your body.
+   </p>
+        <p>
+      Back to the desk. Pen, paper, Brahms in the ears, tell anyone not to disturb for an
+      hour. You know you'll need more, but you also know it will be some kind of a stress
+      relief when you'll tell them to go away in an hour. And start sketching.
+   </p>
+        <p>
+      No no, don't start with a very clear diagram. You know your head is not working like
+      that. Graphically design the result data, and try to make some sense of it. Add a
+      lot of boring stuff and design 100 SQL tables to comply with what you have in mind,
+      your grand scheme. You know, that killer uber application that is supposed to be released
+      5 years ago.
+   </p>
+        <p>
+      Draw again, now talking in C#. This is thrilling, you get one class right. You can
+      feel the pressure, because you know you have a beginning. And you start sketching
+      more and more. You build carefully your whole system in your head, you see classes,
+      runtime instances, planets, all turning around a big XML document being married to
+      an XSD Schema by Don Box wearing a Yellow suit (don't ask me why).
+   </p>
+        <p>
+      And then, disaster. You missed a small piece. And <strong>this</strong> is the moment
+      where you start being insane. You know you missed something so fundamental (in your
+      eyes) that you're going to have to rewrite most of your code. But remember, at this
+      point you have no code, which is even more frightening. You thought you were handling
+      it quite close, and it went away. <strong>This</strong> is where the dilemma starts.
+      Hack away a quick solution and think about it for the later release of the product?
+      Or redesign everything again? Please note this only happens when :
+   </p>
+        <ul>
+          <li>
+         The full binary is scheduled for last week</li>
+          <li>
+         Your manager doesn't want to wait because a director promised the feature would be
+         there without asking anyone before hand if it was even feasible</li>
+          <li>
+         It's raining outside, you're cold, the heater in the office is off, you forgot to
+         buy cigarettes and there's no coffee or Redbull near you</li>
+          <li>
+         Don Box is wearing a yellow suit.</li>
+        </ul>
+        <p>
+      This is where most developers / architects enter an introspection phase. You stop
+      shaving, you spend all your time drawing on a tabletPC or a drawing board. You talk
+      to yourself while walking around the office, whispering things like "This class must
+      not be responsible for that, because if it does, the other class doesn't have control
+      of the execution graph".
+   </p>
+        <p>
+      This is when you get home. And this is when you hear : "Honey, you know, if they don't
+      care, why do you? And if you don't shave that beard, you sleep on the sofa!".
+   </p>
+        <p>
+      This is what leads you to either of the following solution:
+   </p>
+        <ol>
+          <li>
+         After this whole week / month / year / product cycle, you decide to cut off your requirements,
+         hack something for the client and go to bed</li>
+          <li>
+         This electric shock treatment hurts your brain, which starts drawing a full schema
+         of the whole architecture in your head, as clear as a sun in the night. In that case,
+         you don't go to bed, but you can make up for it the next day.</li>
+        </ol>
+        <p>
+      I'm in the middle of one of these phases. 2 happened tonight. Coding session ahead
+      of me.
+   </p>
+      </body>
+      <title>Code beauty</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=760a2825-38e6-4bf2-a35c-5f9ecfa2bf51</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=760a2825-38e6-4bf2-a35c-5f9ecfa2bf51</link>
+      <pubDate>Wed, 12 Nov 2003 00:22:30 GMT</pubDate>
+      <description>&lt;p&gt;
+   To answer &lt;a href="http://www.hanselman.com/blog/PermaLink.aspx?guid=33f50d62-4ff7-4750-b6bc-535621b8dca1"&gt;this &lt;/a&gt;from
+   Scott, let me tell you my story.
+&lt;/p&gt;
+&lt;p&gt;
+   Any day at any new project coding session. Meeting for an hour or two with R&amp;amp;D
+   to understand what they want. This is the moment I suffer the most in my work. I've
+   worked as a contractor before, and the beauty of this job is that you really need
+   to understand what the guy in front of you wants to &lt;strong&gt;accomplish&lt;/strong&gt;. You
+   have to understand what he needs, so you have to understand his work. Up to the point
+   where you can do it instead of him (which most of the time is the case as, once your
+   software is done, the guy just use it to do the job). But you know this is only the
+   tip of the iceberg. You can start feeling the coldness of the diagrams flowing through
+   your body.
+&lt;/p&gt;
+&lt;p&gt;
+   Back to the desk. Pen, paper, Brahms in the ears, tell anyone not to disturb for an
+   hour. You know you'll need more, but you also know it will be some kind of a stress
+   relief when you'll tell them to go away in an hour. And start sketching.
+&lt;/p&gt;
+&lt;p&gt;
+   No no, don't start with a very clear diagram. You know your head is not working like
+   that. Graphically design the result data, and try to make some sense of it. Add a
+   lot of boring stuff and design 100 SQL tables to comply with what you have in mind,
+   your grand scheme. You know, that killer uber application that is supposed to be released
+   5 years ago.
+&lt;/p&gt;
+&lt;p&gt;
+   Draw again, now talking in C#. This is thrilling, you get one class right. You can
+   feel the pressure, because you know you have a beginning. And you start sketching
+   more and more. You build carefully your whole system in your head, you see classes,
+   runtime instances, planets, all turning around a big XML document being married to
+   an XSD Schema by Don Box wearing a Yellow suit (don't ask me why).
+&lt;/p&gt;
+&lt;p&gt;
+   And then, disaster. You missed a small piece. And &lt;strong&gt;this&lt;/strong&gt; is the moment
+   where you start being insane. You know you missed something so fundamental (in your
+   eyes) that you're going to have to rewrite most of your code. But remember, at this
+   point you have no code, which is even more frightening. You thought you were handling
+   it quite close, and it went away. &lt;strong&gt;This&lt;/strong&gt; is where the dilemma starts.
+   Hack away a quick solution and think about it for the later release of the product?
+   Or redesign everything again? Please note this only happens when :
+&lt;/p&gt;
+&lt;ul&gt;
+   &lt;li&gt;
+      The full binary is scheduled for last week&lt;/li&gt;
+   &lt;li&gt;
+      Your manager doesn't want to wait because a director promised the feature would be
+      there without asking anyone before hand if it was even feasible&lt;/li&gt;
+   &lt;li&gt;
+      It's raining outside, you're cold, the heater in the office is off, you forgot to
+      buy cigarettes and there's no coffee or Redbull near you&lt;/li&gt;
+   &lt;li&gt;
+      Don Box is wearing a yellow suit.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+   This is where most developers / architects enter an introspection phase. You stop
+   shaving, you spend all your time drawing on a tabletPC or a drawing board. You talk
+   to yourself while walking around the office, whispering things like "This class must
+   not be responsible for that, because if it does, the other class doesn't have control
+   of the execution graph".
+&lt;/p&gt;
+&lt;p&gt;
+   This is when you get home. And this is when you hear : "Honey, you know, if they don't
+   care, why do you? And if you don't shave that beard, you sleep on the sofa!".
+&lt;/p&gt;
+&lt;p&gt;
+   This is what leads you to either of the following solution:
+&lt;/p&gt;
+&lt;ol&gt;
+   &lt;li&gt;
+      After this whole week / month / year / product cycle, you decide to cut off your requirements,
+      hack something for the client and go to bed&lt;/li&gt;
+   &lt;li&gt;
+      This electric shock treatment hurts your brain, which starts drawing a full schema
+      of the whole architecture in your head, as clear as a sun in the night. In that case,
+      you don't go to bed, but you can make up for it the next day.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+   I'm in the middle of one of these phases. 2 happened tonight. Coding session ahead
+   of me.
+&lt;/p&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=760a2825-38e6-4bf2-a35c-5f9ecfa2bf51</comments>
+      <category>Development</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=ff8db3b7-f22e-42f5-a989-b54b16ddf464</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=ff8db3b7-f22e-42f5-a989-b54b16ddf464</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=ff8db3b7-f22e-42f5-a989-b54b16ddf464</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=ff8db3b7-f22e-42f5-a989-b54b16ddf464</wfw:commentRss>
+      <slash:comments>1</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <p align="center">
+          <img height="288" src="/blog/content/binary/Office.jpg" width="352" border="0" />
+        </p>
+        <p align="left">
+      My office. As you can see, my <a href="http://www-132.ibm.com/webapp/wcs/stores/servlet/CategoryDisplay?catalogId=-840&amp;storeId=1&amp;langId=-1&amp;dualCurrId=73&amp;categoryId=2072541">IBM
+      T30 </a>has a dual screen Radeon video card. I was a bit surprised that Black
+      n White is actually running quite well on it.
+   </p>
+        <p align="left">
+      The second screen is a SyncMaster 171s, a 17" flat that we were given. Quite nice,
+      although I must say I'm getting used to the high resolution of the laptop.
+   </p>
+        <p align="left">
+      The third screen, well, I'm a bit cheating there. It's not a third screen, but my
+      windows 2003 test box (the one having the test server and the auto build system).
+      I use a MK named <a href="http://synergy2.sourceforge.net">Synergy </a>to move only
+      my main keyboard and mouse around. This tool won my "geek trophy" weekly contest.
+   </p>
+        <p align="left">
+      Frankly, a 3 21" LCD configuration would be ideal for me (that is, 3 1600 * 1200 screens),
+      in high resolution it would be even better. I still have to find any video card supporting
+      more than 2 DVI outputs though. Anyone?
+   </p>
+        <p align="left">
+      (Will post my configuration at home later today).
+   </p>
+      </body>
+      <title>Multiple Screens? Bring some more!</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=ff8db3b7-f22e-42f5-a989-b54b16ddf464</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=ff8db3b7-f22e-42f5-a989-b54b16ddf464</link>
+      <pubDate>Tue, 11 Nov 2003 15:53:33 GMT</pubDate>
+      <description>&lt;p align=center&gt;
+   &lt;img height=288 src="/blog/content/binary/Office.jpg" width=352 border=0&gt;
+&lt;/p&gt;
+&lt;p align=left&gt;
+   My office. As you can see, my &lt;a href="http://www-132.ibm.com/webapp/wcs/stores/servlet/CategoryDisplay?catalogId=-840&amp;amp;storeId=1&amp;amp;langId=-1&amp;amp;dualCurrId=73&amp;amp;categoryId=2072541"&gt;IBM
+   T30 &lt;/a&gt;has a dual screen Radeon video card. I was&amp;nbsp;a bit surprised that Black
+   n White is actually running quite well on it.
+&lt;/p&gt;
+&lt;p align=left&gt;
+   The second screen is a SyncMaster 171s, a 17" flat that we were given. Quite nice,
+   although I must say I'm getting used to the high resolution of the laptop.
+&lt;/p&gt;
+&lt;p align=left&gt;
+   The third screen, well, I'm a bit cheating there. It's not a third screen, but my
+   windows 2003 test box (the one having the test server and the auto build system).
+   I use a MK named &lt;a href="http://synergy2.sourceforge.net"&gt;Synergy &lt;/a&gt;to move only
+   my main keyboard and mouse around. This tool won my "geek trophy" weekly contest.
+&lt;/p&gt;
+&lt;p align=left&gt;
+   Frankly, a 3 21" LCD configuration would be ideal for me (that is, 3 1600 * 1200 screens),
+   in high resolution it would be even better. I still have to find any video card supporting
+   more than 2 DVI outputs though. Anyone?
+&lt;/p&gt;
+&lt;p align=left&gt;
+   (Will post my configuration at home later today).
+&lt;/p&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=ff8db3b7-f22e-42f5-a989-b54b16ddf464</comments>
+      <category>Out of band</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=2dc4e937-211b-4c9f-98a3-4e8b7d3d01ed</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=2dc4e937-211b-4c9f-98a3-4e8b7d3d01ed</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=2dc4e937-211b-4c9f-98a3-4e8b7d3d01ed</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=2dc4e937-211b-4c9f-98a3-4e8b7d3d01ed</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+      I've read quite a lot of bloggers (<a href="http://dotnetjunkies.com/WebLog/seichert/posts/3420.aspx">here </a>for
+      example) complaining about removing records from their test database.
+   </p>
+        <p>
+      Most of them go through some of the nifty SQL features that are VERY VERY VERY handy.
+      How about this, you prepare your database, and save it as an mdb file... That, for
+      example, you include as a resource in your preferred source control system.
+   </p>
+        <p>
+      Then, when testing your file, you copy it, and in your unit test, you use the following
+      connection string in SqlClient:
+   </p>
+        <p>
+          <em>Initial File Name="YourPath:\YourFile.mdb"</em>
+        </p>
+        <p>
+      Then you can discard your whole file after working on it. As simple as you can get.
+   </p>
+      </body>
+      <title>TDD and databases</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=2dc4e937-211b-4c9f-98a3-4e8b7d3d01ed</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=2dc4e937-211b-4c9f-98a3-4e8b7d3d01ed</link>
+      <pubDate>Tue, 11 Nov 2003 14:28:30 GMT</pubDate>
+      <description>&lt;p&gt;
+   I've read quite a lot of bloggers (&lt;a href="http://dotnetjunkies.com/WebLog/seichert/posts/3420.aspx"&gt;here &lt;/a&gt;for
+   example) complaining about removing records from their test database.
+&lt;/p&gt;
+&lt;p&gt;
+   Most of them go through some of the nifty SQL features that are VERY VERY VERY handy.
+   How about this, you prepare your database, and save it as an mdb file... That, for
+   example, you include as a resource in your preferred source control system.
+&lt;/p&gt;
+&lt;p&gt;
+   Then, when testing your file, you copy it, and in your unit test, you use the following
+   connection string in SqlClient:
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;em&gt;Initial File Name="YourPath:\YourFile.mdb"&lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+   Then you can discard your whole file after working on it. As simple as you can get.
+&lt;/p&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=2dc4e937-211b-4c9f-98a3-4e8b7d3d01ed</comments>
+      <category>Development|.net</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=00b04ba7-cf8e-4d20-a79e-a61d421bcceb</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=00b04ba7-cf8e-4d20-a79e-a61d421bcceb</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=00b04ba7-cf8e-4d20-a79e-a61d421bcceb</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=00b04ba7-cf8e-4d20-a79e-a61d421bcceb</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+      From <a href="http://weblogs.asp.net/fmarguerie/posts/36765.aspx">Fabrice</a>, <a href="http://jazbee.int.webmatrixhosting.net/PermaLink,guid,c6b774b5-3727-493d-8dc1-e10fbec1566e.aspx">Julien </a>which
+      is a new comer, think his blog is a SOA service. I must say I so much disagree.
+   </p>
+        <ul>
+          <li>
+            <strong>Services share schema and contract, not class</strong>
+            <br />
+         This is not entirely true, and proves to be completely wrong. RSS specs are not
+         XSD compliant, and on the other side of the pipe, XML-RPC is not schema based. It
+         is actually far far from it. 
+      </li>
+          <li>
+            <strong>Service policy is determined based on policy</strong>
+            <br />
+         Real validation of RSS feeds can't really be expressed by XSD, and RSS is not even
+         an infoset by it's lack of namespaces and extensibility points (Dave Winer might say
+         something different, but...) 
+      </li>
+          <li>
+         Boundaries are explicit<br />
+         Which boundaries are explicit between user authentication, posting, reading, commenting,
+         track-backing, pinging, etc? 
+      </li>
+          <li>
+            <strong>Services are autonomous</strong>
+            <br />
+         The only point where I do agree.</li>
+        </ul>
+        <p>
+      The fact is, for a blog to be considered SOA, you need a two way channel, which is
+      autonomous, and has a clear way of communication, in a message oriented way. Atom
+      is a good step in that direction. But no, dasBlog is not yet an SOA :)
+   </p>
+      </body>
+      <title>Is a blog SOA?</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=00b04ba7-cf8e-4d20-a79e-a61d421bcceb</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=00b04ba7-cf8e-4d20-a79e-a61d421bcceb</link>
+      <pubDate>Tue, 11 Nov 2003 12:15:51 GMT</pubDate>
+      <description>&lt;p&gt;
+   From &lt;a href="http://weblogs.asp.net/fmarguerie/posts/36765.aspx"&gt;Fabrice&lt;/a&gt;, &lt;a href="http://jazbee.int.webmatrixhosting.net/PermaLink,guid,c6b774b5-3727-493d-8dc1-e10fbec1566e.aspx"&gt;Julien &lt;/a&gt;which
+   is a new comer, think his blog is a SOA service. I must say I so much disagree.
+&lt;/p&gt;
+&lt;ul&gt;
+   &lt;li&gt;
+      &lt;strong&gt;Services share schema and contract, not class&lt;/strong&gt;
+      &lt;br&gt;
+      This is not entirely true, and proves to be completely wrong. RSS specs&amp;nbsp;are not
+      XSD compliant, and on the other side of the pipe, XML-RPC is not schema based. It
+      is actually far far from it. 
+   &lt;li&gt;
+      &lt;strong&gt;Service policy is determined based on policy&lt;/strong&gt;
+      &lt;br&gt;
+      Real validation of RSS feeds can't really be expressed by XSD, and RSS is not even
+      an infoset by it's lack of namespaces and extensibility points (Dave Winer might say
+      something different, but...) 
+   &lt;li&gt;
+      Boundaries are explicit&lt;br&gt;
+      Which boundaries are explicit between user authentication, posting, reading, commenting,
+      track-backing, pinging, etc? 
+   &lt;li&gt;
+      &lt;strong&gt;Services are autonomous&lt;/strong&gt;
+      &lt;br&gt;
+      The only point where I do agree.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+   The fact is, for a blog to be considered SOA, you need a two way channel, which is
+   autonomous, and has a clear way of communication, in a message oriented way. Atom
+   is a good step in that direction. But no, dasBlog is not yet an SOA :)
+&lt;/p&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=00b04ba7-cf8e-4d20-a79e-a61d421bcceb</comments>
+      <category>Blogging</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=1e211327-9227-4e72-959f-b5296e56c87c</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=1e211327-9227-4e72-959f-b5296e56c87c</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=1e211327-9227-4e72-959f-b5296e56c87c</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=1e211327-9227-4e72-959f-b5296e56c87c</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+      Ken ask a <a href="http://dotnetjunkies.com/weblog/kenbrubaker/posts/3398.aspx">question</a> on
+      winFS interop. From what we got from the newsgroups (you should really come and see
+      them), WinFS has two ways of copying file and metadata.
+   </p>
+        <p>
+      The first way is to preserve the content by serailizing everything, the object, the
+      relations, in a big binary blob that will be deserialized when copied over winFS again
+      (used for contacts for example).
+   </p>
+        <p>
+      The second way is the Type handler fetching the metadata back into the file (less
+      than optimal solution, but can be supported in most file formats by using extensibility
+      headers in jpeg, tags in MP3, etc...).
+   </p>
+        <p>
+      To be absolutely accurate, a quote from Ward Beattie from MSFT:
+   </p>
+        <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+          <p>
+            <font color="#a52a2a">There are really two kinds of copy operations out of WinFS.
+      Toby is<br />
+      referring to the lossless export supported by the WinFS API. If the item is<br />
+      backed by a Win32 file (e.g. a jpeg file), then you can also copy the file<br />
+      stream only using the Win32 API. In this case, the file stream will contain<br />
+      the modified metadata PROVIDED that the system has a demoter which can push<br />
+      the metadata properties into the file (not all file formats can support<br />
+      this). Sanjay's presentation for session CLI326 includes an overview of this<br />
+      mechanism.</font>
+          </p>
+        </blockquote>
+        <p dir="ltr">
+       
+   </p>
+      </body>
+      <title>WinFS Interop</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=1e211327-9227-4e72-959f-b5296e56c87c</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=1e211327-9227-4e72-959f-b5296e56c87c</link>
+      <pubDate>Mon, 10 Nov 2003 14:32:25 GMT</pubDate>
+      <description>&lt;p&gt;
+   Ken ask a &lt;a href="http://dotnetjunkies.com/weblog/kenbrubaker/posts/3398.aspx"&gt;question&lt;/a&gt;&amp;nbsp;on
+   winFS interop. From what we got from the newsgroups (you should really come and see
+   them), WinFS has two ways of copying file and metadata.
+&lt;/p&gt;
+&lt;p&gt;
+   The first way is to preserve the content by serailizing everything, the object, the
+   relations, in a big binary blob that will be deserialized when copied over winFS again
+   (used for contacts for example).
+&lt;/p&gt;
+&lt;p&gt;
+   The second way is the Type handler fetching the metadata back into the file (less
+   than optimal solution, but can be supported in most file formats by using extensibility
+   headers in jpeg, tags in MP3, etc...).
+&lt;/p&gt;
+&lt;p&gt;
+   To be absolutely accurate, a quote from Ward Beattie from MSFT:
+&lt;/p&gt;
+&lt;blockquote dir=ltr style="MARGIN-RIGHT: 0px"&gt; 
+&lt;p&gt;
+   &lt;font color=#a52a2a&gt;There are really two kinds of copy operations out of WinFS. Toby
+   is&lt;br&gt;
+   referring to the lossless export supported by the WinFS API. If the item is&lt;br&gt;
+   backed by a Win32 file (e.g. a jpeg file), then you can also copy the file&lt;br&gt;
+   stream only using the Win32 API. In this case, the file stream will contain&lt;br&gt;
+   the modified metadata PROVIDED that the system has a demoter which can push&lt;br&gt;
+   the metadata properties into the file (not all file formats can support&lt;br&gt;
+   this). Sanjay's presentation for session CLI326 includes an overview of this&lt;br&gt;
+   mechanism.&lt;/font&gt;
+&lt;/p&gt;
+&lt;/blockquote&gt; 
+&lt;p dir=ltr&gt;
+   &amp;nbsp;
+&lt;/p&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=1e211327-9227-4e72-959f-b5296e56c87c</comments>
+      <category>Longhorn</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=ce0a2a48-b2f6-4974-a3ee-f243d6e1e364</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=ce0a2a48-b2f6-4974-a3ee-f243d6e1e364</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=ce0a2a48-b2f6-4974-a3ee-f243d6e1e364</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=ce0a2a48-b2f6-4974-a3ee-f243d6e1e364</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+      Richard <a href="http://www.tallent.us/PermaLink.aspx?guid=153acbd9-1dbf-4e87-8a4f-d08c46e4db79 ">answers </a>to
+      my <a href="http://www.tallent.us/CommentView.aspx?guid=3678ccf3-b97e-448a-a37b-165aae89bc16">comment</a> to
+      his web site about the IDE of the future, and more specifically the XAML way of coding.
+   </p>
+        <p>
+      Richard has a great overview of mixing different languages in the IDE, letting you
+      write your code using "sections" which could be written in c#, vb, regex, uml or whatever,
+      as integrated snippets. While I do agree developers, as we move forward, need to know
+      a wide range of languages (C#, regular expressions, UML, XSD, XPath and XQuery, SQL,
+      etc), and that encapsulating cross technologies in strings is inherently a bad thing,
+      i strongly believe that code separation is the only way to achieve it reasonably.
+      Just imagine the problems involved in having a graphics designer embed in code.
+   </p>
+        <p>
+      Building on the principle I talked about in my comment, each language has a specific
+      Role. XAML is used as a descriptive language to initialize object graphs, Regex is
+      used specifically for text processing, etc. The current IDEs don't deliver on this
+      integration.
+   </p>
+        <p>
+      Yes you should be able to have one file written in c#, the other in vb, and the third
+      being a dtq file providing a GUI on an SQL query. And all these should be able to
+      reference and use each others inside the same project.
+   </p>
+        <p>
+      Richard says <em>"ASP.NET with a code-behind VB file with a bunch of business logic
+      is every bit as messy and wrong as one of those old VB6 projects we've all probably
+      had to deal with.",</em> but also says <em>"Why not just have a richer IDE document
+      window that can take on all of the code that code into a class and view each piece
+      in the ways that make sense to the programmer?".</em> (Anyone interested in the discussion
+      is strongly advised to go and read the entry I'm talking about, you need to get the
+      whole picture to rely on my quotes).
+   </p>
+        <p>
+      Now, what is different between the two approaches? My opinion on the matter is that
+      they both end up in clutter. If I start writing my code using T-SQL, XQuery, C# and
+      Perl.net code in the same file, using different views in the same document interface,
+      I end up leaving a legacy the next developer might not be able to deal with. The reality
+      is that, although in my team I'm very proficient in all of these languages, most of
+      my colleagues deal with half of it. As a team, they can manage and rely on each others
+      if I leave the code to them. The reality is that as much as each of these languages
+      are very efficient for one <em>domain</em>, most developers can't handle all of these
+      languages.
+   </p>
+        <p>
+      The last part of the discussion is the most interesting IMO. Richard talks about a
+      visual designer being an <em>Interface</em> to a language, and the code view being
+      another. I can't agree more. But I can't agree on the systematic comparison with winforms,
+      which are an anomaly of the IDE. The visual designer tries to spit code and tries
+      to rely on it when showing the designer. This is the wrong approach, because you tightly
+      couple the designer with the underlying code being generated, which can change. Layer
+      separation is not the problem here, Domain separation is. The real <strong>mistake</strong> is
+      trying to add these interfaces on languages that can't cope with it. Forms generated
+      code is akward, unmaintainable, requires the specific designer to work with, and can
+      be broken badly. Typed Datasets are the exact same problem, because you rely on code
+      being generated from one language which, in itself, is sufficient, to a language which
+      is not domain specific to your concern. writing an XSD in C# is absurd and you should
+      not rely on it. dtq files are the right way to go, if only they were actually usable
+      from your code project, which is not the case today.
+   </p>
+        <p>
+      Forms have a few interesting properties. First, there's a layout and a style. XAML
+      provides for a clean separation of concerns, by providing a view on these aspects
+      of the design. This let a graphical designer modify the layout, style, etc, without
+      risking changing code. He can then work more efficiently with the developer, as he's
+      not tied to code generation. Integrating vectors in a form, 3d animations, can all
+      be done without the developer investing too much of it's time making sure the designer
+      doesn't break anything. This is the principle of domain separation.
+   </p>
+        <p>
+      If you work a bit on the MVC patterns, especially things like the User Interface Process
+      Application Block, you will see an approach where the form, the XAML document you
+      are talking about, have properties and methods that deal with layout. They also have
+      methods that deal with navigations, and to follow the domain separation mantra, we
+      use a controller to know which intelligence to do with what the form came with. These
+      controllers are the ones being notified of something to be done, and can do it efficiently.
+   </p>
+        <p>
+      MVC is a pattern that is not widely used in .net, much more in Java. If used <strong>intelligently</strong>,
+      you can get a lot from it, increasing code maintainability, separation of concerns,
+      and team work. XAML adds a new separation because there's a need: The typical developer
+      can't deal with providing fancy graphics and vectors. That's the sad sad reality,
+      I'm bad at including any grpahics element to an app, that's why I rely on a designer.
+      XAML provides for a separation in the view between the declarative layout, the layout
+      interaction which can be implemented in code behind. Add MVC and you have a great
+      way to work as a team.
+   </p>
+      </body>
+      <title>The IDE of the future, the discussion continues</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=ce0a2a48-b2f6-4974-a3ee-f243d6e1e364</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=ce0a2a48-b2f6-4974-a3ee-f243d6e1e364</link>
+      <pubDate>Sun, 09 Nov 2003 13:48:10 GMT</pubDate>
+      <description>&lt;p&gt;
+   Richard &lt;a href="http://www.tallent.us/PermaLink.aspx?guid=153acbd9-1dbf-4e87-8a4f-d08c46e4db79 "&gt;answers &lt;/a&gt;to
+   my &lt;a href="http://www.tallent.us/CommentView.aspx?guid=3678ccf3-b97e-448a-a37b-165aae89bc16"&gt;comment&lt;/a&gt; to
+   his web site about the IDE of the future, and more specifically the XAML way of coding.
+&lt;/p&gt;
+&lt;p&gt;
+   Richard has a great overview of mixing different languages in the IDE, letting you
+   write your code using "sections" which could be written in c#, vb, regex, uml or whatever,
+   as integrated snippets. While I do agree developers, as we move forward, need to know
+   a wide range of languages (C#, regular expressions, UML, XSD, XPath and XQuery, SQL,
+   etc), and that encapsulating cross technologies in strings is inherently a bad thing,
+   i strongly believe that code separation is the only way to achieve it reasonably.
+   Just imagine the problems involved in having a graphics designer embed in code.
+&lt;/p&gt;
+&lt;p&gt;
+   Building on the principle I talked about in my comment, each language has a specific
+   Role. XAML is used as a descriptive language to initialize object graphs, Regex is
+   used specifically for text processing, etc. The current IDEs don't deliver on this
+   integration.
+&lt;/p&gt;
+&lt;p&gt;
+   Yes you should be able to have one file written in c#, the other in vb, and the third
+   being a dtq file providing a GUI on an SQL query. And all these should be able to
+   reference and use each others inside the same project.
+&lt;/p&gt;
+&lt;p&gt;
+   Richard says &lt;em&gt;"ASP.NET with a code-behind VB file with a bunch of business logic
+   is every bit as messy and wrong as one of those old VB6 projects we've all probably
+   had to deal with.",&lt;/em&gt; but also says &lt;em&gt;"Why not just have a richer IDE document
+   window that can take on all of the code that code into a class and view each piece
+   in the ways that make sense to the programmer?".&lt;/em&gt; (Anyone interested in the discussion
+   is strongly advised to go and read the entry I'm talking about, you need to get the
+   whole picture to rely on my quotes).
+&lt;/p&gt;
+&lt;p&gt;
+   Now, what is different between the two approaches? My opinion on the matter is that
+   they both end up in clutter. If I start writing my code using T-SQL, XQuery, C# and
+   Perl.net code in the same file, using different views in the same document interface,
+   I end up leaving a legacy the next developer might not be able to deal with. The reality
+   is that, although in my team I'm very proficient in all of these languages, most of
+   my colleagues deal with half of it. As a team, they can manage and rely on each others
+   if I leave the code to them. The reality is that as much as each of these languages
+   are very efficient for one &lt;em&gt;domain&lt;/em&gt;, most developers can't handle all of these
+   languages.
+&lt;/p&gt;
+&lt;p&gt;
+   The last part of the discussion is the most interesting IMO. Richard talks about a
+   visual designer being an &lt;em&gt;Interface&lt;/em&gt; to a language, and the code view being
+   another. I can't agree more. But I can't agree on the systematic comparison with winforms,
+   which are an anomaly of the IDE. The visual designer tries to spit code and tries
+   to rely on it when showing the designer. This is the wrong approach, because you tightly
+   couple the designer with the underlying code being generated, which can change. Layer
+   separation is not the problem here, Domain separation is. The real &lt;strong&gt;mistake&lt;/strong&gt; is
+   trying to add these interfaces on languages that can't cope with it. Forms generated
+   code is akward, unmaintainable, requires the specific designer to work with, and can
+   be broken badly. Typed Datasets are the exact same problem, because you rely on code
+   being generated from one language which, in itself, is sufficient, to a language which
+   is not domain specific to your concern. writing an XSD in C# is absurd and you should
+   not rely on it. dtq files are the right way to go, if only they were actually usable
+   from your code project, which is not the case today.
+&lt;/p&gt;
+&lt;p&gt;
+   Forms have a few interesting properties. First, there's a layout and a style. XAML
+   provides for a clean separation of concerns, by providing a view on these aspects
+   of the design. This let a graphical designer modify the layout, style, etc, without
+   risking changing code. He can then work more efficiently with the developer, as he's
+   not tied to code generation. Integrating vectors in a form, 3d animations, can all
+   be done without the developer investing too much of it's time making sure the designer
+   doesn't break anything. This is the principle of domain separation.
+&lt;/p&gt;
+&lt;p&gt;
+   If you work a bit on the MVC patterns, especially things like the User Interface Process
+   Application Block, you will see an approach where the form, the XAML document you
+   are talking about, have properties and methods that deal with layout. They also have
+   methods that deal with navigations, and to follow the domain separation mantra, we
+   use a controller to know which intelligence to do with what the form came with. These
+   controllers are the ones being notified of something to be done, and can do it efficiently.
+&lt;/p&gt;
+&lt;p&gt;
+   MVC is a pattern that is not widely used in .net, much more in Java. If used &lt;strong&gt;intelligently&lt;/strong&gt;,
+   you can get a lot from it, increasing code maintainability, separation of concerns,
+   and team work. XAML adds a new separation because there's a need: The typical developer
+   can't deal with providing fancy graphics and vectors. That's the sad sad reality,
+   I'm bad at including any grpahics element to an app, that's why I rely on a designer.
+   XAML provides for a separation in the view between the declarative layout, the layout
+   interaction which can be implemented in code behind. Add MVC and you have a great
+   way to work as a team.
+&lt;/p&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=ce0a2a48-b2f6-4974-a3ee-f243d6e1e364</comments>
+      <category>Development</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=a4d1340c-4f2f-47c8-bc00-3d2483d511e4</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=a4d1340c-4f2f-47c8-bc00-3d2483d511e4</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=a4d1340c-4f2f-47c8-bc00-3d2483d511e4</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=a4d1340c-4f2f-47c8-bc00-3d2483d511e4</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+      Just wanted to say hi to the few people who subscribed to this blog from RSS Bandit,
+      and from the few mac addicts that say hello through Safari. Gecko is also there. Hi
+      everybody, if you come by London, leave me a message!
+   </p>
+      </body>
+      <title>Welcome to my new readers</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=a4d1340c-4f2f-47c8-bc00-3d2483d511e4</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=a4d1340c-4f2f-47c8-bc00-3d2483d511e4</link>
+      <pubDate>Sat, 08 Nov 2003 20:41:14 GMT</pubDate>
+      <description>&lt;p&gt;
+   Just wanted to say hi to the few people who subscribed to this blog from RSS Bandit,
+   and from the few mac addicts that say hello through Safari. Gecko is also there. Hi
+   everybody, if you come by London, leave me a message!
+&lt;/p&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=a4d1340c-4f2f-47c8-bc00-3d2483d511e4</comments>
+      <category>Blogging</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=1ca1fefb-bab3-46f3-b196-801661b4a2fe</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=1ca1fefb-bab3-46f3-b196-801661b4a2fe</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=1ca1fefb-bab3-46f3-b196-801661b4a2fe</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=1ca1fefb-bab3-46f3-b196-801661b4a2fe</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+      Today was the big installation day. I didn't want to suffer the performance problems
+      of running Longhorn under a virtual PC or a VMware installation, so I started by repartitionning
+      my main hard drive using the fabulous Partition Magic 8 (<a href="http://www.powerquest.com">http://www.powerquest.com</a>),
+      and gave Longhorn a nice 20 gigs to play around. I can as such use the full power
+      of my GeForce 4 and my Athlon. Went smoothly, Partition magic reboots the computer
+      and create the second primary partition. So far so good.
+   </p>
+        <p>
+      The next step is pretty easy: from my original windowsXP OS, launch the install. No
+      bootable CD, no iso files to play around with. Copy the files in a folder on Windows,
+      and start the setup.exe from there.
+   </p>
+        <p>
+      A few comments on these early steps:
+   </p>
+        <ol>
+          <li>
+         The graphics of the installer are... Messy at best. Really wierd. 
+      </li>
+          <li>
+         There's a bug in the installation where, if you try to run it from a path with spaces
+         in its name, it won't start. 
+      </li>
+          <li>
+         There's no choice on start up for the keyboard language; That's a bit annoying.</li>
+        </ol>
+        <p>
+      Other than that, the install starts, and reboot 3 or 4 times. Not a long waiting,
+      and when I got back from dinner (I must say I was a bit afraid from what I read in
+      the blogs) the computer was ready.
+   </p>
+        <p>
+      A few things are annoying, upon the first reboot, the gradiant filling of the
+      setup is really messy, it doesn't look good. But on a bright side, both of my screens
+      were recognized.
+   </p>
+        <p>
+      Now my first complaint. It's been what, a few years since flat panels and svga cards
+      are available. Microsoft, this is for you. Get us a loader with hi res graphics; Get
+      us rich medias on startup; And RECOGNIZE the resolution supported by screens and video
+      cards. Can't be that hard! And that's something I'm really missing from BeOS!
+   </p>
+        <p>
+      I can confirm what scoble said; HTML still works, and I'm editing my blog for Longhorn
+      for the first time.
+   </p>
+      </body>
+      <title>First installation</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=1ca1fefb-bab3-46f3-b196-801661b4a2fe</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=1ca1fefb-bab3-46f3-b196-801661b4a2fe</link>
+      <pubDate>Sat, 08 Nov 2003 20:39:27 GMT</pubDate>
+      <description>&lt;p&gt;
+   Today was the big installation day. I didn't want to suffer the performance problems
+   of running Longhorn under a virtual PC or a VMware installation, so I started by repartitionning
+   my main hard drive using the fabulous Partition Magic 8 (&lt;a href="http://www.powerquest.com"&gt;http://www.powerquest.com&lt;/a&gt;),
+   and gave Longhorn a nice 20 gigs to play around. I can as such use the full power
+   of my GeForce&amp;nbsp;4 and my Athlon. Went smoothly, Partition magic reboots the computer
+   and create the second primary partition. So far so good.
+&lt;/p&gt;
+&lt;p&gt;
+   The next step is pretty easy: from my original windowsXP OS, launch the install. No
+   bootable CD, no iso files to play around with. Copy the files in a folder on Windows,
+   and start the setup.exe from there.
+&lt;/p&gt;
+&lt;p&gt;
+   A few comments on these early steps:
+&lt;/p&gt;
+&lt;ol&gt;
+   &lt;li&gt;
+      The graphics of the installer are... Messy at best. Really wierd. 
+   &lt;li&gt;
+      There's a bug in the installation where, if you try to run it from a path with spaces
+      in its name, it won't start. 
+   &lt;li&gt;
+      There's no choice on start up for the keyboard language; That's a bit annoying.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+   Other than that, the install starts, and reboot 3 or 4 times. Not a long waiting,
+   and when I got back from dinner (I must say I was a bit afraid from what I read in
+   the blogs) the computer&amp;nbsp;was ready.
+&lt;/p&gt;
+&lt;p&gt;
+   A few things are annoying, upon the first reboot, the gradiant filling&amp;nbsp;of the
+   setup is really messy, it doesn't look good. But on a bright side, both of my screens
+   were recognized.
+&lt;/p&gt;
+&lt;p&gt;
+   Now my first complaint. It's been what, a few years since flat panels and svga cards
+   are available. Microsoft, this is for you. Get us a loader with hi res graphics; Get
+   us rich medias on startup; And RECOGNIZE the resolution supported by screens and video
+   cards. Can't be that hard! And that's something I'm really missing from BeOS!
+&lt;/p&gt;
+&lt;p&gt;
+   I can confirm what scoble said; HTML still works, and I'm editing my blog for Longhorn
+   for the first time.
+&lt;/p&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=1ca1fefb-bab3-46f3-b196-801661b4a2fe</comments>
+      <category>Longhorn</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=a4ae1981-9dc3-4d60-aea0-ce000e262e1d</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=a4ae1981-9dc3-4d60-aea0-ce000e262e1d</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=a4ae1981-9dc3-4d60-aea0-ce000e262e1d</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=a4ae1981-9dc3-4d60-aea0-ce000e262e1d</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <p align="LEFT">
+          <font color="#000080" size="2" face="Arial">Well, had to post that one</font>
+          <font color="#000080" size="2" face="Arial">...</font>
+        </p>
+        <p align="LEFT">
+          <font color="#000080" size="2" face="Arial">Well, maybe would be a good time to install
+      Unreal on all of our computers!</font>
+          <font color="#000080" size="2" face="Arial">(Dunno
+      what the CEO would think about that).</font>
+        </p>
+        <p align="LEFT">
+          <font size="2" face="Tahoma">
+            <br />
+          </font>
+          <b>
+          </b>
+          <b>
+            <font size="2" face="Tahoma">From:</font>
+          </b>
+          <font size="2" face="Tahoma"> Alex</font>
+          <font size="2" face="Tahoma">XXXXX</font>
+          <br />
+          <b>
+          </b>
+          <b>
+            <font size="2" face="Tahoma">Subject:</font>
+          </b>
+          <font size="2" face="Tahoma"> Important
+      news from the BBC</font>
+        </p>
+        <p align="LEFT">
+          <a href="http://news.bbc.co.uk/1/hi/technology/3247595.stm">
+            <u>
+              <font color="#0000FF" size="2" face="Arial">http://news.bbc.co.uk/1/hi/technology/3247595.stm</font>
+            </u>
+          </a>
+        </p>
+      </body>
+      <title>Important news from the BBC</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=a4ae1981-9dc3-4d60-aea0-ce000e262e1d</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=a4ae1981-9dc3-4d60-aea0-ce000e262e1d</link>
+      <pubDate>Fri, 07 Nov 2003 10:52:18 GMT</pubDate>
+      <description>
+
+&lt;p align=LEFT&gt;
+   &lt;font color="#000080" size=2 face="Arial"&gt;Well, had to post that one&lt;/font&gt;&lt;font color="#000080" size=2 face="Arial"&gt;...&lt;/font&gt;
+&lt;/p&gt;
+&lt;p align=LEFT&gt;
+   &lt;font color="#000080" size=2 face="Arial"&gt;Well, maybe would be a good time to install
+   Unreal on all of our computers!&lt;/font&gt; &lt;font color="#000080" size=2 face="Arial"&gt;(Dunno
+   what the CEO would think about that).&lt;/font&gt;
+&lt;/p&gt;
+&lt;p align=LEFT&gt;
+   &lt;font size=2 face="Tahoma"&gt; 
+   &lt;br&gt;
+   &lt;/font&gt;&lt;b&gt;&lt;/b&gt;&lt;b&gt;&lt;font size=2 face="Tahoma"&gt;From:&lt;/font&gt;&lt;/b&gt;&lt;font size=2 face="Tahoma"&gt; Alex&lt;/font&gt; &lt;font size=2 face="Tahoma"&gt;XXXXX&lt;/font&gt;
+   &lt;br&gt;
+   &lt;b&gt;&lt;/b&gt;&lt;b&gt;&lt;font size=2 face="Tahoma"&gt;Subject:&lt;/font&gt;&lt;/b&gt;&lt;font size=2 face="Tahoma"&gt; Important
+   news from the BBC&lt;/font&gt;
+&lt;/p&gt;
+&lt;p align=LEFT&gt;
+   &lt;a href="http://news.bbc.co.uk/1/hi/technology/3247595.stm"&gt;&lt;u&gt;&lt;font color="#0000FF" size=2 face="Arial"&gt;http://news.bbc.co.uk/1/hi/technology/3247595.stm&lt;/font&gt;&lt;/u&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=a4ae1981-9dc3-4d60-aea0-ce000e262e1d</comments>
+      <category>Out of band</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=f89746c1-3df2-4753-8684-929a0fcf5308</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=f89746c1-3df2-4753-8684-929a0fcf5308</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=f89746c1-3df2-4753-8684-929a0fcf5308</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=f89746c1-3df2-4753-8684-929a0fcf5308</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+      Christian Weyer gives us a very handy tool to experiment with the concept of contract
+      first web services.
+   </p>
+        <p>
+      For those of you not yet hooked up on the latest WS - SOA trends, we are moving to
+      the idea of a contract being an agreement between endpoints to establish a communication.
+      Instead of saying:
+   </p>
+        <ul>
+          <li>
+         We've been raised in the same school (Type), so we can communciate</li>
+        </ul>
+        <p>
+      We now say:
+   </p>
+        <ul>
+          <li>
+         We speak the same language (Contract), so we can communicate.</li>
+        </ul>
+        <p>
+      The shift is important for interop, and can resolve partly the biggest problems with
+      versioning and other advanced problems. It's not a perfect solution, but it's a good
+      step.
+   </p>
+        <p>
+      Indigo supports this idea, but this add-in gives you a way to create your contract
+      first, and to get the code after. This is important because, in the SOA model, Object
+      Oriented methodologies are only use within the boundaries of your service, which you
+      can access from the outside world only through the contract.
+   </p>
+        <p>
+      Yeah, I know, boring explanation, here is the link, enjoy.
+   </p>
+        <p>
+          <a href="http://weblogs.asp.net/cweyer/posts/35978.aspx">http://weblogs.asp.net/cweyer/posts/35978.aspx</a>
+        </p>
+      </body>
+      <title>Contract First web services, yes, that's the path to redemption</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=f89746c1-3df2-4753-8684-929a0fcf5308</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=f89746c1-3df2-4753-8684-929a0fcf5308</link>
+      <pubDate>Fri, 07 Nov 2003 09:19:21 GMT</pubDate>
+      <description>&lt;p&gt;
+   Christian Weyer gives us a very handy tool to experiment with the concept of contract
+   first web services.
+&lt;/p&gt;
+&lt;p&gt;
+   For those of you not yet hooked up on the latest WS - SOA trends, we are moving to
+   the idea of a contract being an agreement between endpoints to establish a communication.
+   Instead of saying:
+&lt;/p&gt;
+&lt;ul&gt;
+   &lt;li&gt;
+      We've been raised in the same school (Type), so we can communciate&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+   We now say:
+&lt;/p&gt;
+&lt;ul&gt;
+   &lt;li&gt;
+      We speak the same language (Contract), so we can communicate.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+   The shift is important for interop, and can resolve partly the biggest problems with
+   versioning and other advanced problems. It's not a perfect solution, but it's a good
+   step.
+&lt;/p&gt;
+&lt;p&gt;
+   Indigo supports this idea, but this add-in gives you a way to create your contract
+   first, and to get the code after. This is important because, in the SOA model, Object
+   Oriented methodologies are only use within the boundaries of your service, which you
+   can access from the outside world only through the contract.
+&lt;/p&gt;
+&lt;p&gt;
+   Yeah, I know, boring explanation, here is the link, enjoy.
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;a href="http://weblogs.asp.net/cweyer/posts/35978.aspx"&gt;http://weblogs.asp.net/cweyer/posts/35978.aspx&lt;/a&gt;
+&lt;/p&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=f89746c1-3df2-4753-8684-929a0fcf5308</comments>
+      <category>Development|SOA</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=3a21963d-bde0-4382-80f6-9f5843dc1f80</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=3a21963d-bde0-4382-80f6-9f5843dc1f80</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=3a21963d-bde0-4382-80f6-9f5843dc1f80</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=3a21963d-bde0-4382-80f6-9f5843dc1f80</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+      I just saw that in my referrers:
+   </p>
+        <p>
+          <span>FeedDemon/1.0 RC2 (http://www.bradsoft.com/feeddemon/; Microsoft Windows) </span>
+        </p>
+        <p>
+          <span>You know what that means? Yeah! One person <strong>subscribed to my blog</strong>!
+      Ok, who are you? You're entitled to a beer if you drop by London!</span>
+        </p>
+        <p>
+          <span>You know, I'm a software architect. I'm supposed to be a serious person. I'm
+      supposed to be pragmatic, analytic, etc. But there are two things that got me back
+      to dribbling on the floor and suffocating with pride, joy and excitement. The first
+      one is Longhorn, the second is my first reader. Ok, from time to time, I'm just a
+      kid. Well. Not that often. Really. (Any of the co workers which will read my blog
+      are allowed to respond nasty things in my comments!)</span>
+        </p>
+        <p>
+          <span>As a side note, small fix for the site, I guess the fact that dasBlog is not
+      recognizing what url you're currently in is a bit annoying...</span>
+        </p>
+        <p>
+          <span>I'll start today with my series on "The road to longhorn", stay tuned all of
+      you 5yeah, you 8 people!)</span>
+        </p>
+      </body>
+      <title>My first subscribed person!</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=3a21963d-bde0-4382-80f6-9f5843dc1f80</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=3a21963d-bde0-4382-80f6-9f5843dc1f80</link>
+      <pubDate>Thu, 06 Nov 2003 22:14:38 GMT</pubDate>
+      <description>&lt;p&gt;
+   I just saw that in my referrers:
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;span&gt;FeedDemon/1.0 RC2 (http://www.bradsoft.com/feeddemon/; Microsoft Windows) &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;span&gt;You know what that means? Yeah! One person &lt;strong&gt;subscribed to my blog&lt;/strong&gt;!
+   Ok, who are you? You're entitled to a beer if you drop by London!&lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;span&gt;You know, I'm a software architect. I'm supposed to be a serious person. I'm
+   supposed to be pragmatic, analytic, etc. But there are two things that got me back
+   to dribbling on the floor and suffocating with pride, joy and excitement. The first
+   one is Longhorn, the second is my first reader. Ok, from time to time, I'm just a
+   kid. Well. Not that often. Really. (Any of the co workers which will read my blog
+   are allowed to respond nasty things in my comments!)&lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;span&gt;As a side note, small fix for the site, I guess the fact that dasBlog is not
+   recognizing what url you're currently in is a bit annoying...&lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+   &lt;span&gt;I'll start today with my series on "The road to longhorn", stay tuned all of
+   you 5yeah, you 8 people!)&lt;/span&gt;
+&lt;/p&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=3a21963d-bde0-4382-80f6-9f5843dc1f80</comments>
+      <category>Blogging</category>
+    </item>
+    <item>
+      <trackback:ping>http://thetechnologist.is-a-geek.com/blog/Trackback.aspx?guid=50875ebb-9c06-484a-940c-4b9190ac7675</trackback:ping>
+      <pingback:server>http://thetechnologist.is-a-geek.com/blog/pingback.aspx</pingback:server>
+      <pingback:target>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=50875ebb-9c06-484a-940c-4b9190ac7675</pingback:target>
+      <wfw:comment>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=50875ebb-9c06-484a-940c-4b9190ac7675</wfw:comment>
+      <wfw:commentRss>http://thetechnologist.is-a-geek.com/blog/SyndicationService.asmx/GetEntryCommentsRss?guid=50875ebb-9c06-484a-940c-4b9190ac7675</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+      You know how it is, you start writing a huge entry, then midlessly click and bam,
+      you loose your blog entry. How <strong>frustrating</strong>. One more reason to drop
+      the browser completely and shift to a new <u><font color="#ff0000">paradigm</font></u>.
+   </p>
+        <p>
+      In the meantime, you'll have to wait till tonight for me to post anything interesting
+      :)
+   </p>
+        <p>
+      Oh, yeah, don't consider that to be my first post, just my post 0. (I live in a c#
+      woooooooorld).
+   </p>
+      </body>
+      <title>Lost first post</title>
+      <guid>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=50875ebb-9c06-484a-940c-4b9190ac7675</guid>
+      <link>http://thetechnologist.is-a-geek.com/blog/PermaLink.aspx?guid=50875ebb-9c06-484a-940c-4b9190ac7675</link>
+      <pubDate>Thu, 06 Nov 2003 17:12:40 GMT</pubDate>
+      <description>&lt;p&gt;
+   You know how it is, you start writing a huge entry, then midlessly click and bam,
+   you loose your blog entry. How &lt;strong&gt;frustrating&lt;/strong&gt;. One more reason to drop
+   the browser completely and shift to a new &lt;u&gt;&lt;font color=#ff0000&gt;paradigm&lt;/font&gt;&lt;/u&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+   In the meantime, you'll have to wait till tonight for me to post anything interesting
+   :)
+&lt;/p&gt;
+&lt;p&gt;
+   Oh, yeah, don't consider that to be my first post, just my post 0. (I live in a c#
+   woooooooorld).
+&lt;/p&gt;</description>
+      <comments>http://thetechnologist.is-a-geek.com/blog/CommentView.aspx?guid=50875ebb-9c06-484a-940c-4b9190ac7675</comments>
+    </item>
+  </channel>
+</rss>

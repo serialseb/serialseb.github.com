@@ -1,0 +1,15 @@
+---
+layout: post
+title: TFS and offline mode
+date: '2006-12-13T17:23:00.001Z'
+author: Sebastien Lambla
+tags: 
+modified_time: '2006-12-13T17:35:09.869Z'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-7589571197538794436
+blogger_orig_url: http://serialseb.blogspot.com/2006/12/tfs-and-offline-mode.html
+---
+
+<p>Ah the joy of using TFS. Don't get me wrong, the server looks like a well architected and well thought source server. No, my real problem is the client.</p> <p>First, I hate Visual Studio trying to manage my source control. I hated it when SourceSafe was around, hated it with SourceGear Vault, and was very happy no real solution existed to get some manager to decide it was a good idea when I was using Perforce, cvs or svn.</p> <p>Second, why in the name of god should I check-out a file to work on it? It has no rationale whatsoever. My colleagues ask me to check-in files I've checked-out, but what for? People end up being anal about a check-out that has no value whatsoever. I believe I should be in control with no pressure from anyone to check-in my file after I merge it with whatever changes have been made since the last time I got the last version. And I also believe it's my responsibility and my responsibility alone to ensure I merge my code. Don't take away my freedom!</p> <p>Third, how could they forget most developers don't have access to their source server all the time? Maybe it's an independent developer thing, but in the evening I like modifying code here and there... And I can't! Because each modify end up in visual studio asking me to check-out the file... Argh!</p> <p>Not all is lost though. It would seem that some people at Microsoft thought of us when they released the <a href="http://blogs.msdn.com/buckh/archive/2005/11/16/493401.aspx">Team Foundation PowerToys</a>. Once you've installed it and added it to your path, you can do the lovely, and oh so sweet:</p><pre>C:\mysrc&gt; tfpt online</pre>
+<p>And off you go. This little gem will compare all your files and let you know which ones are different from the server, letting you queue the changes for the next time you reconnect to the server. Of course the attrib -r is your responsibility, but it's a small price to pay.</p>
+<p>Also very useful for people that wants to know which files they've actually modified when they check-out a whole solution or project before going home, the <strong>uu</strong> command works the same way as the Cancel check-out for unmodified files (or similar name) that the perforce client has. Sweet.</p>
+<p>Now when will we be able to remove this check-out absurdity all together and go back to the more natural modify - get latest - merge - commit ? Oh and a powershell version of the tool would be fabulous...</p>

@@ -1,0 +1,151 @@
+---
+layout: post
+title: Adding OpenWrap to an existing project (Part 1)
+date: '2010-08-02T01:56:00.001+01:00'
+author: Sebastien Lambla
+tags: 
+modified_time: '2010-08-02T01:56:33.149+01:00'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-6748346792590662215
+blogger_orig_url: http://serialseb.blogspot.com/2010/08/adding-openwrap-to-existing-project.html
+---
+
+<p>I’m continuing writing up teaser posts on how to use OpenWrap. Building a new office has taken away my Sunday, so the server is still not up, and the code unfinished. A few more days and we’ll be there.</p>  <p>In the meantime, assuming you have OpenWrap installed, here’s how to convert an existing asp.net site (here an OpenRasta site running on top of asp.net) to OpenWrap.</p>  <h4>From a default project…</h4>  <p>Here’s the layout of my project.</p>  <pre style="background-color: rgb(1,36,86); color: white"><b>PS C:\src\caff\git\openwrap-server&gt;</b><i> tree</i>
+Folder PATH listing for volume BOOTCAMP
+Volume serial number is 60DA-D801
+C:.
+└───src
+    └───OpenWrap.Server
+        ├───App_Data
+        ├───Handlers
+        ├───Properties
+        ├───Resources
+        └───Views</pre>
+
+<p>First step is to add a wrap descriptor file and a version file that will be used to build the package.</p>
+
+<pre style="background-color: rgb(1,36,86); color: white"><b>PS C:\src\caff\git\openwrap-server&gt;</b><i> &quot;Description: an openwrap server implementation based on OpenRasta.&quot; | ac openwrap-server.wrapdesc</i>
+<b>PS C:\src\caff\git\openwrap-server&gt;</b><i> &quot;1.0.0&quot; | ac version</i></pre>
+
+<p>And finally, we want to create a project repository in which openwrap packages will be stored so OpenWrap can know where to put those. We can do this by creating a wraps folder. </p>
+
+<pre style="background-color: rgb(1,36,86); color: white"><b>PS C:\src\caff\git\openwrap-server&gt;</b><i> md wraps | out-null; tree</i>
+Folder PATH listing for volume BOOTCAMP
+Volume serial number is 60DA-D801
+C:.
+├───src
+│   └───OpenWrap.Server
+│       ├───App_Data
+│       ├───Handlers
+│       ├───Properties
+│       ├───Resources
+│       └───Views
+└───wraps</pre>
+
+<h4>Adding OpenWrap to the project</h4>
+
+<p>Time to add OpenWrap to our project, which will add the necessary instruction to our wrap descriptor and all needed files.</p>
+
+<pre style="background-color: rgb(1,36,86); color: white"><b>PS C:\src\caff\git\openwrap-server&gt;</b><i> o add-wrap openwrap</i>
+# OpenWrap v1.0.0.0 ['C:\Users\sebastien.lambla\AppData\Local\OpenWrap\wraps\_cache\openwrap-1.0.0.13979169']
+No wrap descriptor found, installing locally.
+Project repository found.
+Dependency added to descriptor.
+Copying 'openwrap-1.0.0.13979169' to 'Project repository'
+Expanding packages to cache...
+<b>PS C:\src\caff\git\openwrap-server&gt;</b><i> tree</i>
+Folder PATH listing for volume BOOTCAMP
+Volume serial number is 60DA-D801
+C:.
+├───src
+│   └───OpenWrap.Server
+│       ├───App_Data
+│       ├───Handlers
+│       ├───Properties
+│       ├───Resources
+│       └───Views
+└───wraps
+    ├───openwrap
+    │   ├───bin-net35
+    │   ├───build
+    │   └───commands
+    └───_cache
+        └───openwrap-1.0.0.13979169
+            ├───bin-net35
+            ├───build
+            └───commands</pre>
+
+<p>Couple of interesting notes. First, you can see that the o.exe tool redirects all calls to the last version of the OpenWrap pacakge on the system. </p>
+
+<p>Secondly, the wrap decriptor now contains the line <em>depends: openwrap</em>. </p>
+
+<h4>A folder structure…</h4>
+
+<p>Let’s examine what files are actually in this wraps folder that now exists:</p>
+
+<p>&#160;</p>
+
+<pre style="background-color: rgb(1,36,86); color: white">└───wraps
+    │   openwrap-1.0.0.13979169.wrap
+    │
+    ├───openwrap
+    │   │   openwrap-1.0.0.13979169.wrapdesc
+    │   │   version
+    │   │
+    │   ├───bin-net35
+    │   │       ICSharpCode.SharpZipLib.dll
+    │   │       OpenFileSystem.dll
+    │   │       OpenRasta.Client.dll
+    │   │       OpenWrap.dll
+    │   │
+    │   ├───build
+    │   │       OpenWrap.Build.Tasks.dll
+    │   │       OpenWrap.CSharp.targets
+    │   │       OpenWrap.Resharper.dll
+    │   │       OpenWrap.tasks
+    │   │
+    │   └───commands
+    │           OpenWrap.Commands.dll
+    │
+    └───_cache
+        └───openwrap-1.0.0.13979169
+            │   openwrap-1.0.0.13979169.wrapdesc
+            │   version
+            │
+            ├───bin-net35
+            │       ICSharpCode.SharpZipLib.dll
+            │       OpenFileSystem.dll
+            │       OpenRasta.Client.dll
+            │       OpenWrap.dll
+            │
+            ├───build
+            │       OpenWrap.Build.Tasks.dll
+            │       OpenWrap.CSharp.targets
+            │       OpenWrap.Resharper.dll
+            │       OpenWrap.tasks
+            │
+            └───commands
+                    OpenWrap.Commands.dll</pre>
+
+<p>There are a couple of interesting things happening. First, the wrap package itself got copied over in the wraps folder. The goal here is for you to always commit those dependencies as part of your project in source-control. Second, you’ll notice that the content of this file is uncompressed in the _cache folder. This one should always be part of your ignores, as you really don’t want to be committing the zip file *and* the content.</p>
+
+<p>Finally,you’ll notice there’s also an <em>openwrap</em> folder that has the same content as the _cache/openwrap-1.0.0.13979169 folder. Lets look more closely. </p>
+
+<pre style="background-color: rgb(1,36,86); color: white"><b>PS C:\src\caff\git\openwrap-server&gt;</b><i> ls wraps</i>
+
+Mode           LastWriteTime       Length Name
+----           -------------       ------ ----
+d----    02/08/2010    01:23   &lt;JUNCTION&gt; openwrap [C:\src\caff\git\openwrap-server\wraps\_cache\openwrap-1.0.0.13979169]</pre>
+
+<p>Indeed, this folder is not a real folder but a junction to the latest version. This linking is only done for pacakges that are <strong>anchored</strong>. So why do we have this?</p>
+
+<p>In an ideal world, everything would use OpenWrap for finding stuff, and the latest version for a project would always be selected. But we live in a world full of dragons and daemons that require a bit more of a stable path. As OpenWrap hooks in MSBuild (we’ll see how in the next post), it’s important that the msbuild files are in a reasonably stable location. It’s also important that OpenWrap is available the first time you checkout your files, so a build can happen instantly.</p>
+
+<h4>Folder structure</h4>
+
+<p>You may notice that packages contain multiple folders (which are called an export in OpenWrap). The bin-Xxx are the ones in which assemblies needed for referencing in a project are contained. Each .net framework profile has its own identifiers, and the resolution algorithm uses those identifiers to decide what assembly to load. If you’re on .net 3.5, the probing will go <em>bin-net35, bin-net30, </em>and <em>bin-net20</em>, and will fail when it cannot resolve assemblies.</p>
+
+<p>There are a couple more exports in the package: commands contain all the commands you can execute from the command-line (or from any host that can execute those commands, currently only the command line), and build contains all msbuild-related extensibility points (which I really hope to manage to import automatically further down the road).</p>
+
+<h4>Conclusion</h4>
+
+<p>So, there you have it, in a few seconds we installed OpenWrap in the solution. Next up, we’ll hook-up our project by changing a line in an MSBuild file.</p>  

@@ -1,0 +1,25 @@
+---
+layout: post
+title: Interfaces with static methods, reducing the cost of extensibility
+date: '2009-06-09T11:37:00.001+01:00'
+author: Sebastien Lambla
+tags: 
+modified_time: '2009-06-09T11:37:30.003+01:00'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-779394532368560287
+blogger_orig_url: http://serialseb.blogspot.com/2009/06/interfaces-with-static-methods-reducing.html
+---
+
+<p>Someone last week mentioned that Java was now getting static methods defined on interfaces. We’ve had that capacity, through extension methods, since C#3, and is one pattern I keep on reusing.</p>  <p>An interface, at core, is a contract of extensibility between me and other developers: Implement method <em>Bla()</em> and I promise you will be called whenever that stuff is needed. The problem with such an approach is that some functionality is repetitive and makes implementing the interface more complicated.</p>  <p>Let’s take the example of an interface that’s part of <a href="http://www.openrasta.com">OpenRasta</a>…</p>  <div style="border-bottom: silver 1px solid; text-align: left; border-left: silver 1px solid; padding-bottom: 4px; line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; padding-left: 4px; width: 97.5%; padding-right: 4px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; direction: ltr; max-height: 200px; font-size: 8pt; overflow: auto; border-top: silver 1px solid; cursor: text; border-right: silver 1px solid; padding-top: 4px" id="codeSnippetWrapper">   <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px" id="codeSnippet"><span style="color: #0000ff">public</span> <span style="color: #0000ff">interface</span> IDependencyResolver<br />{<br />    T Resolve&lt;T&gt;();<br />    <span style="color: #0000ff">object</span> Resolve(Type serviceType);<br />}</pre>
+
+  <br /></div>
+
+<p>Because both generic and non-generic methods are needed by the consumer, your initial reaction is to impose the implementation burden on the person implementing the interface.</p>
+
+<p>Using static methods, we can take all that work away, and provide overloads and added funcitonality on any implementation of an interface. And it’s as simple as doing the following.</p>
+
+<div style="border-bottom: silver 1px solid; text-align: left; border-left: silver 1px solid; padding-bottom: 4px; line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; padding-left: 4px; width: 97.5%; padding-right: 4px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; direction: ltr; max-height: 200px; font-size: 8pt; overflow: auto; border-top: silver 1px solid; cursor: text; border-right: silver 1px solid; padding-top: 4px" id="codeSnippetWrapper">
+  <pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: consolas, &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px" id="codeSnippet"><span style="color: #0000ff">public</span> <span style="color: #0000ff">interface</span> IDependencyResolver<br />{<br />    <span style="color: #0000ff">object</span> Resolve(Type serviceType);<br />}<br /><span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> <span style="color: #0000ff">class</span> DependencyResolverExtensions<br />{<br />    <span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> T Resolve&lt;T&gt;(<span style="color: #0000ff">this</span> IDependencyResolver resolver)<br />    {<br />        <span style="color: #0000ff">return</span> (T)resolver.Resolve(<span style="color: #0000ff">typeof</span>(T));<br />    }<br />}</pre>
+
+  <br /></div>
+
+<p>I now do most of the work, and the people wanting to implement the interface only have one method to implement. And everyone is happier.</p>  

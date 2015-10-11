@@ -1,0 +1,13 @@
+---
+layout: post
+title: xsd.exe passed away, svcutil.exe is the way to go
+date: '2007-06-18T11:18:00.001+01:00'
+author: Sebastien Lambla
+tags:
+- WCF
+modified_time: '2007-06-18T11:18:11.097+01:00'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-7794576109943113176
+blogger_orig_url: http://serialseb.blogspot.com/2007/06/xsdexe-passed-away-svcutilexe-is-way-to.html
+---
+
+<p>I was reading Darren David's blog entry on <a href="http://blog.lookorfeel.com/index.php/2007/05/02/the-net-xml-schema-definition-tool-or-how-i-learned-to-stop-parsing-and-love-the-dom-part-1/">code generation from xsd files</a>. Sadly, he references xsd.exe that generates Xml serialization code.</p> <p>If you're using .net 3, the new kid on the block is svcutil.exe that will generate real DataContracts that will give you a smooth path to Indigo (hmmm, WCF).</p> <p>Sadly, the documentation focuses mainly on generating the client code rather than the DataContract serialization code. There is one page detailing the process: <a href="http://blog.lookorfeel.com/index.php/2007/05/02/the-net-xml-schema-definition-tool-or-how-i-learned-to-stop-parsing-and-love-the-dom-part-1/">Importing Schema to Generate Classes</a>. Choose to not generate the client and only generate data contracts from your xsd schema and you'll be done, the v3 way.</p>

@@ -1,0 +1,15 @@
+---
+layout: post
+title: So there *are* new things for WPF in 3.5
+date: '2007-07-27T14:22:00.001+01:00'
+author: Sebastien Lambla
+tags:
+- .net35
+- WPF
+- .net3
+modified_time: '2007-07-27T14:22:09.954+01:00'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-3739676311626753532
+blogger_orig_url: http://serialseb.blogspot.com/2007/07/so-there-are-new-things-for-wpf-in-35.html
+---
+
+<p>Visual Studio 2008 beta 2 has just been released, and with it an <a href="http://blogs.msdn.com/wpfsdk/archive/2007/07/26/what-s-new-in-wpf-in-the-net-fx-3-5-beta-2-release.aspx">announcement of new features and bug fixes for WPF</a>. And the best bit for me:</p> <blockquote> <p>Data binding and journaling by URI work together.</p></blockquote> <p>For the WPF application we released to National Express with Netstore, this bug hit us very hard, as we designed a whole navigation system based on passing context / data objects around while keeping navigation by URL (memory footprint being the main reason why you want to navigate by URL.) What used to happen was that any Binding associated with a dependency property that supported Journaling would not be re-established. My good friend Neil Mosafi (seems to not have a blog anymore) was the one that found the bug.</p> <p>Question for Microsoft though, is there going to be a HotFix for the issue? Some applications in the wild would definitely benefit from having a fix, rather than rely on inheriting every control and overriding each journaled dependency property manually.</p> <p>As I'm writing this entry, my mind wanders and hope that one day WPF applications will work more like&nbsp;the browser, keeping a page as KeepAlive for a known number of pages or memory footprint, and only release a page when the history stack takes up too much memory. Maybe in .net 4 with WPF (which would be wpf 2.0, if 3.5 is WPF 1.5. Interesting arithmetic, WPF = .net - 2).</p> <p>Oh the thrill. I'll be starting cooking some WPF examples next week as soon as I switch back to booting Vista instead of MacOS X (have a look at <a href="http://www.vmware.com/products/desktop/fusion.html">VMWare Fusion</a>. Now if they could integrate their Unity feature with the vista DWM, I could get accelerated graphics WPF development in visual studio within macos. Hmmm...)</p> <div class="wlWriterSmartContent" id="0767317B-992E-4b12-91E0-4F059A8CECA8:f37b5c76-6ea1-4445-aa34-5ce1f95b50a6" contenteditable="false" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a href="http://technorati.com/tags/wpf" rel="tag">wpf</a>, <a href="http://technorati.com/tags/.net3" rel="tag">.net3</a>, <a href="http://technorati.com/tags/macos" rel="tag">macos</a></div>

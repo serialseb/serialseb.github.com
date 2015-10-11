@@ -1,0 +1,202 @@
+---
+layout: post
+title: Why Mock frameworks suck, and how to write delegate-based test doubles
+date: '2007-12-13T18:24:00.001Z'
+author: Sebastien Lambla
+tags: 
+modified_time: '2007-12-14T11:12:08.772Z'
+thumbnail: http://lh4.google.com/TheTechnologist/R2F41s_YufI/AAAAAAAAABk/ii4knzwvCr4/s72-c/image_thumb6
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-1746053042465462825
+blogger_orig_url: http://serialseb.blogspot.com/2007/12/why-mock-frameworks-suck-and-how-to.html
+---
+
+<p>There is a big rift in test-oriented developers about when or how to use mocks, what the difference between a mock, a stub, a fake and a dummy is, and what mock frameworks bring to the game. I won't bore everyone with my explanation of the differences, Martin Fowler is well known for formulating patterns better than anyone else, so I'll point you to his <em><a href="http://martinfowler.com/articles/mocksArentStubs.html">Mocks aren't stubs</a> </em>article. I'll also point to Roy Osherove that has a much more simplified entry about the topic titled <a href="http://weblogs.asp.net/rosherove/archive/2007/09/16/mocks-and-stubs-the-difference-is-in-the-flow-of-information.aspx">Mocks and stubs - The difference is in the flow of information</a>.</p>  <p>To sum it up, mocks are used when you want to test how your object interacts with another object, that's <strong>interaction testing</strong>, whereas all the others are used when you want to actually test your object's functionality, which I'll consider to be <strong>unit testing</strong>. Interaction testing depends on more than one area of expertise as it involves your mock being called, and because I don't consider the mock part of the unit, I'd argue that you're not testing a unit.</p>  <p>In the case where you write the code from the ground up, I strongly believe there is no real reason to use mocks, as you can bake dependency injection, interfaces and fakes in your API from the ground-up. When trying to put old code under test however, mocks are a valid approach.</p>  <p><a href="http://lh3.google.com/TheTechnologist/R2F41c_YueI/AAAAAAAAABY/aAXnrJYCR4s/image10"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="168" alt="image" src="http://lh4.google.com/TheTechnologist/R2F41s_YufI/AAAAAAAAABk/ii4knzwvCr4/image_thumb6" width="211" align="right" border="0" /></a> The gray area is when you want to replace one of your dependencies and use a mock framework to implement a fake. Let's take an example that's quite common, abstracting configuration information. Your first step would be to implement an interface that wraps the initialisation and the property you want to retrieve, which we'll call IConfigurationProvider.</p>  <p>One way I often see being employed is using a Mock framework to do the heavy lifting of implementing the code. As such you'll often see code that looks like the following.</p>  <div style="clear: both; border-right: black 1px dashed; padding-right: 5px; border-top: black 1px dashed; padding-left: 5px; font-size: 10pt; background: rgb(238,238,238); padding-bottom: 5px; border-left: black 1px dashed; color: black; padding-top: 5px; border-bottom: black 1px dashed; font-family: consolas, courier new">   <pre style="margin: 0px"><span style="color: #2b91af">IConfigurationProvider</span> provider = Mocks.DynamicMock&lt;<span style="color: #2b91af">IConfigurationProvider</span>&gt;();</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px"><span style="color: #2b91af">Expect</span>.Call(provider.ContentLocation).PropertyBehavior();</pre>
+
+  <pre style="margin: 0px"><span style="color: #2b91af">Expect</span>.Call(provider.Initialize()).IgnoreArguments().Throw(<span style="color: blue">new</span> <span style="color: #2b91af">ConfigurationException</span>());</pre>
+</div>
+
+<p>My main issue with code like this is the use of a domain language to write code. You see, what you're doing is providing an implementation of an interface, but rather than write the code, we use a mock to write... Well, code. Let's see what it takes to write a fake implementation.</p>
+
+<div style="clear: both; border-right: black 1px dashed; padding-right: 5px; border-top: black 1px dashed; padding-left: 5px; font-size: 10pt; background: rgb(238,238,238); padding-bottom: 5px; border-left: black 1px dashed; color: black; padding-top: 5px; border-bottom: black 1px dashed; font-family: consolas, courier new">
+  <pre style="margin: 0px"><span style="color: blue">public</span> <span style="color: blue">class</span> <span style="color: #2b91af">FakeConfigurationProvider</span> : IConfigurationProvider</pre>
+
+  <pre style="margin: 0px">{</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; <span style="color: blue">public</span> <span style="color: blue">string</span>&#160; ContentLocation</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; {</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span style="color: blue">get</span> { <span style="color: blue">return</span> <span style="color: blue">null</span>; }</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; }</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; <span style="color: blue">public</span> <span style="color: blue">bool</span>&#160; Initialize()</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; {</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span style="color: blue">throw</span> <span style="color: blue">new</span> <span style="color: #2b91af">ConfigurationException</span>();</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; }</pre>
+
+  <pre style="margin: 0px">}</pre>
+</div>
+
+<p>Obviously that's much more code. Or is it? Let's see a character count:</p>
+
+<ul>
+  <li>Mock code 
+    <ul>
+      <li>Characters (no space): 220 </li>
+
+      <li>Characters (with spaces): 260 </li>
+    </ul>
+  </li>
+
+  <li>Fake code 
+    <ul>
+      <li>Characters (no spaces): 163 </li>
+
+      <li>Characters (with spaces): 220 </li>
+    </ul>
+  </li>
+</ul>
+
+<p>As you can see, what seems at first to be a more compact syntax is actually more verbose. Furthermore, you use an API to write code. I'd say that writing a fake using a mock framework is as useful as writing your unit tests by using reflection.</p>
+
+<p><em>PS: I'm no Rhino expert and I expect someone to give me a more compact syntax if there's one so I can update this code.</em></p>
+
+<p>Some people will argue that you can use the Stub&lt;T&gt; method with RhinoMocks to achieve the same with less code. I'd reply that creating my FakeConfigurationProvider once will ensure the same logic implementation is used in every single test that leverage the fake. To which mock fanatics will reply that you will want to change the implementation of one method for a specific test, and my way of writing fakes will create a new class for each test.</p>
+
+<p>So here's my response, and the trick I use very often when writing my tests. We'll use a .net feature that doesn't get used very often, explicit interface implementation, coupled with delegates. For each of the methods in my class, I'll declare a delegate, a public property of the delegate type, together with a value (the default implementation), and finally I'll explicitly implement the interface and call the delegate property. Code speaks better than prose, so here it is.</p>
+
+<div style="clear: both; border-right: black 1px dashed; padding-right: 5px; border-top: black 1px dashed; padding-left: 5px; font-size: 10pt; background: rgb(238,238,238); padding-bottom: 5px; border-left: black 1px dashed; color: black; padding-top: 5px; border-bottom: black 1px dashed; font-family: consolas, courier new">
+  <pre style="margin: 0px"><span style="color: blue">public</span> <span style="color: blue">class</span> <span style="color: #2b91af">FakeConfigurationProvider</span> : <span style="color: #2b91af">IConfigurationProvider</span></pre>
+
+  <pre style="margin: 0px">{</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; <span style="color: green">// Delegate types</span></pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; <span style="color: blue">public</span> <span style="color: blue">delegate</span> <span style="color: blue">void</span> <span style="color: #2b91af">InitializeDelegate</span>();</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; <span style="color: blue">public</span> <span style="color: blue">delegate</span> <span style="color: blue">string</span> <span style="color: #2b91af">get_ContentLocationDelegate</span>();</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; <span style="color: green">// Defining fields for our delegates</span></pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; <span style="color: blue">public</span> <span style="color: #2b91af">InitializeDelegate</span> Initialize = <span style="color: blue">delegate</span> { <span style="color: blue">return</span>; };</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; <span style="color: blue">public</span> <span style="color: #2b91af">get_ContentLocationDelegate</span> get_ContentLocation = <span style="color: blue">delegate</span> { <span style="color: blue">return</span> <span style="color: blue">null</span>; };</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; <span style="color: green">// Implementing our interface</span></pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; <span style="color: blue">bool</span> <span style="color: #2b91af">IConfigurationProvider</span>.Initialize()</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; {</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160; Initialize(); <span style="color: green">// calls the delegate!</span></pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; }</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; <span style="color: blue">string</span> <span style="color: #2b91af">IConfigurationProvider</span>.ContentLocation</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; {</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span style="color: blue">get</span> { <span style="color: blue">return</span> get_ContentLocation(); }</pre>
+
+  <pre style="margin: 0px">&#160;&#160;&#160; }</pre>
+
+  <pre style="margin: 0px">}</pre>
+</div>
+
+<p>Note that by default I don't do anything on Initialize. We'll inject the exception throwing later.</p>
+
+<p>This fake is made up of more code, but the flexibility and clarity gains in your tests is enormous. To proove it, let's create a quick object that uses our configuration provider.</p>
+
+<div style="border-right: black 1px dashed; padding-right: 5px; border-top: black 1px dashed; padding-left: 5px; font-size: 10pt; background: rgb(234,234,234); padding-bottom: 5px; border-left: black 1px dashed; color: black; padding-top: 5px; border-bottom: black 1px dashed; font-family: consolas, courier new">
+  <p style="margin: 0px"><span style="color: blue">public</span> <span style="color: blue">class</span> <span style="color: #2b91af">ClassThatDoesSomething</span></p>
+
+  <p style="margin: 0px">{</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160; <span style="color: blue">public</span> <span style="color: blue">string</span> ContentLocation { <span style="color: blue">get</span>; <span style="color: blue">private</span> <span style="color: blue">set</span>; }</p>
+
+  <p style="margin: 0px">&#160;</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160; <span style="color: blue">public</span> ClassThatDoesSomething(<span style="color: #2b91af">IConfigurationProvider</span> provider)</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160; {</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span style="color: blue">try</span></p>
+
+  <p style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160; {</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; provider.Initialize();</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; ContentLocation = provider.ContentLocation;</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160; }</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span style="color: blue">catch</span> (<span style="color: #2b91af">ConfigurationException</span>) { }</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160; }</p>
+
+  <p style="margin: 0px">}</p>
+</div>
+
+<p>And now let's write a test for the default case where everything goes according to plans in our Initialize method and nothing throws.</p>
+
+<div style="border-right: black 1px dashed; padding-right: 5px; border-top: black 1px dashed; padding-left: 5px; font-size: 10pt; background: rgb(234,234,234); padding-bottom: 5px; border-left: black 1px dashed; color: black; padding-top: 5px; border-bottom: black 1px dashed; font-family: consolas, courier new">
+  <p style="margin: 0px">[<span style="color: #2b91af">Test</span>]</p>
+
+  <p style="margin: 0px"><span style="color: blue">public</span> <span style="color: blue">void</span> CreatingTheClassSucceeds()</p>
+
+  <p style="margin: 0px">{</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160; <span style="color: #2b91af">FakeConfigurationProvider</span> provider = <span style="color: blue">new</span> <span style="color: #2b91af">FakeConfigurationProvider</span>();</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160; <span style="color: #2b91af">ClassThatDoesSomething</span> obj = <span style="color: blue">new</span> <span style="color: #2b91af">ClassThatDoesSomething</span>(provider);</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160; <span style="color: #2b91af">Assert</span>.IsNotNull(obj); <span style="color: green">// will never be null anyway, keeping the Assert for more obvious expressiveness</span></p>
+
+  <p style="margin: 0px">}</p>
+</div>
+
+<p>As you can see if you run this test, the default implementation of my fake for that method doesn't throw. Now let's see how we can change this to throw exceptions. I've used C# 2.0 delegate notation, with the C# 3.0 notation commented out.</p>
+
+<div style="border-right: black 1px dashed; padding-right: 5px; border-top: black 1px dashed; padding-left: 5px; font-size: 10pt; background: rgb(234,234,234); padding-bottom: 5px; border-left: black 1px dashed; color: black; padding-top: 5px; border-bottom: black 1px dashed; font-family: consolas, courier new">
+  <p style="margin: 0px">[<span style="color: #2b91af">Test</span>, <span style="color: #2b91af">ExpectedException</span>(<span style="color: blue">typeof</span>(<span style="color: #2b91af">ArgumentException</span>))]</p>
+
+  <p style="margin: 0px"><span style="color: blue">public</span> <span style="color: blue">void</span> CreatingTheClassFailsWhenExceptionIsThrown()</p>
+
+  <p style="margin: 0px">{</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160; <span style="color: #2b91af">FakeConfigurationProvider</span> provider = <span style="color: blue">new</span> <span style="color: #2b91af">FakeConfigurationProvider</span>();</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160; provider.Initialize = <span style="color: blue">delegate</span> { <span style="color: blue">throw</span> <span style="color: blue">new</span> <span style="color: #2b91af">ArgumentException</span>(); };</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160; <span style="color: green">// C# 3.0 Syntax is shorter:</span></p>
+
+  <p style="margin: 0px">&#160;&#160;&#160; <span style="color: green">// provider.Initialize = () =&gt; { throw new ArgumentException(); };</span></p>
+
+  <p style="margin: 0px">&#160;</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160; <span style="color: #2b91af">ClassThatDoesSomething</span> obj = <span style="color: blue">new</span> <span style="color: #2b91af">ClassThatDoesSomething</span>(provider);</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160; <span style="color: #2b91af">Assert</span>.IsNotNull(obj); <span style="color: green">// will never be null as if something throws we won't reach the assert</span></p>
+
+  <p style="margin: 0px">}</p>
+</div>
+
+<p>It only took me one line of code to redefine the implementation of my method. Best of all, I use C# to implement my code rather than use the RhinoMock API. Better yet, I can reuse my default fake implementation to be a fully functional in-memory object that reacts as expected, and inject exceptions in any of the methods of my fake object, which is much more reusable. Even better yet, I'm still enjoying compile-time checks that are not applied with any mock framework.</p>
+
+<p>As someone once said, <em>when I see Mocks being used, I reach for my revolver</em>. You've learned already that the test is written in C#, you know your documentation is (primarily) your tests, now learn that code that replaces code is better done in code!</p>  

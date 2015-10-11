@@ -1,0 +1,47 @@
+---
+layout: post
+title: PowerShell arguments and encodings
+date: '2007-07-11T14:15:00.001+01:00'
+author: Sebastien Lambla
+tags:
+- PowerShell
+modified_time: '2007-07-11T14:15:59.105+01:00'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-2559811778972532129
+blogger_orig_url: http://serialseb.blogspot.com/2007/07/powershell-arguments-and-encodings.html
+---
+
+<p>Well, after fighting for an hour or two, I finally <a href="http://blogs.msdn.com/powershell/archive/2006/05/07/592045.aspx">read a post explaining why my quotes were not passed around when invoking a script</a>. Now that I'm using the -EncodedCommand attribute, everything works fine!</p> <p>As the guys on the powershell team wrote about encoding conversion, I thought I'd provide two quick ones for those needing it, Url Encoding and Base64. Don't hesitate to add to your profile.</p> <p><em>Note that I'm using LoadWithPartialName because I'm lazy and it still works on .net 2. Replace with proper LoadFrom or Load as needed.</em></p> <div><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">[System.Reflection.Assembly]::LoadWithPartialName(<span style="color: #006080">"System.Web"</span>) | out-null
+<span style="color: #0000ff">function</span> ConvertTo-UrlEncodedString([string]$dataToConvert)
+{
+    <span style="color: #0000ff">begin</span> {
+        <span style="color: #0000ff">function</span> EncodeCore([string]$data) { <span style="color: #0000ff">return</span> [System.Web.HttpUtility]::UrlEncode($data) }
+    }
+    <span style="color: #0000ff">process</span> { <span style="color: #0000ff">if</span> ($_ -as [string]) { EncodeCore($_) } }
+    <span style="color: #0000ff">end</span> { <span style="color: #0000ff">if</span> ($dataToConvert) { EncodeCore($dataToConvert) } }
+}
+<span style="color: #0000ff">function</span> ConvertFrom-UrlEncodedString([string]$dataToConvert)
+{
+    <span style="color: #0000ff">begin</span> {
+        <span style="color: #0000ff">function</span> DecodeCore([string]$data) { <span style="color: #0000ff">return</span> [System.Web.HttpUtility]::UrlDecode($data) }
+    }
+    <span style="color: #0000ff">process</span> { <span style="color: #0000ff">if</span> ($_ -as [string]) { DecodeCore($_) } }
+    <span style="color: #0000ff">end</span> { <span style="color: #0000ff">if</span> ($dataToConvert) { DecodeCore($dataToConvert) } }
+}
+<span style="color: #0000ff">function</span> ConvertTo-Base64EncodedString([string]$dataToConvert)
+{
+    <span style="color: #0000ff">begin</span> {
+        <span style="color: #0000ff">function</span> EncodeCore([string]$data) { <span style="color: #0000ff">return</span> [System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($data)) }
+    }
+    <span style="color: #0000ff">process</span> { <span style="color: #0000ff">if</span> ($_ -as [string]) { EncodeCore($_) } }
+    <span style="color: #0000ff">end</span> { <span style="color: #0000ff">if</span> ($dataToConvert) { EncodeCore($dataToConvert) } }
+}
+<span style="color: #0000ff">function</span> ConvertFrom-Base64EncodedString([string]$dataToConvert)
+{
+    <span style="color: #0000ff">begin</span> {
+        <span style="color: #0000ff">function</span> DecodeCore([string]$data) { <span style="color: #0000ff">return</span> [System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String($data)) }
+    }
+    <span style="color: #0000ff">process</span> { <span style="color: #0000ff">if</span> ($_ -as [string]) { DecodeCore($_) } }
+    <span style="color: #0000ff">end</span> { <span style="color: #0000ff">if</span> ($dataToConvert) { DecodeCore($dataToConvert) } }
+}</pre></div>
+<p>&nbsp;</p>
+<div class="wlWriterSmartContent" id="0767317B-992E-4b12-91E0-4F059A8CECA8:6a84f994-7141-4385-95ed-4c5e7bfcf3a7" contenteditable="false" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a href="http://technorati.com/tags/msh" rel="tag">msh</a>, <a href="http://technorati.com/tags/posh" rel="tag">posh</a>, <a href="http://technorati.com/tags/powershell" rel="tag">powershell</a>, <a href="http://technorati.com/tags/scripting" rel="tag">scripting</a></div>

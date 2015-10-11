@@ -1,0 +1,124 @@
+---
+layout: post
+title: Proposing a syntax to attach behaviors to html elements
+date: '2008-08-23T17:44:00.001+01:00'
+author: Sebastien Lambla
+tags: 
+modified_time: '2008-08-31T19:40:58.415+01:00'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-9146957932197422463
+blogger_orig_url: http://serialseb.blogspot.com/2008/08/proposing-syntax-to-attach-behaviors-to.html
+---
+
+<p>ScriptSharp, like asp.net AJAX, has the notion of behaviors, javascript code that can attach itself to DOM elements and change their, well, behavior.</p>  <p>As part of my spike on ScriptSharp (and I’ll have to admit having spent way too much time on it to still be called a spike), I’ve built a simple container that automatically resolves and binds behaviors to DOM elements, to reduce to a maximum the amount of inline code required within my generated pages.</p>  <p>The one thing I went round and round about was how to declare in markup that binding. Here’s a few solutions I tried or seen proposed through various tools.</p>  <div style="font-size: 10pt; background: #1a1a1a; color: #e0e0e0; font-family: consolas, courier new">   <p style="margin: 0px"><span style="color: #7ee0ce">&lt;</span><span style="color: #63dac5">div</span> <span style="color: #fa8072">style</span><span style="color: #d0d0d0">=</span><span style="color: #87df71">&quot;</span><span style="color: #40c4ff">behavior</span>: <span style="color: #c7c7f1">url('myBehavior.htc')</span><span style="color: #87df71">&quot;</span> <span style="color: #7ee0ce">/&gt;</span></p> </div>  <p></p>  <p></p>  <p></p>  <p></p>  <p></p>  <p></p>  <p></p>  <p></p>  <p></p>  <p></p>  <p></p>  <p>This is something introduced in ie4, but it breaks the CSS standard *and* htc are only recognized by Internet Explorer. No good to me.</p>  <p>The next contender is…</p> <form id="layout__ctl3" name="layout:_ctl3" action="http://www.nikhilk.net/AtlasXMLScript.aspx" method="post">   <table style="table-layout: fixed" cellspacing="0" cellpadding="0" width="100%"><tbody>       <tr>         <td class="Content" style="padding-right: 25px; padding-left: 20px; padding-bottom: 10px; padding-top: 10px" valign="top" width="100%">           <div class="Entry">             <div class="EntryText">               <pre>&lt;input type=&quot;text&quot; id=&quot;searchText&quot; /&gt;
+&lt;input type=&quot;button&quot; id=&quot;searchButton&quot; /&gt;
+
+&lt;script type=&quot;text/xml-script&quot;&gt;
+  &lt;page xmlns=&quot;http://schemas.microsoft.com/xml-script/2005&quot;&gt;
+    &lt;references&gt;
+      &lt;add src=&quot;ScriptLibrary/Atlas/AtlasUI.js&quot; /&gt;
+      &lt;add src=&quot;ScriptLibrary/Atlas/AtlasControls.js&quot; /&gt;
+    &lt;/references&gt;
+    &lt;components&gt;
+        &lt;textbox id=&quot;searchText&quot; /&gt; […]</pre>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody></table>
+</form>
+
+<p></p>
+
+<p>…xml-script, and was originally presented <a href="http://www.nikhilk.net/AtlasXMLScript.aspx">early in the life of asp.net AJAX</a> (back when it was called ATLAS). This is awfully verbose, and worse than that it won’t ever validate in non-xml languages (aha HTML 4.01 or XHTML5). The same is true of <a href="http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=14924">the proposed changes in asp.net AJAX Futures</a>, which uses namespaces everywhere even though they’re not allowed in non xml renderings.</p>
+
+<p><em>[Update: As Simon Pieters correctly points out in the comments, this syntax would indeed be compatible with HTML5 (the non-xml serialization one), because the definition of CDATA sections has been modified to include anything not including the closing tag. Hence what is after &lt;script&gt; can be anything that is not &lt;/script&gt;. This redefined definition of a CDATA element is not something the XML specification agrees with however, which means that in all languages, aka XHTML 5.0, XHTML 1.1, XHTML 1.0 and HTML 4.01, you need to enclose the content of the script tag in a CDATA section, aka &lt;![CDATA[ … ]]&gt;. This makes HTML5 the only rendering with which xml-script would work. I may have misread some of those specs however, so if I have please comment and I’ll update and buy you a beer.]</em></p>
+
+<p>In choosing how to map behaviors, I had several goals: </p>
+
+<ul>
+  <li>declare the behaviors contextually within an element, </li>
+
+  <li>being able to use the exact same notation for both HTML 4.01 (the SGML language), XHtml 1.0 and 1.1 (the XML language) and Html 5 (both the whatever it is format that is not sgml anymore *and* the xml language, as both exist) </li>
+
+  <li>being able to pass additional customizations and parameters specific to an instance </li>
+
+  <li>Not look too out of place. </li>
+</ul>
+
+<p>I initially settled on an extension to the way content type definitions are expressed:</p>
+
+<div style="font-size: 10pt; background: #1a1a1a; color: #e0e0e0; font-family: consolas, courier new">
+  <p style="margin: 0px"><span style="color: #7ee0ce">&lt;</span><span style="color: #63dac5">div</span> <span style="color: #fa8072">class</span><span style="color: #d0d0d0">=</span><span style="color: #87df71">&quot;behavior/graphicscroll;horizontal=true;vertical=true;&quot;</span><span style="color: #7ee0ce">&gt;</span>test<span style="color: #7ee0ce">&lt;/</span><span style="color: #63dac5">div</span><span style="color: #7ee0ce">&gt;</span></p>
+</div>
+
+<p>This says, ask the behavior family to add a graphicscroll behavior and pass it values for horizontal and vertical. All was good and I was happy with myself. For a whole five minutes.</p>
+
+<p>Then you realize that while that syntax works like a charm, it is invalid in Xhtml 1.1, because the class attribute was redefined to be of type NMTOKENS, where the previous version had a type of CDATA. This is a serious breakage for content out there, and I wonder what the reason for this is.</p>
+
+<p>The other issue I had with this is the need to declare the full syntax for each element I wanted to use, and I really wanted to leverage CSS selectors. One solution I would have wanted to use was to simply extend the CSS stylesheets with custom css attributes. This would have then looked like the following.</p>
+
+<div style="font-size: 10pt; background: #1a1a1a; color: #e0e0e0; font-family: consolas, courier new">
+  <p style="margin: 0px">&#160;&#160;&#160; <span style="color: #7ee0ce">&lt;</span><span style="color: #63dac5">style</span> <span style="color: #fa8072">type</span><span style="color: #d0d0d0">=</span><span style="color: #87df71">&quot;text/css&quot;</span><span style="color: #7ee0ce">&gt;</span></p>
+
+  <p style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span style="color: #fef1a9">div</span> {</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span style="color: #40c4ff">-rasta</span>: <span style="color: #60ff60">&quot;behavior/graphicscroll;horizontal=true;vertical=true&quot;</span>;</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160; }</p>
+
+  <p style="margin: 0px">&#160;&#160;&#160; <span style="color: #7ee0ce">&lt;/</span><span style="color: #63dac5">style</span><span style="color: #7ee0ce">&gt;</span></p>
+</div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p>The syntax just felt very unnatural. And worse than that, the CSS validator doesn’t validate CSS with vendor expansions, even though they are defined as such in the specification.</p>
+
+<p>After twiddling around endlessly, I’ve settled on defining a css-like language, behavior stylesheets, without some of the restrictions of the existing CSS. I now have this code:</p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div style="font-size: 10pt; background: #1a1a1a; color: #e0e0e0; font-family: consolas, courier new">
+  <div style="font-size: 10pt; background: #1a1a1a; color: #e0e0e0; font-family: consolas, courier new">
+    <p style="margin: 0px">&#160;&#160;&#160; <span style="color: #7ee0ce">&lt;</span><span style="color: #63dac5">style</span> <span style="color: #fa8072">type</span><span style="color: #d0d0d0">=</span><span style="color: #87df71">&quot;text/vnd.rasta.bss&quot;</span><span style="color: #7ee0ce">&gt;</span></p>
+
+    <p style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span style="color: #fef1a9">div</span></p>
+
+    <p style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160; {</p>
+
+    <p style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span style="color: #40c4ff">behavior</span>: <span style="color: #c7c7f1">graphicscroll</span> <span style="color: #c7c7f1">{</span></p>
+
+    <p style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span style="color: #c7c7f1">horizontal:</span> <span style="color: #c7c7f1">true</span>;</p>
+
+    <p style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span style="color: #40c4ff">vertical</span>: <span style="color: #c7c7f1">true</span>;</p>
+
+    <p style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; }</p>
+
+    <p style="margin: 0px">&#160;&#160;&#160;&#160;&#160;&#160;&#160; }</p>
+
+    <p style="margin: 0px">&#160;&#160;&#160; <span style="color: #7ee0ce">&lt;/</span><span style="color: #63dac5">style</span><span style="color: #7ee0ce">&gt;</span></p>
+  </div>
+
+  <p style="margin: 0px"><span style="color: #7ee0ce"></span></p>
+</div>
+
+<p>The&#160; selector syntax is simply the CSS one, which means you can combine and match them in the same way you would define your stylesheets. The properties however are dynamic, with the first level name always matching a family of components (implemented as a loader) with a value matching the component, and a sub-group letting you define properties on that component.</p>
+
+<p>You’ll notice I mentioned my first goal was for this to be contextual within the element. Because you’re still using selectors, nothing prevents you from declaring a value in your class attribute and do your selection on that. The same of course goes for ids.</p>
+
+<p>Time will tell if this is as compatible with current UAs as it could be, and I have the feeling it will be ignored when necessary, but it’s extensible, simple enough, doesn’t require the script engine, leverages an existing html element and still passes in all versions of html that support the style element.</p>  

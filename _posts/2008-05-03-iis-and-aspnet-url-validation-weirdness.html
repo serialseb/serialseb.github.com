@@ -1,0 +1,12 @@
+---
+layout: post
+title: IIS and asp.net URL validation weirdness and links
+date: '2008-05-03T21:33:00.001+01:00'
+author: Sebastien Lambla
+tags: 
+modified_time: '2008-05-03T21:33:49.097+01:00'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-4355620023545430883
+blogger_orig_url: http://serialseb.blogspot.com/2008/05/iis-and-aspnet-url-validation-weirdness.html
+---
+
+<p>In my <a title="Migrating to IIS7" href="http://serialseb.blogspot.com/2008/04/migrating-to-iis7.html">Migrating to IIS7</a> post, I highlighted that building REST frameworks that do meaningful things with Urls is hard on microsoft's platforms.</p>  <p>I encourage you to go and read <a href="https://www.blogger.com/comment.g?blogID=4015568221071268916&amp;postID=6928829058071396707">the comments left by Mike Volodarsky</a> on the issue. He's a Program Manager at Microsoft. Having people from the team building IIS7 responding to people like me highlighting issues shows how some teams really engage proactively with their customers. Kudos!</p>  <p>The other team at Microsoft that understand REST a bit (and IMO the most out of all the teams working on this), is the Astoria team. And of course, because they do funky stuff with their URLs, <a href="http://blogs.msdn.com/marcelolr/archive/2008/04/01/fixing-400-bad-request-replies-from-asp-net-when-using-ado-net-data-services.aspx">they hit the same issues as me</a>. So here's a link on <a href="http://support.microsoft.com/kb/826437/en-us">how to deactivate some of the checks asp.net does</a>. Nasty registry editing...</p>  <p>I really wish asp.net could recognize when an IHttpHandler does not want validation and let it handle the request, its validation and etc.</p>  
