@@ -1,0 +1,16 @@
+---
+layout: post
+title: My Resume
+modified:
+categories:
+excerpt:
+tags: []
+image:
+  feature:
+date: 2003-11-25T13:14:09+00:00
+---
+
+Just needed to put my resume on the web, and don't have the time or will to go configure an ftp connection. My blog will do.
+
+cv.sebastien.lambla.english.doc (59.5 KB)
+> lost link
