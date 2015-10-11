@@ -1,0 +1,47 @@
+---
+layout: post
+title: 'WPF Tips''n''Tricks #5: Receive notifications for dependency properties'
+date: '2007-08-02T14:29:00.001+01:00'
+author: Sebastien Lambla
+tags:
+- .net35
+- WPF
+- .net3
+modified_time: '2007-08-03T16:30:22.628+01:00'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-9188468930364847866
+blogger_orig_url: http://serialseb.blogspot.com/2007/08/wpf-tips-5-receive-notifications-for.html
+---
+
+<p>Receiving notifications for dependency property changes on an existing object is a very common scenario. The way to do it properly is not very obvious. So much so that while reviewing some code, I found the following snippet.</p> <div style="border-right: gray 1px solid; padding-right: 4px; border-top: gray 1px solid; padding-left: 4px; font-size: 8pt; padding-bottom: 4px; margin: 20px 0px 10px; overflow: auto; border-left: gray 1px solid; width: 97.5%; cursor: text; line-height: 12pt; padding-top: 4px; border-bottom: gray 1px solid; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; max-height: 200px"><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #008000">// Believe it or not, this seems to be the only way to get change</span>
+<span style="color: #008000">// notifications for DPs unless you derive from the relevant</span>
+<span style="color: #008000">// class and override OnPropertyChanged.</span>
+
+PropertyDescriptor prop = TypeDescriptor.GetProperties(obj)[<span style="color: #006080">"Prop"</span>];
+prop.AddValueChanged(obj, <span style="color: #0000ff">delegate</span> { viewModel.RaisePropertyChanged(<span style="color: #006080">"Prop"</span>); });</pre></div>
+<p>There's a few issues with this code. The first one is that you reflect on the CLR property anchoring the dependency property, and not the dependency property itself. For example, the following code wouldn't work.</p>
+<div style="border-right: gray 1px solid; padding-right: 4px; border-top: gray 1px solid; padding-left: 4px; font-size: 8pt; padding-bottom: 4px; margin: 20px 0px 10px; overflow: auto; border-left: gray 1px solid; width: 97.5%; cursor: text; line-height: 12pt; padding-top: 4px; border-bottom: gray 1px solid; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; max-height: 200px"><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #0000ff">public</span> Dock Dock { get { <span style="color: #0000ff">return</span> DockPanel.GetDock(<span style="color: #0000ff">this</span>); } }
+<span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> TestDockProperty()
+{
+    PropertyDescriptor descriptor = TypeDescriptor.GetProperties(<span style="color: #0000ff">this</span>)[<span style="color: #006080">"Dock"</span>];
+    descriptor.AddValueChanged(<span style="color: #0000ff">this</span>, <span style="color: #0000ff">delegate</span>(<span style="color: #0000ff">object</span> sender, EventArgs args) { MessageBox.Show(<span style="color: #006080">"ValueChanged!"</span>); });
+
+    DockPanel.SetDock(<span style="color: #0000ff">this</span>, Dock.Top);
+}</pre></div>
+<p>The reason is that the PropertyDescriptor points to the CLR property, not to the dependency property.</p>
+<p>The second issue is a problem of performance. TypeDescriptor.GetProperties reflects on every call and doesn't cache the result, so its cost is O(n). Here's the result of iterating several times on the code using TypeDescriptor. </p>
+<ul>
+<li>1,000 iterations : 00:00:00.2811402</li>
+<li>10,000 iterations : 00:00:01.4369388</li>
+<li>100,000 iterations&nbsp;: 00:00:14.1194856</li></ul>
+<p>So what is the correct way to do it? Say hi to DependencyTypeDescriptor. Here's the code rewritten to use DependencyProperties.</p>
+<div style="border-right: gray 1px solid; padding-right: 4px; border-top: gray 1px solid; padding-left: 4px; font-size: 8pt; padding-bottom: 4px; margin: 20px 0px 10px; overflow: auto; border-left: gray 1px solid; width: 97.5%; cursor: text; line-height: 12pt; padding-top: 4px; border-bottom: gray 1px solid; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; max-height: 200px"><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">DependencyPropertyDescriptor prop = DependencyPropertyDescriptor.FromProperty(ParentObject.PropProperty, obj.GetType());
+            prop.AddValueChanged(obj, <span style="color: #0000ff">delegate</span> { viewModel.RaisePropertyChanged(<span style="color: #006080">"Prop"</span>); });</pre></div>
+<p>If you execute the code in the small benchmark application we used previously, the results are completely different.</p>
+<ul>
+<li>1,000 iterations : 00:00:00.00</li>
+<li>10,000 iterations : 00:00:00.00</li>
+<li>100,000 iterations&nbsp;: 00:00:00.0312378</li></ul>
+<p>As you can see in the source code, I simply use a DateTime before and after the call, and everything runs on&nbsp;the UI thread.</p>
+<p>And the source is stored on box.net for those that want a peek. Be aware it's a visual Studio 2008 solution and project.</p>
+<p><a href="http://www.box.net/shared/3ajexne4bk">Download the source.</a></p>
+<div class="wlWriterSmartContent" id="0767317B-992E-4b12-91E0-4F059A8CECA8:e215e845-052b-47b2-acf5-ef474873829e" contenteditable="false" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a href="http://technorati.com/tags/wpf" rel="tag">wpf</a>, <a href="http://technorati.com/tags/.net3" rel="tag">.net3</a>, <a href="http://technorati.com/tags/.net35" rel="tag">.net35</a>, <a href="http://technorati.com/tags/.net%203" rel="tag">.net 3</a>, <a href="http://technorati.com/tags/.net%203.5" rel="tag">.net 3.5</a>, <a href="http://technorati.com/tags/DependencyProperty" rel="tag">DependencyProperty</a></div>

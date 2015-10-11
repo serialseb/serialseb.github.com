@@ -1,0 +1,12 @@
+---
+layout: post
+title: 'PowerShell: Opening explorer in the current directory'
+date: '2008-01-30T13:03:00.001Z'
+author: Sebastien Lambla
+tags: 
+modified_time: '2008-01-30T16:04:40.934Z'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-1843069449259823361
+blogger_orig_url: http://serialseb.blogspot.com/2008/01/powershell-opening-explorer-in-current.html
+---
+
+<p><em>[Update again]      <br />As a reminder that my readers are usually much more skilled than I am, <font color="#ff0000"><strong>two</strong></font> anonymous commenter points out the obvious:</em></p>  <p>ii .</p>  <p><em>or</em></p>  <p>ii $pwd</p>  <p><em>Never thought of that. It's just beautiful. Thanks! The second commenter has been chatting with me through the messenger control, and points out that Start-Process is only available if you have PowerShell Commnity Extensions... A fact I missed completely. I stand twice corrected.</em></p>  <p>I've not blogged any PowerShell scripts for a while... I very often navigate around in PowerShell, but sometimes you want to switch to a graphical view. That's exactly what this script does (note it only works on the file system though...)</p>  <p>function Open-Explorer { Start-Process $(get-location) }</p>  <p>Enjoy!</p>  <div class="wlWriterSmartContent" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:3c4e35fe-a8ee-48f0-af43-dc6086d70cd2" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a href="http://technorati.com/tags/powershell" rel="tag">powershell</a>,<a href="http://technorati.com/tags/posh" rel="tag">posh</a>,<a href="http://technorati.com/tags/msh" rel="tag">msh</a></div>  

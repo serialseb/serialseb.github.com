@@ -1,0 +1,12 @@
+---
+layout: post
+title: 'Software that sucks #2: How to not write a patch'
+date: '2008-01-24T11:05:00.001Z'
+author: Sebastien Lambla
+tags: 
+modified_time: '2008-01-24T11:05:01.091Z'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-218629413344917045
+blogger_orig_url: http://serialseb.blogspot.com/2008/01/software-that-sucks-2-how-to-not-write.html
+---
+
+<p>Most of you have probably already tried using the source server support in vs2008 for the .net framework code <a href="http://weblogs.asp.net/scottgu/archive/2008/01/16/net-framework-library-source-code-now-available.aspx">ScottGu announced</a> (it was, after all, 8 days ago...) In it, it's recommended to add a hotfix.</p>  <p>When you try installing it, you get an installation failed notification. If you view the report (generated as a local html document with scripts, running from the local drive, and as such with script deactivated by default, stupid thing number 1), you see the following:</p>  <p>Returning IDOK. INSTALLMESSAGE_ERROR [Error [1].An installation package for the product [2] cannot be found. Try the installation again using a valid copy of the installation package '[3]'.: 1706Microsoft Visual Studio 2008 Professional Edition - ENU]</p>  <p>As a guess, the valid copy of the installation package has the same name as the download from MSDN from which my copy of visual studio comes from. A message in the forums <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2694402&amp;SiteID=1">confirms the need for the physical media (or iso) to be present</a>.</p>  <p>So there, my second award for software that sucks comes to the hotfix installer. Next time, a review on how badly the Hotmail outlook add-in sucks.</p>  

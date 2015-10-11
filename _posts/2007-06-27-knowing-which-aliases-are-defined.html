@@ -1,0 +1,27 @@
+---
+layout: post
+title: Knowing which aliases are defined
+date: '2007-06-27T10:29:00.001+01:00'
+author: Sebastien Lambla
+tags:
+- PowerShell
+modified_time: '2007-06-28T16:18:05.725+01:00'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-5461619278808648836
+blogger_orig_url: http://serialseb.blogspot.com/2007/06/knowing-which-aliases-are-defined.html
+---
+
+<p><em>[Update: Replaced -eq by -match as suggested on the PowerShell blog. Thanks guys, humbling to have you reading this blog. Tagging really does have a use :) ]</em></p> <p>One of the main struggles I have when writing my PowerShell scripts for public consumption is that I never remember which aliases I can use. And eventually I'd like to naturally type <em>gci</em> instead of <em>ls</em>, but old habits die hard. </p> <p>Here's a little function I have in my profile to get the list of all aliases defined for a command.</p> <div style="border-right: gray 1px solid; padding-right: 4px; border-top: gray 1px solid; padding-left: 4px; font-size: 8pt; padding-bottom: 4px; margin: 20px 0px 10px; overflow: auto; border-left: gray 1px solid; width: 97.5%; cursor: text; max-height: 200px; line-height: 12pt; padding-top: 4px; border-bottom: gray 1px solid; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4"><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #0000ff">function</span> Get-AliasShortcut([string]$CommandName) {
+    ls Alias: | ?{ $_.Definition <span style="color: #cc6633">-match</span> $CommandName }
+}
+Set-Alias gas Get-AliasShortcut</pre></div>
+<p>Which you can then execute as such:</p>
+<p><pre>6# gas get-childitem
+
+CommandType     Name                                                Definition
+-----------     ----                                                ----------
+Alias           gci                                                 Get-ChildItem
+Alias           ls                                                  Get-ChildItem
+Alias           dir                                                 Get-ChildItem
+</pre>
+<p></p>
+<div class="wlWriterSmartContent" id="0767317B-992E-4b12-91E0-4F059A8CECA8:f77a90cf-7ae7-4832-aa17-c8c40b3c995e" contenteditable="false" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a href="http://technorati.com/tags/powershell" rel="tag">powershell</a></div>

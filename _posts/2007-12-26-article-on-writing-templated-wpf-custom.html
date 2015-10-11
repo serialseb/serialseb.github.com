@@ -1,0 +1,12 @@
+---
+layout: post
+title: An article on writing templated WPF custom controls
+date: '2007-12-26T19:40:00.001Z'
+author: Sebastien Lambla
+tags: 
+modified_time: '2007-12-26T19:40:09.386Z'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-520449141763217476
+blogger_orig_url: http://serialseb.blogspot.com/2007/12/article-on-writing-templated-wpf-custom.html
+---
+
+<p>This is something that we had to discover with reflector when I wrote the Excel-like control we used for the National Express WPF application, so it's good to see people writing about it, especially when it's <a href="http://msdn.microsoft.com/msdnmag/issues/08/01/Foundations/default.aspx">Charles Petzold</a> in msdn magazine.</p>  <p>An additional thing you might want to do is have properties defining the templates for different sub-elements used by defining a dependency property of type DataTemplate. You may also want to create new sub-controls, e.g. a CellPresenter, that you can add to the template to define where in the template other components of your control will get injected.</p>  <p>That should probably be an article in its own right. Maybe this weekend if I recover from my sore throat.</p>  

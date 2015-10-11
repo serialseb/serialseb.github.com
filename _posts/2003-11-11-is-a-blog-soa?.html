@@ -1,0 +1,36 @@
+---
+layout: post
+title: Is a blog SOA?
+---
+
+<p>
+   From <a href="http://weblogs.asp.net/fmarguerie/posts/36765.aspx">Fabrice</a>, <a href="http://jazbee.int.webmatrixhosting.net/PermaLink,guid,c6b774b5-3727-493d-8dc1-e10fbec1566e.aspx">Julien </a>which
+   is a new comer, think his blog is a SOA service. I must say I so much disagree.
+</p>
+<ul>
+   <li>
+      <strong>Services share schema and contract, not class</strong>
+      <br>
+      This is not entirely true, and proves to be completely wrong. RSS specs&nbsp;are not
+      XSD compliant, and on the other side of the pipe, XML-RPC is not schema based. It
+      is actually far far from it. 
+   <li>
+      <strong>Service policy is determined based on policy</strong>
+      <br>
+      Real validation of RSS feeds can't really be expressed by XSD, and RSS is not even
+      an infoset by it's lack of namespaces and extensibility points (Dave Winer might say
+      something different, but...) 
+   <li>
+      Boundaries are explicit<br>
+      Which boundaries are explicit between user authentication, posting, reading, commenting,
+      track-backing, pinging, etc? 
+   <li>
+      <strong>Services are autonomous</strong>
+      <br>
+      The only point where I do agree.</li>
+</ul>
+<p>
+   The fact is, for a blog to be considered SOA, you need a two way channel, which is
+   autonomous, and has a clear way of communication, in a message oriented way. Atom
+   is a good step in that direction. But no, dasBlog is not yet an SOA :)
+</p>

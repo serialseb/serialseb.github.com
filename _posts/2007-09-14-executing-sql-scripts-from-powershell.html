@@ -1,0 +1,62 @@
+---
+layout: post
+title: Executing Sql scripts from powershell
+date: '2007-09-14T15:54:00.001+01:00'
+author: Sebastien Lambla
+tags:
+- PowerShell
+modified_time: '2007-09-14T15:54:53.256+01:00'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-4856771850062660124
+blogger_orig_url: http://serialseb.blogspot.com/2007/09/executing-sql-scripts-from-powershell.html
+---
+
+<p>Realizing I still have 6 Tips'n'Tricks articles nearly ready to go to follow up on the series, but none of them are finished, I thought I'd give you another powershell trick.</p> <p>One of the main issue&nbsp;on windows when interop has to be achieved between powershell and cmd is the issue of CreateProcess trying sometimes to be too smart about quotes. That's why powershell supports being called with <a href="http://serialseb.blogspot.com/2007/07/powershell-arguments-and-encodings.html">a base64 encoded parameter as command line parameters</a>,&nbsp;and why attempts to use variables when calling sqlcmd.exe fail miserably.</p> <p>So I wrote a quick hack script that concatenates data in a nice batch file and then executes the batch file. I've used it on several projects by now. Anyone wanting to make it more fancy don't hesitate.</p> <div style="border-right: gray 1px solid; padding-right: 4px; border-top: gray 1px solid; padding-left: 4px; font-size: 8pt; padding-bottom: 4px; margin: 20px 0px 10px; overflow: auto; border-left: gray 1px solid; width: 97.5%; cursor: text; line-height: 12pt; padding-top: 4px; border-bottom: gray 1px solid; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; max-height: 200px"><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #0000ff">function</span> Execute-SqlFile($file, [string]$Server, [string]$dbName, [hashtable]$variables, [<span style="color: #0000ff">switch</span>]$WindowsAuthentication=$true, [string]$Username, [string]$Password) {
+        $batch = (join-Path (cat env:TEMP) <span style="color: #006080">"exec_sql.bat"</span>)
+        write-Host Connecting to $Server
+    
+        $output = (join-Path $env:TEMP <span style="color: #006080">"output_sql.txt"</span>)
+        <span style="color: #0000ff">if</span> (test-Path $batch) {
+           Remove-Item $batch -force
+        }
+        $data = <span style="color: #006080">""</span>
+        <span style="color: #0000ff">if</span> (test-Path $batch) { Remove-Item $batch }
+        $data += <span style="color: #006080">"sqlcmd -S $Server"</span>
+        
+        <span style="color: #0000ff">if</span> ($WindowsAuthentication) {
+            $data += <span style="color: #006080">' -E'</span>
+        } <span style="color: #0000ff">else</span> {
+            $data += <span style="color: #006080">" -U $Username -P $Password"</span>
+        }
+        <span style="color: #0000ff">if</span> ($dbname) {
+            $data += <span style="color: #006080">" -d $dbName"</span>
+        }
+        
+        <span style="color: #0000ff">if</span> ($variables -and $variables.Count <span style="color: #cc6633">-gt</span> 0) {
+            $data += <span style="color: #006080">' -v '</span>
+            $isFirst = $true
+            <span style="color: #0000ff">foreach</span>($key <span style="color: #0000ff">in</span> $variables.keys) {
+            
+                <span style="color: #0000ff">if</span> (! $isFirst) { $data += <span style="color: #006080">' '</span> } <span style="color: #0000ff">else</span> { $isFirst=$false }
+        
+                $val = $variables[$key]
+                $data += <span style="color: #006080">"$key="</span>
+                $data += <span style="color: #006080">"`"</span>$val`<span style="color: #006080">""</span>
+                
+            }
+        }
+        $data += <span style="color: #006080">" -i `"</span>$file`<span style="color: #006080">""</span>
+        
+        
+        $data += <span style="color: #006080">" -o `"</span>$output`<span style="color: #006080">""</span>
+        
+        $data | Add-Content $batch -force
+        
+        cmd /c (Resolve-Path $batch)
+        
+        gc $output
+
+    }</pre></div>
+<p>Which lets you call it like so:</p>
+<div style="border-right: gray 1px solid; padding-right: 4px; border-top: gray 1px solid; padding-left: 4px; font-size: 8pt; padding-bottom: 4px; margin: 20px 0px 10px; overflow: auto; border-left: gray 1px solid; width: 97.5%; cursor: text; line-height: 12pt; padding-top: 4px; border-bottom: gray 1px solid; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; max-height: 200px"><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">PS C:\WINDOWS\&gt; Execute-SqlScript <span style="color: #006080">"local.sql"</span> <span style="color: #006080">"dbserver"</span> @{key=<span style="color: #006080">"value"</span>; key2=<span style="color: #006080">"value2"</span>}</pre></div>
+<p>Enjoy!</p>
+<div class="wlWriterSmartContent" id="0767317B-992E-4b12-91E0-4F059A8CECA8:bc69236c-041a-43f7-b86b-2dfe8c367602" contenteditable="false" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a href="http://technorati.com/tags/powershell" rel="tag">powershell</a>, <a href="http://technorati.com/tags/msh" rel="tag">msh</a>, <a href="http://technorati.com/tags/monad" rel="tag">monad</a>, <a href="http://technorati.com/tags/sql" rel="tag">sql</a></div>

@@ -1,0 +1,100 @@
+---
+layout: post
+title: The most frightening pattern in .net
+---
+
+<div class=Section1>
+   <p>
+      Am finishing my Task based MVC modifications to the excellent User Interface Process
+      today, and here is one thing that comes over and over in my code. This pattern is
+      absolutely frightening. Let&#8217;s go through it together: 
+   </p>
+   <div style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 4pt; BACKGROUND: #ffff99; PADDING-BOTTOM: 1pt; BORDER-LEFT: windowtext 1pt solid; PADDING-TOP: 1pt; BORDER-BOTTOM: windowtext 1pt solid; mso-element: para-border-div">
+      <p class=MsoNormal style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; BACKGROUND: #ffff99; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color=blue><span style="COLOR: blue">public</span></font> <font color=blue><span style="COLOR: blue">sealed</span></font> <font color=blue><span style="COLOR: blue">class</span></font> DumbFactory</span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color=green><span style="COLOR: green">//
+         cache pattern and dual lock volatile pattern, all at the same time :)</span></font></span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color=blue><span style="COLOR: blue">private</span></font> <font color=blue><span style="COLOR: blue">static</span></font> <font color=blue><span style="COLOR: blue">object</span></font> SyncRoot
+         = new Object();</span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color=blue><span style="COLOR: blue">private</span></font> <font color=blue><span style="COLOR: blue">static</span></font> <font color=blue><span style="COLOR: blue">volatile</span></font> NavigationTask
+         tasks;</span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color=blue><span style="COLOR: blue">private</span></font> <font color=blue><span style="COLOR: blue">static</span></font> NavigationTask
+         Tasks</span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         {</span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color=blue><span style="COLOR: blue">get</span></font></span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         {</span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color=blue><span style="COLOR: blue">if</span></font> (tasks
+         == <font color=blue><span style="COLOR: blue">null</span></font>)</span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color=blue><span style="COLOR: blue">lock</span></font> (SyncRoot)</span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color=blue><span style="COLOR: blue">if</span></font> (tasks
+         == <font color=blue><span style="COLOR: blue">null</span></font>)</span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         FetchTasks();</span>
+         <br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color=blue><span style="COLOR: blue">return</span></font> tasks;</span> 
+      </p>
+      <p class=MsoNormal style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; BACKGROUND: #ffff99; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         }</span>
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         }<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color=blue><span style="COLOR: blue">public</span></font> <font color=blue><span style="COLOR: blue">static</span></font> ITask
+         Get(<font color=blue><span style="COLOR: blue">string</span></font> name, Guid taskId)<br>
+         </span><span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         {</span>
+         <br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         ...</span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         }</span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color=blue><span style="COLOR: blue">private</span></font> <font color=blue><span style="COLOR: blue">static</span></font> <font color=blue><span style="COLOR: blue">void</span></font> FetchTasks()</span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         {</span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         ...</span>&nbsp;<br>
+         <span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         }<br>
+         </span><span style="FONT-FAMILY: 'Courier New'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span> 
+      </p>
+   </div>
+   <p class=MsoNormal>
+      <span style="FONT-FAMILY: 'Courier New'"></span>&nbsp;This, as you can see, is a bit
+      of a departure from the original dual lock statement. A few notes: 
+   </p>
+   <ul style="MARGIN-TOP: 0cm" type=disc>
+      <li class=MsoNormal style="mso-list: l2 level1 lfo3">
+         <span class=NormalWebChar>The</span> <font color=blue><span style="COLOR: blue; FONT-FAMILY: 'Courier New'">volatile</span></font> statement
+         prevents memory caching that would prevent the dual lock to succeed on some architectures 
+      <li class=MsoNormal style="mso-list: l2 level1 lfo3">
+         The <font color=blue><span style="COLOR: blue; FONT-FAMILY: 'Courier New'">lock</span></font> is
+         done on an object, not on typeof(type). Pretty simple, if you lock on a type, then
+         in inheritance, if a type inherit from your class and call tasks, you end up locking
+         two different objects, the type of the parent and the type of the child. But sealed
+         is there you say. Well, sealed is only a hint, so whatever you do, you may still end
+         up inheriting. And if you remove it and subclass your object, this problem will be
+         forgotten until the bug hit you in the face. 
+      <li class=MsoNormal style="mso-list: l2 level1 lfo3">
+         Another way to implement that would be to do a Interlocked.ConpareExchange with a
+         synchronization primitive. A bit too complex imo, so unless my app end up running
+         on a 32 way box, I can live with that solution. 
+      </li>
+   </ul>
+   <p class=MsoNormal>
+      More reading on the subject 
+   </p>
+   <ul style="MARGIN-TOP: 0cm" type=disc>
+      <li class=MsoNormal style="mso-list: l0 level1 lfo4">
+         Chris Brumme on the .net Memory Model <a href="http://blogs.gotdotnet.com/cbrumme/PermaLink.aspx/480d3a6d-1aa8-4694-96db-c69f01d7ff2b">here</a>. 
+      <li class=MsoNormal style="mso-list: l0 level1 lfo4">
+         Victor on the implementation of the SR object in .net (anyone using reflector on the
+         bits know what I&#8217;m talking about :-) ) <a href="http://weblogs.asp.net/vga/posts/31688.aspx">here</a>. 
+      </li>
+   </ul>
+   <p class=MsoNormal>
+      Enjoy! (I&#8217;ll do my p2p paper tonight if I can). 
+   </p>
+</div>

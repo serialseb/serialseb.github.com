@@ -1,0 +1,18 @@
+---
+layout: post
+title: Install windows components on a locked-down machine
+date: '2007-08-14T15:50:00.001+01:00'
+author: Sebastien Lambla
+tags:
+- PowerShell
+- Software
+modified_time: '2007-08-14T15:50:38.650+01:00'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-754053483539866827
+blogger_orig_url: http://serialseb.blogspot.com/2007/08/install-windows-components-on-locked.html
+---
+
+<p>More and more companies set their users as non admin, even with XP. The so-called locking&nbsp;down tries to protect the user and the network against anything only an administrator should do.</p> <p>But there's also group policy that directs what gets shown in windows, which software gets activated, etc. In my case, the policy doesn't let you access the <em>Add/Remove Windows Components</em> section.</p> <p>Being an administrator on the machine, I could go and change the registry to deny read permission to whichever account is being used for policies. That's a bit drastic and I wouldn't recommend it.</p> <p>But thanks to the complexity and myriad of options available to group policy, sometimes you can get away with easier things.</p> <p>To add or remove windows components, open PowerShell and type the following.</p> <div style="border-right: gray 1px solid; padding-right: 4px; border-top: gray 1px solid; padding-left: 4px; font-size: 8pt; padding-bottom: 4px; margin: 20px 0px 10px; overflow: auto; border-left: gray 1px solid; width: 97.5%; cursor: text; line-height: 12pt; padding-top: 4px; border-bottom: gray 1px solid; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; max-height: 200px"><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">PS C:\WINDOWS&gt; sysocmgr /i:$env:windir\inf\sysoc.inf</pre></div>
+<p>Or for people still using cmd</p>
+<div style="border-right: gray 1px solid; padding-right: 4px; border-top: gray 1px solid; padding-left: 4px; font-size: 8pt; padding-bottom: 4px; margin: 20px 0px 10px; overflow: auto; border-left: gray 1px solid; width: 97.5%; cursor: text; line-height: 12pt; padding-top: 4px; border-bottom: gray 1px solid; font-family: consolas, 'Courier New', courier, monospace; background-color: #f4f4f4; max-height: 200px"><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none">C:\WINDOWS&gt; sysocmgr /i:%WINDIR%\inf\sysoc.inf</pre></div>
+<p>I'd rather we didn't have to play catch and seek with network administrators, but you have to do what you have to do to get the job done sometimes.</p>
+<div class="wlWriterSmartContent" id="0767317B-992E-4b12-91E0-4F059A8CECA8:3490c0a7-82c3-4a1c-a7e4-c1d66ff85e98" contenteditable="false" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a href="http://technorati.com/tags/PowerShell" rel="tag">PowerShell</a>, <a href="http://technorati.com/tags/POSH" rel="tag">POSH</a>, <a href="http://technorati.com/tags/Group%20Policy" rel="tag">Group Policy</a></div>

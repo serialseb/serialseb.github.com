@@ -1,0 +1,40 @@
+---
+layout: post
+title: The initial OpenWrap installation
+date: '2010-08-02T01:55:00.001+01:00'
+author: Sebastien Lambla
+tags: 
+modified_time: '2010-08-02T01:55:22.291+01:00'
+blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-7494179401357986721
+blogger_orig_url: http://serialseb.blogspot.com/2010/08/initial-openwrap-installation.html
+---
+
+<p>Going down OpenWrap’s rabbit hole, the first thing you do is retrieve a fresh copy of o.exe, the Command shell. At a whopping 32k (for the debug build), you could get the initial file in 234 text messages. Lets open the file straight from the web site, and we’re greeted by installation options.</p>  <pre style="background-color: rgb(1,36,86); color: white">The OpenWrap shell is not installed on this machine. Do you want to:
+(i) install the shell and make it available on the path?
+(c) use the current executable location and make it available on the path?
+(n) do nothing?</pre>
+
+<p>I think the options are quite self-explanatory, but let’s recap:</p>
+
+<ul>
+  <li>(i) will copy o.exe to ~/AppData/Local/OpenWrap/ and add this path to your PATH environment variable for the current user</li>
+
+  <li>(c) will simply add an o.exe.link file in ~/AppData/Local/OpenWrap/ and add this path to your PATH</li>
+
+  <li>(n) will do nothing this time around and run o.exe as normal.</li>
+</ul>
+
+<p>Let’s choose the first option</p>
+
+<pre style="background-color: rgb(1,36,86); color: white">OpenWrap packages not found. Attempting download.
+Downloading http://wraps.openwrap.org/bootstrap [....................]
+Downloading <a href="http://wraps.openwrap.org/wraps/openwrap-1.0.0.13979169.wrap">http://wraps.openwrap.org/wraps/openwrap-1.0.0.13979169.wrap</a> [.............]
+Expanding pacakge...
+# OpenWrap v1.0.0.0 ['C:\Users\sebastien.lambla\AppData\Local\OpenWrap\wraps\_cache\openwrap-1.0.0.13979169']
+Command was not understood. Type 'help' to get a list of supported commands.</pre>
+
+<p>I do hope that this is also quite self-explanatory, but just in case… When the shell tries to execute the first time, it will not find the OpenWrap packages anywhere. At that stage, it will go to the openwrap web-site and download the bootstrap packages to the correct location, which is just a list of URIs to download in a text file.</p>
+
+<p>Once all this is done (and notice the wonderful typo in the output, you can check on github that this is all live code), the shell can now delegate to the openwrap code itself to parse the command. And as there was no command (remember, we started the application from a web browser), the system tells us that the command was not understood.</p>
+
+<p>I tried to make it more complicated but I just didn’t have the time.</p>  
