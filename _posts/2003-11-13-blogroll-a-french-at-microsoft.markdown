@@ -1,12 +1,6 @@
 ---
 layout: post
-title: Blogroll: A French at Microsoft
-modified:
-categories:
-excerpt:
-tags: []
-image:
-  feature:
+title: Blogroll - A French at Microsoft
 date: 2003-11-13T09:39:38+00:00
 ---
 
