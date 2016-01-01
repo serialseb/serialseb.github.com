@@ -10,7 +10,7 @@ image:
 date: 2003-11-09T13:48:10+00:00
 ---
 
-Richard [answers[](http://www.tallent.us/PermaLink.aspx?guid=153acbd9-1dbf-4e87-8a4f-d08c46e4db79) to my [comment](http://www.tallent.us/CommentView.aspx?guid=3678ccf3-b97e-448a-a37b-165aae89bc16) to his web site about the IDE of the future, and more specifically the XAML way of coding.
+Richard [answers](http://www.tallent.us/PermaLink.aspx?guid=153acbd9-1dbf-4e87-8a4f-d08c46e4db79) to my [comment](http://www.tallent.us/CommentView.aspx?guid=3678ccf3-b97e-448a-a37b-165aae89bc16) to his web site about the IDE of the future, and more specifically the XAML way of coding.
 
 Richard has a great overview of mixing different languages in the IDE, letting you write your code using "sections" which could be written in c#, vb, regex, uml or whatever, as integrated snippets. While I do agree developers, as we move forward, need to know a wide range of languages (C#, regular expressions, UML, XSD, XPath and XQuery, SQL, etc), and that encapsulating cross technologies in strings is inherently a bad thing, i strongly believe that code separation is the only way to achieve it reasonably. Just imagine the problems involved in having a graphics designer embed in code.
 

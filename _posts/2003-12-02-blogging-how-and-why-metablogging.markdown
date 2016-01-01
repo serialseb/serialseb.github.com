@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Blogging, How and Why : Metablogging
+title: "Blogging, How and Why : Metablogging"
 modified:
 categories:
 excerpt:

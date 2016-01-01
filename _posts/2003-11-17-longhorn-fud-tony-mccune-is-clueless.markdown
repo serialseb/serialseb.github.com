@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Longhorn FUD: Tony McCune Is Clueless
+title: "Longhorn FUD: Tony McCune Is Clueless"
 modified:
 categories:
 excerpt:
