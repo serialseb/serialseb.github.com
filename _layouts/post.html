@@ -13,7 +13,7 @@
       {{ content }}
       <hr />
       <footer role="contentinfo">
-        {% if page.share != false %}{% include _social-share.html %}{% endif %}
+        {% if page.share != false %}{% include shareurl=page.url _social-share.html %}{% endif %}
       </footer>
     </div><!-- /.article-wrap -->
   {% if site.owner.disqus-shortname and page.comments == true %}
