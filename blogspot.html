@@ -1,0 +1,13 @@
+<html>
+<title>Blogger landing page</title>
+<body>
+Please wait while we redirect you from blogger to the correct post.
+
+<script type="text/javascript">
+var referrer=window.location.search.substr(1);
+var prefix = 'http://serialseb.blogspot.com';
+var suffix = '.html';
+var redirectData = referrer.substr(prefix.length,referrer.length-prefix.length-suffix.length);
+window.location.href='http://serialseb.com/blog' + redirectData + '/';
+</script>
+</body>
