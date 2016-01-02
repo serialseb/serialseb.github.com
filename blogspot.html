@@ -1,0 +1,20 @@
+---
+---
+
+<html>
+<title>Blogger landing page</title>
+<body>
+Please wait while we redirect you from blogger to the correct post.
+<script type="text/javascript">
+var referrer=window.location.search.substr(1);
+
+var bloggerMap = {};
+{% for post in site.posts %}
+  {% if post.blogger_orig_url %}
+  bloggerMap['{{post.blogger_orig_url}}'] = '{{post.url}}'
+  {% endif %}
+{% endfor %}
+
+window.location.href=bloggerMap[referrer];
+</script>
+</body>

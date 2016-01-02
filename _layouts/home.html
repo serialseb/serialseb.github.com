@@ -10,7 +10,7 @@
             <h1><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}">{{ post.title }}</a></h1>
           {% endif %}
 
-          <p class="byline">🕑 <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>{% if post.modified %} ✍🏻 <time datetime="{{ post.modified | date: "%Y-%m-%d" }}">{{ post.modified | date: "%B %d, %Y" }}</time>{% endif %}{% if post.comments == true %}{% unless post.link %} | <a href="{{ site.url }}{{ post.url }}#disqus_thread">Comments</a>{% endunless %}{% endif %}</p>
+          <p class="byline">🕑 <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>{% if post.modified %} ✍🏻 <time datetime="{{ post.modified | date: "%Y-%m-%d" }}">{{ post.modified | date: "%B %d, %Y" }}</time>{% endif %}{% if post.comments == true %}{% unless post.link %} | ✉️ <a href="{{ site.url }}{{ post.url }}#disqus_thread">Comments</a>{% endunless %}{% endif %}</p>
         </div>
         <div class="article-wrap">
           {{ post.content }}
@@ -29,7 +29,7 @@
       {% if paginator.previous_page %}
         <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" rel="previous">◀️ Newer</a>
       {% else %}
-        <span disabled class="btn disabled">◀️ Newer</span>
+        <span disabled class="btn">◀️ Newer</span>
       {% endif %}
 
       {% if paginator.next_page %}

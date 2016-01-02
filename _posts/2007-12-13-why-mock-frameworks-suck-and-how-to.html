@@ -2,8 +2,8 @@
 layout: post
 title: Why Mock frameworks suck, and how to write delegate-based test doubles
 date: '2007-12-13T18:24:00.001Z'
-author: Sebastien Lambla
-tags: 
+
+tags:
 modified_time: '2007-12-14T11:12:08.772Z'
 thumbnail: http://lh4.google.com/TheTechnologist/R2F41s_YufI/AAAAAAAAABk/ii4knzwvCr4/s72-c/image_thumb6
 blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-1746053042465462825
@@ -50,7 +50,7 @@ blogger_orig_url: http://serialseb.blogspot.com/2007/12/why-mock-frameworks-suck
 <p>Obviously that's much more code. Or is it? Let's see a character count:</p>
 
 <ul>
-  <li>Mock code 
+  <li>Mock code
     <ul>
       <li>Characters (no space): 220 </li>
 
@@ -58,7 +58,7 @@ blogger_orig_url: http://serialseb.blogspot.com/2007/12/why-mock-frameworks-suck
     </ul>
   </li>
 
-  <li>Fake code 
+  <li>Fake code
     <ul>
       <li>Characters (no spaces): 163 </li>
 
@@ -199,4 +199,4 @@ blogger_orig_url: http://serialseb.blogspot.com/2007/12/why-mock-frameworks-suck
 
 <p>It only took me one line of code to redefine the implementation of my method. Best of all, I use C# to implement my code rather than use the RhinoMock API. Better yet, I can reuse my default fake implementation to be a fully functional in-memory object that reacts as expected, and inject exceptions in any of the methods of my fake object, which is much more reusable. Even better yet, I'm still enjoying compile-time checks that are not applied with any mock framework.</p>
 
-<p>As someone once said, <em>when I see Mocks being used, I reach for my revolver</em>. You've learned already that the test is written in C#, you know your documentation is (primarily) your tests, now learn that code that replaces code is better done in code!</p>  
+<p>As someone once said, <em>when I see Mocks being used, I reach for my revolver</em>. You've learned already that the test is written in C#, you know your documentation is (primarily) your tests, now learn that code that replaces code is better done in code!</p>

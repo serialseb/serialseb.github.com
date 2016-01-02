@@ -1,9 +1,12 @@
-title: serialseb.com
+title: SerialSeb.com
+name: SerialSeb.com
+description:
 safe: true
 lsi: false
 highlights: true
 locale: en_UK
 url: #http://serialseb.com
+
 
 #jekyll config
 permalink: /blog/:year/:month/:day/:title/
@@ -15,7 +18,7 @@ gems:
   - jekyll-mentions
   - jemoji
   - jekyll-redirect-from
-  - jeyll-feed
+  - jekyll-feed
   - jekyll-paginate
 
 rest_kickstarter_url: http://www.kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems
@@ -43,7 +46,10 @@ leftlinks:
       title: Media pack
     - url: /testimonials.html
       title: Testimonials
-
+author:
+  name: Sebastien Lambla
+  email: seb@serialseb.com
+  about: http://serialseb.com/about
 # Site owner
 owner:
   name: Sebastien Lambla
