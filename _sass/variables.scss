@@ -28,10 +28,10 @@ $compcolor 		  : spin($basecolor, 180);
 $bordercolor    : $basecolor;
 $white          : #fff;
 $black          : #111;
-$accentcolor    : $black;
+$accentcolor    : #15B9E9;
 
 /* buttons */
-$primary			: $black;
+$primary			: $accentcolor;
 $success			: #5cb85c;
 $warning			: #dd8338;
 $danger				: #C64537;

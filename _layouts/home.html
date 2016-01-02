@@ -29,7 +29,7 @@
       {% if paginator.previous_page %}
         <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" rel="previous">◀️ Newer</a>
       {% else %}
-        <span disabled class="btn disabled">◀️ Newer</span>
+        <span disabled class="btn">◀️ Newer</span>
       {% endif %}
 
       {% if paginator.next_page %}
