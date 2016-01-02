@@ -1,5 +1,6 @@
 ---
 title: Another move
+comments: true
 ---
 
 As we say goodbye to 2015, a year my blog has had **no updates** at all, for reasons I may share with you one day, I'm thrilled with this new development.
