@@ -1,16 +1,47 @@
 {% capture body %}
   <div id="index">
-    <h3><a href="{{ site.url}}/posts/">Recent Posts</a></h3>
-    {% for post in site.posts limit:5 %}
+    {% for post in paginator.posts %}
     <article>
-      {% if post.link %}
-        <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
-      {% else %}
-        <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
-        <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+
+        <div class="headline-wrap">
+          {% if post.link %}
+            <h1><a href="{{ post.link }}">{{ post.title }}</a></h1>
+          {% else %}
+            <h1><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}">{{ post.title }}</a></h1>
+          {% endif %}
+
+          <p class="byline">Published <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>{% if post.modified %}, edited on <time datetime="{{ post.modified | date: "%Y-%m-%d" }}">{{ post.modified | date: "%B %d, %Y" }}</time>{% endif %}.</p>
+        </div>
+        <div class="article-wrap">
+          {{ post.content }}
+          <footer role="contentinfo">
+            {% if post.share != false %}{% include _social-share.html %}{% endif %}
+
+          </footer>
+        </div><!-- /.article-wrap -->
+      {% if site.owner.disqus-shortname and post.comments == true %}
+        <section id="disqus_thread"></section><!-- /#disqus_thread -->
       {% endif %}
     </article>
+    <hr />
     {% endfor %}
+
+    {% if paginator.total_pages > 1 %}
+    <div class="pagination">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" rel="previous">&laquo; Prev</a>
+      {% else %}
+        <span>&laquo; Prev</span>
+      {% endif %}
+
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" rel="next">Next &raquo;</a>
+      {% else %}
+        <span>Next &raquo;</span>
+      {% endif %}
+    </div>
+    {% endif %}
   </div><!-- /#index -->
+
 {% endcapture %}
 {% include _master.html name="home" nav="author" %}

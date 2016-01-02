@@ -6,7 +6,7 @@ locale: en_UK
 url: #http://serialseb.com
 
 #jekyll config
-permalink: /blog/:categories/:title/
+permalink: /blog/:year/:month/:day/:title/
 sass:
   sass_dir: _sass
   style: compressed
@@ -16,6 +16,7 @@ gems:
   - jemoji
   - jekyll-redirect-from
   - jeyll-feed
+  - jekyll-paginate
 
 rest_kickstarter_url: http://www.kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems
 toplinks:
@@ -59,7 +60,7 @@ owner:
     ad-slot:
   bing-verify:
   github: serialseb
-  stackoverflow: http://stackoverflow.com/users/48213/serialseb
+  stackoverflow: 2593
   linkedin: serialseb
   xing: #username
   instagram: #username
@@ -75,4 +76,6 @@ owner:
   flickr: #username
   codepen: #username
 
+paginate: 10
+paginate_path: "/blog/page:num"
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
