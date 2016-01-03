@@ -5,7 +5,7 @@ safe: true
 lsi: false
 highlights: true
 locale: en_UK
-url: #http://serialseb.com
+url: http://serialseb.com
 
 
 #jekyll config
@@ -60,7 +60,7 @@ owner:
   twitter: serialseb
   google:
     plus: #username
-    analytics:
+    analytics: UA-39783963-1
     verify:
     ad-client:
     ad-slot:

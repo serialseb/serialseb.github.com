@@ -15,7 +15,7 @@
         <div class="article-wrap">
           {{ post.content }}
           <footer role="contentinfo">
-            {% if post.share != false %}{% include _social-share.html %}{% endif %}
+            {% if post.share != false %}{% include _social-share.html shareurl=post.url %}{% endif %}
 
           </footer>
         </div><!-- /.article-wrap -->

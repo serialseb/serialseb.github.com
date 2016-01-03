@@ -5,7 +5,7 @@
       {{ content }}
       {% if page.share != false %}
         <hr />
-        {% include _social-share.html %}
+        {% include _social-share.html shareurl=page.url %}
       {% endif %}
     </div><!-- /.article-wrap -->
     {% if site.owner.disqus-shortname and page.comments == true %}
@@ -14,3 +14,4 @@
   </article>
 {% endcapture %}
 {% include _master.html name="page" nav="author" %}
+ 
