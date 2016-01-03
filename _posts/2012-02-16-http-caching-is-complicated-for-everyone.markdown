@@ -3,7 +3,7 @@
 comments: true
 date: 2012-02-16 22:39:08+00:00
 layout: post
-slug: http-caching-is-complicated-for-everyone-even-ayende
+slug: http-caching-is-complicated-for-everyone
 title: Http Caching is complicated for everyone
 wordpress_id: 126
 ---
