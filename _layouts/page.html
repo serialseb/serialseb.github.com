@@ -1,6 +1,9 @@
 {% capture body %}
   <article class="page">
+    {% if page.title %}
+    {% unless page.title-hide%}
     <h1>{{ page.title }}</h1>
+    {%endunless%}{% endif %}
     <div class="article-wrap">
       {{ content }}
       {% if page.share != false %}
@@ -14,4 +17,3 @@
   </article>
 {% endcapture %}
 {% include _master.html name="page" nav="author" %}
- 
