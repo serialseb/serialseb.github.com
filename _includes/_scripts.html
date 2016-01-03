@@ -12,6 +12,14 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 ga('create', '{{site.owner.google.analytics}}', 'auto');
 ga('send', 'pageview');
+
+{% if page.id == 404 %}
+
+  var url = "/404/?url=" + window.location.pathname
+                         + window.location.search
+               + "&from=" + document.referrer;
+  ga('send', 'pageview', url);
+{% endif %}
 </script>
 <!-- End Google Analytics -->
 {% endif %}
