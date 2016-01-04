@@ -1,0 +1,32 @@
+
+{% capture currentFilePath %}{% if post.path %}{{ post.path }}{% else page.path %}{{ page.path }}{% endif %}{% endcapture %}
+
+currentFilePath: {{currentFilePath}}
+{% capture filename %}{{currentFilePath | split: "/" | last}}{% endcapture%}
+{% capture namespace %}{{ filename | split:"." | first }}{% endcapture %}
+
+{% capture extension %}.{{include.name | split:"." | last }}{% endcapture %}
+{% capture filenameWithoutExtension %}{{ include.name | remove: extension }}{% endcapture %}
+extension: {{extension}}
+filenameWithoutExtension: {{filenameWithoutExtension}}
+{% if namespace contains "index" %}
+  {%capture namespace%}{{ currentFilePath | remove: filename | split:"/" | last }}{% endcapture %}
+{% endif %}
+
+namespace: {{ namespace}}
+{% capture src %}/assets/{{ namespace }}/{{ include.name }}{% endcapture %}
+src: {{ src }}
+
+
+{% capture srcsetPrefix %}/assets/entries/{{namespace}}/{{ include.name |  remove: extension  }}@{% endcapture %}
+srcsetPrefix: {{srcsetPrefix}}
+
+{% for file in site.static_files %}
+  file path: {{file.path}}
+  {% if file.path contains srcsetPrefix %}
+    {% capture srcsetMultiplier %}{{file.path | split: "@" | last | split:"." | first}}{% endcapture %}
+    {% capture srcset %}{{srcset}}{%if srcset%}, {%endif%}{{file.path}} {{srcsetMultiplier}}{% endcapture %}
+    srcset: {{srcset}}
+  {% endif %}
+{% endfor %}
+<img src="{{src}}" {%if srcset %}srcset="{{srcset}}" {%endif%}{%if include.align %} class="{{include.align}}"{%endif%} />
