@@ -11,10 +11,10 @@ var referrer=window.location.search.substr(1);
 var bloggerMap = {};
 {% for post in site.posts %}
   {% if post.blogger_orig_url %}
-  bloggerMap['{{post.blogger_orig_url}}'] = '{{post.url}}'
+  bloggerMap['{{post.blogger_orig_url }}'] = '{{post.url}}'
   {% endif %}
 {% endfor %}
-
-window.location.href=bloggerMap[referrer];
+var map = bloggerMap[referrer.replace('serialseb.blogspot.co.uk','serialseb.blogspot.com')];
+window.location.href= map === undefined ? referrer.substr(referrer.indexOf('/',8)) : map;
 </script>
 </body>
