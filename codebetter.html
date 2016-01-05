@@ -1,0 +1,8 @@
+---
+sitemap: false
+title: Codebetter.com to serialseb.com sitemap
+---
+http://codebetter.com/sebastienlambla/ http://serialseb.com/
+http://codebetter.com/sebastienlambla/default.aspx http://serialseb.com/
+{%for post in site.posts %}{% if post.wordpress_id %}http://codebetter.com/sebastienlambla/{{post.url | remove: "/blog/" }} http://serialseb.com{{post.url}}{%endif%}
+{%endfor%}
