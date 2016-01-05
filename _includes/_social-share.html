@@ -1,11 +1,15 @@
+{% capture absoluteUri %}{{ site.url }}{{ include.shareurl }}{% endcapture %}
 <div class="social-share">
   <h4>Share on</h5>
   <ul>
     <li>
-      <a href="https://twitter.com/intent/tweet?text={{ site.url }}{{ include.shareurl }}" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+      <a href="https://twitter.com/intent/tweet?text={{absoluteUri}}" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
     </li>
     <li>
-      <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ include.shareurl }}" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{absoluteUri}}" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <script type="IN/Share" data-url="{{absoluteUri}}" data-counter="right"></script>
     </li>
   </ul>
 </div><!-- /.social-share -->
