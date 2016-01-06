@@ -2,7 +2,9 @@
 <script>window.jQuery || document.write('<script src="{{ site.url }}/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="{{ site.url }}/assets/js/scripts.min.js"></script>
 
-  <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+<script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+
+
 {% if site.owner.google.analytics %}
 <!-- Asynchronous Google Analytics snippet -->
 <!-- Google Analytics -->
@@ -25,6 +27,8 @@ ga('send', 'pageview');
 </script>
 <!-- End Google Analytics -->
 {% endif %}
+
+
 {% if page.comments %}
   {% include _disqus_comments.html %}
 {% endif %}
