@@ -1,0 +1,11 @@
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "@id": "http://caffeine-it.com/#company",
+  "url": "http://serialseb.com",
+  "name": "Caffeine IT",
+  "legalName": "naughtyProd Limited",
+  "brand": ["Caffeine IT","SerialSeb.com"],
+  "logo": "http://serialseb.com/assets/logo512.png",
+  "founder": {"@id": "http://serialseb.com#me"}
+}

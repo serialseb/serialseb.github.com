@@ -4,8 +4,9 @@ description:
 safe: true
 lsi: false
 highlights: true
-locale: en_UK
-url: #http://serialseb.com
+locale: en_GB
+locale-web: en-gb
+url: http://serialseb.com
 
 
 #jekyll config
@@ -53,10 +54,12 @@ author:
   about: http://serialseb.com/about
 # Site owner
 owner:
+  id: http://serialseb.com#me
+  url: http://serialseb.com/
   name: Sebastien Lambla
   avatar: bio-seb.jpg
   bio: "Passionately distributed systems, continuously improving."
-  email:
+  email: seb@serialseb.com
   disqus-shortname: codebetterblog
   twitter: serialseb
   google:
