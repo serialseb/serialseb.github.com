@@ -46,7 +46,8 @@ body {
 	margin-bottom: 1em;
 	float: none;
 	display: block;
-	vertical-align: middle;
+	vertical-align: top;
+	white-space: nowrap;
 	@media #{$small} {
 		@include grid(12,2);
 		@include prefix(12,0.5);
@@ -588,6 +589,7 @@ $button-size: 1.5rem;
   margin-bottom: 0rem + ($doc-line-height / $doc-font-size);
 	ul {
 		height: 25px;
+		overflow: hidden;
 	}
   ul, li {
   	margin: 0;
