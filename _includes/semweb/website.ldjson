@@ -4,7 +4,7 @@
   "@id": "http://serialseb.com/",
   "url": "http://serialseb.com/",
   "creator": {"@id": "http://serialseb.com#me"},
-  "inLanguage": "{{site.locale-web}}",
+  "inLanguage": "{{site.lang}}",
   "copyrightHolder":[
     {"@id": "http://caffeine-it.com/#company"},
     {"@id": "http://serialseb.com/#me"}

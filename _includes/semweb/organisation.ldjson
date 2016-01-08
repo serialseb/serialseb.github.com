@@ -6,6 +6,11 @@
   "name": "Caffeine IT",
   "legalName": "naughtyProd Limited",
   "brand": ["Caffeine IT","SerialSeb.com"],
-  "logo": "http://serialseb.com/assets/logo512.png",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "http://serialseb.com/assets/logo512.png",
+    "width": "512 px",
+    "height": "512 px"
+  },
   "founder": {"@id": "http://serialseb.com#me"}
 }

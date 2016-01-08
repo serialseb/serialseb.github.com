@@ -1,0 +1,6 @@
+{
+  "@context":"http://schema.org",
+  "@type":"Blog",
+  "@id":"{{ site.url }}/blog/",
+  "sourceOrganization": {"@id": "http://caffeine-it.com/#company"}
+}

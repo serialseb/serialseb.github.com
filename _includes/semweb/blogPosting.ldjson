@@ -1,0 +1,41 @@
+{% if page.author %}
+  {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %}
+{% endif %}
+
+{
+  "@context":"http://schema.org",
+  "@type":"BlogPosting",
+  "@id":"{{ site.url }}{{ page.url }}#post",
+  "mainEntityOfPage":{"@id": "{{ site.url }}{{ page.url }}"},
+  "author": {"@id": "{{author.id}}"},
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  {% if page.modified %}
+  "dateModified": "{{ page.modified  | date_to_xmlschema }}",
+  {%else %}
+  "dateModified": "{{ page.date  | date_to_xmlschema }}",
+  {%endif%}
+  "headline":"{{page.title}}",
+  "url":"{{ site.url }}{{ page.url }}",
+  "copyrightHolder": {"@id": "{{author.id}}"},
+  "copyrightYear": {{page.date | date: "%Y" }},
+  "inLanguage": "{{ page.lang ? page.lang : site.lang }}",
+  "isPartOf": {"@id": "{{site.url}}/blog/"},
+  "image": {
+    "@type": "ImageObject",
+    {% if page.image.feature %}
+    "url":"{{ site.url }}/images/{{ page.image.feature }}",
+    "width": "1024 px",
+    "height": "256 px"
+    {% elsif page.image.thumb %}
+    "url": "{{ site.url }}/images/{{ page.image.thumb }}"
+    "width": "512 px",
+    "height": "512 px"
+    {% else %}
+    "url": "{{ site.url }}/assets/opengraph-logo.jpg",
+    "width": "1200 px",
+    "height": "1200 px"
+    {% endif %}
+  },
+  "publisher": {"@id": "http://caffeine-it.com/#company"}
+
+}

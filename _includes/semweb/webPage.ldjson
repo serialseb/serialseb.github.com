@@ -1,0 +1,5 @@
+{
+  "@context": "http://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ site.url }}{{ page.url }}"
+}

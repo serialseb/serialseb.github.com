@@ -5,9 +5,9 @@ safe: true
 lsi: false
 highlights: true
 locale: en_GB
-locale-web: en-gb
+lang: en-gb
 url: http://serialseb.com
-
+timezone: Europe/London
 
 #jekyll config
 permalink: /blog/:year/:month/:day/:title/
