@@ -1,5 +1,7 @@
 {
   "@context": "http://schema.org",
   "@type": "WebPage",
-  "@id": "{{ site.url }}{{ page.url }}"
+  "@id": "{{ site.url }}{{ page.url |  remove:'index.html' }}",
+  "headline":"{{page.title}}",
+  "isPartOf": {"@id": "http://serialseb.com/#site"}
 }

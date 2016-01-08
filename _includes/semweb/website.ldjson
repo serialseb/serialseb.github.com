@@ -1,7 +1,7 @@
 {
   "@context": "http://schema.org",
   "@type": "WebSite",
-  "@id": "http://serialseb.com/",
+  "@id": "http://serialseb.com/#site",
   "url": "http://serialseb.com/",
   "creator": {"@id": "http://serialseb.com#me"},
   "inLanguage": "{{site.lang}}",
