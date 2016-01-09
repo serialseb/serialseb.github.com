@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Rebuilding SerialSeb.com - Design
+title: Rebuilding SerialSeb.com — Design
 comments: true
 tags: serialseb.com, design
 date: 2016-01-09T18:33:00
 ---
 
-SerialSeb.com has existed for a very long time, but has received very little love. As the saying goes, "shoemaker's wives go barefoot and doctor's wives die young".
+SerialSeb.com has existed for a very long time, but has received very little love. As the saying goes, “shoemaker's wives go barefoot and doctor's wives die young”.
 
 I always knew I wanted something better, and wanted to start 2016 going back to basics and making sure my online presence reflected my principles better. I also realised that I spent most of my time tweeting, and little blogging. I love twitter, but it is ephemeral and the knowledge sharing doesn't reach new people.
 
