@@ -2,7 +2,7 @@
 layout: post
 title: Rebuilding SerialSeb.com — Design
 comments: true
-tags: serialseb.com, design
+tags: serialseb.com design
 date: 2016-01-09T18:33:00
 ---
 

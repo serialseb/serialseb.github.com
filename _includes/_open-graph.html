@@ -22,8 +22,8 @@
 <meta property="og:locale" content="{{ site.locale }}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-{% if page.excerpt %}<meta property="og:description" content="{{ ppage.excerpt | strip_html | strip_newlines | truncatewords: 200 | escape_once }}">{% endif %}
-{% if page.excerpt %}<meta property="description" content="{{ ppage.excerpt | strip_html | strip_newlines | truncatewords: 200 | escape_once }}">{% endif %}
+{% if page.excerpt %}<meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | truncatewords: 200 | escape_once }}">{% endif %}
+{% if page.excerpt %}<meta property="description" content="{{ page.excerpt | strip_html | strip_newlines | truncatewords: 200 | escape_once }}">{% endif %}
 <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.url }}">
 <meta property="og:site_name" content="{{ site.title }}">
 {% if page.image.feature %}
