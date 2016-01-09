@@ -20,7 +20,7 @@ From a command line, add a remote repository by providing a name and a path. Iâ€
 
 
 
-    <div><b>PS C:\src\demo></b><i> o add-remote corp <a href="//cherenkov/c$/tmp/remoterepo/">file://cherenkov/c$/tmp/remoterepo/</a></i></div>
+    <div><b>PS C:\src\demo></b><i> o add-remote corp file://cherenkov/c$/tmp/remoterepo/</i></div>
     # OpenWrap v1.0.0.0 ['C:\src\demo\wraps\_cache\openwrap-1.0.0.18871048\bin-net35\OpenWrap.dll']
     Remote repository 'corp' added.
 

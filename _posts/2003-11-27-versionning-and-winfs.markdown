@@ -10,7 +10,7 @@ image:
 date: 2003-11-27T09:59:51+00:00
 ---
 
-[http://blogs.gotdotnet.com/jmazner/PermaLink.aspx/4959aaae-365d-4bc4-985c-057594b97d8c](Here), Jeremy asks if we want versioning in the file system.
+[Here](http://blogs.gotdotnet.com/jmazner/PermaLink.aspx/4959aaae-365d-4bc4-985c-057594b97d8c), Jeremy asks if we want versioning in the file system.
 
 Let’s think about what exactly ins WinFX and WinFS targeted at, in term of product strategy. That’s right, including more of the common tasks in the OS. Go over the simple “The OS deals with hardware, for everything else you need to add stuff”. Word uses versioning and reviewing. Excel would. Aggregators like newsgator would too. I would love to be able to undo changes to a file I did, even after saving and quitting my application. Versionning is a must, in the delta form obviously. Don’t only do it on text, but also on any binary file. Add an extension to the WinFS type handler for the application developer (understand, me), to implement it. Then show it in the shell, as a stack. Ask the user which version he wants to see (simple form of a checkout), or let the application deal with it too.
 
