@@ -14,7 +14,7 @@ var bloggerMap = {};
   bloggerMap['{{post.blogger_orig_url }}'] = '{{post.url}}'
   {% endif %}
 {% endfor %}
-var map = bloggerMap["http://serialseb.blogspot.com" + referrer.substr(blah.indexOf('/',8))];
+var map = bloggerMap["http://serialseb.blogspot.com" + referrer.substr(referrer.indexOf('/',8))];
 window.location.href= map === undefined ? referrer.substr(referrer.indexOf('/',8)) : map;
 </script>
 </body>
