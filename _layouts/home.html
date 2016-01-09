@@ -1,47 +1,7 @@
 {% capture body %}
   <div id="index">
-    {% for post in paginator.posts %}
-    <article>
-
-        <div class="headline-wrap">
-          {% if post.link %}
-            <h1><a href="{{ post.link }}">{{ post.title }}</a></h1>
-          {% else %}
-            <h1><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}">{{ post.title }}</a></h1>
-          {% endif %}
-
-          <p class="byline">🕑 <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>{% if post.modified %} ✍🏻 <time datetime="{{ post.modified | date: "%Y-%m-%d" }}">{{ post.modified | date: "%B %d, %Y" }}</time>{% endif %}{% if post.comments == true %}{% unless post.link %} | ✉️ <a href="{{ site.url }}{{ post.url }}#disqus_thread">Comments</a>{% endunless %}{% endif %}</p>
-        </div>
-        <div class="article-wrap">
-          {{ post.content }}
-          <footer role="contentinfo">
-            {% if post.share != false %}{% include _social-share.html shareurl=post.url %}{% endif %}
-
-          </footer>
-        </div><!-- /.article-wrap -->
-
-    </article>
-    <hr />
-    {% endfor %}
-
-    {% if paginator.total_pages > 1 %}
-    <nav class="pagination" role="paginate">
-      {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" rel="previous">◀️ Newer</a>
-      {% else %}
-        <span disabled class="btn">◀️ Newer</span>
-      {% endif %}
-
-      {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" rel="next">Older ▶️</a>
-      {% else %}
-        <span>Older ▶️</span>
-      {% endif %}
-    </div>
-    {% endif %}
-  </nav><!-- /#index -->
-<script id="dsq-count-scr" src="//codebetterblog.disqus.com/count.js" async></script>
-
+    {{content}}
+  </div>
 {% endcapture %}
 
 {% include _master.html name="home" nav="author" %}
