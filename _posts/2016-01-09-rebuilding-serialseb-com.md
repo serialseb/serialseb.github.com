@@ -27,7 +27,7 @@ There are many reasons to chose a brand, but three are very important to me: goo
 What I did not have was a logo. I wanted something simple, hand-crafted by myself, visibly recognisable from a distance and cheap to print. Combined with my love of highlighters, and an obsession with logos being a play on the name associated with it, I came up with this.
 
 <figure>
-  <img src="/assets/logo256.png" />
+  <img src="{{site.url}}/assets/logo256.png" />
   <figcaption>The SerialSeb logo</figcaption>
 </figure>
 
