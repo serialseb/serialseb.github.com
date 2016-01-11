@@ -3,7 +3,7 @@
   "@type": "WebSite",
   "@id": "http://serialseb.com/#site",
   "url": "http://serialseb.com/",
-  "creator": {"@id": "http://serialseb.com#me"},
+  "creator": {"@id": "http://serialseb.com/#me"},
   "inLanguage": "{{site.lang}}",
   "copyrightHolder":[
     {"@id": "http://caffeine-it.com/#company"},

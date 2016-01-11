@@ -1,7 +1,12 @@
+{% if page.author %}
+  {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %}
+{% endif %}
 {
   "@context": "http://schema.org",
+  
   "@type": "WebPage",
   "@id": "{{ site.url }}{{ page.url |  remove:'index.html' }}",
   "headline":"{{page.title}}",
-  "isPartOf": {"@id": "http://serialseb.com/#site"}
+  "isPartOf": {"@id": "http://serialseb.com/#site"},
+  "author": {"@id": "{{author.id}}" }
 }
