@@ -3,10 +3,12 @@
 {% endif %}
 {
   "@context": "http://schema.org",
-  
+
   "@type": "WebPage",
   "@id": "{{ site.url }}{{ page.url |  remove:'index.html' }}",
   "headline":"{{page.title}}",
   "isPartOf": {"@id": "http://serialseb.com/#site"},
-  "author": {"@id": "{{author.id}}" }
+  "author": {"@id": "{{author.id}}" },
+  "sourceOrganisation": {"@id":{"http://caffeine-it.com/#company"}},
+  "publisher": {"@id":{"http://caffeine-it.com/#company"}},
 }
