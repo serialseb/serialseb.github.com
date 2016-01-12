@@ -54,7 +54,7 @@ author:
   about: http://serialseb.com/about
 # Site owner
 owner:
-  id: http://serialseb.com#me
+  id: http://serialseb.com/#me
   url: http://serialseb.com/
   name: Sebastien Lambla
   avatar: bio-seb.jpg
