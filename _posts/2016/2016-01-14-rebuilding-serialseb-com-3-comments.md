@@ -3,7 +3,7 @@ date: 2016-01-15T12:00:00
 comments: true
 title: Rebuilding SerialSeb.com — Comments
 serial: rebuilding-serialseb-com
-publish: false
+published: false
 ---
 With all my prose migrated, it was only fair to try and migrate yours!
 
