@@ -14,12 +14,12 @@ Building systems is a complex endeavour. Vertical Slice Technologies is a holist
 
 We value:
 
-  - **iterative**: building and deploying small features quickly and iterations on a problem,
+  - **iterative**: building and deploying small features quickly and iterating on a problem,
   - **composition**: building autonomous components that can communicate and work together in a monolith or spread over a distributed network,
   - **mvp**: features of the smallest possible size that can bring value by being deployed,
-  - **fishing line**: building as quickly as possible a line through the implementation of a system, to put in place all the required components, and grow them as the feature-set grows,
+  - **fishing line**: building as quickly as possible a line through the implementation of a system, to put in place all the required components, and grow them as the featureset grows,
   - **kiss**: building the simplest possible system that can work for a feature,
-  - **BDD**: specification-driven development, where each feature is described and implemented in code, and where tests describe what the code does and what to expect, rather than how it does it,
+  - **BDD**: specification-driven development, where each feature behavior is specified in code, and where specifications describe what the code does and what to expect, rather than how it does it,
   - **no mocking**: providing alongside our libraries and services, in-memory fully-featured versions people can use in their own code-base, using the same testing rig we use to build our library, so our consumers do not have to mock APIs themselves,
   - **test rigs**: providing, alongside our libraries, the test suite for components consumers can implement, so that they don't have to reverse-engineer the expected behaviour of the extension point we provide.
 
