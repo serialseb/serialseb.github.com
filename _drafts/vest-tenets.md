@@ -6,7 +6,7 @@ title: VeST - The Tenets of Vertical Slice Technologies
 serial: vest-redux
 ---
 
-Once upon a time, I blogged about my homegrown approach to [designing systems][designing-systems]. The comments are very clear: it's not much about testing, it's a way of designing software, and everybody does a bit or a lot of it, and it already has many names. The approach has matured quite a bit over the last couple of years, so I think it's time we refresh the concept and delve deeper into how to build things in that way, and why. So without further due, I present you:
+Once upon a time, I blogged about my homegrown approach to [designing systems using VeST][designing-systems]. The comments are very clear: it's not much about testing, it's a way of designing software, and everybody does a bit or a lot of it, and it already has many names. The approach has matured quite a bit over the last couple of years, so I think it's time we refresh the concept and delve deeper into how to build things in that way, and why. So without further due, I present you:
 
 ## The Tenets of Vertical Slice Technologies
 
@@ -25,4 +25,4 @@ We value:
 
 This is the approach I've settled on, both personally and with my teams. This serial of blog posts will try and deep dive in the many _how to_ questions these ideas combined together may trigger.
 
-[designing-systems]:<>
+[designing-systems]:<http://serialseb.com/blog/2013/07/11/unit-testing-is-out-vertical-slice-testing-is-in/>
