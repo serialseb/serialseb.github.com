@@ -8,7 +8,7 @@ The latest community stand up from the asp.net team just announced a big rename.
 
 I like the change. A lot of people, involved like me in pushing Microsoft technolgoies, have been finding it hard to separate the new stack from the old one, and communicate how much of a difference is going to come from this whole new world.
 
-There is a lot of value for any platform to reset. When I started .net in 2000, there was little, and it was a selling point for us. I've followed the platform for 15 years, and know a lot due to the simple fact that I've been around...
+There is a lot of value for any platform to reset. When I started .net in 2000, there was little, and it was a selling point for us. I've followed the platform for 15 years, and know a lot due to the simple fact that I've been around... New comers would find it hard to find their way around all this added construction, which tends to make systems slower to build, and harder to understand.
 
 Having a new 1.0 is both reflective of where the tech is, and of the difficulty articulating clearly to clients the amount of work involved in moving on to this much better new world.
 
