@@ -24,6 +24,12 @@ ga('send', 'pageview');
                + "&from=" + document.referrer;
   ga('send', 'pageview', url);
 {% endif %}
+
+function disqus_config() {
+    this.callbacks.onNewComment = [function() {
+        ga('send', 'event', 'Posts', 'New Comment');
+    }];
+}
 </script>
 <!-- End Google Analytics -->
 
