@@ -1,6 +1,6 @@
 ---
 layout: post
-comments:true
+comments: true
 title: The mythical 17:00 split
 ---
 Here is the new talk I just made at [#pubconf](http://pubconf.io) organised fantastically by amazing people. If you were not there you missed something rather amazing.

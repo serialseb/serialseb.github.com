@@ -1,6 +1,7 @@
 ---
 layout: post
 comments: true
+date: 2016-01-20 00:30
 ---
 The latest community stand up from the asp.net team just announced a big rename.
 

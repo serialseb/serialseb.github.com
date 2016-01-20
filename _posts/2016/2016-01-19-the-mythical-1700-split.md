@@ -3,7 +3,8 @@ layout: post
 comments: true
 title: The Mythical 17:00 Split
 date: 2016-01-19T13:44
-tags: lifehacks
+tags:
+  - lifehacks
 ---
 For PubConf, I created an ignite-style talk describing something I've been thinking about for a long time but only recently managed to formalise.
 
