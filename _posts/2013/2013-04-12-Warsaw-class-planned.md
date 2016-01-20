@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Bringing ReST to Warsaw
+redirect_from: "rest/2013/04/12/Warsaw-class-planned.html"
 ---
 
 I'm happy to announce that we are planning a Warsaw class towards the end of May / beginning of June.

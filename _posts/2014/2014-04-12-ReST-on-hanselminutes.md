@@ -1,5 +1,6 @@
 ---
 layout: post
+redirect_from: "rest/2014/04/12/ReST-on-hanselminutes.html"
 ---
 Last week I finally managed to catch up with Scott for a little podcast talking about Practical ReST, the course and a
 few other bits and pieces.

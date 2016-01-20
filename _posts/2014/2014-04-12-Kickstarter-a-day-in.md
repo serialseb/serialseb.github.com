@@ -1,5 +1,6 @@
 ---
 layout: post
+redirect_from: "rest/2014/04/12/Kickstarter-a-day-in.html"
 ---
 It was only yesterday that I announced the start of the kickstarter project on twitter.
 
