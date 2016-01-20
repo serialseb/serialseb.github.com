@@ -1,22 +1,13 @@
 {% capture absoluteUri %}{{ site.url }}{{ include.shareurl }}{% endcapture %}
 <div class="social-share">
   <h4>Share on</h5>
-  <ul>
-    <li>
-      <a class="twitter-share-button"
-  href="https://twitter.com/share"
-  data-dnt="false"
-  data-url="{{absoluteUri}}"
-  data-via="serialseb">Tweet</a>
-    </li>
-    <li>
-      <div class="g-plus" data-action="share" data-annotation="bubble" data-href="{{absoluteUri}}"></div>
-    </li>
-    <li>
-      <div class="fb-share-button" data-href="{{absoluteUri}}" data-layout="button_count"></div>
-    </li>
-    <li>
-      <script type="IN/Share" data-url="{{absoluteUri}}" data-counter="right"></script>
-    </li>
-  </ul>
+    <!-- AddToAny BEGIN -->
+    <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="{{absoluteUri}}">
+    <a class="a2a_button_facebook a2a_counter"></a>
+    <a class="a2a_button_twitter a2a_counter"></a>
+    <a class="a2a_button_google_plus a2a_counter"></a>
+    <a class="a2a_button_pinterest a2a_counter"></a>
+    <a class="a2a_button_linkedin a2a_counter"></a>
+    </div>
+    <!-- AddToAny END -->
 </div><!-- /.social-share -->
