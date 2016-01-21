@@ -1,0 +1,1 @@
+{%if include.post.serial %}{{site.serials | where: "name",include.post.serial | map: "title" | first}} – {%endif%}{{include.post.title}}

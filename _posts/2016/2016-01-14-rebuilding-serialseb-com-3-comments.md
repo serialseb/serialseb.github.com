@@ -1,7 +1,7 @@
 ---
-date: 2016-01-15T12:00:00
+date: 2016-01-15 12:00:00
 comments: true
-title: Rebuilding SerialSeb.com — Comments
+title: Rebuilding SerialSeb.com – Comments
 serial: rebuilding-serialseb-com
 published: false
 ---

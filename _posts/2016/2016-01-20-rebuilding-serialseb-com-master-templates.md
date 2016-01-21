@@ -2,7 +2,8 @@
 layout: post
 comments: true
 date: 2016-01-20 17:44:00
-title: Rebuilding Serialseb.com – Master Templates
+title: Rebuilding SerialSeb.com – Master templates
+serial: rebuilding-serialseb-com
 ---
 
 GitHub Pages uses Jekyll, which then uses liquid as it's templating mechanism.

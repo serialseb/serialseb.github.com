@@ -1,11 +1,10 @@
 ---
 layout: post
-title: Rebuilding SerialSeb.com — Design
+title: Rebuilding SerialSeb.com – A new design
 comments: true
-
 serial: rebuilding-serialseb-com
 tags: serialseb.com design
-date: 2016-01-09T18:33:00
+date: 2016-01-09 18:33:00
 ---
 
 SerialSeb.com has existed for a very long time, but has received very little love. As the saying goes, “shoemaker's wives go barefoot and doctor's wives die young”.

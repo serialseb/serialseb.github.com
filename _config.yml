@@ -85,7 +85,11 @@ owner:
   weibo: #username
   flickr: #username
   codepen: #username
+  vimeo: serialseb
 
 paginate: 10
 paginate_path: "/blog/page:num"
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
+collections:
+  serials:
+    output: true
