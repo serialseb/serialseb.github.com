@@ -2,7 +2,7 @@
 layout: post
 comments: true
 published: false
-title: VeST - Consuming External APIs
+title: VeST Redux – Consuming External APIs
 serial: vest-redux
 ---
 When designing a system for VeST, one of the pain points is the implementation of external APIs.
@@ -36,11 +36,10 @@ public class Rent_a_movie<T> : Movie_specification<T> {
 	}
 }
 ```
-And voila, your current codebase can now test your understanding of an API and it's actual implementation. 
+And voila, your current codebase can now test your understanding of an API and it's actual implementation.
 
 But what if it breaks? Is it your code that just broke or the API? The eternal "it's not you it's me" conversation will immediately creep up.
 
 If you're working on longer release cycles, one of the way to address this is to run your specifications from the last known release at the same time as the current iteration of code. For example, in the GitHub flow,you would use your CI server to run tests from the current master HEAD, and from HEAD~1.
 
 If both versions break, it's probably them, if HEAD~1 works and HEAD breaks, it's you. If HEAD~1 is broken and HEAD passes, you probably just fixed a bug, have a cookie.
-

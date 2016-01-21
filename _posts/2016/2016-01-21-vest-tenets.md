@@ -1,16 +1,16 @@
 ---
 layout: post
 comments: true
-published: false
-title: VeST - The Tenets of Vertical Slice Technologies
+title: VeST Redux - The Tenets of Vertical Slice Technologies
 serial: vest-redux
+date: 2016-01-21 16:57
 ---
 
 Once upon a time, I blogged about my homegrown approach to [designing systems using VeST][designing-systems].
 
-I've implemented this stack of practices on quite a few projects over the years, and I've been pushed to formalise the definition. Why coin a term? Because it's easier to talk about a package when it has a name.
+I've implemented this stack of practices on quite a few projects over the years, and I've been pushed to formalise it's definition. Why coin a term? Because it's easier to talk about a package when it has a name, and I find those things useful as a package.
 
-Those practices are all anchored in XP and other agile practices, and I have gotten an enormous mileage from using them. I believe sharing what you think you have discovered is a great way to move the goal post,
+Those practices are all anchored in XP and other agile practices, and I have gotten an enormous mileage from using them. I believe sharing what I think I stumbled upon is a great way to move the goal post ad continue the conversation.
 
 ## The Tenets of Vertical Slice Technologies
 
