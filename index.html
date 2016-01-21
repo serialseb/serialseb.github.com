@@ -9,7 +9,7 @@ excerpt: Sebastien Lambla's blog.
 <article>
 
     <div class="headline-wrap">
-        <h1><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{%include title.html post=post %}">{%include title.html post=post %}</a></h1>
+        <h1><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{post.title}}">{{post.title}}</a></h1>
 
       <p class="byline">🕑 <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>{% if post.modified %} ✍🏻 <time datetime="{{ post.modified | date: "%Y-%m-%d" }}">{{ post.modified | date: "%B %d, %Y" }}</time>{% endif %}{% if post.comments == true %}{% unless post.link %} | ✉️ <a href="{{ site.url }}{{ post.url }}#disqus_thread">Comments</a>{% endunless %}{% endif %}</p>
     </div>
