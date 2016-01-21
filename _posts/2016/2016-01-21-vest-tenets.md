@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: VeST Redux - The Tenets of Vertical Slice Technologies
+title: VeST Redux – The Tenets of Vertical Slice Technologies
 serial: vest-redux
 date: 2016-01-21 16:57
 ---
