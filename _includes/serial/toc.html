@@ -1,7 +1,8 @@
 {%if include.post.serial %}
-<nav>
 {% assign serialentry = site.serials | where: "name",include.post.serial | first%}
 {% assign postsInSerial = site.posts | where: "serial", include.post.serial | reverse %}
+{%if postsInSerial.size > 1 %}
+<nav>
 Also in “{{serialentry.title}}”:
 <ol>
 {% for post in postsInSerial %}
@@ -14,5 +15,5 @@ Also in “{{serialentry.title}}”:
 {%endfor%}
 </ol>
 </nav>
-<hr/>
+{%endif%}
 {%endif%}
