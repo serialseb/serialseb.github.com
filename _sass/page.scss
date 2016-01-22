@@ -25,10 +25,16 @@ body {
 }
 
 
-nav {
+article nav {
 	text-align: center;
-	ol { list-style-type:none; }
-	li { margin-left: 0px; }
+
+	ol {
+		list-style-type:none;
+		padding-left: 0px;
+ 		font-weight: bold;
+	}
+
+	ol li a { font-weight: normal; }
 }
 
 

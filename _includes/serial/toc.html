@@ -2,13 +2,13 @@
 <nav>
 {% assign serialentry = site.serials | where: "name",include.post.serial | first%}
 {% assign postsInSerial = site.posts | where: "serial", include.post.serial | reverse %}
-Part of the “{{serialentry.title}}” serial:
+Also in “{{serialentry.title}}”:
 <ol>
 {% for post in postsInSerial %}
 {% capture prefix %}{{serialentry.title}} –{%endcapture%}
 {%assign cutoffTitle = post.title | remove_first: prefix %}
   <li>
-    {%if post.url == include.post.url%}<b>{{cutoffTitle}}{%endif%}</b>
+    {%if post.url == include.post.url%}{{cutoffTitle}}{%endif%}
     {%if post.url != include.post.url%}<a href="{{post.url}}">{{cutoffTitle}}</a>{%endif%}
   </li>
 {%endfor%}
