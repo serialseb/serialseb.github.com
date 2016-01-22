@@ -1,5 +1,5 @@
 {%if include.post.serial %}
-
+<nav>
 {% assign serialentry = site.serials | where: "name",include.post.serial | first%}
 {% assign postsInSerial = site.posts | where: "serial", include.post.serial | reverse %}
 Part of the “{{serialentry.title}}” serial:
@@ -13,5 +13,6 @@ Part of the “{{serialentry.title}}” serial:
   </li>
 {%endfor%}
 </ol>
+</nav>
 <hr/>
 {%endif%}
