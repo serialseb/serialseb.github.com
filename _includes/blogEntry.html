@@ -1,30 +1,34 @@
 {%comment%}Use comments=true, content=... and post={%endcomment%}
 <article>
     <header class="headline-wrap">
-        <h1><a href="{{ site.url }}{{ include.post.url }}" rel="bookmark" title="{{include.post.title}}">{{include.post.title}}</a></h1>
+        <h1><a href="{{ site.url }}{{ include.post.url }}" rel="bookmark" title="{{include.post.title | cgi_escape}}">{{include.post.title}}</a></h1>
 
       <p class="byline"><i class="fa fa-calendar"></i> <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%B %d, %Y" }}</time>{% if include.post.modified %} | <i class="fa fa-pencil-square-o"></i> <time datetime="{{ include.post.modified | date: "%Y-%m-%d" }}">{{ include.post.modified | date: "%B %d, %Y" }}</time>{% endif %}{% if include.post.comments == true %}{%unless include.comments %} | <i class="fa fa-commenting-o"></i> <a href="{{ site.url }}{{ include.post.url }}#disqus_thread">Comments</a>{% endunless %}{%endif%}</p>
     </header>
 
+    {%unless include.excerpt %}
     {%include serial/toc.html post=include.post %}
-
+    {%endunless%}
+    {%if include.excerpt%}
+      <p>{{ include.post.excerpt | strip_html | truncate: 160 }}</p>
+    {%else%}
     <div class="article-wrap">
       {{ include.content }}
     </div><!-- /.article-wrap -->
-
+    {%endif%}
     <footer>
-      {% if include.post.share != false %}{% include _social-share.html shareurl=include.post.url %}{% endif %}
+      {% if include.excerpt != true and include.post.share != false %}{% include _social-share.html shareurl=include.post.url %}{% endif %}
       {% if site.owner.disqus-shortname and include.post.comments == true and include.comments %}
       <section id="disqus_thread">
         <h4>Comment</h4>
       </section><!-- /#disqus_thread -->
       {% endif %}
-      {% if include.related and site.related_posts.size > 0 %}
+      {% if include.excerpt != true and include.related and site.related_posts.size > 0 %}
       <section class="related-articles">
       <h4>You might also enjoy <small class="pull-right">(<a href="{{ site.url }}/archive/">View all posts</a>)</small></h4>
         <ul>
         {% for post in site.related_posts limit:3 %}
-          <li><a href="{{ site.url }}{{ post.url }}" title="{{post.title}}">{{post.title}}</a></li>
+          <li><a href="{{ site.url }}{{ post.url }}" title="{{post.title | cgi_escape}}">{{post.title}}</a></li>
         {% endfor %}
         </ul>
         <hr />
