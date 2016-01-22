@@ -63,7 +63,7 @@ owner:
   disqus-shortname: codebetterblog
   twitter: serialseb
   google:
-    plus: 115168983760653261577
+    plus: Serialseb
     analytics: UA-39783963-1
     verify:
     ad-client:
@@ -86,6 +86,7 @@ owner:
   flickr: #username
   codepen: #username
   vimeo: serialseb
+  reddit: realSerialSeb
 
 paginate: 10
 paginate_path: "/blog/page:num"

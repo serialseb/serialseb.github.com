@@ -28,6 +28,8 @@
     {% if author.weibo %}{%capture entry%}"http://www.weibo.com/{{ author.weibo }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
     {% if author.flickr %}{%capture entry%}"http://www.flickr.com/{{ author.flickr }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
     {% if author.codepen %}{%capture entry%}"http://codepen.io/{{ author.codepen }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
+    {% if author.vimeo %}{%capture entry%}"http://vimeo.com/{{ author.vimeo }}"{%endcapture%}{% assign social = social | push:entry %}<{% endif %}
+    {% if author.reddit %}{%capture entry%}"http://reddit.com/user/{{ author.reddit }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
     {{ social | join: ","}}
   ]
 }
