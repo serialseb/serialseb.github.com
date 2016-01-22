@@ -9,14 +9,11 @@
 h1, h2, h3, h4, h5, h6 {
 	font-family: $heading-font;
 }
-h1, {
-	font-weight: 200;
-}
-h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 {
 	font-weight: 200;
 }
 h1 {
-	@include font-size(32);
+	@include font-size(28);
 }
 h2 {
 	@include font-size(26);

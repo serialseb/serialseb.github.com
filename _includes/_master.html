@@ -28,7 +28,7 @@
   </div><!-- /.image-wrap -->
 {% endif %}
 
-<div id="main" role="main">
+<div role="main" id="main">
   {% if include.nav == 'author' %}
   <div class="article-author-side">
     {% include _author-bio.html %}
@@ -37,12 +37,10 @@
   {{ body }}
 </div><!-- /#main -->
 
-<div class="footer-wrap">
+<footer class="footer-wrap">
   {{ footer_before }}
-  <footer>
-    {% include _footer.html %}
-  </footer>
-</div><!-- /.footer-wrap -->
+  {% include _footer.html %}
+</footer>
 
 {% include _scripts.html %}
 

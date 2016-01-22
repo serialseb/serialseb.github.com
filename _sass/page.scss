@@ -25,16 +25,21 @@ body {
 }
 
 
-article nav {
-	text-align: center;
-
-	ol {
-		list-style-type:none;
-		padding-left: 0px;
- 		font-weight: bold;
+article {
+	header > h1 {
+		margin-bottom: 0px + ($doc-line-height /2);
 	}
+	nav {
+		text-align: center;
 
-	ol li a { font-weight: normal; }
+		ol {
+			list-style-type:none;
+			padding-left: 0px;
+	 		font-weight: bold;
+		}
+
+		ol li a { font-weight: normal; }
+	}
 }
 
 
@@ -274,6 +279,17 @@ $button-size: 1.5rem;
 		}
 		@media #{$x-large} {
 			@include grid(12,4.5);
+		}
+	}
+	nav.pagination {
+		left: auto;
+		right: auto;
+		text-align: center;
+		[disabled] {
+			color: $disabledcolor;
+		}
+		.fa {
+			vertical-align: bottom;
 		}
 	}
 }
@@ -668,8 +684,21 @@ $button-size: 1.5rem;
 .footer-wrap {
 	@include container;
 	@include clearfix;
+	@include grid(12,10);
+	@include prefix(12,1);
+	@include suffix(12,1);
+	@media #{$small} {
+		@include grid(12,6);
+		@include prefix(12,3);
+		@include suffix(12,3);
+	}
+	@media #{$x-large} {
+		@include grid(12,4.5);
+		@include prefix(12,4);
+		@include suffix(12,3.5);
+	}
 	clear: both;
-	padding-bottom: 3em;
+	text-align: center;
 	a,
 	a:active,
 	a:visited,
@@ -679,21 +708,6 @@ $button-size: 1.5rem;
 	h6,
 	span {
 		@include font-rem(14);
-	}
-	footer {
-		@include grid(12,10);
-		@include prefix(12,1);
-		@include suffix(12,1);
-		@media #{$small} {
-			@include grid(12,6);
-			@include prefix(12,3);
-			@include suffix(12,3);
-		}
-		@media #{$x-large} {
-			@include grid(12,4.5);
-			@include prefix(12,4);
-			@include suffix(12,3.5);
-		}
 	}
 }
 
