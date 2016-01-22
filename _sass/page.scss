@@ -16,7 +16,6 @@ body {
 	background-repeat: no-repeat;
 	background-position: right bottom;
 	background-attachment: fixed;
-
 }
 
 
@@ -24,6 +23,15 @@ body {
 		height: 29px !important;
 		width: auto;
 }
+
+
+nav {
+	text-align: center;
+	ol { list-style-type:none; }
+	li { margin-left: 0px; }
+}
+
+
 /*
    Header
    ========================================================================== */
@@ -36,6 +44,7 @@ body {
 	font-weight: 200;
 	@include font-size(22);
 	@include clearfix;
+	margin-bottom: 21px;
 }
 
 /* Site name */
@@ -43,13 +52,12 @@ body {
 	@include grid(12,10);
 	@include prefix(12,1);
 	@include suffix(12,1);
-	margin-bottom: 1em;
 	float: none;
 	display: block;
 	white-space: nowrap;
 	img {
 		vertical-align: top;
-
+    margin-top: -1px;
 	}
 	@media #{$small} {
 		@include grid(12,2);
@@ -188,8 +196,8 @@ $button-size: 1.5rem;
 .nav .navtoogle {
 	@include font-rem(18);
 	font-weight: normal;
-	background-color: $black;
-	color: $white;
+	background-color: $white;
+	color: $black;
 	border: none;
 	cursor: pointer;
 	@media #{$small} {
