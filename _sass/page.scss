@@ -301,13 +301,13 @@ $button-size: 1.5rem;
 		left: auto;
 		right: auto;
 		text-align: center;
-
+    color: $disabledcolor;
 		.fa {
 			vertical-align: bottom;
-			color: $accentcolor;
 		}
-		[disabled], [disabled] .fa {
-			color: $disabledcolor;
+		a { color: $text-color; }
+		a .fa {
+			color: $accentcolor;
 		}
 	}
 }

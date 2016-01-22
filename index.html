@@ -10,17 +10,17 @@ excerpt: Sebastien Lambla's blog.
 {% include blogEntry.html post=post comments=false content=post.content related=false %}
 {% endfor %}
 {% if paginator.total_pages > 1 %}
-<nav class="pagination" role="paginate">
+<nav class="pagination">
   {% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" rel="previous"><i class="fa fa-chevron-left"></i> newer</a>
   {% else %}
-    <span disabled><i class="fa fa-chevron-left"></i> newer</span>
+    <i class="fa fa-chevron-left"></i> newer
   {% endif %}
   |
   {% if paginator.next_page %}
     <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" rel="next">older <i class="fa fa-chevron-right"></i></a>
   {% else %}
-    <span disabled>older <i class="fa fa-chevron-right"></span>
+    older <i class="fa fa-chevron-right">
   {% endif %}
 </nav><!-- /#index -->
 {% endif %}
