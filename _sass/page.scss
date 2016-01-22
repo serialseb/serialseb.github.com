@@ -26,18 +26,34 @@ body {
 
 
 article {
-	header > h1 {
-		margin-bottom: 0px + ($doc-line-height /2);
+	> header {
+			border-bottom: solid 1px #dadada;//$accentcolor;
+			margin-bottom: 0px + ($doc-line-height /2);
 	}
-	nav {
-		text-align: center;
+	//border-bottom: solid 1px $accentcolor;
+	margin-bottom:  0px + ($doc-line-height * 3);
+	> header {
+		h1{
+			margin-bottom: 0px + ($doc-line-height /4);
+		}
+		p {
+			margin-bottom: 0px + ($doc-line-height /4);
+			margin-left: 1px;
+		}
+		.fa {
+			color: $accentcolor;
+		}
 
+	}
+	> nav {
+		border-bottom: solid 1px #dadada;//$accentcolor;
+		margin-bottom: 0px + ($doc-line-height /2);
+		text-align: center;
 		ol {
 			list-style-type:none;
 			padding-left: 0px;
 	 		font-weight: bold;
 		}
-
 		ol li a { font-weight: normal; }
 	}
 }
@@ -290,6 +306,7 @@ $button-size: 1.5rem;
 		}
 		.fa {
 			vertical-align: bottom;
+			color: $accentcolor;
 		}
 	}
 }
