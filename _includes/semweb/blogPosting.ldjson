@@ -1,33 +1,34 @@
-{% if page.author %}
-  {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %}
+{% if include.post.author %}
+  {% assign author = site.data.authors[include.post.author] %}{% else %}{% assign author = site.owner %}
 {% endif %}
 
 {
   "@context":"http://schema.org",
   "@type":"BlogPosting",
-  "@id":"{{ site.url }}{{ page.url }}#post",
-  "mainEntityOfPage":{"@id": "{{ site.url }}{{ page.url |  remove:'index.html' }}"},
+  "@id":"{{ site.url }}{{ include.post.url }}#post",
+  "url": "{{ site.url }}{{ include.post.url |  remove:'index.html' }}",
+  "mainEntityOfPage":{"@id": "{{ site.url }}{{ include.post.url |  remove:'index.html' }}"},
   "author": {"@id": "{{author.id}}"},
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  {% if page.modified %}
-  "dateModified": "{{ page.modified  | date_to_xmlschema }}",
+  "datePublished": "{{ include.post.date | date_to_xmlschema }}",
+  {% if include.post.modified %}
+  "dateModified": "{{ include.post.modified  | date_to_xmlschema }}",
   {%else %}
-  "dateModified": "{{ page.date  | date_to_xmlschema }}",
+  "dateModified": "{{ include.post.date  | date_to_xmlschema }}",
   {%endif%}
-  "headline":"{{page.title}}",
-  "url":"{{ site.url }}{{ page.url }}",
+  "headline":"{{include.post.title}}",
+  "url":"{{ site.url }}{{ include.post.url }}",
   "copyrightHolder": {"@id": "{{author.id}}"},
-  "copyrightYear": {{page.date | date: "%Y" }},
-  "inLanguage": "{{ page.lang ? page.lang : site.lang }}",
+  "copyrightYear": {{include.post.date | date: "%Y" }},
+  "inLanguage": "{{ include.post.lang ? include.post.lang : site.lang }}",
   "isPartOf": {"@id": "{{site.url}}/blog/"},
   "image": {
     "@type": "ImageObject",
-    {% if page.image.feature %}
-    "url":"{{ site.url }}/images/{{ page.image.feature }}",
+    {% if include.post.image.feature %}
+    "url":"{{ site.url }}/images/{{ include.post.image.feature }}",
     "width": "1024 px",
     "height": "256 px"
-    {% elsif page.image.thumb %}
-    "url": "{{ site.url }}/images/{{ page.image.thumb }}"
+    {% elsif include.post.image.thumb %}
+    "url": "{{ site.url }}/images/{{ include.post.image.thumb }}"
     "width": "512 px",
     "height": "512 px"
     {% else %}

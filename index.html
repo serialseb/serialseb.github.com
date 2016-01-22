@@ -2,43 +2,26 @@
 layout: home
 image:
   feature: officehead.jpg
-redirect-from: "/blog/"
+redirect_from: "/blog/"
 excerpt: Sebastien Lambla's blog.
 ---
+<div id="index">
 {% for post in paginator.posts %}
-<article>
-
-    <div class="headline-wrap">
-        <h1><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{post.title}}">{{post.title}}</a></h1>
-
-      <p class="byline">🕑 <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>{% if post.modified %} ✍🏻 <time datetime="{{ post.modified | date: "%Y-%m-%d" }}">{{ post.modified | date: "%B %d, %Y" }}</time>{% endif %}{% if post.comments == true %}{% unless post.link %} | ✉️ <a href="{{ site.url }}{{ post.url }}#disqus_thread">Comments</a>{% endunless %}{% endif %}</p>
-    </div>
-
-    {%include serial/toc.html post=post %}
-    <div class="article-wrap">
-      {{ post.content }}
-      <footer role="contentinfo">
-        {% if post.share != false %}{% include _social-share.html shareurl=post.url %}{% endif %}
-
-      </footer>
-    </div><!-- /.article-wrap -->
-
-</article>
-<hr />
+{% include blogEntry.html post=post comments=false content=post.content related=false %}
 {% endfor %}
-
+</div>
 {% if paginator.total_pages > 1 %}
 <nav class="pagination" role="paginate">
   {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" rel="previous">◀️ Newer</a>
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" rel="previous"><i class="fa fa-chevron-circle-left"></i> newer</a>
   {% else %}
-    <span disabled class="btn">◀️ Newer</span>
+    <span disabled><i class="fa fa-chevron-circle-left"></i> newer</span>
   {% endif %}
 
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" rel="next">Older ▶️</a>
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" rel="next">older <i class="fa fa-chevron-circle-right"></i></a>
   {% else %}
-    <span>Older ▶️</span>
+    <span disabled>older <i class="fa fa-chevron-circle-right"></span>
   {% endif %}
 </nav><!-- /#index -->
 {% endif %}
