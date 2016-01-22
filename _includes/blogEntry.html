@@ -12,7 +12,7 @@
       {{ include.content }}
     </div><!-- /.article-wrap -->
 
-    <footer role="contentinfo">
+    <footer>
       {% if include.post.share != false %}{% include _social-share.html shareurl=include.post.url %}{% endif %}
       {% if site.owner.disqus-shortname and include.post.comments == true and include.comments %}
       <section id="disqus_thread"></section><!-- /#disqus_thread -->

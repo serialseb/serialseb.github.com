@@ -18,7 +18,6 @@ sass:
 gems:
   - jemoji
   - jekyll-sitemap
-  - jekyll-mentions
   - jekyll-redirect-from
   - jekyll-feed
   - jekyll-paginate
