@@ -69,9 +69,11 @@ owner:
   social:
     email: seb@serialseb.com
     twitter: serialseb
+    linkedin: serialseb
+    facebook: serialseb
+    google-plus: Serialseb
     github: serialseb
     stackoverflow: 2593/serialseb
-    linkedin: serialseb
     xing: #username
     instagram: serialseb
     lastfm: #username
@@ -87,7 +89,6 @@ owner:
     codepen: #username
     vimeo: 5750409
     reddit: realSerialSeb
-    google-plus: Serialseb
 
 paginate: 10
 paginate_path: "/blog/page:num"
