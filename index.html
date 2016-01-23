@@ -7,7 +7,7 @@ excerpt: Sebastien Lambla's blog.
 ---
 <main>
 {% for post in paginator.posts %}
-{% include blogEntry.html post=post comments=false content=post.content related=false %}
+{% include blogEntry.html post=post comments=false content=post.content related=false ads=true %}
 {% endfor %}
 {% if paginator.total_pages > 1 %}
 <nav class="pagination">
