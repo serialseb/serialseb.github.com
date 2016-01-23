@@ -5,7 +5,7 @@ image:
 redirect_from: "/blog/"
 excerpt: Sebastien Lambla's blog.
 ---
-<div class="post">
+<main>
 {% for post in paginator.posts %}
 {% include blogEntry.html post=post comments=false content=post.content related=false %}
 {% endfor %}
@@ -24,6 +24,6 @@ excerpt: Sebastien Lambla's blog.
   {% endif %}
 </nav><!-- /#index -->
 {% endif %}
-</div>
+</main>
 <script id="dsq-count-scr" src="//codebetterblog.disqus.com/count.js" async></script>
 <div id="me" style="display:none">Hello. You have reached my hash uri. You're probably trying to resolve something not to be resolved. Look away now and see you in the semweb graph</div>

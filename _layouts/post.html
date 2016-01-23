@@ -1,6 +1,6 @@
 {% capture body %}
-<div class="post">
+<main>
   {%include blogEntry.html post=page comments=true content=content %}
-</div>
+</main>
 {% endcapture %}
 {% include _master.html name="post" nav="author" related=true %}
