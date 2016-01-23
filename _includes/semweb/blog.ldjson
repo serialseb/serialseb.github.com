@@ -2,6 +2,7 @@
   "@context":"http://schema.org",
   "@type":"Blog",
   "@id":"{{ site.url }}/blog/",
+  "url": "{{ site.url }}/blog/",
   "sourceOrganization": {"@id": "http://caffeine-it.com/#company"},
   "isPartof": {"@id": "http://serialseb.com/#site" }
 }
