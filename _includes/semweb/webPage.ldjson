@@ -10,5 +10,5 @@
   "isPartOf": {"@id": "http://serialseb.com/#site"},
   "author": {"@id": "{{author.id}}" },
   "sourceOrganisation": {"@id":"http://caffeine-it.com/#company"},
-  "publisher": {"@id":"http://caffeine-it.com/#company"},
+  "publisher": {"@id":"http://caffeine-it.com/#company"}
 }
