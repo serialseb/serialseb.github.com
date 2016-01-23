@@ -28,6 +28,7 @@ One of the things that was not easily doable in 2.0 was extending that meta-mode
 
 A typical 2.x era configuration for a resource contains multiple chained methods, one per thing you want to configure for a resource.
 
+```
             using (OpenRastaConfiguration.Manual)  
             {  
                 ResourceSpace.Has                       // IHas  
@@ -36,6 +37,7 @@ A typical 2.x era configuration for a resource contains multiple chained methods
                     .HandledBy<UserDocumentHandler>()   // IHandler  
                     .AsXmlDataContract();               // ICodec  
             }
+```
 
 The interfaces that you see on the right are new to 2.1 and are where the magic happens.
 
@@ -43,16 +45,18 @@ Let’s say we want to require authentication for any UserDocument resource. The
 
 To prevent intellisense from showing a lot of rubbish on those interfaces, to gain access to the extensibility points of the configuration API you need to cast the instance you get to IXxxTarget. In our example, let’s create a RequiresAuthentication method and add some metadata to that resource registration.
 
+```
     public static class AuthenticationConfiguration  
     {  
         public static T RequiresAuthentication<T>(this T root) where T:IResourceDefinition  
         {  
             var target = root as IResourceTarget;  
-  
+
             target.Resource.Properties["caffeineit.demos.fluentauth.enabled"] = true;  
             return root;  
         }  
     }
+```
 
 The IResourceTarget interface contains about everything you need to add anything you want to the configuration model: the meta-model repository, the current resource registration and its list of URIs, Handlers and Codecs.
 
@@ -66,24 +70,24 @@ You may have seen them being used in OpenRasta on a per-method basis, usually to
 
 Whenver a URI is matched by OpenRasta, it is associated with a **resource key**. This is the cornerstone of the OpenRasta model, as with a resource key we can find all handlers, URIs, codecs and anything else associated with the resource we have. We’re going to be using this to get the information we’ve added in our configuration.
 
- 
+```
 
     public class FluentAuthenticationInterceptor : IOperationInterceptor  
     {  
         IMetaModelRepository _configuration;  
         ICommunicationContext _env;  
-  
+
         public FluentAuthenticationInterceptor(IMetaModelRepository configuration, ICommunicationContext env)  
         {  
             _configuration = configuration;  
             _env = env;  
         }  
-  
+
         public bool BeforeExecute(IOperation operation)  
         {  
             var currentResource = _env.PipelineData.ResourceKey;  
             var registration = _configuration.ResourceRegistrations.FirstOrDefault(x => x.ResourceKey == currentResource);  
-  
+
             object authEnabled;  
             if (registration != null &&  
                 registration.Properties.TryGetValue("caffeineit.demos.fluentauth.enabled", out authEnabled) &&  
@@ -97,19 +101,19 @@ Whenver a URI is matched by OpenRasta, it is associated with a **resource key**.
             }  
             return true;  
         }  
-  
+
         public Func<IEnumerable<OutputMember>> RewriteOperation(Func<IEnumerable<OutputMember>> operationBuilder)  
         {  
             return operationBuilder;  
         }  
-  
+
         public bool AfterExecute(IOperation operation, IEnumerable<OutputMember> outputMembers)  
         {  
             return true;  
         }  
     }
 
- 
+```
 
 A few things are happening here. Of course we use **dependency injection** to take a dependency on the meta-model repository, where our configuration is stored, and on the ICommunicationContext, which gives us the principal of the current user, and which we need to know if someone has authenticated. On a side-note, that property is populated based on your hosting environment, so if you run on asp.net and have Forms authentication enabled, that will flow automatically with no work on your part.
 
@@ -119,15 +123,18 @@ We do the work in BeforeExecute so we can stop execution before any other code r
 
 The last bit we have to do is to give the interceptor to OpenRasta, and like everything else, it is handled by the IoC container. We can register custom dependencies in a unified fashion using the fluent configuration API.
 
+```
 ResourceSpace.Uses.CustomDependency<  
                     IOperationInterceptor,   
                     FluentAuthenticationInterceptor>  
                     (DependencyLifetime.Transient);
+```
 
 ## Cleaning up and ready for packaging
 
 Finally, like most plugins in OpenRasta, you should do all your configuration work as an extension on IUses, so we wrap the work that was done in the last bit into a nice extension method.
 
+```
 public static void FluentAuthentication(this IUses uses)  
         {  
             var target = (IFluentTarget)uses;  
@@ -138,13 +145,15 @@ public static void FluentAuthentication(this IUses uses)
                     DependencyLifetime.Transient)  
                 );  
         }
+```
 
 And now our configuration looks nice and understandable.
 
+```
             using (OpenRastaConfiguration.Manual)  
             {  
                 ResourceSpace.Uses.FluentAuthentication();  
-  
+
                 ResourceSpace.Has                      
                     .ResourcesOfType<UserDocument>()   
                     .RequiresAuthentication()  
@@ -152,6 +161,7 @@ And now our configuration looks nice and understandable.
                     .HandledBy<UserDocumentHandler>()  
                     .AsXmlDataContract();              
             }
+```
 
 ## Conclusion
 

@@ -20,6 +20,6 @@ deliveries:
       date: 19-Jan-2012
 ---
 
-<iframe src="http://player.vimeo.com/video/37936696" width="500" height="300" frameborder="0"
+<iframe src="https://player.vimeo.com/video/37936696" width="500" height="300" frameborder="0"
         allowFullScreen="allowFullScreen">
         </iframe>

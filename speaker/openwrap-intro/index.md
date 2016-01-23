@@ -21,6 +21,6 @@ deliveries:
       video: http://ndc2011.macsimum.no/mp4/Day3%20Friday/Track7%200900-1000.mp4
 ---
 
-<iframe src="http://player.vimeo.com/video/14570246" width="500" height="375" frameborder="0"
+<iframe src="https://player.vimeo.com/video/14570246" width="500" height="375" frameborder="0"
         allowFullScreen="allowFullScreen">
 </iframe>

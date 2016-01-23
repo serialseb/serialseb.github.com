@@ -3,9 +3,9 @@ email:
   fa: envelope-square
 twitter:
   template: https://twitter.com/username
-  fa: facebook-square
+  fa: twitter-square
 facebook:
-  template: http://facebook.com/username
+  template: https://facebook.com/username
   fa: facebook-square
 github:
   template: https://github.com/username
@@ -31,7 +31,7 @@ tumblr:
   template: http://username.tumblr.com
   fa: tumblr-square
 pinterest:
-  template: https://pinterest.com/username
+  template: https://www.pinterest.com/username
 foursquare:
   template: https://foursquare.com/username
 steam:
@@ -40,7 +40,7 @@ steam:
 dribble:
   template: http://dribbble.com/username
 youtube:
-  template: https://youtube.com/user/username
+  template: https://www.youtube.com/user/username
   fa: youtube-square
 soundcloud:
   template: http://soundcloud.com/username
@@ -55,7 +55,7 @@ vimeo:
   template: https://vimeo.com/username
   fa: vimeo-square
 reddit:
-  template: https://reddit.com/user/username
+  template: https://www.reddit.com/user/username
   fa: reddit-square
 google-plus:
   template: https://plus.google.com/+username

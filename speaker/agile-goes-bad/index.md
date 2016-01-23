@@ -54,5 +54,5 @@ deliveries:
       location: Belfast, United Kingdom
       date: 3-Apr-2009
 ---
-<iframe src="http://player.vimeo.com/video/6380452" width="500" height="275" frameborder="0"
+<iframe src="https://player.vimeo.com/video/6380452" width="500" height="275" frameborder="0"
  allowFullScreen="allowFullScreen"><!-- Ah --></iframe>

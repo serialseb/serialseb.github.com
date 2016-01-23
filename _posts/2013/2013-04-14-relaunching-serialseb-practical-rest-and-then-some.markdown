@@ -14,7 +14,7 @@ Well. After 5 months of soul-searching, ups and downs, I'm back, more focused th
 # Practical ReST - the book
 
 
-I've been talking for years about writing a brain dump of what I know of ReST. The project has started, you can pledge to [buy your copy today](http://kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems) (in various editions) and get content as early as next month!
+I've been talking for years about writing a brain dump of what I know of ReST. The project has started, you can pledge to [buy your copy today](https://kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems) (in various editions) and get content as early as next month!
 
 The response has been amazing, with three quarters of the minimum funding pledged in 48 hours. Of course, the more contributors the more time I can allocate to the book, the quicker the book will be in your hands, so don't hesitate!
 
@@ -39,7 +39,7 @@ I'm also launching a referral program *and* group rebates, so if you're a traini
 Scott was nice enough to have me on his show this week, talking about Practical ReST. It's [published and ready to be listened to](http://www.hanselminutes.com/366/practical-rest-with-sebastien-lambla), and while I was half-way through an asthma attack and having microphone problems, Scott saves the day by being a great host.
 
 
-# [Cancer Research UK](http://www.cancerresearchuk.org/home/)
+# [Cancer Research UK](http://www.cancerresearchuk.org/)
 
 
 You may remember that I asked for your contributions to help me raise money for cancer research UK. I can now announced that we raised more than 700£, and that both my objectives of non-drinking were achieved. I cannot thank you all enough for your generosity.

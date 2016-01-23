@@ -6,7 +6,7 @@ deliveries:
     url: http://www.infoq.com/presentations/Building-a-RESTful-Architecture-with-OpenRasta
 
 ---
-<iframe src="http://player.vimeo.com/video/3385419?title=0&amp;byline=0&amp;portrait=0" width="500" height="377"
+<iframe src="https://player.vimeo.com/video/3385419?title=0&amp;byline=0&amp;portrait=0" width="500" height="377"
         frameborder="0" allowFullScreen="allowFullScreen">
 
 </iframe>

@@ -46,7 +46,7 @@ If I provide users with an API, I will start by the API that I decide to publis
 
 All the same, if my user interface is not an API, but some sort of UI, there is very little reason to care about all the scenarios a component may face that **cannot** be triggered from that user interface.
 
-The process of discovering your user interface has an added advantage. The answer to most _but what if_ questions about such a top-down approach usually unveils an additional user interface you didn’t quite know you had (looking at you, JSON SPA AJAX _<insert buzz word of the day>_ Frankenstein “web” apps).
+The process of discovering your user interface has an added advantage. The answer to most _but what if_ questions about such a top-down approach usually unveils an additional user interface you didn’t quite know you had (looking at you, JSON SPA AJAX _`<insert buzz word of the day>`_ Frankenstein “web” apps).
 
 This is already an understood concept, and is usually referred to as acceptance testing.
 

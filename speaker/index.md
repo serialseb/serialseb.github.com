@@ -32,7 +32,7 @@ Those talks have not been presented in a while, were a one-off or are just here 
  - [Building composite applications in a package-managed world][composite]
    -(http://speakerrate.com/talks/5531-building-composite-web-applications-with-open-frameworks)
  - [RESTful Architecture - Pecha Kucha Karaoke](randoms/barcamplondon7.html)
- - [VAN Open Talk on ReST with Udi Dahan et al](http://vimeo.com/5750409)
+ - [VAN Open Talk on ReST with Udi Dahan et al](https://vimeo.com/5750409)
  - WebForms vs. MVC with Phil Winstanley
 
 [version-considered-evil]: change-mgmt-web/

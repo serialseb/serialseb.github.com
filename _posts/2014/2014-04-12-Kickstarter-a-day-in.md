@@ -4,7 +4,7 @@ redirect_from: "rest/2014/04/12/Kickstarter-a-day-in.html"
 ---
 It was only yesterday that I announced the start of the kickstarter project on twitter.
 
-<blockquote class="twitter-tweet"><p>You heard it here first, fund my "Practical ReST" book now on kickstarter: <a href="http://t.co/uaLqkDER4W" title="http://www.kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems">kickstarter.com/projects/seria…</a></p>&mdash; serialseb (@serialseb) <a href="https://twitter.com/serialseb/status/322387173150183425">April 11, 2013</a></blockquote>
+<blockquote class="twitter-tweet"><p>You heard it here first, fund my "Practical ReST" book now on kickstarter: <a href="http://t.co/uaLqkDER4W" title="https://www.kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems">kickstarter.com/projects/seria…</a></p>&mdash; serialseb (@serialseb) <a href="https://twitter.com/serialseb/status/322387173150183425">April 11, 2013</a></blockquote>
 <script async="async" src="//platform.twitter.com/widgets.js" charset="utf-8"><!----></script>
 
 I am amazed at the response so far and have great hopes that we'll reach the target and much more! So I'm kicking

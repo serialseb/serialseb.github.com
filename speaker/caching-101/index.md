@@ -31,6 +31,6 @@ deliveries:
       video: http://vimeo.com/36409207
 
 ---
-<iframe src="http://player.vimeo.com/video/53211413?badge=0" width="400" height="300" frameborder="0"
+<iframe src="https://player.vimeo.com/video/53211413?badge=0" width="400" height="300" frameborder="0"
         allowFullScreen="allowFullScreen">
 </iframe>
