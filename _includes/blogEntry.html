@@ -18,6 +18,7 @@
     {%endif%}
     <footer>
       {% if include.excerpt != true and include.post.share != false %}{% include _social-share.html shareurl=include.post.url %}{% endif %}
+      {%if include.ads %}
       <section>
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <!-- Blog Entry -->
@@ -30,6 +31,7 @@
       (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
     </section>
+    {%endif%}
       {% if site.owner.disqus-shortname and include.post.comments == true and include.comments %}
       <section id="disqus_thread">
         <h4>Comment</h4>
