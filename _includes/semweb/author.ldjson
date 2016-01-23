@@ -9,27 +9,14 @@
   "image": "{{avatarUri}}",
   "sameAs" : [
     {% assign social = "" | split: "" | pop %}
-    {% if author.twitter %}{%capture entry %}"http://twitter.com/{{author.twitter}}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.facebook %}{%capture entry%}"http://facebook.com/{{ author.facebook }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.google.plus %}{%capture entry%}"http://plus.google.com/+{{ author.google.plus }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.linkedin %}{%capture entry%}"http://linkedin.com/in/{{ author.linkedin }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.xing %}{%capture entry%}"http://www.xing.com/profile/{{ author.xing }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.instagram %}{%capture entry%}"http://instagram.com/{{ author.instagram }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.tumblr %}{%capture entry%}"http://{{ author.tumblr }}.tumblr.com"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.github %}{%capture entry%}"http://github.com/{{ author.github }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.stackoverflow %}{%capture entry%}"http://stackoverflow.com/users/{{ author.stackoverflow }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.lastfm %}{%capture entry%}"http://lastfm.com/user/{{ author.lastfm }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.dribbble %}{%capture entry%}"http://dribbble.com/{{ author.dribbble }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.pinterest %}{%capture entry%}"http://www.pinterest.com/{{ author.pinterest }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.foursquare %}{%capture entry%}"http://foursquare.com/{{ author.foursquare }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.steam %}{%capture entry%}"http://steamcommunity.com/id/{{ author.steam }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.youtube %}{%capture entry%}"https://youtube.com/user/{{ author.youtube }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.soundcloud %}{%capture entry%}"http://soundcloud.com/{{ author.soundcloud }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.weibo %}{%capture entry%}"http://www.weibo.com/{{ author.weibo }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.flickr %}{%capture entry%}"http://www.flickr.com/{{ author.flickr }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.codepen %}{%capture entry%}"http://codepen.io/{{ author.codepen }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {% if author.vimeo %}{%capture entry%}"http://vimeo.com/{{ author.vimeo }}"{%endcapture%}{% assign social = social | push:entry %}<{% endif %}
-    {% if author.reddit %}{%capture entry%}"http://reddit.com/user/{{ author.reddit }}"{%endcapture%}{% assign social = social | push:entry %}{% endif %}
-    {{ social | join: ","}}
+    "{{author.id}}"
+    {%for social in author.social%}
+      {%assign key = social[0]%}
+      {%assign username = social[1] %}
+      {%if username %}
+        {%assign socialNet = site.data.social[key] %}
+        ,"{{socialNet.template | replace: "username",username}}"
+      {% endif %}
+    {%endfor%}
   ]
 }

@@ -60,32 +60,34 @@ owner:
   bio: "Passionately distributed systems, continuously improving."
   email: seb@serialseb.com
   disqus-shortname: codebetterblog
-  twitter: serialseb
   google:
-    plus: Serialseb
     analytics: UA-39783963-1
     verify:
     ad-client:
     ad-slot:
   bing-verify:
-  github: serialseb
-  stackoverflow: 2593
-  linkedin: serialseb
-  xing: #username
-  instagram: serialseb
-  lastfm: #username
-  tumblr: realSerialSeb
-  pinterest: realSerialSeb
-  foursquare: Serialseb
-  steam: #username
-  dribbble: #username
-  youtube: serialseb2
-  soundcloud: #username
-  weibo: #username
-  flickr: #username
-  codepen: #username
-  vimeo: serialseb
-  reddit: realSerialSeb
+  social:
+    email: seb@serialseb.com
+    twitter: serialseb
+    github: serialseb
+    stackoverflow: 2593/serialseb
+    linkedin: serialseb
+    xing: #username
+    instagram: serialseb
+    lastfm: #username
+    tumblr: realSerialSeb
+    pinterest: realSerialSeb
+    foursquare: Serialseb
+    steam: #username
+    dribbble: #username
+    youtube: serialseb2
+    soundcloud: #username
+    weibo: #username
+    flickr: #username
+    codepen: #username
+    vimeo: 5750409
+    reddit: realSerialSeb
+    google-plus: Serialseb
 
 paginate: 10
 paginate_path: "/blog/page:num"

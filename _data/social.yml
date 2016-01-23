@@ -1,0 +1,63 @@
+email:
+  template: mailto:username
+  fa: envelope-square
+twitter:
+  template: https://twitter.com/username
+  fa: facebook-square
+facebook:
+  template: http://facebook.com/username
+  fa: facebook-square
+github:
+  template: https://github.com/username
+stackoverflow:
+  template: http://stackoverflow.com/users/username
+  fa: stack-overflow
+linkedin:
+  template: https://www.linkedin.com/in/username
+  fa: linkedin-square
+  title: LinkedIn
+xing:
+  template: http://www.xing.com/profile/username
+  fa: xing-square
+  title: XING
+instagram:
+  template: http://instagram.com/username
+  fa: instagram
+lastfm:
+  template: http://lastfm.com/user/username
+  fa: music
+  title: Last.fm
+tumblr:
+  template: http://username.tumblr.com
+  fa: tumblr-square
+pinterest:
+  template: https://pinterest.com/username
+foursquare:
+  template: https://foursquare.com/username
+steam:
+  template: http://steamcommunity.com/id/username
+  fa: steam-square
+dribble:
+  template: http://dribbble.com/username
+youtube:
+  template: https://youtube.com/user/username
+  fa: youtube-square
+soundcloud:
+  template: http://soundcloud.com/username
+weibo:
+  template: http://www.weibo.com/username
+flickr:
+  template: http://www.flickr.com/username
+codepen:
+  template: http://codepen.io/username
+  title: CodePen
+vimeo:
+  template: https://vimeo.com/username
+  fa: vimeo-square
+reddit:
+  template: https://reddit.com/user/username
+  fa: reddit-square
+google-plus:
+  template: https://plus.google.com/+username
+  fa: google-plus-square
+  title: Google+
