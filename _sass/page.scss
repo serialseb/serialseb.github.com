@@ -79,7 +79,6 @@ article {
 	@include grid(12,10);
 	@include prefix(12,1);
 	@include suffix(12,1);
-	float: none;
 	display: block;
 	white-space: nowrap;
 	img {
@@ -94,6 +93,10 @@ article {
 	@media #{$x-large} {
 		@include grid(12,1.5);
 		@include prefix(12,2);
+	}
+	@media #{$microonly} {
+		float:right;
+		width:auto;
 	}
 }
 
@@ -223,13 +226,14 @@ $button-size: 1.5rem;
 .nav .navtoogle {
 	@include font-rem(18);
 	font-weight: normal;
-	background-color: $white;
-	color: $black;
+	background-color: $accentcolor;
+	color: $white;
 	border: none;
 	cursor: pointer;
 	@media #{$small} {
 		display: none;
 	}
+	margin-top: -5px;
 }
 .nav button {
 	border: none;
