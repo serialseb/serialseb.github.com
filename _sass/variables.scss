@@ -10,7 +10,8 @@ $doc-font-size: 16;
 $doc-line-height: 26;
 $paragraph-indent: true !default;
 $base-font: 'PT Sans', sans-serif;
-$heading-font: 'Helvetica Neue', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+//$heading-font: 'Helvetica Neue Light','HelveticaNeue-Light', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+$heading-font: 'Helvetica Neue Thin','HelveticaNeue-Thin', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'HelveticaNeue' 'Arial', sans-serif;
 $code-font: Monaco, "Consolas", "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
 $alt-font: $base-font;
 
