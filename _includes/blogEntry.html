@@ -3,7 +3,13 @@
     <header class="headline-wrap">
         <h1><a href="{{ site.url }}{{ include.post.url }}" rel="bookmark" title="{{include.post.title | cgi_escape}}">{{include.post.title}}</a></h1>
 
-      <p class="byline"><i class="fa fa-calendar"></i> <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%B %d, %Y" }}</time>{% if include.post.modified %} | <i class="fa fa-pencil-square-o"></i> <time datetime="{{ include.post.modified | date: "%Y-%m-%d" }}">{{ include.post.modified | date: "%B %d, %Y" }}</time>{% endif %}{% if include.post.comments == true %}{%unless include.comments %} | <i class="fa fa-commenting-o"></i> <a href="{{ site.url }}{{ include.post.url }}#disqus_thread">Comments</a>{% endunless %}{%endif%}</p>
+      <p class="byline">
+        <time datetime="{{ include.post.date | date_to_xmlschema }}" class="icon fa-calendar">{{ include.post.date | date: "%B %d, %Y" }}</time>
+        {% if include.post.modified %}
+        <time class="icon fa-pencil-square-o" datetime="{{ include.post.modified | date: "%Y-%m-%d" }}">{{ include.post.modified | date: "%B %d, %Y" }}</time>
+        {% endif %}
+        {% if include.post.comments == true %}{%unless include.comments %} <a class="icon fa-commenting-o" href="{{ site.url }}{{ include.post.url }}#disqus_thread">Comments</a>{% endunless %}{%endif%}
+      </p>
     </header>
 
     {%unless include.excerpt %}
