@@ -10,7 +10,7 @@
     {"@id": "http://serialseb.com/#me"}
   ],
   "sourceOrganization": {"@id":"http://caffeine-it.com/#company"},
-  "name": "SerialSeb Says",
+  "name": "SerialSeb",
   "potentialAction": {
     "@type": "SearchAction",
     "target": "http://serialseb.com/search/?q={search_term_string}",
