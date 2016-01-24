@@ -1,19 +1,12 @@
 {%if include.post.serial %}
-{% assign serialentry = site.serials | where: "name",include.post.serial | first%}
+
 {% assign postsInSerial = site.posts | where: "serial", include.post.serial | reverse %}
-{%if postsInSerial.size > 1 %}
+{% assign serialentry = site.serials | where: "name",include.post.serial | first%}
+{%if postsInSerial | size > 1 %}
 <nav>
 Also in “{{serialentry.title}}”:
-<ol>
-{% for post in postsInSerial %}
-{% capture prefix %}{{serialentry.title}} –{%endcapture%}
-{%assign cutoffTitle = post.title | remove_first: prefix %}
-  <li>
-    {%if post.url == include.post.url%}{{cutoffTitle}}{%endif%}
-    {%if post.url != include.post.url%}<a href="{{post.url}}">{{cutoffTitle}}</a>{%endif%}
-  </li>
-{%endfor%}
-</ol>
+{% include serial/_posts.html serial=include.post.serial url=include.post.url %}
 </nav>
 {%endif%}
+
 {%endif%}

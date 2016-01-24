@@ -1,0 +1,13 @@
+---
+layout: page
+title: Serials
+---
+<p> Serials are long-runnning stories that deserve several posts to discuss in depth.</p>
+
+{%for serial in site.serials %}
+<h2><a href="{{serial.url}}">{{serial.title}}</a></h2>
+{% if serial.content %}
+{{serial.content}}
+{% endif %}
+{%include serial/_posts.html serial=serial.name %}
+{%endfor%}

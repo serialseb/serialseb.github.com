@@ -16,7 +16,7 @@
     {%include serial/toc.html post=include.post %}
     {%endunless%}
     {%if include.excerpt%}
-    <p>{{ include.post.excerpt | strip_html | truncate: 160 }}</p>
+      <p>{{ include.post.excerpt | strip_html | truncate: 160 }}</p>
     {%else%}
     <div class="article-wrap">
       {{ include.content }}

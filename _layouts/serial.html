@@ -1,0 +1,6 @@
+{% capture body %}
+<h2><a href="{{page.title}}">{{page.title}}</a></h2>
+{{content}}
+{%include serial/_posts.html serial=page.name %}
+{% endcapture %}
+{% include _master.html name="page" nav="author" %}

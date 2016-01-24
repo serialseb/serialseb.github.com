@@ -1,0 +1,16 @@
+
+{% assign postsInSerial = site.posts | where: "serial", include.serial | reverse %}
+{% assign serialentry = site.serials | where: "name",include.serial | first%}
+<ol>
+{% for post in postsInSerial %}
+{% capture prefix %}{{serialentry.title}} –{%endcapture%}
+{%assign cutoffTitle = post.title | remove_first: prefix %}
+  <li>
+    {%if include.url and post.url == include.url %}
+    {{cutoffTitle}}
+    {%else%}
+    <a href="{{post.url}}">{{cutoffTitle}}</a>
+    {%endif%}
+  </li>
+{%endfor%}
+</ol>

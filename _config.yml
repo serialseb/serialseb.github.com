@@ -96,3 +96,6 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 collections:
   serials:
     output: true
+    permalink: /serials/:name/
+    defaults:
+      layout: serial

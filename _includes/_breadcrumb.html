@@ -3,7 +3,9 @@
     <li><a href="{{site.url}}">{{site.name}}</a></li>
     <li>Blog</li>
     {% if page.serial %}
-    <li>{{site.serials |where: "name", page.serial | map: "title" | first }}</li>
+    {% assign serial = site.serials |where: "name", page.serial | first %}
+    <li><a href="{{site.url}}/serials/">Serials</a></li>
+    <li><a rel="up" href="{{serial.url}}">{{serial.title}}</li>
     {% else %}
     <li><a rel="up" href="{{site.url}}/archive/#year-{{page.date | date: "%Y"}}">{{page.date | date: "%Y"}}</a></li>
     {% endif %}
