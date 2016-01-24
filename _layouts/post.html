@@ -1,5 +1,6 @@
 {% capture body %}
 <main>
+  {% include _breadcrumb.html %}
   {%include blogEntry.html post=page comments=true content=content ads=true %}
 </main>
 {% endcapture %}

@@ -1,0 +1,10 @@
+<nav class="breadcrumb">
+  <ol>
+    <li><a href="{{site.url}}">{{site.name}}</a></li>
+    <li>Blog</li>
+    {% if page.serial %}
+    <li>{{site.serials |where: "name", page.serial | map: "title" | first }}</li>
+    {% else %}
+    <li><a rel="up" href="{{site.url}}/blog/{{page.date | date: %Y}}/">{{page.date | date: "%Y"}}</a></li>
+    {% endif %}
+</nav>
