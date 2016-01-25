@@ -47,6 +47,7 @@ nav.breadcrumb {
 	}
 }
 
+
 /* Thanks to http://dusted.codes/making-font-awesome-awesome-using-icons-without-i-tags */
 .icon{
 	&::before {
@@ -59,15 +60,13 @@ nav.breadcrumb {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transform: translate(0, 0);
-		vertical-align: middle;
+		vertical-align: baseline;
 	}
 }
 .icon.disabled::before {
 	color: silver;
 }
-a.icon::before{
-		color: $accentcolor;
-}
+
 .icon-after {
 	&::after {
 		content: '\f054';
@@ -80,17 +79,22 @@ a.icon::before{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transform: translate(0, 0);
-		vertical-align: middle;
+		vertical-align: baseline;
 	}
 }
 .icon-after.disabled::after {
 	color: $accentcolor;
 }
-.author-social.icon::before{
+.author-social.icon::before {
 	display: inline;
 	color: $text-color;
 }
+.icon-after.middle::after,.icon.middle::before{
+	vertical-align: middle;
+}
 article {
+	//border-bottom: solid 1px $accentcolor;
+	margin-bottom:  0px + ($doc-line-height * 3);
 	> time {
 		font-size: 80%;
 	}
@@ -101,10 +105,6 @@ article {
 			.byline > * {
 				margin-right: 1em;
 			}
-	}
-	//border-bottom: solid 1px $accentcolor;
-	margin-bottom:  0px + ($doc-line-height * 3);
-	> header {
 		h1{
 			margin-bottom: 0px + ($doc-line-height /4);
 		}
@@ -117,15 +117,17 @@ article {
 		}
 
 	}
-	> nav {
+	> nav.serial {
 		border-bottom: solid 1px #dadada;//$accentcolor;
 		margin-bottom: 0px + ($doc-line-height /2);
+		font-size: 80%;
 		text-align: center;
 		ol {
 			list-style-type:none;
 			padding-left: 0px;
 	 		font-weight: bold;
 		}
+
 		ol li a { font-weight: normal; }
 	}
 }

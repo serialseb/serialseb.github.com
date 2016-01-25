@@ -1,32 +1,47 @@
+{%comment%}
 
-{% capture currentFilePath %}{% if post.path %}{{ post.path }}{% else page.path %}{{ page.path }}{% endif %}{% endcapture %}
+  Finds an image and generate the correct srcset, in the following locations:
+    - /base/pagename/filename.ext
+    - /base/filename.ext
 
-currentFilePath: {{currentFilePath}}
-{% capture filename %}{{currentFilePath | split: "/" | last}}{% endcapture%}
-{% capture namespace %}{{ filename | split:"." | first }}{% endcapture %}
+  Usage
+  =====
+  {% include _img.html name=filename.ext base=assets %}
 
-{% capture extension %}.{{include.name | split:"." | last }}{% endcapture %}
-{% capture filenameWithoutExtension %}{{ include.name | remove: extension }}{% endcapture %}
-extension: {{extension}}
-filenameWithoutExtension: {{filenameWithoutExtension}}
-{% if namespace contains "index" %}
-  {%capture namespace%}{{ currentFilePath | remove: filename | split:"/" | last }}{% endcapture %}
+  name: the file name of the image
+  base: the base folder to look into, by default assets/entries/pagename
+  alt: text describing the image
+  class: the class attribute on the image
+
+{%endcomment%}
+
+{% capture pageFilePath %}{% if post.path %}{{ post.path }}{% else page.path %}{{ page.path }}{% endif %}{% endcapture %}
+
+{% capture pageFileName %}{{pageFilePath | split: "/" | last}}{% endcapture%}
+
+{% capture directory %}{{ pageFileName | split:"." | first }}{% endcapture %}
+{% if directory contains "index" %}
+  {%capture directory%}{{ pageFilePath | remove: pageFileName | split:"/" | last }}{% endcapture %}
 {% endif %}
 
-namespace: {{ namespace}}
-{% capture src %}/assets/{{ namespace }}/{{ include.name }}{% endcapture %}
-src: {{ src }}
 
 
-{% capture srcsetPrefix %}/assets/entries/{{namespace}}/{{ include.name |  remove: extension  }}@{% endcapture %}
-srcsetPrefix: {{srcsetPrefix}}
+{% if include.base %}
+  {% assign base = include.base %}
+{% else %}
+  {% capture base %}assets/entries/{{directory}}{% endcapture %}
+{% endif %}
+
+
+{% capture extension %}.{{include.name | split:"." | last }}{% endcapture %}
+{% capture includeNameWithoutExtension %}{{ include.name | remove: extension }}{% endcapture %}
+
+{% capture srcsetPrefix %}/{{base}}/{{includeNameWithoutExtension}}@{% endcapture %}
 
 {% for file in site.static_files %}
-  file path: {{file.path}}
   {% if file.path contains srcsetPrefix %}
     {% capture srcsetMultiplier %}{{file.path | split: "@" | last | split:"." | first}}{% endcapture %}
     {% capture srcset %}{{srcset}}{%if srcset%}, {%endif%}{{file.path}} {{srcsetMultiplier}}{% endcapture %}
-    srcset: {{srcset}}
   {% endif %}
 {% endfor %}
-<img src="{{src}}" {%if srcset %}srcset="{{srcset}}" {%endif%}{%if include.align %} class="{{include.align}}"{%endif%} />
+<img src="/{{base}}/{{ include.name }}" {%if srcset %}srcset="{{srcset}}" {%endif%}{%if include.class %} class="{{include.class}}"{%endif%}{%if include.alt%} alt="{{include.alt}}"{%endif%} />

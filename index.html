@@ -12,15 +12,15 @@ excerpt: Sebastien Lambla's blog.
 {% if paginator.total_pages > 1 %}
 <nav class="pagination">
   {% if paginator.previous_page %}
-    <a class="icon fa-chevron-left" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" rel="prev">newer</a>
+    <a class="icon middle fa-chevron-left" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" rel="prev">newer</a>
   {% else %}
-    <span class="icon disabled fa-chevron-left"> newer
+    <span class="icon middle disabled fa-chevron-left"> newer
   {% endif %}
   |
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" rel="next" class="icon-after fachevron-right">older</a>
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" rel="next" class="icon-after middle fachevron-right">older</a>
   {% else %}
-    <span class="icon-after disabled fa-chevron-right"> older</span>
+    <span class="icon-after middle disabled fa-chevron-right"> older</span>
   {% endif %}
 </nav><!-- /#index -->
 {% endif %}

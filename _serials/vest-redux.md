@@ -3,7 +3,8 @@ name: vest-redux
 title: VeST Redux
 layout: serial
 image:
-  feature: features/slice.jpg
+  feature: slice.jpg
+  alt: Several slices of cake on a plate
   credit: Illustratedjc
   creditlink: https://commons.m.wikimedia.org/wiki/File:Dobos-Eszterhazy-Zserbo.jpg
 ---

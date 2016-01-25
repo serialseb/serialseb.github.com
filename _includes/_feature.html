@@ -1,0 +1,16 @@
+{% if page.image.feature %}
+<figure class="image-wrap">
+{% if page.image.alt %}
+  {% assign alt = page.image.alt %}
+{% else %}
+  {% capture alt %}{{page.title}} feature image{% endcapture %}
+{% endif %}
+
+
+{% include _img.html name=page.image.feature alt=alt base="images/features" %}
+
+  {% if page.image.credit %}
+    <figcaption class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></figcaption>
+  {% endif %}
+</figure><!-- /.image-wrap -->
+{% endif %}
