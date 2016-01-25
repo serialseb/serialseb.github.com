@@ -1,4 +1,4 @@
----
+-	--
 layout: post
 comments: true
 title: VeST Redux – Specification-driven development
@@ -32,21 +32,17 @@ The first feature is as such a movie browser, and it exist for the sole reason t
 
 The next step is to drill down into reproducible and understandable scenarios, which we provide using examples, as they are more palatable to humans.
 
-```
-   Given Anna has a valid account
-   When Anna logs in
-   Then she can see the list of all available movies
-```
+> Given Anna has a valid account
+> When Anna logs in
+> Then she can see the list of all available movies
 
 Is this clear enough? Can we assert that she sees all available movies? Probably not, for we don't know what "available movies" mean. Let's be a bit more specific in our example, so we can assert the correct thing.
 
-```
-  Given Anna has a valid account
-      and "Star Wars Episode IV" is available
-  When Anna logs in
-  Then she can see the list of available movies
-    and "Star Wars Episode IV" is in the list.
-```
+>  Given Anna has a valid account
+>      and "Star Wars Episode IV" is available
+>  When Anna logs in
+>  Then she can see the list of available movies
+>    and "Star Wars Episode IV" is in the list.
 
 This example is now self-describing enough to be encoded straight away in tests.
 
@@ -58,7 +54,7 @@ I don't claim to have found anything new here, as this style of testing is a com
 
 First we start with encoding the specification itself in code. _Please note the code may not compile, it's written from my iPad, it doesn't really matter if it does, as long as the example is understandable.
 
-{% gist serialseb/!vest-specifications movie_available.cs %}
+{% gist serialseb/49fc9d939d74b83ba02d movie_available.cs %}
 
 You'll notice that there is a bit of variance from the original text, but it should still be readable by non-developers, provided you tell them to remove all the punctuation.
 
@@ -68,11 +64,11 @@ The file name ought to be a reflection of the scenario you are testing, which I 
 
 You'll finally notice that I inherit from a “context” class, in which all the given/when methods are actually implemented.
 
-{% gist serialseb/!vest-specfications movie_browser_context.cs %}
+{% gist serialseb/49fc9d939d74b83ba02d movie_browser_context.cs %}
 
 The givens and whens are implemented in a base class so that our tests are easily readable. I usually start hacking all of them on the class, then introduce a base class and pull up the implementations in  the base abstract class.
 
-{% gist serialseb/!vest-specifications app.cs %}
+{% gist serialseb/49fc9d939d74b83ba02d app.cs %}
 
 The design of the App class evolves from the implementation of the context class, forcing you in designing the first cut of your object model, just enough to get the compiler happy and the tests implemented.
 
