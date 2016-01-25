@@ -52,7 +52,7 @@ nav.breadcrumb {
 	&::before {
     display: inline-block;
     margin-right: .5em;
-		color: silver;
+		color: $accentcolor;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
     text-rendering: auto;
@@ -61,6 +61,9 @@ nav.breadcrumb {
     transform: translate(0, 0);
 		vertical-align: middle;
 	}
+}
+.icon.disabled::before {
+	color: silver;
 }
 a.icon::before{
 		color: $accentcolor;
@@ -70,7 +73,7 @@ a.icon::before{
 		content: '\f054';
     display: inline-block;
     margin-left: .5em;
-		color: silver;
+		color: $accentcolor;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
     text-rendering: auto;
@@ -80,7 +83,7 @@ a.icon::before{
 		vertical-align: middle;
 	}
 }
-a.icon-after::after {
+.icon-after.disabled::after {
 	color: $accentcolor;
 }
 article {
