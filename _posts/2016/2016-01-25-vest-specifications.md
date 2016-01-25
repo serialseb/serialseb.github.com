@@ -33,16 +33,16 @@ The first feature is as such a movie browser, and it exist for the sole reason t
 The next step is to drill down into reproducible and understandable scenarios, which we provide using examples, as they are more palatable to humans.
 
     Given Anna has a valid account
-    When Anna logs in
-    Then she can see the list of all available movies
+     When Anna logs in
+     Then she can see the list of all available movies
 
 Is this clear enough? Can we assert that she sees all available movies? Probably not, for we don't know what "available movies" mean. Let's be a bit more specific in our example, so we can assert the correct thing.
 
     Given Anna has a valid account
       and "Star Wars Episode IV" is available
->  When Anna logs in
->  Then she can see the list of available movies
->    and "Star Wars Episode IV" is in the list.
+     When Anna logs in
+     Then she can see the list of available movies
+      and "Star Wars Episode IV" is in the list.
 
 This example is now self-describing enough to be encoded straight away in tests.
 
