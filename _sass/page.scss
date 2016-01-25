@@ -62,11 +62,13 @@ nav.breadcrumb {
     transform: translate(0, 0);
 		vertical-align: baseline;
 	}
+	.disabled::before{
+		color: silver;
+	}
+	.middle::before{
+		vertical-align: middle;
+	}
 }
-.icon.disabled::before {
-	color: silver;
-}
-
 .icon-after {
 	&::after {
 		content: '\f054';
@@ -89,8 +91,16 @@ nav.breadcrumb {
 	display: inline;
 	color: $text-color;
 }
-.icon-after.middle::after,.icon.middle::before{
+.icon-after.middle::after {
 	vertical-align: middle;
+}
+a[rel=content] {
+	@extend .icon;
+	&::before{
+		margin-left: 0.25em;
+		margin-right: 0.25em;
+		content: '\f114';
+	}
 }
 article {
 	//border-bottom: solid 1px $accentcolor;

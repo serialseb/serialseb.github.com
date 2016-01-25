@@ -4,7 +4,7 @@
 {% assign serialentry = site.serials | where: "name",include.post.serial | first%}
 {%if postsInSerial | size > 1 %}
 <nav class="serial">
-Also in <a class="icon fa-folder-o" href="{{serialentry.url}}">{{serialentry.title}}</a>
+Also in <a rel="content" href="{{serialentry.url}}">{{serialentry.title}}</a>
 {% include serial/_posts.html serial=include.post.serial url=include.post.url %}
 </nav>
 {%endif%}
