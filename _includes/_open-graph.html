@@ -1,7 +1,7 @@
 {% if page.image.feature %}
  {% assign feature = page %}
-{% elsif page.serial and site.serials | where: name | size > 0 %}
- {% assign feature = site.serials | where: name | first %}
+{% elsif page.serial and site.serials | where: "name", page.serial | size > 0 %}
+ {% assign feature = site.serials | where: "name", page.serial | first %}
 {% endif %}
 
 <!-- meta -->

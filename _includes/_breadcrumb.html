@@ -1,13 +1,13 @@
 <nav class="breadcrumb">
   <ol>
     <li><a href="{{site.url}}">{{site.name}}</a></li>
-    <li>Blog</li>
+    <li><a href="{{site.url}}/blog/">Blog</li>
     {% if page.serial %}
-    {% assign serial = site.serials |where: "name", page.serial | first %}
+    {% assign serial = site.serials | where: "name", page.serial | first %}
     <li><a href="{{site.url}}/serials/">Serials</a></li>
     <li><a rel="up" href="{{serial.url}}">{{serial.title}}</li>
     {% else %}
-    <li><a rel="up" href="{{site.url}}/archive/#year-{{page.date | date: "%Y"}}">{{page.date | date: "%Y"}}</a></li>
+    <li><a rel="up" href="{{site.url}}/blog/#year-{{page.date | date: "%Y"}}">{{page.date | date: "%Y"}}</a></li>
     {% endif %}
   </ol>
   <script type="application/ld+json">
@@ -43,7 +43,7 @@
     "@type": "ListItem",
     "position": 2,
     "item": {
-      "@id": "{{site.url}}/archive/#year-{{page.date | date: "%Y"}}",
+      "@id": "{{site.url}}/blog/#year-{{page.date | date: "%Y"}}",
       "name": "{{page.date | date: "%Y"}}"
     }
   }
