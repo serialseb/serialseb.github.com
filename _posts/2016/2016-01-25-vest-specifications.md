@@ -21,8 +21,8 @@ There is a French saying, “Ce qui se conçoit bien s'énonce clairement”, wh
 
 The first step, as we are in our first iteration, is to discover what our user is trying to do. To do so, i'll write my first user story, using [feature injection][feature-injection], which my good friend Liz Keogh has written about for quite a while now.
 
-  In order to chose which movie to watch
-  a user can browse all movies available on restflix
+    In order to chose which movie to watch
+    a user can browse all movies available on restflix
 
 So there is our first feature. The fact that we talk first about the value it brings is essential to understanding and keeping in mind, all along our analysis and development, why we are building what we are building.
 
@@ -32,14 +32,14 @@ The first feature is as such a movie browser, and it exist for the sole reason t
 
 The next step is to drill down into reproducible and understandable scenarios, which we provide using examples, as they are more palatable to humans.
 
-> Given Anna has a valid account
-> When Anna logs in
-> Then she can see the list of all available movies
+    Given Anna has a valid account
+    When Anna logs in
+    Then she can see the list of all available movies
 
 Is this clear enough? Can we assert that she sees all available movies? Probably not, for we don't know what "available movies" mean. Let's be a bit more specific in our example, so we can assert the correct thing.
 
->  Given Anna has a valid account
->      and "Star Wars Episode IV" is available
+    Given Anna has a valid account
+      and "Star Wars Episode IV" is available
 >  When Anna logs in
 >  Then she can see the list of available movies
 >    and "Star Wars Episode IV" is in the list.
