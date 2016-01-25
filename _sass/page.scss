@@ -86,6 +86,10 @@ a.icon::before{
 .icon-after.disabled::after {
 	color: $accentcolor;
 }
+.author-social.icon::before{
+	display: inline;
+	color: $text-color;
+}
 article {
 	> time {
 		font-size: 80%;
@@ -548,7 +552,7 @@ $button-size: 1.5rem;
 }
 
 /* Default social media links in author sidebar */
-.author-social {
+.author-social, .author-social::before {
   display: block;
   margin-bottom: 5px;
   @include font-rem(14);
