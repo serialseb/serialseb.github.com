@@ -17,4 +17,4 @@ So over the years I've refined a methodology to try and address, or at least min
 
 ## Features
 
-At the core of
+There is a French saying, “Ce qui se conçoit bien s'énonce clairement”, which translates roughly to 
