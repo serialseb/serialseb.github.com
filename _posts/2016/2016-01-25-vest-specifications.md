@@ -1,4 +1,4 @@
--	--
+---
 layout: post
 comments: true
 title: VeST Redux – Specification-driven development
