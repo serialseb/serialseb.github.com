@@ -22,7 +22,6 @@ xing:
   title: XING
 instagram:
   template: http://instagram.com/username
-  fa: instagram
 lastfm:
   template: http://lastfm.com/user/username
   fa: music

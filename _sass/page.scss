@@ -48,16 +48,40 @@ nav.breadcrumb {
 }
 
 /* Thanks to http://dusted.codes/making-font-awesome-awesome-using-icons-without-i-tags */
-.icon::before {
+.icon{
+	&::before {
     display: inline-block;
     margin-right: .5em;
-		color: $accentcolor;
+		color: silver;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transform: translate(0, 0);
+		vertical-align: middle;
+	}
+}
+a.icon::before{
+		color: $accentcolor;
+}
+.icon-after {
+	&::after {
+		content: '\f054';
+    display: inline-block;
+    margin-left: .5em;
+		color: silver;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+		vertical-align: middle;
+	}
+}
+a.icon-after::after {
+	color: $accentcolor;
 }
 article {
 	> time {
