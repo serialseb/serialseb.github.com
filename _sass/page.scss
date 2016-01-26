@@ -127,6 +127,15 @@ article {
 		}
 
 	}
+	.article-wrap > p {
+		line-height: 0px + $doc-line-height;
+		@if ($paragraph-indent) {
+			margin-bottom: 0px;
+			&+p {
+				text-indent: $indent-var;
+			}
+		}
+	}
 	> nav.serial {
 		border-bottom: solid 1px #dadada;//$accentcolor;
 		margin-bottom: 0px + ($doc-line-height /2);
@@ -485,9 +494,6 @@ $button-size: 1.5rem;
 		}
 		p {
 			@include font-rem(14);
-		}
-		p+p {
-			text-indent: 0;
 		}
 	}
 	.nav {

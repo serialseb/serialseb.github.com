@@ -16,7 +16,7 @@ So over the years I've refined a methodology to try and address, or at least min
 
 ## User stories with feature Injection
 
-There is a French saying, “Ce qui se conçoit bien s'énonce clairement”, which translates roughly to 
+There is a French saying, “Ce qui se conçoit bien s'énonce clairement”, which translates roughly to
 “whatever is well conceived is clearly said”. When discussing something we want to build, how do we make it clear enough so it describes well what it does and why it is needed?
 
 The first step, as we are in our first iteration, is to discover what our user is trying to do. To do so, i'll write my first user story, using [feature injection][feature-injection], which my good friend Liz Keogh has written about for quite a while now.
@@ -52,7 +52,7 @@ I've never been a big fan of spec tools, as I find that the code diverges more o
 
 I don't claim to have found anything new here, as this style of testing is a combination of many things I've seen and liked / disliked over the years. Nevertheless, here it is.
 
-First we start with encoding the specification itself in code. _Please note the code may not compile, it's written from my iPad, it doesn't really matter if it does, as long as the example is understandable.
+First we start with encoding the specification itself in code. _Please note the code may not compile, it's written from my iPad, it doesn't really matter if it does, as long as the example is understandable._
 
 {% gist serialseb/49fc9d939d74b83ba02d movie_available.cs %}
 
@@ -76,11 +76,11 @@ The design of the App class evolves from the implementation of the context class
 
 From this code, the tests tend to be organised in a structure that mimics the logical structure I just described.
 
-`/tests/component/feature/scenario.cs`
+    /tests/component/feature/scenario.cs
 
 In this example, it would be.
 
-`/tests/app/browse_movies/movie_available.cs`
+    /tests/app/browse_movies/movie_available.cs
 
 As you add more and more scenarios, the payoff becomes obvious. Find a new combo of examples, a new initial state, and you get to failing tests in a matter of seconds.
 
@@ -88,12 +88,12 @@ You need to continuously re-evaluate the name of the tests as you discover more 
 
 ## Conclusion and thoughts
 
-Your mileage may vary. Once upon a time one developer considered having one abstract context class to be too complicated to navigate to. 
+Your mileage may vary. Once upon a time one developer considered having one abstract context class to be too complicated to navigate to.
 
-I find this way of modeling my specifications to be great for refactoring (only the base class to change, the language doesn't), the existing scenarios stay valid over iterations and focus on language and benefits, on what the software is supposed to deliver rather than the how it does it internally.
+I find this way of modeling my specifications to be great for refactoring (only the base class to change, the language does not), the existing scenarios stay valid over iterations and focus on language and benefits, on what the software is supposed to deliver rather than the how it does it internally.
 
 To be useful, this means language ought to be extracted from practices and discussed openly and continuously. I have seen architects that spend too much time in conferences argue for a company-wide ubiquitous language, going as far as specifying their own terms they pulled out of a hat, that were already in use over multiple domains, and enforce them with the authority bestowed upon them by their title to other development teams. The result: old and new terms, used continuously and erratically, and the idea that “people just need to...” will lead to a clear way to communication.
 
 I disagree. By putting specifications, examples and conversations at the core of the discovery and development of an application, a language will naturally evolve. And when things are not easy to name, a dictionary is your best friend.
- 
+
 [feature-injection]: <http://lizkeogh.com/2008/09/10/feature-injection-and-handling-technical-stories/>
