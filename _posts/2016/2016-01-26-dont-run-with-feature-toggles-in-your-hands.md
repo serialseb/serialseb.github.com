@@ -14,7 +14,7 @@ Fast forward a bit in time, and I inherited a project in which those feature tog
 
 ## The goals
 
-The original intent of feature toggles is mighty fine. We'll build this new feature, and it will be nicely enclosed in `if` statements, and we will only show it when it's ready to be released. Maybe the feature will get enabled based on which user is an admin, and which user is a standard average Joe user. The promise to segregate development and prevent the release of a feature util it is complete is compelling, and the idea of activating or deactivating features is as well.
+The original intent of feature toggles is mighty fine. We'll build this new feature, and it will be nicely enclosed in `if` statements, and we will only show it when it's ready to be released. Maybe the feature will get enabled based on which user is an admin, and which user is a standard average Joe user. The promise to segregate development and prevent the release of a feature until it is complete is compelling, and the idea of activating or deactivating features is as well.
 
 So what happend to make it so painful?
 
