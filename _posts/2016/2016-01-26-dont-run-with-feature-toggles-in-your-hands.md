@@ -6,7 +6,7 @@ comments: true
 image:
   feature: scissors.jpg
   credit: FlutterSpeed
-	creditlink: http://www.flutterspeed.com/2010/12/rusty-but-pretty.html
+  creditlink: http://www.flutterspeed.com/2010/12/rusty-but-pretty.html
 ---
 Feature toggles have been on my radar for a while, thanks to [Martin Fowler's introduction][fowler-toggles] from back when, where he argues for enabling or disabling certain features of an application dynamically, based on some sort of switch. For many years this fell on dead ears, for I never really encountered any reason to pursue this avenue on real systems.
 
