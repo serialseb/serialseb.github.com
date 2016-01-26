@@ -54,7 +54,7 @@ author:
 # Site owner
 owner:
   id: http://serialseb.com/#me
-  url: http://serialseb.com/
+  url: http://serialseb.com/about/
   name: Sebastien Lambla
   avatar: bio-seb.jpg
   bio: "Passionately distributed systems, continuously improving."

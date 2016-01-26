@@ -47,43 +47,64 @@ nav.breadcrumb {
 	}
 }
 
+
 /* Thanks to http://dusted.codes/making-font-awesome-awesome-using-icons-without-i-tags */
 .icon{
 	&::before {
     display: inline-block;
     margin-right: .5em;
-		color: silver;
+		color: $accentcolor;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transform: translate(0, 0);
+		vertical-align: baseline;
+	}
+	.disabled::before{
+		color: silver;
+	}
+	.middle::before{
 		vertical-align: middle;
 	}
-}
-a.icon::before{
-		color: $accentcolor;
 }
 .icon-after {
 	&::after {
 		content: '\f054';
     display: inline-block;
     margin-left: .5em;
-		color: silver;
+		color: $accentcolor;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transform: translate(0, 0);
-		vertical-align: middle;
+		vertical-align: baseline;
 	}
 }
-a.icon-after::after {
+.icon-after.disabled::after {
 	color: $accentcolor;
 }
+.author-social.icon::before {
+	display: inline;
+	color: $text-color;
+}
+.icon-after.middle::after {
+	vertical-align: middle;
+}
+a[rel=content] {
+	@extend .icon;
+	&::before{
+		margin-left: 0.25em;
+		margin-right: 0.25em;
+		content: '\f114';
+	}
+}
 article {
+	//border-bottom: solid 1px $accentcolor;
+	margin-bottom:  0px + ($doc-line-height * 3);
 	> time {
 		font-size: 80%;
 	}
@@ -94,10 +115,6 @@ article {
 			.byline > * {
 				margin-right: 1em;
 			}
-	}
-	//border-bottom: solid 1px $accentcolor;
-	margin-bottom:  0px + ($doc-line-height * 3);
-	> header {
 		h1{
 			margin-bottom: 0px + ($doc-line-height /4);
 		}
@@ -110,15 +127,26 @@ article {
 		}
 
 	}
-	> nav {
+	.article-wrap > p {
+		line-height: 0px + $doc-line-height;
+		@if ($paragraph-indent) {
+			margin-bottom: 0px;
+			&+p {
+				text-indent: $indent-var;
+			}
+		}
+	}
+	> nav.serial {
 		border-bottom: solid 1px #dadada;//$accentcolor;
 		margin-bottom: 0px + ($doc-line-height /2);
+		font-size: 80%;
 		text-align: center;
 		ol {
 			list-style-type:none;
 			padding-left: 0px;
 	 		font-weight: bold;
 		}
+
 		ol li a { font-weight: normal; }
 	}
 }
@@ -467,9 +495,6 @@ $button-size: 1.5rem;
 		p {
 			@include font-rem(14);
 		}
-		p+p {
-			text-indent: 0;
-		}
 	}
 	.nav {
 		left: auto; right: auto;
@@ -545,7 +570,7 @@ $button-size: 1.5rem;
 }
 
 /* Default social media links in author sidebar */
-.author-social {
+.author-social, .author-social::before {
   display: block;
   margin-bottom: 5px;
   @include font-rem(14);

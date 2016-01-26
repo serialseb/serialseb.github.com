@@ -3,8 +3,8 @@
 {% assign postsInSerial = site.posts | where: "serial", include.post.serial | reverse %}
 {% assign serialentry = site.serials | where: "name",include.post.serial | first%}
 {%if postsInSerial | size > 1 %}
-<nav>
-Also in “{{serialentry.title}}”:
+<nav class="serial">
+Also in <a rel="content" href="{{serialentry.url}}">{{serialentry.title}}</a>
 {% include serial/_posts.html serial=include.post.serial url=include.post.url %}
 </nav>
 {%endif%}

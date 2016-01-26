@@ -1,13 +1,15 @@
 # Site navigation links
+- title: Blog
+  url: /blog/
 
-- title: About
-  url: /about/
-
-- title: Archive
-  url: /archive/
+- title: Serials
+  url: /serials/
 
 - title: Talks
   url: /speaker/
+
+- title: About
+  url: /about/
 
 - title: Search
   url: /search/

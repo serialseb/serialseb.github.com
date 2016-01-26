@@ -1,9 +1,8 @@
 ---
-layout: baseline
+layout: page
 title: Biography
 ---
 
-<img src="/lib/img/face.jpg" style="float:right" />
 Sebastien Lambla has been involved in software development since receiving his first web browser, back in the days
  of Netsape Navigator 1.2. After a few years of hacking on javascript, he turned his attention to the .net platform,
  on which he would spend the next few years building software in many companies.

@@ -1,0 +1,20 @@
+{% if page.image.feature %}
+  {% assign origin=page %}
+{% elsif page.serial %}
+  {% assign origin = site.serials | where: "name", page.serial | first %}
+{% endif %}
+
+{% if origin.image.feature %}
+{% if origin.image.alt %}
+  {% assign alt = origin.image.alt %}
+{% elsif page.title %}
+  {% capture alt %}{{page.title}} feature image{% endcapture %}
+{% endif %}
+
+<figure class="image-wrap">
+{% include _img.html name=origin.image.feature alt=alt base="images/features" %}
+  {% if origin.image.credit %}
+    <figcaption class="image-credit">Photo Credit: <a href="{{ origin.image.creditlink }}">{{ origin.image.credit }}</a></figcaption>
+  {% endif %}
+</figure><!-- /.image-wrap -->
+{% endif %}
