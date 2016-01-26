@@ -7,7 +7,7 @@
   "@type": "WebPage",
   "@id": "{{ site.url }}{{ page.url |  remove:'index.html' }}",
   "headline":"{{page.title}}",
-  "isPartOf": {"@id": "http://serialseb.com/#site"},
+  "isPartOf": {"@id": "http://serialseb.com/"},
   "author": {"@id": "{{author.id}}" },
   "sourceOrganization": {"@id":"http://caffeine-it.com/#company"},
   "publisher": {"@id":"http://caffeine-it.com/#company"}
