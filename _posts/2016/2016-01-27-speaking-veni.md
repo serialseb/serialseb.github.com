@@ -35,7 +35,7 @@ But to speak, you have to accept that people have to come. There is no point in 
 
 You would be surprised by how many interesting things you're actually doing. If you haven't created anything, give a tutorial! I started presenting on asp.net MVC 1.0 preview 2 and on the MVP pattern. People are always avid to get an hour to discuss and see something outside of the constraints of their day-to-day job.
 
-### Its about what?
+### It's about what?
 
 Attendees come because they like hearing about cool, and sometimes less cool but useful, things. But what's in it for you, and why should you care?
 
