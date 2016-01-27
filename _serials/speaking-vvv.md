@@ -1,6 +1,7 @@
 ---
 name: speaking-vvv
 title: Public Speaking
+layout: serial
 image:
   feature: amphitheatre.jpg
   alt: An amphitheatre
