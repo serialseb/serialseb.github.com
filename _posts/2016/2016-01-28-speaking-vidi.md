@@ -1,6 +1,6 @@
 ---
 layout: post
-serial: spaking-vvv
+serial: speaking-vvv
 title: Public Speaking – Vidi
 comments: true
 published: true
