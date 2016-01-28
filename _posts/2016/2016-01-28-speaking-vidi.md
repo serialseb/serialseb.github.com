@@ -1,7 +1,7 @@
 ---
 layout: post
 serial: spaking-vvv
-title: Speaking – Vidi
+title: Public Speaking – Vidi
 comments: true
 published: true
 date: 2016-01-28 11:45:00
