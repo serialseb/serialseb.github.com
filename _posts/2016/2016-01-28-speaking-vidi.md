@@ -112,4 +112,4 @@ It's already a lot to take in, but those are the basic things I learnt over the 
 [basiafusinska]: <http://barbarafusinska.com/2015/10/20/conference-talkswhere-did-we-go-wrong/>
 [hintjens]: <http://hintjens.com/blog:107>
 [toddmotto]: <https://toddmotto.com/so-you-want-to-talk-at-conferences/>
-t[dylan]:<http://dylanbeattie.blogspot.co.uk/2016/01/lets-talk-about-feedback.html>
+[dylan]:<http://dylanbeattie.blogspot.co.uk/2016/01/lets-talk-about-feedback.html>
