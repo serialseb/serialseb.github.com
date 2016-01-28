@@ -1,0 +1,22 @@
+contracts:
+  - client: comparethemarket.com
+    projects:
+      - title: Data Aggregation Platform
+        description:
+         Development of a new platform, gathering information from customers and collecting data in response from hundreds of providers.
+        tech: [ mongodb, rabbitmq, csharp, asp.net-mvc, asp.net-web-api, javascript, angular, terraform, packerio, octopus-deploy, aws, ReST, json-ld, microservices ]
+        practices: [tdd, mobprogramming,pairing,agile,kanban]
+      - title: Signin and Profile team
+        description:
+  - client: mckinsey
+  - client: teo
+  - client: sitemorse
+  - client: creditsuisse
+  - client: comparethemarket
+  - client: wildbunch
+  - client: signaturetech
+  - client: akqa
+  - client: bbcworldwide
+  - client: netstore
+  - client: beazley
+  - client: skillsmatter
