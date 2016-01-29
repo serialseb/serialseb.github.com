@@ -1,0 +1,93 @@
+article.cv {
+  a[rel='tag']::before {
+    content: attr(data-count);
+    padding-left: 5px;
+  }
+#enableTimeline,
+label[for='enableTimeline'] {
+  float: right;
+  display: block;
+}
+.technologies,.clients{
+  width: 50%;
+  display: inline-block;
+}
+main.cv {
+  display: block;
+  float: none;
+  width: 100%;
+}
+.timeline {
+  overflow-x: scroll;
+
+  padding:30px 0 10px 0;
+  position:relative;
+  width: 100%;
+  white-space: nowrap;
+  .entry {
+      display:inline-block;
+      vertical-align:top;
+      background:#13519C;
+      color:#fff;
+      padding:10px;
+      font-size:12px;
+      text-align:center;
+      position:relative;
+      border-top:4px solid #06182E;
+      border-radius:3px;
+      min-width:200px;
+      max-width:300px;
+      white-space: normal;
+  }
+
+
+  .entry:after {
+      content:'';
+      display:block;
+      background:#eee;
+      width:7px;
+      height:7px;
+      border-radius:6px;
+      border:3px solid #06182E;
+      position:absolute;
+      left:50%;
+      top:-30px;
+      margin-left:-6px;
+  }
+
+  .entry:before {
+      content:'';
+      display:block;
+      background:#06182E;
+      width:5px;
+      height:20px;
+      position:absolute;
+      left:50%;
+      top:-20px;
+      margin-left:-2px;
+  }
+
+  .entry h3 {
+      color:#fff;
+      font-size:18px;
+      font-family:Georgia, serif;
+      font-weight:bold;
+      margin-bottom:10px;
+  }
+
+  .entry h4 {
+      letter-spacing:.2em;
+      margin-bottom:10px;
+      font-size:14px;
+  }
+}
+
+.bar {
+    height:4px;
+    background:#dadada;
+    width:100%;
+    position:relative;
+    top:13px;
+    left:0;
+}
+}

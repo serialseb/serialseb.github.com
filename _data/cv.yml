@@ -1,13 +1,25 @@
+summary:
+  Some long text explaining how _amazing_ I would be for your business
 contracts:
+  - client: sitemorse
+    projects:
+      - title: Umbraco Plugin
+        description: >
+          Development of a custom Umbraco plugin to capture edited content before publication and validate it for conformance using Sitemorse's sytems, including front-end UI code and back-end implementation services.
+        tech: [asp.net, asp.net-web-api, umbraco, angular]
   - client: comparethemarket.com
     projects:
       - title: Data Aggregation Platform
-        description:
+        description: >
          Development of a new platform, gathering information from customers and collecting data in response from hundreds of providers.
-        tech: [ mongodb, rabbitmq, csharp, asp.net-mvc, asp.net-web-api, javascript, angular, terraform, packerio, octopus-deploy, aws, ReST, json-ld, microservices ]
-        practices: [tdd, mobprogramming,pairing,agile,kanban]
-      - title: Signin and Profile team
-        description:
+        tech: [ mongodb, rabbitmq, csharp, .net, asp.net-mvc, asp.net-web-api, javascript, angular, terraform, packerio, octopus-deploy, aws, ReST, json-ld, microservices, xml, xsl-t, cqrs ]
+        practices: [tdd, mobprogramming, pairprogramming,agile,kanban,vest,bdd]
+      - title: Account and Profile Management
+        description: >
+          Implementation of a custom secure login capability for users.
+          Implementation of best-practices and check-lists for improving the quality and frequency of releases.
+        tech: [ csharp, .net, mongodb, rabbitmq, neventstore, cqrs, event-sourcing]
+        practices: [pairprogramming, tdd, vest, bdd, scrum ]
   - client: mckinsey
   - client: teo
   - client: sitemorse
