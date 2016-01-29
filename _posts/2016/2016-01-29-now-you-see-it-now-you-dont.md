@@ -3,6 +3,10 @@ layout: post
 comments: true
 title: Now you 403 see it, now you 404 don‘t
 date: 2016-01-29 16:18:00
+image:
+  feature: seedvault.jpg
+  creditlink: https://commons.m.wikimedia.org/wiki/File:Svalbard_seed_vault_IMG_8750.JPG
+  credit: Erlend Bjørtvedt
 ---
 The next blog post in the “Public Speaking” serial is  being written, but I'll probably hold off from publishing it for a few days.
 
