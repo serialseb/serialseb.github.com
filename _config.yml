@@ -6,7 +6,7 @@ lsi: false
 highlights: true
 locale: en_GB
 lang: en-gb
-url: http://serialseb.com
+url: #http://serialseb.com
 timezone: Europe/London
 
 #jekyll config

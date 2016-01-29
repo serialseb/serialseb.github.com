@@ -1,0 +1,71 @@
+---
+layout: base
+nav: none
+---
+<main>
+<article class="cv">
+<h1>{{site.owner.name}}</h1>
+{{ site.data.cv.summary | markdownify }}
+<section class="technologies">
+  <h2>Technologies</h2>
+{% assign delimiter = "," %}
+{% assign names_str = "" %}
+{% assign names_all = "" %}
+{%for contract in site.data.cv.contracts%}{% for proj in contract.projects %}{% for name in proj.tech %}
+    {% assign names_arr = names_str | split: delimiter %}
+    {% assign names_all = names_all | append: delimiter | append: name %}
+    {% unless names_arr contains name %}
+        {% assign names_str = names_str | append: delimiter | append: name %}
+    {% endunless %}
+{% endfor %}{% endfor %}{%endfor%}
+{% assign names_uniq = names_str | remove_first: delimiter | split: delimiter %}
+<ul>
+    {%for tag in names_uniq %}
+       {% assign all = names_all | remove_first: delimiter | split: delimiter %}
+       {%assign count = 0 %}
+       {%for any in all %}{% if any == tag %}{% assign count = count | plus: 1 %}{%endif%}{%endfor%}
+       <li><a rel="tag" data-count="{{count}}">{{tag}}</a></li>
+    {%endfor%}
+  </ul>
+</section>
+<section class="clients">
+  <h2>Clients</h2>
+  <ul>
+{%  assign uniq = "" | split:""                                 %}
+{%  for contract in site.data.cv.contracts                      %}
+{%    unless uniq contains contract.client                      %}
+{%      assign uniq = uniq | push: contract.client              %}
+{%    endunless                                                 %}
+{%    for project in contract.projects                          %}
+{%      if project.client                                       %}
+{%        unless uniq contains project.client                   %}
+{%          assign uniq = uniq | push: project.client           %}
+{%        endunless                                             %}
+{%      endif                                                   %}
+{%    endfor                                                    %}
+{%  endfor                                                      %}
+{%  for client in uniq                                          %}
+    <li>{{client}}</li>
+{%  endfor                                                      %}
+  </ul>
+</section>
+<label for="enableTimeline">Timeline</label>
+<input type="checkbox" id="enableTimeline" checked>
+<section class="projects">
+  <h2>Projects</h2>
+  <div class="bar"></div>
+  <div class="timeline">
+{% for contract in site.data.cv.contracts                       %}
+{% for project in contract.projects                             %}
+    <div class="entry">
+      <h3>{{ project.title }}</h3>
+      <h4>the date</h4>
+      {{ project.description | markdownify }}
+    </div>
+{% endfor                                                       %}
+{% endfor                                                       %}
+  </div>
+</section>
+</article>
+
+  endofmain

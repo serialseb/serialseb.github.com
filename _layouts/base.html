@@ -1,0 +1,5 @@
+{%capture body %}
+{{content}}
+{%endcapture%}
+{% if page.nav %}{%assign nav=page.nav%}{%else%}{%assign nav="author"%}{%endif%}
+{% include _master.html name="page" nav=nav bare=true footer=false %}
