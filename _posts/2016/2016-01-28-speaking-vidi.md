@@ -107,7 +107,7 @@ To do that, I use my hands to focus the discussion, and I give my eye sight to a
 
 It's already a lot to take in, but those are the basic things I learnt over the years. They're not for everyone, they're just what works for me. Take one of each at a time, and try to find your own way to apply them. Don't be a stranger, be yourself, learn and grow.
 
-[donbox]:<http://blog.mattmags.com/2011/05/19/don-box-the-bathtub-lecture/t>
+[donbox]:<http://blog.mattmags.com/2011/05/19/don-box-the-bathtub-lecture/>
 [davina]: <http://everything2.com/title/You+are+live+on+Channel+4%252C+please+do+not+swear>
 [basiafusinska]: <http://barbarafusinska.com/2015/10/20/conference-talkswhere-did-we-go-wrong/>
 [hintjens]: <http://hintjens.com/blog:107>
