@@ -1,8 +1,9 @@
 $accentdark: darken($accentcolor, 20%);
 .tags a[rel='tag'] {
   display: inline-block;
-  background: $accentcolor;
-  border: solid 1px $accentdark;
+  background: lighten($accentcolor, 30%);
+  border: solid 1px $accentcolor;
+  border-radius: 3px;
   color: $accentdark;
   white-space: nowrap;
   padding: 0.1em;
@@ -47,17 +48,18 @@ article.cv {
 
     .job {
         display:inline-block;
-        vertical-align:bottom;
+        vertical-align:top;
         background: lighten($accentcolor, 50%);
         color:$accentdark;
         padding:10px;
         font-size:12px;
         text-align:center;
         position:relative;
-        border-bottom:4px solid $accentcolor;
+        border-top:4px solid $accentcolor;
         border-radius:3px;
         width:200px;
         white-space: normal;
+        top: 10px;
 
         .job time{
             color:#fff;
@@ -79,11 +81,11 @@ article.cv {
             background:#eee;
             width: 7px;
             height:7px;
-            border-radius:6px 6px 0px 0px;
+            border-radius:6px;
             border:3px solid $accentcolor;
             position:absolute;
             left:50%;
-            bottom:-30px;
+            top:-25px;
             margin-left:-6px;
         }
 
@@ -95,12 +97,8 @@ article.cv {
             height:20px;
             position:absolute;
             left:50%;
-            bottom:-20px;
+            top:-20px;
             margin-left:-2px;
-        }
-        .bottom
-        {
-
         }
     }
 
@@ -112,7 +110,8 @@ article.cv {
       background:#dadada;
       width:100%;
       position:relative;
-      bottom: 0px;
+      top: -3px;
       left:0;
+      z-index: -1;
   }
 }

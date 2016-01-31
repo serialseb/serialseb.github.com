@@ -10,7 +10,10 @@ nav: none
   <label for="enableTimeline">Timeline</label>
   <input type="checkbox" id="enableTimeline" checked>
   <h2>Projects</h2>
+
   <div class="timeline">
+
+      <div class="bar"></div>
 {% for contract in site.data.cv.contracts                       %}
 {% for project in contract.projects                             %}
 {% if project.client                                            %}
@@ -37,7 +40,6 @@ nav: none
 {%   assign length = length|append: "1 month"                   %}
 {%endif%}
     <div class="job">
-      {{client}}
       <time>{{from | date: "%b %y"}} – {{length}}</time>
 {% if site.data.clients[client]                                 %}
 {%   if site.data.clients[client].image                         %}
@@ -62,7 +64,6 @@ nav: none
 {% endfor                                                       %}
 {% endfor                                                       %}
   </div>
-  <div class="bar"></div>
   <div class="bottom timeline">)
 
   </div>
