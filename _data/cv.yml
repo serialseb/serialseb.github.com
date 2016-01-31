@@ -9,18 +9,19 @@ contracts:
         description: >
           Development of a custom Umbraco plugin to capture edited content before publication and validate it for conformance using Sitemorse's sytems, including front-end UI code and back-end implementation services.
         tech: [asp.net, asp.net-web-api, umbraco, angular]
-  - client: comparethemarket.com
+  - client: comparethemarket
     projects:
       - title: Data Aggregation Platform
-        from: 
+        from: 2014-05-12
         to: 2015-07-30
-        
-        description: >
+        description: |
          Development of a new ReSTful microservices platform, gathering information from customers and collecting data in response from hundreds of providers.
-        tech: [ mongodb, rabbitmq, csharp, .net, asp.net-mvc, asp.net-web-api, javascript, angular, terraform, packerio, octopus-deploy, aws, ReST, json-ld, microservices, xml, xsl-t, cqrs, autofac, nunit ]
+        tech: [ mongodb, rabbitmq, csharp, .net, asp.net-mvc, asp.net-web-api, javascript, angular, terraform, packerio, octopus-deploy, aws, ReST, json-ld, microservices, xml, xsl-t, cqrs, autofac, nunit, aws, cloud ]
         practices: [tdd, mobprogramming, pairprogramming,agile,kanban,vest,bdd]
       - title: Account and Profile Management
-        description: >
+        from: 2013-11-04
+        to: 2014-10-01
+        description: |
           Design and implementation of data sharing between users of a same family
           Implementation of the first version of a custom secure login capability for users.
           Implementation of best-practices and check-lists for improving the quality and frequency of releases.
@@ -29,60 +30,206 @@ contracts:
   - client: mckinsey
     projects:
       - title: Greenfield collaboration platform
-        description: >
+        from: 2012-03-03
+        to: 2012-11-16
+        description: |
           Planned and developed, in collaboration with on-site developers, of a strategy to migrate the development platform and tooling from Microsoft’s Silverlight to HTML5 and nodejs.
-
         tech: [mssql, nodejs, expressjs, mocha, cakes, handlebars, html5]
       - title: Secure Presentation Application for iPad
-        description: >
+        from: 2012-03-03
+        to: 2012-11-16
+        description: |
           Part of the HTML5 development work involved supporting some of the existing product lines in a format compatible with mobile devices, with iPad being the first target, while preserving the high level of data protection and security of the existing platform
         tech: [mobile,javascript,html5,iOS,crypto]
       - title: Big data mapping application
-        description: >
+        from: 2011-10-17
+        to: 2012-03-03
+        description: |
           The core of the development work involved using analyzed and pre-processed datasets and displaying of this statistical data on world maps, in a Silverlight client.
         tech: [mssql, csharp, .net, asp.net-mvc, asp.net-web-api, geodata, silverlight]
   - client: creditsuisse
     projects:
-      - title: Trading Book Management System
-        description: >
-          Allow the edition and access to book information across heterogenuous systems, by exposing existing data as ReSTful services using XHTML. The front-end part was developed as a reusable windforms client.
-         tech: [ReST, OpenRasta,OpenSearch,http-caching,winforms,grids,csharp,asp.net]
-         practices: [tdd]
-       - title: Custom WPF development platform for front-office developers
-         description: >
-         	Integration of a purpose-built IoC container
-         	Built a generalized cache management system
-         	Profiling and optimization of the application loading time
-         	Architecture of the next version of the platform
-         	Architected a new version of the application based on package runtime composition using OpenWrap
-         	Created an xcopy-friendly message-queue
-         	Built an ESB on top of the new message-queue, using ReST concepts in a message-based environment
-         	Built a process isolation system to provide for browser-like experience for running and crash recovery of composite applications
-         	Moved the team to git
-         	Mentoring of the team
-         	Introduction of MEF as our composition tool
-         tech: [wpf,csharp, .net, wcf, web-services, ReST, OpenRasta, OpenWrap, package-management, mef]
+      - title: Microraptor / spider
+        from: 2011-06-13
+        to: 2011-09-25
+        tech: [ReST, OpenRasta, OpenSearch, http-caching, winforms, grids, csharp, asp.net]
+        practices: [tdd]
+        description: |
+          Allow the edition and access to book information across heterogenuous systems, by exposing existing data as ReSTful services using XHTML. The front-end part was developed as a reusable windforms client
+      - title: Custom WPF development platform for front-office developers
+        from: 2010-04-19
+        to: 2011-03-15
+        tech: [wpf,csharp, .net, wcf, web-services, ReST, OpenRasta, OpenWrap, package-management, mef]
+        description: |
+          Integration of a purpose-built IoC container,	Built a generalized cache management system
+          Profiling and optimization of the application loading time
+          Architecture of the next version of the platform
+          Architected a new version of the application based on package  runtime composition using OpenWrap
+          Created an xcopy-friendly message-queue
+          Built an ESB on top of the new message-queue, using ReST concepts in a message-based environment
+          Built a process isolation system to provide for browser-like experience for running and crash recovery of composite applications
+          Moved the team to git
+          Mentoring of the team
+          Introduction of MEF as our composition tool
   - client: reactive
     projects:
       - title: Betting platform web application
-        description: >
+        from: 2009-08-01
+        to: 2009-11-01
+        tech: [betfair, betwin, xml, asp.net-mvc, OpenRasta, OAuth, OpenID, csharp,.net]
+        description: |
           MVC front-end for users wanting to compare odds across various betting platforms, with social logging using OAuth, twitter and facebook. Back-end aggregation platform to collect and index odds against events.
-        tech: [betfair,betwin,xml,asp.net-mvc,OpenRasta,OAuth,OpenID,csharp,.net]
-  - clients: fnz
+  - client: fnz
     projects:
+      - title: ReST for insurances
+        client: standardlife
+        from: 2009-03-17
+        to: 2009-05-15
+        tech: [wcf, wcf-rest, ReST]
+        description: |
+          Based on WCF REST
+          Development of a new way of binding service contracts to resources
+          Development of a custom content negotiation layer to support custom media types Documentation of part of the ReST API
+          Mentoring on ReST architectures to the rest of the team
       - title: ISA asset management
-        description: >
+        client: jpmasset
+        from: 2009-01-16
+        to: 2009-03-17
+        tech: [vb.net, csharp, .net, castle-project, castle-windsor, asp.net-mvc, claims]
+        description: |
           development of a claim-based authorization subsystem
           Specified best-practices for use on the project, and extracted a framework for UI rendering, using a Model / PresentationModel couple.
           Development of a validation framework integrating business validation and Castle Validation
           Development of a Linq provider and light ORM on top of a legacy VB.net platform
           Design of the build process, build files and CI integration environment
           Mentoring of the team
-        tech: [vb.net, .net, castle-project,castle-windsor,asp.net-mvc,claims]
   - client: wildbunch
+    projects:
+      - title: wildbunch.biz web site
+        from: 2008-12-01
+        to: 2015-06-22
+        tech: [.net, csharp, ReST, OpenRasta, aws, castle-windsor ]
+        description: |
+          Building a new website for a DVD distributor
+          Based on OpenRasta 2.0
+          Uploading and automatic backup to Amazon S3
+          Admin UI integrated with the rest of the site using the OpenRasta.Scripting library
   - client: signaturetech
+    projects:
+      - title: Gaming service
+        from: 2008-09-30
+        to: 2008-10-10
+        tech: [nservicebus, msmq,castle-windsor,nhibernate,fluent-nhibernate,silverlight,OpenRasta]
+        description: |
+          Building of a platform for high scalability online gaming using distributed bus and Cosmos Ajax gateways Integrated support for high performance asynchronous http handlers in OpenRasta
+          Developing a Silverlight 2.0 game application (Black jack)
+          Developing a two-way http bridge between the cosmos servers and the ajax client, to enable the server to send REST requests to clients.
+          Developed plumbing to tie LINQ2nHibernate, FluentNHibernate and Castle together to get rid of xml configuration files completely.
+      - title: Payment Engine
+        from: 2008-07-23
+        to: 2008-09-30
+        tech: [msmq,nhibernate,castle-windsor,nservicebus]
+        description: |
+          Payment engine system for large scale online gaming
+          Built the build and deployment environment to provide for automatic versioning and rebuilding of various development environments from TeamCity.
+          Developed a fraud validation mechanism as a handler on the ESB (nServiceBus with MSMQ queues) Developed the Fitnesse tests for User Acceptance Testing
   - client: akqa
+    projects:
+      - title: Nike Mercurial / NikeTown Runner / Nike European Championship
+        client: nike
+        from: 2008-03-28
+        to: 2008-07-14
+        tech: []
+        description: |
+          Development of a platform handling the global needs of multiple applications having user registration, RFID identification and event participation in common
+          Development of a WPF application to take registration, identification with an RFID reader and scoring of participants for EC08.
+          Architecture of a synchronization platform based on the Microsoft Sync Framework, SqlCE, Linq. Integration with Flash applications and website registration through the use of the Rasta toolkit. Development of a 3G communication component using 3G ExpressCard components from Merlin
+          Built the build environment based on MSBuild and custom msbuild tasks for automatic database deployment and migration.
+      - title: Nike 1-1 website
+        client: nike
+        from: 2008-01-28
+        to: 2008-03-28
+        description: |
+          Development of a REST-based toolkit (RASTA) used as the foundation for the design of the web application.
+          Rasta merges URL rewriting, content-type negotiation and fully REST-oriented architecture (GET/PUT/ DELETE/POST) in one easy to use API, enabling each part of the website to be rendered either as Xml, Json or Html through WebForms (with transparent rewriting)
+          Development of Renderers for different formats (xml, json, html, atom)
+          Development of a Wadl generation service for dynamic service location
+          Developed a Fluent api for the framework configuration.
+          Developed a .net 3.5-compatible implementation of UriTemplateTable to support the URL mapping functionality
+          Development of a framework for building fluent apis
+          Development of a custom IoC container that can be replaced as needed by another container Development of a Windsor IoC bridge for the 1-1 web site
+          Development of a Flash compatibility module to let flash do RESTful operations over http (custom http- header extensions to override flash’s default behavior, such as not supporting anything but GET and POST).
+          Development of a module to support automatic collection management, with support for AtomPub. Development of a queryable pattern to support Astoria-like queries.
+          Development of a PowerShell-based video encoding platform to deliver flv / h264 content to flash, using ffmpeg.
+      - title: Sainsbury's ActiveKids 08
+        client: sainsburys
+        from: 2007-12-03
+        to: 2008-01-29
+        tech: []
+        description: |
+          Development of an MVP-based registration solution using Webforns UserControls for integration with Microsoft CMS Server
+          Introduction of an IoC container in the solution (StructureMap 2.0)
+          Development of a custom dependency injection toolkit for usercontrols (ControlBuilder interception and CodeDom code-generation to transparently call the container to resolve usercontrol dependences) Development of custom asp.net Ajax 1.0 validators
+          Development of a set of fixes for the CMS solutions to interact better with asp.net Ajax (removal of many rendering overrides inherited from the previous versions of the application)
   - client: bbcworldwide
+    projects:
+      - title: BBC Showcase
+        from: 2007-07-30
+        to: 2007-11-22
+        tech: [wpf, nhibernate, directshow, asp.net, model-view-presenter]
+        description: |
+          Conversion of the solution to Visual Studio 2008
+          Redevelopment of the administration site for the BBC Showcase application, using WebForms and the MVP pattern, leveraging the asp.net Ajax Control Toolkit.
+          Put all the existing test under coverage, CI integration, reorganized the code to be more modular. Increased code coverage to 70% and dramatically decreased the complexity of the code-base. Development of new video functionality within the WPF application (seeking, fast forward / backward) Development and execution of a stress test engine for streaming video content (high bitrate avi’s over http, mms and smb) using DirectShow.net.
+          Delivered a presentation on MVP patterns with webforms and introduced ViewModel patterns for WPF to the team.
+  - client: akqa
+    projects:
+      - title: Nike+ / NikeCore
+        client: nike
+        from: 2007-05-29
+        to: 2007-07-24
+        tech: [asp.net, model-view-presenter, tdd, poweshell, .net, csharp]
+        description: |
+          Development of a set of asmx services for consumption by flash applets.
+          Development of a custom IHttpHandler to manage picture uploading.
+          Development of a custom IHttpModule to handle multi-threaded image conversion.
+          Design and Development of a custom MVP Architecture (Model-View-Presenter) enabling unit testing of presentation logic.
+          Design and Development of an asp.net administration site using Membership and Role providers, asp.net AJAX and asp.net CSS Friendly control adapters.
+          Designed a simple IoC container with config file support.
+          NikeCore and Template generator
+          Design and development of a PowerShell-based winforms template generator, automatically generating svn structures, selecting a project type and resolving package dependencies (versioning graphs of tools being used across Nike projects and automatic svn:external mappings) and template creation / publishing for new project types.
+          Packaging of several projects in a reusable class library, including the MVP framework and the IoC container.
   - client: netstore
+    projects:
+      - title: National Express Fares Management
+        client: nationalexpress
+        from: 2006-11-13
+        to: 2007-04-30
+        tech: [csharp, .net, wpf, wcf, mstest, tfs, msbuild]
+        description: |
+          Development of a WCF web-service client
+          Modification of the WCF system for circular reference resolution and custom serialization
+          Development of a full WPF front-end
+          Design and Development of a custom MVC Architecture (View – ModelView – DataModel – Services) enabling unit testing of the UI.
+          Design and Development of custom controls, custom panels, and an excel-like grid.
+          Design and Development of a custom navigation engine for state management.
+          Use of XCeed DataGrid components.
+          Executed the performance testing of both the client side with JetBrains dotTrace 2.0 and the server side with SQL Profiler.
   - client: beazley
-  - client: skillsmatter
+    projects:
+      - title: Policy Renewals
+        tech: [chsarp, .net, xml, xsd, web-services, wsdl, nant, wscf]
+        from: 2006-06-01
+        to: 2006-08-08
+        description: |
+          Development of a Policy Renewal Engine to renew policies across business units.
+          Use of Typed DataSets, reflection for policy loading, Contract-First wsdl and xsd design with the thinktecture WSCF toolkit.
+          Associated fitnesse testing for business rules validations by the clients.
+      - title: Data Maintenance
+        tech: [model-view-presenter, asp.net, .net, csharp, nant, fit]
+        from: 2006-05-01
+        to: 2006-06-01
+        description: |
+          Development of part of the data administration web site for reference data.
+          Ado.net with Sql Server 2005 and Asp.net v2, Master Pages.
+          Created a Model View Presenter framework for MVC like control development under asp.net. Development of associated design-time support.

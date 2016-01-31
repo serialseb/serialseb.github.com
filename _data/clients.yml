@@ -1,0 +1,31 @@
+sitemorse:
+  image: /images/clients/sitemorse.png
+  title: Sitemorse Ltd
+comparethemarket:
+  title: CompareTheMarket.com
+mckinsey:
+  title: McKinsey Solutions
+creditsuisse:
+  title: Credit Suisse
+reative:
+  title: (redacted)
+standardlife:
+  title: Standard Life
+jpmasset:
+  title: JP Morgan Asset Management
+wildbunch:
+  title: Wild Bunch
+signaturetech:
+  title: Signature Technologies
+akqa:
+  title: AKQA
+nike:
+  title: Nike
+bbcworldwide:
+  title: BBC Worldwide
+netstore:
+  title: Netstore Plc.
+nationalexpress:
+  title: National Express
+beazley:
+  title: Beazley Inc.

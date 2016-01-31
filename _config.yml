@@ -6,7 +6,7 @@ lsi: false
 highlights: true
 locale: en_GB
 lang: en-gb
-url: #http://serialseb.com
+url: http://serialseb.com
 timezone: Europe/London
 
 #jekyll config
@@ -94,6 +94,10 @@ paginate: 3
 paginate_path: "/blog/page:num"
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
 collections:
+  projects:
+    permalink: /projects/:id/
+    defaults:
+      layout: page
   serials:
     output: true
     permalink: /serials/:name/
