@@ -22,7 +22,7 @@ contracts:
         from: 2013-11-04
         to: 2014-10-01
         description: |
-          Responsible for implementing quote sharing between members of a family, the first implmentation of secure login capability for users, and revamp of best-practices and check-lists for improving the quality and frequency of releases of the myCTM platform.
+          Responsible for implementing quote sharing between members of a family, the first implementation of secure login capability for users, and revamp of best-practices and check-lists for improving the quality and frequency of releases of the myCTM platform.
         tech: [ csharp, .net, mongodb, rabbitmq, neventstore, cqrs, event-sourcing, autofac, nunit]
         practices: [pairprogramming, tdd, vest, bdd, scrum ]
   - client: mckinsey
@@ -59,7 +59,7 @@ contracts:
         to: 2011-03-15
         tech: [wpf,csharp, .net, wcf, web-services, ReST, OpenRasta, OpenWrap, package-management, mef]
         description: |
-          In charge of the ADAPT project, a custom development envrironment for .net developers building WPF line-of-business applications. The system was based on a custom package-management system, a deployment infrastrucutre, APIs for UI development and a local message-passing infrastructure, and migration of WCF services to a new ReST architecture.
+          In charge of the ADAPT project, a custom development envrironment for .net developers building WPF line-of-business applications. The system was based on a custom package-management system, a deployment infrastructure, APIs for UI development and a local message-passing queue, and migration of WCF services to a new ReST architecture.
   - client: reactive
     projects:
       - title: Betting App
@@ -136,7 +136,7 @@ contracts:
         to: 2007-11-22
         tech: [wpf, nhibernate, directshow, asp.net, model-view-presenter]
         description: |
-          Maintenance and hardening of a rich media application for the displaying of HD video to propsective consumers, focusing on incrasing the quality of the codebase to a maintainable level, and the scalability needs of several hundred workstations streaming video silmutanuously.
+          Maintenance and hardening of a rich media application for the displaying of HD video to propsective consumers, focusing on increasing the quality of the codebase to a maintainable level, and the scalability needs of several hundred workstations streaming video silmutanuously.
   - client: akqa
     projects:
       - title: Nike+

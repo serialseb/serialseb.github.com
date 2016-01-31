@@ -11,9 +11,10 @@ nav: none
   <input type="checkbox" id="enableTimeline" checked>
   <h2>Projects</h2>
 
+
+        <div class="bar"></div>
   <div class="timeline">
 
-      <div class="bar"></div>
 {% for contract in site.data.cv.contracts                       %}
 {% for project in contract.projects                             %}
 {% if project.client                                            %}
@@ -41,16 +42,19 @@ nav: none
 {%endif%}
     <div class="job">
       <time>{{from | date: "%b %y"}} – {{length}}</time>
-{% if site.data.clients[client]                                 %}
-{%   if site.data.clients[client].image                         %}
-{% assign src = site.data.clients[client].image %}
-{% assign alt = site.data.clients[client].title %}
-{% include _img.html base="images/clients" name=src alt=alt %}
-{%   else                                                       %}
-      <p>{{ site.data.clients[client].title}}</p>
-{%   endif                                                      %}
-{% endif                                                        %}
+
+      {% if site.data.clients[client]                                 %}
+      {%   if site.data.clients[client].image                         %}
+      {% assign src = site.data.clients[client].image %}
+      {% assign alt = site.data.clients[client].title %}
+      {% include _img.html base="images/clients" name=src alt=alt %}
+      {%   else                                                       %}
+          <p>{{ site.data.clients[client].title}}</p>
+      {%   endif                                                      %}
+      {% endif                                                        %}
+
       <h3>{{ project.title }}</h3>
+
       {{ project.description | markdownify }}
       <details>
         <summary>Technologies</summary>
