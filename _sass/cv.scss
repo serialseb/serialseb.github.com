@@ -15,37 +15,92 @@ $accentdark: darken($accentcolor, 20%);
     color: $accentdark;
   }
 }
+
 article.cv {
+  display: block;
+  text-align: left;
+  .projects img {
+    display: block;
+  }
+  & > * {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    clear: both;
+  }
+  & > header {
+    text-align: center;
+  }
+
+  & > section.projects,
+  & > section.projects #enableTimeline:checked ~ .timeline,
+  & > section.projects #enableTimeline:checked ~ .bar {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+  }
+  & > section.projects #enableTimeline:checked ~ .bar {
+    display: block;
+        height:4px;
+        background:#dadada;
+        position:relative;
+        top: 12px;
+        left:0;
+        z-index: -1;
+  }
+  & > section.projects > * {
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+  }
+
   .cloud a[rel='tag']::before {
     content: attr(data-count);
     padding-left: 5px;
   }
-
-  #enableTimeline,
-  label[for='enableTimeline'] {
-    float: right;
-    display: block;
+  #enableTimeline { display: none;}
+  #enableTimeline ~ label[for='enableTimeline']{
+    position: relative;
+    text-align: right;
+    top: -3em;
+  }
+  #enableTimeline ~
+  label[for='enableTimeline']:before {
+    content: 'Show on timeline'
+  }
+  #enableTimeline:checked ~
+  label[for='enableTimeline']:before {
+    content: 'Hide timeline'
   }
 
-  .technologies,.clients{
-    width: 50%;
+  .technologies, .clients{
+    width: 25%;
+    margin: 0;
     display: inline-block;
+    float: left;
+    ul { display: block; list-style: none; font-size: small; margin-left: 0; padding-left: 0; margin-left: 5px; margin-right: 5px;}
+    li { display: inline-block;}
   }
+  .technologies {
+    margin-left: 25%;
+  }
+  .clients {
+     margin-right: 25%;
+     img { width: 90px; height: 37;}
+     clear: right;
+   }
 
   main.cv {
     display: block;
     float: none;
     width: 100%;
   }
-
   #enableTimeline:checked ~ .timeline {
     overflow-x: scroll;
     overflow-y: visible;
     padding:10px 0 30px 0;
     position:relative;
-    width: 100%;
     white-space: nowrap;
-
     .job {
         display:inline-block;
         vertical-align:top;
@@ -59,23 +114,25 @@ article.cv {
         border-radius:3px;
         width:200px;
         white-space: normal;
-        top: 10px;
+        top: 20px;
 
-        .job time{
-            color:#fff;
-            font-size:18px;
+        time{
+            font-size:8pt;
             font-family:Georgia, serif;
             font-weight:bold;
             margin-bottom:10px;
         }
 
-        .job h3 {
+        h3 {
             letter-spacing:.2em;
             margin-bottom:10px;
             margin-top: 5px;
             font-size:14px;
         }
-
+        > img {
+          width: 180px;
+          height: 75px;
+        }
         &:after {
             content:'';
             display:block;
@@ -86,7 +143,7 @@ article.cv {
             border:3px solid $accentcolor;
             position:absolute;
             left:50%;
-            top:-20px;
+            top:-30px;
             margin-left:-6px;
         }
 
@@ -98,7 +155,7 @@ article.cv {
             height:20px;
             position:absolute;
             left:50%;
-            top:-15px;
+            top:-20px;
             margin-left:-2px;
         }
     }
@@ -107,12 +164,6 @@ article.cv {
   }
 
   .bar {
-      height:4px;
-      background:#dadada;
-      width:100%;
-      position:relative;
-      top: 10px;
-      left:0;
-      z-index: -1;
+    display: none;
   }
 }
