@@ -16,7 +16,6 @@ sass:
   style: compressed
 
 gems:
-  - jemoji
   - jekyll-sitemap
   - jekyll-redirect-from
   - jekyll-feed
