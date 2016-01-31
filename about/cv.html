@@ -40,7 +40,9 @@ nav: none
       <time>{{from | date: "%b %y"}} – {{length}}</time>
 {% if site.data.clients[client]                                 %}
 {%   if site.data.clients[client].image                         %}
-      <img src="{{site.data.clients[client].image}}" alt="{{site.data.clients[client].title}}">
+{% assign src = site.data.clients[client].image %}
+{% assign alt = site.data.clients[client].title %}
+{% include _img.html base="images/clients" name=src alt=alt %}
 {%   else                                                       %}
       <p>{{ site.data.clients[client].title}}</p>
 {%   endif                                                      %}
