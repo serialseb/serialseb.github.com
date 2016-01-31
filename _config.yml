@@ -20,6 +20,7 @@ gems:
   - jekyll-redirect-from
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-gistgi
 
 rest_kickstarter_url: http://www.kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems
 toplinks:
