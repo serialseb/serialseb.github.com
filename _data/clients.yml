@@ -3,29 +3,41 @@ sitemorse:
   title: Sitemorse Ltd
 comparethemarket:
   title: CompareTheMarket.com
+  image: ctm.png
 mckinsey:
   title: McKinsey Solutions
+  image: mckinsey.png
 creditsuisse:
   title: Credit Suisse
+  image: creditsuisse.png
 reative:
   title: (redacted)
 standardlife:
   title: Standard Life
+  image: standardlife.png
 jpmasset:
   title: JP Morgan Asset Management
+  image: jpmorgan.png
 wildbunch:
   title: Wild Bunch
+  image: wildbunch.png
 signaturetech:
   title: Signature Technologies
 akqa:
   title: AKQA
+  image: akqa.png
 nike:
   title: Nike
+  image: nike.png
 bbcworldwide:
   title: BBC Worldwide
+  image: bbcworldwide.png
 netstore:
   title: Netstore Plc.
+  image: netstore.png
 nationalexpress:
   title: National Express
+  image: nationalexpress.png
 beazley:
   title: Beazley Inc
+  image: beazley.png

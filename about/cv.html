@@ -37,6 +37,7 @@ nav: none
 {%   assign length = length|append: "1 month"                   %}
 {%endif%}
     <div class="job">
+      {{client}}
       <time>{{from | date: "%b %y"}} – {{length}}</time>
 {% if site.data.clients[client]                                 %}
 {%   if site.data.clients[client].image                         %}

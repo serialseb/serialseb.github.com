@@ -14,7 +14,7 @@
   class: the class attribute on the image
 
 {%endcomment%}
-
+{% assign srcset = ""                                                  %}
 {% capture pageFilePath %}{% if post.path %}{{ post.path }}{% else page.path %}{{ page.path }}{% endif %}{% endcapture %}
 
 {% capture pageFileName %}{{pageFilePath | split: "/" | last}}{% endcapture%}
