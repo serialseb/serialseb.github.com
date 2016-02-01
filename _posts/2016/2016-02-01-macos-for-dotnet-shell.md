@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-date: 2016-02-01 22:30:00
+date: 2016-02-01 23:10:00
 title: macOS for the .net guy – Learning the Shell
 serial: macos-for-dotnet
 ---
