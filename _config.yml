@@ -6,7 +6,7 @@ lsi: false
 highlights: true
 locale: en_GB
 lang: en-gb
-url: http://serialseb.com
+url: #http://serialseb.com
 timezone: Europe/London
 
 #jekyll config
@@ -20,6 +20,7 @@ gems:
   - jekyll-redirect-from
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-gist
 
 rest_kickstarter_url: http://www.kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems
 toplinks:

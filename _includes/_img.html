@@ -44,4 +44,4 @@
     {% capture srcset %}{{srcset}}{%if srcset%}, {%endif%}{{file.path}} {{srcsetMultiplier}}{% endcapture %}
   {% endif %}
 {% endfor %}
-<img src="/{{base}}/{{ include.name }}" {%if srcset and srcset != ""%}srcset="{{srcset}}" {%endif%}{%if include.class %} class="{{include.class}}"{%endif%}{%if include.alt%} alt="{{include.alt}}"{%endif%} />
+<img src="/{{base}}/{{ include.name }}" {%if srcset and srcset != ""%}srcset="/{{base}}/{{ include.name }} x1, {{srcset}}" {%endif%}{%if include.class %} class="{{include.class}}"{%endif%}{%if include.alt%} alt="{{include.alt}}"{%endif%} />
