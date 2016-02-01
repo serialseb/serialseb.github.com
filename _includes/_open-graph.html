@@ -23,12 +23,12 @@
 {% endif %}
 {% if site.owner.twitter %}<meta name="twitter:site" content="@{{ site.owner.twitter }}">{% endif %}
 {% if author.twitter %}<meta name="twitter:creator" content="@{{ author.twitter }}">{% endif %}
-{% if feature %}
+{% if  feature.image.thumb %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ site.url }}/images/features/{{feature.image.thumb}}">
+{% elsif feature %}
 <meta name="twitter:image" content="{{ site.url }}/images/features/{{ feature.image.feature }}">
 <meta name="twitter:card" content="summary_large_image">
-{% elsif  feature.image.thumb %}
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="{{ site.url }}/images/features/{{feature.image.thumb}}">
 {% else %}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{{ site.url }}/assets/opengraph-logo.jpg">
@@ -45,7 +45,9 @@
 {% endif %}
 <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.url }}">
 <meta property="og:site_name" content="{{ site.title }}">
-{% if feature.image.feature %}
+{% if feature.image.thumb %}
+<meta property="og:image" content="{{ site.url }}/images/features/{{ feature.image.thumb }}">
+{% elsif feature.image.feature %}
 <meta property="og:image" content="{{ site.url }}/images/features/{{ feature.image.feature }}">
 {% else %}
 <meta property="og:image" content="{% if feature.image.thumb %}{{ site.url }}/images/features/{{ page.image.thumb }}{% else %}{{ site.url }}/assets/opengraph-logo.jpg{% endif %}">
