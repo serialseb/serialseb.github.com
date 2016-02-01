@@ -1,6 +1,13 @@
-summary:
-  Hi! I'm Sebastien. I've been involved in software development since the days of Netscape 1.1, when I wrote my first HTML page.
-  A keen open-source advocate and contributor, I'm a ReST proponent, agilist developer, distributed systems addicionado, and a master of all things .net.
+summary: |
+  I'm Sebastien. I've been involved in software development since the days of Netscape 1.1, when I wrote my first HTML page.
+
+  Keen open-source advocate and contributor, I'm also a ReST proponent, long-time agilist, distributed systems addicionado, and involved in all things .net.
+
+  I speak fluent French, which is not surprising for someone born in France, but don't worry, my English is as good as it gets. I love long walks on the beach, if I have to think about javascript.
+
+  Learning and sharing is fundamental to what I do, so I give lots of talks and attend many conferences. Feel free to check that out if you want to delve in the specifics of what I'm on about.
+
+  I've not met you, and this is crazy, but there's my number below, so call me maybe?
 contracts:
   - client: sitemorse
     projects:

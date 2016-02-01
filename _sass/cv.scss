@@ -20,11 +20,12 @@ a[rel='tag'] {
 article.cv {
   display: block;
   text-align: left;
+
   .projects {
     img {
       display: inline-block;
-      float: right;
       vertical-align: bottom;
+      float: right;
       clear: both;
     }
     time {
@@ -32,47 +33,76 @@ article.cv {
       clear: both;
     }
   }
-  & > * {
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
-    clear: both;
-  }
   & > header {
     text-align: center;
     h1 {
       margin-bottom: 1em;
     }
+    ul { margin-left: 50%;}
+    ul, li {
+      list-style: none;
+      text-align: left;
+    }
   }
-  > header, > section {
+  & > header, > section {
     border-bottom: 0px;
     border-top: solid 1px #dadada;
+    margin-bottom: 2em;
   }
-  & > section.projects,
-  & > section.projects #enableTimeline:checked ~ .timeline,
-  & > section.projects #enableTimeline:checked ~ .bar {
-    margin-left: 0px;
-    margin-right: 0px;
-    width: 100%;
-  }
-  & > section.projects #enableTimeline:checked ~ .bar {
-    display: block;
-        height:4px;
-        background:#dadada;
-        position:relative;
-        top: 12px;
-        left:0;
-        z-index: -1;
-  }
-  & > section.projects > * {
-    margin-left: 25%;
-    margin-right: 25%;
-    width: 50%;
-  }
+  @media screen {
+    & > * {
+      width: 50%;
+      margin-left: 25%;
+      margin-right: 25%;
+    }
+    & > section.projects,
+    & > section.projects #enableTimeline:checked ~ .timeline,
+    & > section.projects #enableTimeline:checked ~ .bar {
+      margin-left: 0px;
+      margin-right: 0px;
+      width: 100%;
+    }
+    & > section.projects > * {
+      margin-left: 25%;
+      margin-right: 25%;
+      width: 50%;
+    }
 
+    .technologies, .clients{
+      width: 25%;
+      float: left;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .technologies {
+      margin-left: 25%;
+    }
+  }
+  .technologies img, .clients img, .projects img {
+    width: 90px; height: 37;
+  }
+  .technologies, .clients {
+    img { width: 90px; height: 37;}
+    display: inline-block;
+    text-align: center;
+    ul { display: block; list-style: none; font-size: small; margin-left: 0; padding-left: 0; margin-left: 5px; margin-right: 5px;}
+    li { display: inline-block;}
+  }
   .cloud a[rel='tag']::before {
     content: attr(data-count);
     padding-left: 5px;
+  }
+  .projects, .job {
+    clear: both;
+  }
+  & > section.projects #enableTimeline:checked ~ .bar {
+    display: block;
+    height:4px;
+    background:#dadada;
+    position:relative;
+    top: 12px;
+    left:0;
+    z-index: -1;
   }
   #enableTimeline { display: none;}
   #enableTimeline ~ label[for='enableTimeline']{
@@ -89,24 +119,11 @@ article.cv {
     content: 'Hide timeline'
   }
 
-  .technologies, .clients{
-    width: 25%;
-    margin: 0;
-    display: inline-block;
-    text-align: center;
-    float: left;
-    ul { display: block; list-style: none; font-size: small; margin-left: 0; padding-left: 0; margin-left: 5px; margin-right: 5px;}
-    li { display: inline-block;}
+  time{
+    font-size:8pt;
+    font-family:Georgia, serif;
+    font-weight:bold;
   }
-  .technologies {
-    margin-left: 25%;
-  }
-  .clients {
-     margin-right: 25%;
-     img { width: 90px; height: 37;}
-     clear: right;
-   }
-
   main.cv {
     display: block;
     float: none;
@@ -115,6 +132,7 @@ article.cv {
   .job{
     border-top: solid 1px $accentcolor;
   }
+@media screen {
   #enableTimeline:checked ~ .timeline {
     overflow-x: scroll;
     overflow-y: visible;
@@ -136,22 +154,22 @@ article.cv {
         white-space: normal;
         top: 20px;
 
-        time{
-            font-size:8pt;
-            font-family:Georgia, serif;
-            font-weight:bold;
-            margin-bottom:10px;
-        }
 
-        h3 {
+        h3, p.company {
             margin-bottom:10px;
             margin-top: 5px;
             font-size:14pt;
         }
+        > p.company,
         > img {
           width: 180px;
           height: 75px;
+          margin-top: 10px;
+          margin-bottom: 0px;
           float: none;
+          clear: both;
+          display: inline-block;
+          font-size: 16pt;
         }
         &:after {
             content:'';
@@ -182,7 +200,7 @@ article.cv {
 
 
   }
-
+}
   .bar {
     display: none;
   }

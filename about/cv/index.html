@@ -7,8 +7,13 @@ nav: none
   <header>
     <h1>{{site.owner.name}}</h1>
     {{ site.data.cv.summary | markdownify }}
+    <nav>
+    <ul>
+      <li><a class="icon fa-envelope-square" href="mailto:seb@serialseb.com">seb@serialseb.com</a></li>
+      <li><a class="icon fa-phone-square" href="tel:+447789008282">+44 77 8900 8282</a></li>
+    </ul>
+  </nav>
   </header>
-
 
 
 
@@ -152,9 +157,9 @@ nav: none
 {%   if site.data.clients[client].image                         %}
 {%     assign src = site.data.clients[client].image             %}
 {%     assign alt = site.data.clients[client].title             %}
-{%     include _img.html base="images/clients" name=src alt=alt %}
+{%     include _img.html class="company" base="images/clients" name=src alt=alt %}
 {%   else                                                       %}
-  <p>{{ site.data.clients[client].title}}</p>
+  <p class="company">{{ site.data.clients[client].title}}</p>
 {%   endif                                                      %}
 {% endif                                                        %}
 
