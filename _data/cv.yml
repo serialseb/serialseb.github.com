@@ -3,11 +3,11 @@ summary: |
 
   Keen open-source advocate and contributor, I'm also a ReST proponent, long-time agilist, distributed systems aficionado, and involved in all things .net.
 
-  I've worked with companies large and small, and delivered large-scale public-facing sites all the way down to boutique applications and financial systems.
+  I've worked with companies large and small, and delivered large-scale public-facing sites all the way to boutique applications and financial systems.
 
-  I am bilingual french and english, having been born in France, and I've lived in the UK for 15 years.
+  I am bilingual French and English, having been born in France, and I've lived in the UK for 13 years.
 
-  Learning and sharing is fundamental to what I do, so I give lots of talks and attend many conferences. Feel free to check my web site to know more.
+  Learning and sharing is fundamental to what I do, so I give lots of talks and attend many conferences. Feel free to check my website to know more.
 
   I'm always happy to hear about great opportunities, so feel free to contact me.
 
@@ -23,6 +23,7 @@ contracts:
   - client: comparethemarket
     projects:
       - title: Data Aggregation Platform
+        highlight: true
         from: 2014-05-12
         to: 2015-07-30
         description: |

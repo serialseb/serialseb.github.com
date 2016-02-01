@@ -1,7 +1,6 @@
 $accentdark: darken($accentcolor, 20%);
 a[rel='tag'] {
   display: inline-block;
-  font-size: 80%;
   background: lighten($accentcolor, 30%);
   border: solid 1px $accentcolor;
   border-radius: 3px;
@@ -10,6 +9,7 @@ a[rel='tag'] {
   padding: 0.1em;
   margin: 2px;
   @extend .icon;
+  @include font-rem(11);
   &::before {
     font-size: base;
     content: '\f292';
@@ -17,6 +17,166 @@ a[rel='tag'] {
   }
 }
 
+.flat {
+ display:block;
+ padding-left: 0;
+ li { display: inline-block; list-style: none;}
+}
+
+article.cv {
+  text-align: center;
+  header h1 { @include font-size(30); }
+  .projects h2 { text-align: left;}
+  header li { list-style: none;}
+  & > * {
+    border: solid #dadada; border-width: 1px 0 0 0;
+  }
+  header { border-top-width: 0px; ul{text-align: left;}}
+  section {
+    page-break-inside: avoid;
+  }
+  section.projects{
+    page-break-before: always;
+  }
+  & > *, & > .projects > * {
+  	@include grid(12,10);
+  	@include prefix(12,1);
+  	@include suffix(12,1);
+  	@media #{$small} {
+  		@include grid(12,8);
+  		@include prefix(12,2);
+  		@include suffix(12,2);
+  	}
+  	@media #{$x-large} {
+  		@include grid(12,1.5);
+  		@include prefix(12,2);
+  	}
+  }
+  @media #{$small} {
+    section.technologies, section.clients {
+    	@include grid(12,4);
+      display: inline-block;
+    }
+    section.technologies{
+      @include prefix(12,2);
+      	@include suffix(12,0);
+      }
+      section.clients{
+        @include prefix(12,0);
+      	@include suffix(12,2);
+    }
+  }
+  & > .projects {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .clients img, .job img {
+    margin: 10px;
+    width: 90px;
+    height: 38px;
+  }
+  .job {
+    border-top: solid 1px $accentcolor;
+    time, img { float: right; clear: both;}
+    img { margin-top: 2em; }
+    h3 { margin-top: 0px;}
+    text-align: left;
+  }
+  input[type='checkbox'].highlights:checked ~ .job:not(.highlight){
+    display: none;
+  }
+  ul.tagcloud { @extend .flat; }
+  section.clients ul { @extend .flat; }
+  time, summary { @include font-rem(14); }
+  time { float: right; }
+  p.company { @include font-rem(20); display: block; min-height: 38px; vertical-align: middle; padding-top: 1em;}
+}
+
+// toggles
+input[type=checkbox].toggle {
+  display: none;
+}
+
+input[type=checkbox].toggle + label {
+  display: none;
+
+  @media #{$small} {
+    display: block;
+    text-align: left;
+    @include font-rem(12);
+    span { display: inline-block;}
+    span.checked{ display: none;}
+  }
+}
+input[type=checkbox].toggle:checked + label {
+  span { display: none;}
+  span.checked{ display: inline-block;}
+}
+
+// timeline
+@media screen {
+    input[type=checkbox].timeline:checked ~ div:first-of-type {
+      background: linear-gradient(transparent, transparent 8px, silver 8px, silver 12px, transparent 12px, transparent);
+      overflow-x: scroll;
+      overflow-y: visible;
+      padding:0px 0 30px 0;
+      position:relative;
+      white-space: nowrap;
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+      & > div {
+        display: inline-block;
+        vertical-align:top;
+        background: lighten($accentcolor, 50%);
+        color:$accentdark;
+        padding:10px;
+        font-size:12px;
+        text-align:center;
+        position: relative;
+        border-top-width: 4px;
+        border-radius:3px;
+        margin-top: 30px;
+        width:200px;
+        white-space: normal;
+        img, time {
+          float: none;
+        }
+        img {
+          width: 180px;
+          height: 75px;
+        }
+
+        &:after {
+            content:'';
+            display:block;
+            background:#eee;
+            width: 7px;
+            height:7px;
+            border-radius:6px;
+            border:3px solid $accentcolor;
+            position:absolute;
+            left:50%;
+            top:-30px;
+            margin-left:-6px;
+        }
+
+        &:before {
+            content:'';
+            display:block;
+            background:$accentcolor;
+            width:5px;
+            height:20px;
+            position:absolute;
+            left:50%;
+            top:-20px;
+            margin-left:-2px;
+        }
+      }
+    }
+}
+/*
 article.cv {
   display: block;
   text-align: left;
@@ -141,18 +301,6 @@ article.cv {
     white-space: nowrap;
     .job {
         display:inline-block;
-        vertical-align:top;
-        background: lighten($accentcolor, 50%);
-        color:$accentdark;
-        padding:10px;
-        font-size:12px;
-        text-align:center;
-        position:relative;
-        border-top-width: 4px;
-        border-radius:3px;
-        width:200px;
-        white-space: normal;
-        top: 20px;
 
 
         h3, p.company {
@@ -205,3 +353,4 @@ article.cv {
     display: none;
   }
 }
+*/

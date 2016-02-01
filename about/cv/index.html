@@ -26,7 +26,7 @@ nav: none
 
 
 
-<section class="technologies cloud">
+<section class="technologies">
   <h2>Technologies</h2>
 {% assign uniq = "" | split: ""                                 %}
 {% assign all = "" | split: ""                                  %}
@@ -41,7 +41,7 @@ nav: none
 {%   endfor                                                     %}
 {% endfor                                                       %}
 
-<ul>
+<ul class="tagcloud">
 {% for tag in uniq                                              %}
 {%   assign count = 0                                           %}
 {%   for any in all                                             %}
@@ -55,7 +55,8 @@ nav: none
 {% endfor                                                       %}
 </ul>
   <details>
-    <summary>Others</summary>
+    <summary>And also...</summary>
+    <ul class="flat">
   {% for tag in uniq                                             %}
   {%   assign count = 0                                          %}
   {%   for any in all                                            %}
@@ -67,6 +68,7 @@ nav: none
       <li><a rel="tag" data-count="{{count}}">{{tag}}</a></li>
   {%   endif                                                     %}
   {% endfor                                                      %}
+</ul>
   </details>
 </section>
 
@@ -81,7 +83,7 @@ nav: none
 
 
 <section class="clients">
-  <h2>Clients</h2>
+  <h2>Previous Clients</h2>
   <ul>
 {% assign uniq = "" | split:""                                  %}
 {% for contract in site.data.cv.contracts                       %}
@@ -120,11 +122,12 @@ nav: none
 
 <section class="projects">
 <h2>Projects</h2>
-<input type="checkbox" id="enableTimeline" checked>
-<label for="enableTimeline"></label>
+<input type="checkbox" class="timeline toggle" id="enableTimeline" checked>
+<label for="enableTimeline"><span class="icon fa-toggle-on checked">Timeline</span><span class="icon fa-toggle-off">Timeline</span></label>
 
-<div class="bar"></div>
 <div class="timeline">
+  <input type="checkbox" class="highlights toggle" id="enableHighlights" checked>
+  <label for="enableHighlights"><span class="icon fa-toggle-off checked">Show all</span><span class="icon fa-toggle-on">Show all</span></label>
 {% for contract in site.data.cv.contracts                       %}
 {% for project in contract.projects                             %}
 {% if project.client                                            %}
@@ -150,7 +153,7 @@ nav: none
 {% elsif months == 1                                            %}
 {%   assign length = length|append: "1 month"                   %}
 {% endif                                                        %}
-  <div class="job">
+  <div class="job{%if project.highlight%} highlight{%endif%}">
     <time>{{from | date: "%b %y"}} – {{length}}</time>
 
 {% if site.data.clients[client]                                 %}
@@ -159,7 +162,7 @@ nav: none
 {%     assign alt = site.data.clients[client].title             %}
 {%     include _img.html class="company" base="images/clients" name=src alt=alt %}
 {%   else                                                       %}
-  <p class="company">{{ site.data.clients[client].title}}</p>
+    <p class="company">{{ site.data.clients[client].title}}</p>
 {%   endif                                                      %}
 {% endif                                                        %}
 

@@ -23,7 +23,15 @@ body {
 		height: 29px !important;
 		width: auto;
 }
+@media print{
+  a:after {
+		content: " (" attr(href) ")";
+ }
 
+	abbr:after {
+	  content: " (" attr(title) ")";
+	}
+}
 nav.breadcrumb {
 	@include font-size(12);
 	margin: 0px;
@@ -155,76 +163,6 @@ article {
 /*
    Header
    ========================================================================== */
-@media print{
-	details {
-		height: auto;
-		overflow: visible;
-		display: block;
-	}
-
-	details > * {
-		display: block;
-	}
-
-	details summary {
-		display: none;
-	}
-
-	.navigation-wrapper {
-		display: inline;
-		padding: 0;
-		margin: 0;
-		float: left;
-		width: 0;
-		height: 0;
-	}
-
-	.navigation-wrapper * {
-		display: none;
-		min-width: 0;
-		min-height: 0;
-	}
-	.navigation-wrapper .site-name,.navigation-wrapper .site-name * {
-		display: block;
-		float: left;
-		clear: right;
-		margin: 0;
-		padding: 0;
-	}
-	.navigation-wrapper .site-name {
-		position: absolute;
-		top: 0px;
-	}
-	.projects h3 {
-		margin-bottom : 0.5em;
-	}
-  .projects p, .projects li {
-		padding: 1em;
-		font-size: 10pt;
-		padding: 0;
-		margin: 0;
-	}
-	.projects a[rel=tag] {
-		font-size: 8pt;
-		border: none;
-		margin: 0;
-		display: inline;
-		&::before { content: ''}
-	}
-	.cv {
-		margin-left: 10%;
-		margin-right: 10%;
-	}
-	.projects {
-		page-break-before: always;
-	}
-	.job {
-		page-break-inside: avoid;
-	}
-	#enableTimeline, label[for='enableTimeline'] {
-		display: none;
-	}
-}
 .navigation-wrapper {
 	@include container;
 	margin-bottom: 0px;
@@ -234,6 +172,9 @@ article {
 	@include font-size(22);
 	@include clearfix;
 	margin-bottom: 21px;
+	@media print {
+		padding: 0;
+	}
 }
 
 /* Site name */
@@ -278,6 +219,9 @@ article {
 	}
 	@media #{$x-large} {
 		@include grid(12,8);
+	}
+	@media print {
+		display: none;
 	}
 	ul {
 		margin: 0;
