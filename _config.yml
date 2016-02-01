@@ -3,11 +3,13 @@ name: SerialSeb
 description: SerialSeb
 safe: false
 lsi: false
-highlights: true
+highlighter: rouge
 locale: en_GB
 lang: en-gb
 url: #http://serialseb.com
 timezone: Europe/London
+kramdown:
+   syntax_highlighter: rouge
 
 #jekyll config
 permalink: /blog/:year/:month/:day/:title/

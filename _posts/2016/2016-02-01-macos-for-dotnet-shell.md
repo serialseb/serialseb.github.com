@@ -3,6 +3,7 @@ layout: post
 comments: true
 date: 2016-02-01 22:30:00
 title: macOS for the .net guy – Learning the Shell
+serial: macos-for-dotnet
 ---
 I've been lazy. I switch to a mac a long long time ago, and my dream since then has been to finally stop using windows altogether.
 
@@ -34,8 +35,8 @@ By default, the prompt shows you a bunch of things: the computer name, the curre
 
 When I start my terminal, I see the following.
 
-```
-cherenkov:~ serialseb$
+```shell
+  cherenkov:~ serialseb$
 ```
 
 Cherenkov is my machine name, and like all my computers is named after anything to do with light. As an aside, it's named after the cherenkov effect, where protons and neutrons are thrown at close to the phase speed of light, but light is slowed down by heavy water, and so those particles travel faster than light in that medium, resulting in a lovely blue halo. You can't say you don't learn things on here!
