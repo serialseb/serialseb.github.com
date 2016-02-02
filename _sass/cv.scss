@@ -117,7 +117,7 @@ input[type=checkbox].toggle:checked + label {
 // timeline
 @media screen {
     input[type=checkbox].timeline:checked ~ div:first-of-type {
-      background: linear-gradient(transparent, transparent 8px, silver 8px, silver 12px, transparent 12px, transparent);
+      background: linear-gradient(transparent, transparent 22px, silver 22px, silver 26px, transparent 26px, transparent);
       overflow-x: scroll;
       overflow-y: visible;
       padding:0px 0 30px 0;
@@ -126,6 +126,9 @@ input[type=checkbox].toggle:checked + label {
       margin-left: 0;
       margin-right: 0;
       width: 100%;
+      label {
+        @include prefix(12,2);
+      }
       & > div {
         display: inline-block;
         vertical-align:top;
@@ -147,7 +150,6 @@ input[type=checkbox].toggle:checked + label {
           width: 180px;
           height: 75px;
         }
-
         &:after {
             content:'';
             display:block;

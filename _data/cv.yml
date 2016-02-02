@@ -1,15 +1,10 @@
 summary: |
-  I'm Sebastien, I've been involved in software development since the 90s and the glorious days of Netscape 1.1, when I wrote my first website.
-
   Keen open-source advocate and contributor, I'm also a ReST proponent, long-time agilist, distributed systems aficionado, and involved in all things .net.
+  Code has been my passion for 20 years, since the 90s and the glorious days of Netscape 1.1, when I wrote my first website.
 
-  I've worked with companies large and small, and delivered large-scale public-facing sites all the way to boutique applications and financial systems.
+  I've worked with companies large and small, and delivered from large-scale public-facing websites all the way to boutique applications and financial systems.
 
-  I am bilingual French and English, having been born in France, and I've lived in the UK for 13 years.
-
-  Learning and sharing is fundamental to what I do, so I give lots of talks and attend many conferences. Feel free to check my website to know more.
-
-  I'm always happy to hear about great opportunities, so feel free to contact me.
+  Learning and sharing is fundamental to what I do, so I give lots of talks and attend many conferences. As an added bonus, _je parle également francais_.
 
 contracts:
   - client: sitemorse
@@ -40,6 +35,7 @@ contracts:
       - title: Collaboration platform
         from: 2012-03-03
         to: 2012-11-16
+        highlight: true
         tech: [mssql, nodejs, expressjs, mocha, cakes, handlebars, html5]
         description: |
           Planning and development, in collaboration with on-site developers, of a next-generation platform to migrate from Microsoft’s Silverlight to HTML5 and nodejs.
@@ -66,6 +62,7 @@ contracts:
       - title: Front-office WPF Development Platform
         from: 2010-04-19
         to: 2011-03-15
+        highlight: true
         tech: [wpf,csharp, .net, wcf, web-services, ReST, OpenRasta, OpenWrap, package-management, mef]
         description: |
           In charge of the ADAPT project, a custom development envrironment for .net developers building WPF line-of-business applications. The system was based on a custom package-management system, a deployment infrastructure, APIs for UI development and a local message-passing queue, and migration of WCF services to a new ReST architecture.
@@ -83,6 +80,7 @@ contracts:
         client: standardlife
         from: 2009-03-17
         to: 2009-05-15
+        highlight: true
         tech: [wcf, wcf-rest, ReST]
         description: |
           In charge of the development of a custom framework for exposing rich ReST services using WCF.
@@ -90,6 +88,7 @@ contracts:
         client: jpmasset
         from: 2009-01-16
         to: 2009-03-17
+        highlight: true
         tech: [vb.net, csharp, .net, castle-project, castle-windsor, asp.net-mvc, claims]
         description: |
           Responsible for the design and development of an ISA management system, based on claim-based authorization, a custom LINQ provider on top of existing legacy systems, for a high-traffic public site.
@@ -121,6 +120,7 @@ contracts:
         client: nike
         from: 2008-03-28
         to: 2008-07-14
+        highlight: true
         tech: [wpf, rfid, ms-sync, embedded, csharp, .net]
         description: |
           Development of a multi-tenancy platform for many Nike applications for on-site sport event management, including user registration and account management, RFID identification for athletes, and leaderboard display, including automation of connectivity on-device.
@@ -129,6 +129,7 @@ contracts:
         from: 2008-01-28
         to: 2008-03-28
         tech: [powershell, ffmpeg, csharp, .net, csharp, OpenRasta, asp.net,ReST]
+        highlight: true
         description: |
           Using a first-of-it's-kind ReST-based toolkit, resposible for the development of a social sharing platform, including a video uploading and encoding system.
       - title: ActiveKids 08
@@ -143,6 +144,7 @@ contracts:
       - title: Showcase
         from: 2007-07-30
         to: 2007-11-22
+        highlight: true
         tech: [wpf, nhibernate, directshow, asp.net, model-view-presenter]
         description: |
           Maintenance and hardening of a rich media application for the displaying of HD video to propsective consumers, focusing on increasing the quality of the codebase to a maintainable level, and the scalability needs of several hundred workstations streaming video silmutanuously.
@@ -161,6 +163,7 @@ contracts:
         client: nationalexpress
         from: 2006-11-13
         to: 2007-04-30
+        highlight: true
         tech: [csharp, .net, wpf, wcf, mstest, tfs, msbuild]
         description: |
           Co-developed a WPF application with cutting-edge graphics and UX, for management of fares and timetables, helping the coach business to optimise the company's routes, interacting with independently-developed WCF back-end services.
