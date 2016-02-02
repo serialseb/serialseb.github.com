@@ -1,12 +1,15 @@
 ---
 title: Rebuilding SerialSeb.com – Serials
 serial: rebuilding-serialseb-com
+comments: true
+layout: post
+date: 2016-02-02 12:00:00
 ---
 You may have noticed a list of other blog entries in this serial just above (provided I don't update the design again).
 
 One thing I wanted to do was to automatically group posts together that are part of one story arc. I call those serials.
 
-To do that, each of my post that is part of a serial may have an additional instruction in the front-matter.
+To do that, each of the posts in a serial have an additional instruction in the front-matter metadata.
 
 ```
 ---
@@ -47,4 +50,4 @@ Part of a serial:
 {%endraw%}
 ```
 
-Filters like `sort`, `reverse` and `where` are used to filter out from the post collections, but they only work if you assign the filtered list to a new variable. If you try it in the `for` it just doesn't work. That's 12 hours lost right there.
+Filters like `sort`, `reverse` and `where` are used to filter out from the post collections, but they only work if you assign the filtered list to a new variable. If you try it in the `for` it just doesn't work. That's 12 hours lost right there!
