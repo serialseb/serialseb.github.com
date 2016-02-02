@@ -39,7 +39,7 @@ Thankfully, you already know that, because when you go to a website, say, `http:
 
 There is no place like __home__ however, and you'll probably end up in your home directory often. This is the equivalent of `C:\Users\yourusername\`, and we can navigate to it using `cd ~`, which is equivalent to `cd ~/`, where `~` is your home directory. Makes all those websites of the 90 that were at `http://corp.example/~username` much more understandable! And thanks to @jasonimison, you can just use `cd` for the same thing.
 
-To list things, no `dir` command, we replace it with `ls`. On it's own, it can be rather confusing, so the equivalent seems to be `ls -al`.
+To list things, no `dir` command, we replace it with `ls`. On its own, it can be rather confusing, so the equivalent to the windows experience seems to be `ls -al`.
 
 ### Install all the things
 
