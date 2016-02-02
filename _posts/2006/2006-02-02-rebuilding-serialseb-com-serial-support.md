@@ -25,7 +25,7 @@ For the list of entries in the serial, i created a new include file in `_include
 First, it's included in the template for a blog post, somewhere in `_layouts/post.html`.
 
 ```
-{%include serial/toc.html post=page %}
+{%raw%}{%include serial/toc.html post=page %}{%endraw%}
 ```
 
 Here, i assign the post variable to the page object, so I can reuse the same TOC be it that I'm in a page or enumerating over posts.
