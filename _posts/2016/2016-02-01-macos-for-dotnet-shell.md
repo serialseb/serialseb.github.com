@@ -5,7 +5,7 @@ date: 2016-02-01 23:10:00
 title: macOS for the .net guy – Learning the Shell
 serial: macos-for-dotnet
 ---
-I've been lazy. I switch to a mac a long long time ago, and my dream since then has been to finally stop using windows altogether.
+I've been lazy. I switched to a mac a long long time ago, and my dream since then has been to finally stop using windows altogether.
 
 I've not enjoyed Windows since nautilus, which never actually got a release, and we're talking 1996. But I love .net, amongst many other ecosystems I enjoy working with, and so I've had VMWare installed as a faithful companion for a long time. But the performance sucks, and VMWare just fired everyone on that team to send the work to China or what not, and with .net core getting a story on unix platforms, it's more than time that I accept that it's not him it's me, and move out.
 
