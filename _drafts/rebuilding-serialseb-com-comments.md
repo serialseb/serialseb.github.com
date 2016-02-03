@@ -23,7 +23,7 @@ owner:
 The next step is to tell disqus that I moved the entries from the codebetter blog to their new URIs. For this we need a mapping between old and new, in CSV no-less, because there is no way I'd do that manually.
 
 Remember how in the previous part I used the tools to migrate the entries to jekyll? One cool side-effect of using those scripts is an extra header added just for WordPress blog. For example, the header for my perenial post on Vertical Slice Technologies contains this jekyll front matter.
-```
+```markdown
 ---
 comments: true
 date: 2013-07-11 08:54:32+00:00
@@ -40,5 +40,5 @@ When I migrated, I elected to keep the new blog entires in the `/year/month/slug
 ```
 Upload to disqus, and we're done. I've also enabled the option in disqus to only allow comments from serialseb.com, to make sure no one accidently revived the old post comments.
 
-[disqus]: <>
-[minimal-mistakes]:<>
+[disqus]: <https://disqus.com>
+[minimal-mistakes]:<https://mademistakes.com/minimal-mistakes/>
