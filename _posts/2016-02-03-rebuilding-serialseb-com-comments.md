@@ -35,8 +35,8 @@ wordpress_id: 169
 ```
 When I migrated, I elected to keep the new blog entires in the `/year/month/slug/` format, which codebetter was already using, so to generate the csv, I put the following code in a file in my site and left jekyll to do the hard work.
 ```
-{%for post in site.posts %}{% if post.wordpress_id %}http://codebetter.com/sebastienlambla/{{post.url | remove: "/blog/" }}, http://serialseb.com{{post.url}}{%endif%}
-{%endfor%}
+{%raw%}{%for post in site.posts %}{% if post.wordpress_id %}http://codebetter.com/sebastienlambla/{{post.url | remove: "/blog/" }}, http://serialseb.com{{post.url}}{%endif%}
+{%endfor%}{%endraw%}
 ```
 Upload to disqus, and we're done. I've also enabled the option in disqus to only allow comments from serialseb.com, to make sure no one accidently revived the old post comments.
 
