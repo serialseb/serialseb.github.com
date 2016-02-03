@@ -4,6 +4,7 @@ comments: true
 title: Rebuilding SerialSeb.com – Comments
 serial: rebuilding-serialseb-com
 published: true
+layout: post
 ---
 With all my prose migrated, it was only fair to try and migrate yours!
 
@@ -23,6 +24,7 @@ owner:
 The next step is to tell disqus that I moved the entries from the codebetter blog to their new URIs. For this we need a mapping between old and new, in CSV no-less, because there is no way I'd do that manually.
 
 Remember how in the previous part I used the tools to migrate the entries to jekyll? One cool side-effect of using those scripts is an extra header added just for WordPress blog. For example, the header for my perenial post on Vertical Slice Technologies contains this jekyll front matter.
+
 ```markdown
 ---
 comments: true
@@ -33,7 +35,9 @@ title: Unit testing is out, Vertical Slice Testing is in
 wordpress_id: 169
 ---
 ```
+
 When I migrated, I elected to keep the new blog entires in the `/year/month/slug/` format, which codebetter was already using, so to generate the csv, I put the following code in a file in my site and left jekyll to do the hard work.
+
 ```
 {%raw%}{%for post in site.posts %}{% if post.wordpress_id %}http://codebetter.com/sebastienlambla/{{post.url | remove: "/blog/" }}, http://serialseb.com{{post.url}}{%endif%}
 {%endfor%}{%endraw%}
