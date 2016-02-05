@@ -588,6 +588,7 @@ $button-size: 1.5rem;
   margin-bottom: 5px;
   @include font-rem(14);
   color: $black;
+	white-space: nowrap;
   &:visited {
     color: $black;
   }
