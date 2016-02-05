@@ -1,5 +1,5 @@
+{% if paginator.page > 1 %}{% assign robots='noindex' %}{% endif %}
 {% capture body %}
     {{content}}
 {% endcapture %}
-
-{% include _master.html name="home" nav="author" %}
+{% include _master.html name="home" nav="author" robots=robots %}
