@@ -103,5 +103,6 @@ We should remember that some speakers do this for the pleasure of sharing knowle
 ## Conclusion
 
 Conferences are amazing. There are lots of them. Chose, make the most of them, go meet amazing people, and stay away from trouble. That's what I wished I had learnt earlier.
+
 [weeklycfp]: <http://theweeklycfp.com>
 [cfphelp]: <http://cfp.help>
