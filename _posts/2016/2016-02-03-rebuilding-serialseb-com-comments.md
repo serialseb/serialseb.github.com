@@ -10,7 +10,7 @@ With all my prose migrated, it was only fair to try and migrate yours!
 
 When codebetter.com migrated over to wordpress, I moved over to [disqus][disqus]. One less thing to do, and anything reducing spam was a *good thing*.
 
-# Adding disqus to the new site
+## Adding disqus to the new site
 
 As the [Minimal Mistakes theme][minimal-mistakes] comes with disqus support, it's only a matter of editing your `config.yml` to use your disqus shortname (which, for some unexplained reason, on my blog, was called codebetterblog, which is going to be very confusing I'm sure).
 
@@ -19,7 +19,7 @@ owner:
   disqus-shortname: codebetterblog
 ```
 
-# Migrating the wordpress entries
+## Migrating the wordpress entries
 
 The next step is to tell disqus that I moved the entries from the codebetter blog to their new URIs. For this we need a mapping between old and new, in CSV no-less, because there is no way I'd do that manually.
 
