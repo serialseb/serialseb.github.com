@@ -1,5 +1,5 @@
 ---
-title: Agile feasibility through furniture building 
+title: Agile furniture building 
 layout: post
 comments: true
 image:
