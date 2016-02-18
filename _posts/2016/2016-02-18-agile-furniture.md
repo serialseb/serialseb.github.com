@@ -11,7 +11,7 @@ After the sudden loss of a friend to cancer, I took some time off posting on her
 
 When redesigning this blog, I wanted more graphic content to illustrate my ramblings, and chose a picture of me carrying a dismantled desk, with colleagues behind me either bemused or aghast – feel free to provide a better caption in the comments :). So what is this all about?
 
-One of my previous clients, at which that picture was taken, could be described as an organisation that attempted, for a while, to transform itself from the enterprise sclerosed big corporation into a fast and agile environment. Like many organisations, some people got the memo and got on-board, some trailed behind, and this included shared services, a.k.a. the people with the power to do things to desks.
+One of my previous clients could be described as an organisation that attempted, for a while, to transform itself from the enterprise sclerosed big corporation into a fast and agile environment. Like many organisations, some people got the memo and got on-board, some trailed behind, and this included shared services, a.k.a. the people with the power to do things to desks.
 
 The desks we were given had partitions, and I really have a dislike for those. You can't talk easily to your teammates, they encourage more clutter, they get in the way of communicating. YMMV but I don't find them useful inside the team, especially those half-height "we'll keep your cats pictures private and force you have to dislodge your neck to talk to anyone but won't protect you from the rest of the office noise" things, they're just plain retarded. I know, I may be sitting on the fence on this one, but there.
 
