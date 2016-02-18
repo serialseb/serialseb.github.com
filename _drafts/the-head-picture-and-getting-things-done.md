@@ -1,5 +1,6 @@
 ---
 title: Agile feasibility through furniture building 
+layout: post
 comments: true
 image:
   feature: officehead.jpg
