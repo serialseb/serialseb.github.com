@@ -1,7 +1,9 @@
 {
   "@context": "http://schema.org",
   "@type": "WebSite",
+  {% unless include.noid %}
   "@id": "http://serialseb.com/",
+  {% endunless %}
   "url": "http://serialseb.com/",
   "creator": {"@id": "http://serialseb.com/#me"},
   "inLanguage": "{{site.lang}}",
