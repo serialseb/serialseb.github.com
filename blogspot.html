@@ -18,6 +18,6 @@ var bloggerMap = {};
   {% endif %}
 {% endfor %}
 var map = bloggerMap["http://serialseb.blogspot.com" + referrer.substr(referrer.indexOf('/',8))];
-window.location.href = map == "undefined" ? "http://serialseb.com/blog" + referrer.substr(referrer.indexOf('/',8)) : map;
+window.location.href = map == "undefined" ? ("http://serialseb.com/blog" + referrer.substr(referrer.indexOf('/',8))) : map;
 </script>
 </body>
