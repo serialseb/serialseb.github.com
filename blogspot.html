@@ -1,11 +1,13 @@
 ---
 title: Blogger landing page
+permalink: blogspot.html
 ---
 
 <html>
 <title>Blogger landing page</title>
 <body>
 Please wait while we redirect you from blogger to the correct post.
+
 <script type="text/javascript">
 var referrer=window.location.search.substr(1);
 
@@ -16,6 +18,6 @@ var bloggerMap = {};
   {% endif %}
 {% endfor %}
 var map = bloggerMap["http://serialseb.blogspot.com" + referrer.substr(referrer.indexOf('/',8))];
-window.location.href = map == "undefined" ? referrer.substr(referrer.indexOf('/',8)) : map;
+window.location.href = map == "undefined" ? "http://serialseb.com/blog" + referrer.substr(referrer.indexOf('/',8)) : map;
 </script>
 </body>
