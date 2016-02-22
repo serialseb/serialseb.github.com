@@ -4,6 +4,7 @@ title: Public Speaking – Veni
 serial: speaking-vvv
 date: 2016-01-27 17:30:00
 comments: true
+tags: [conferences]
 ---
 We've had a lot of various blog posts recently on speaking in public, and Todd's post got me thinking about the posts I've had in my drafts for a few days. I was going to publish one or two posts, but I thought better of it, and created a new serial, in three parts, to tell you about speaking: the truth, the whole of the truth, and nothing but the truth; except for the lies. I came to speaking, I got better, and I now have a bunch of principles, rules and tactics to speaking, hence the three-parter: _Veni, Vidi, Vici_.  
 

@@ -4,6 +4,7 @@ comments: true
 date: 2016-02-01 23:10:00
 title: macOS for the .net guy – Learning the Shell
 serial: macos-for-dotnet
+tags: [dotnetcore,osx,bash]
 ---
 I've been lazy. I switched to a mac a long long time ago, and my dream since then has been to finally stop using windows altogether.
 

@@ -2,6 +2,7 @@
 title: What's good feedback from a talk?
 comments: true
 layout: post
+tags: [conferences]
 ---
 As happens often when hanging out with speakers, the discussions started gravitating towards the ever fundamental question of talk feedback.
 
@@ -21,4 +22,3 @@ Have any ideas? Share them in the comments below!
 
 [babs]: <http://barbarafusinska.com/>
 [sam]: <https://twitter.com/samelamin>
-

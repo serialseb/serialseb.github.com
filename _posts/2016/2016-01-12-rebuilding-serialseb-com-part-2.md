@@ -5,6 +5,7 @@ comments: true
 tags: serialseb.com, jekyll
 serial: rebuilding-serialseb-com
 date: 2016-01-12 10:17:00
+tags: [jekyll, blogger, wordpress, dasblog]
 ---
 I have to admit to being a bit of a digital hoarder. I keep digital copies of everything, and I have bits of code, svn repos and backups all the way to 2001. It probably comes from the fact that I had a big crash of my raid0 data around that time and lost everything. I still have pst files and backup archives of an old exchange server with years of emails that i've not managed to recover just yet, but eventually I will!
 

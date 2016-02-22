@@ -2,6 +2,7 @@
 layout: post
 comments: true
 title: The mythical 17:00 split
+tags: [conferences, pubconflondon15]
 ---
 Here is the new talk I just made at [#pubconf](http://pubconf.io) organised fantastically by amazing people. If you were not there you missed something rather amazing.
 

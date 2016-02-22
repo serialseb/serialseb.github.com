@@ -7,6 +7,7 @@ image:
   feature: seedvault.jpg
   creditlink: https://commons.m.wikimedia.org/wiki/File:Svalbard_seed_vault_IMG_8750.JPG
   credit: Erlend Bjørtvedt
+tags: [http, infosec, rest]
 ---
 The next blog post in the “Public Speaking” serial is  being written, but I'll probably hold off from publishing it for a few days.
 

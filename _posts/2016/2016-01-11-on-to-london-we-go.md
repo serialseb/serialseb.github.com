@@ -4,6 +4,7 @@ comments: true
 date: 2016-01-11T11:20:00
 modified: 2016-01-11T11:26:00Z
 title: On to London we go
+tags: [conferences, ndclondon15, pubconflondon15]
 ---
 
 I'm very excited to be on the rota officially for NDC London, where I'll be

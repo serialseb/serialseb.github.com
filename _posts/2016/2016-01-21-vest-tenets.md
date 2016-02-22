@@ -4,6 +4,7 @@ comments: true
 title: VeST Redux – The Tenets of Vertical Slice Technologies
 serial: vest-redux
 date: 2016-01-21 16:57
+tags: [vest]
 ---
 
 Once upon a time, I blogged about my homegrown approach to [designing systems using VeST][designing-systems].
@@ -21,7 +22,7 @@ I value the following software principles:
   - Building and deploying small features quickly and **iterating** on a problem.
   - Building **composeable** autonomous components that communicate and work together in a monolith or spread over a distributed network.
   - Prioritising **Minimum Viable Product** features of the smallest possible size that can bring value by being deployed.
-  - Building as quickly and as early as possible a line through the implementation of a system, a **fishing line** or **tracer bullet** to put in place all the required components as early as practical, and grow them as the feature-set grows,
+  - Building as quickly and as early as possible a line through the implementation of a system, a **fishing line** or **tracer bullet** to put in place all the required components as early as practical, and grow them as the feature-set grows.
   - Focusing on **Keeping It Simple Stupid** and design the simplest possible system that can work for a feature.
   - Discover with the business and the teams what each feature ought to do and what acceptance criterias are upfront, using **Behaviour-Driven Design** approaches, and encode them in the code where they are the sole source of truth of the understanding of a system.
   - Providing, alongside our libraries and services, in-memory fully-featured **Production-grade fakes** people can use in their own code-base, the same we use to build our systems, so our consumers do not have to mock APIs themselves.

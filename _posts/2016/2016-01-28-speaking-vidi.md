@@ -5,6 +5,7 @@ title: Public Speaking – Vidi
 comments: true
 published: true
 date: 2016-01-28 11:45:00
+tags: [conferences]
 ---
 
 I got into speaking because I kept trying, in no small part thanks to the many user groups that litter our country with safe and fun environments to push our boundaries. I'm not sure if I progressed as a speaker, but I've learnt a bunch of tricks and practices over the years that I've found useful.
