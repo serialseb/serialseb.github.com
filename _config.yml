@@ -96,13 +96,23 @@ owner:
 paginate: 3
 paginate_path: "/blog/page:num"
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: serials
+    values:
+      layout: serial
+
 collections:
   projects:
     permalink: /projects/:id/
-    defaults:
-      layout: page
   serials:
     output: true
     permalink: /serials/:name/
-    defaults:
-      layout: serial
