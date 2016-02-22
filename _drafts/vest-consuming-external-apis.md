@@ -2,7 +2,7 @@
 layout: post
 comments: true
 published: false
-title: VeST Redux – Consuming External APIs
+title: VeST Redux – Test rigs for external APIs
 serial: vest-redux
 ---
 When designing a system for VeST, one of the pain points is the implementation of external APIs.
