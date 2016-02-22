@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: VeST Redux – Specification-driven development
 serial: vest-redux
-date: 2016-01-25 13:40
+date: 2016-01-25 13:40:00
 published: true
 tags: [vest, bdd]
 ---
