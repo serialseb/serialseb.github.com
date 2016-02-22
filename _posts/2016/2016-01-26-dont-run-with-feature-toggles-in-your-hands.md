@@ -1,12 +1,13 @@
 ---
 layout: post
 date: 2016-01-26 12:06
-title: Dont run with Feature Toggles in your hands
+title: Don‘t run with Feature Toggles in your hands
 comments: true
 image:
   feature: scissors.jpg
   credit: FlutterSpeed
   creditlink: http://www.flutterspeed.com/2010/12/rusty-but-pretty.html
+tags: [software-principles]
 ---
 Feature toggles have been on my radar for a while, thanks to [Martin Fowler's introduction][fowler-toggles] from back when, where he argues for enabling or disabling certain features of an application dynamically, based on some sort of switch. For many years this fell on dead ears, for I never really encountered any reason to pursue this avenue on real systems.
 
@@ -46,6 +47,6 @@ As for the UI, the sweet spot for me has always been to use an Eventing model fo
 
 ## R.I.P.
 
-If you build your software as a set of independent plugins, with messaging to communicate and composition as a feature toggle, you'll end up with cleaner and more reliable code. You can still litter your codebase with ifs, but be careful not to fall. 
+If you build your software as a set of independent plugins, with messaging to communicate and composition as a feature toggle, you'll end up with cleaner and more reliable code. You can still litter your codebase with ifs, but be careful not to fall.
 
 [fowler-toggles]: <http://martinfowler.com/bliki/FeatureToggle.html>

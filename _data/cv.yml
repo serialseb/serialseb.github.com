@@ -129,7 +129,6 @@ contracts:
         from: 2008-01-28
         to: 2008-03-28
         tech: [powershell, ffmpeg, csharp, .net, csharp, OpenRasta, asp.net,ReST]
-        highlight: true
         description: |
           Using a first-of-it's-kind ReST-based toolkit, resposible for the development of a social sharing platform, including a video uploading and encoding system.
       - title: ActiveKids 08

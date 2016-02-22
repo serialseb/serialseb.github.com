@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: They put speakers on a leaderboard. You won't believe what happened next!
-tags: ndclondon15
+tags: [ndclondon15, conferences]
 ---
 NDC is an amazing conference, one of the best you can attend. I'm very privileged and excited to be speaking there.
 

@@ -30,6 +30,8 @@ $bordercolor    : $basecolor;
 $white          : #fff;
 $black          : #111;
 $accentcolor    : #00B4E6;
+$accentdark     : darken($accentcolor, 20%);
+$accentlight    : lighten($accentcolor, 50%);
 $disabledcolor  : silver;
 
 /* buttons */

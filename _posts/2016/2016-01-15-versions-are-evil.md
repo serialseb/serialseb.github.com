@@ -3,6 +3,7 @@ layout: post
 created: 2016-01-15T16:58:00
 comments: true
 redirect_from: "blog/20156/01/15/versions-are-evil/"
+tags: [conferences, ndclondon15]
 ---
 Thanks to all that came to my short session on versioning. The slides have now been published, see below.
 

@@ -5,6 +5,7 @@ title: VeST Redux – Specification-driven development
 serial: vest-redux
 date: 2016-01-25 13:40
 published: true
+tags: [vest, bdd]
 ---
 Building software is easy. Really, it's just a matter of writing a bunch of statements that do something, and _voilà_, you have a running program. Building the right software is where the complexity lies.
 

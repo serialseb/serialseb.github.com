@@ -1,3 +1,6 @@
+feed:
+  template: feed:http://feeds.feedburner.com/SerialSeb
+  fa: feed
 email:
   template: mailto:username
   fa: envelope-square

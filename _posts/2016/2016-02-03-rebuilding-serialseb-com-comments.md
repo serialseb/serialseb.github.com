@@ -5,6 +5,7 @@ title: Rebuilding SerialSeb.com – Comments
 serial: rebuilding-serialseb-com
 published: true
 layout: post
+tags: [jekyll, wordpress, disqus]
 ---
 With all my prose migrated, it was only fair to try and migrate yours!
 

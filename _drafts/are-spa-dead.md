@@ -3,9 +3,15 @@ title: Are SPAs dead?
 published: false
 comments: true
 ---
+
+Link http://www.infoq.com/articles/no-more-mvc-frameworks
+http://www.infoq.com/news/2015/11/daniel-jacobson-ephemeral-apis
+
+
+
 An interesting conversation has been going on on twitter. You know when you always say ”This is just not the right medium, I'll blog about “. So I did. I'm going the long way around but I'd ralther go for clarity here.
 
-The browser is a wonderful piece of technology that, over the last 21 years, has passed the test of time. It's principle is rather simple: display media types like HTML the best it can, and allow people to navigate away from the current document to the next document by clicking links. 
+The browser is a wonderful piece of technology that, over the last 21 years, has passed the test of time. It's principle is rather simple: display media types like HTML the best it can, and allow people to navigate away from the current document to the next document by clicking links.
 
 When AJAX started appearing, much was made of finally being able to navigate without causing a hard refresh. This was the beginning of the development of a lot of code to expose _all the data_ in XML, all rendered by lots of code that was also written, in the [best language in the world][javascript-crockford], Javascript.
 

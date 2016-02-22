@@ -4,6 +4,7 @@ comments: true
 date: 2016-02-05 15:57:00
 serial: speaking-vvv
 title: Public Speaking – Vici
+tags: [conferences]
 ---
 
 Now that you've conquered the stage, you have the jokes ready, and you're comfortable with the speaking experience, it's time to look at the world of conferences. I've been doing them for many years, and there's a lot of good in there. There can also be a darker side to conferences. How do you get the most of them and steer away from trouble?
@@ -20,7 +21,7 @@ Ideally, if you want to submit regularly, go check both once a week, and make yo
 
 When I started, most of the talks I submitted were not written yet, just an idea in my mind of what the talk would be about.
 
-Your mileage may vary, but that lead for me to many unprepared and unfinished talks. It also resulted in a huge amount of stress when, after procrastinating for too long, I was left with building a talk a few days to a few hours before my session. As I mentioned before, being composed when giving a talk is key, and running only on adrenaline and anxiety is not the best way to achieve that. 
+Your mileage may vary, but that lead for me to many unprepared and unfinished talks. It also resulted in a huge amount of stress when, after procrastinating for too long, I was left with building a talk a few days to a few hours before my session. As I mentioned before, being composed when giving a talk is key, and running only on adrenaline and anxiety is not the best way to achieve that.
 
 I now have a simple rule: I only submit talks for which I've done an outline that can stand on its own, should I fail to do any further work on it. That allows me to submit in the confidence that I won't be stressing at all, and that any further work on slides and content is purely added bonus.
 
@@ -52,7 +53,7 @@ There is a huge risk, after you've been hanging out in conferences for a long ti
 
 I want to be available to attendees, so I make sure I'm reachable easily, for example by sitting on the tables close to food for the afternoon rather than attend talks. I also try to avoid being in the speaker room if I don't need the quiet for preparing for a talk. It's hard sometimes, because some speaker areas are damn comfortable, and conferences sometimes fail to provide the equivalent space in the public areas.
 
-But that's a personal choice. Some speakers come, give their talks, and enjoy the rest of their time with their friends, and I understand that. 
+But that's a personal choice. Some speakers come, give their talks, and enjoy the rest of their time with their friends, and I understand that.
 
 ### Mean girls?
 
@@ -68,13 +69,13 @@ This is a sensitive subject, but one close to my heart and my experience with co
 
 Conferences, as commercial entities, have to protect themselves and their brand, and not necessarily you. Some code of conducts are a way for a conference to protect its interests in the face of inappropriate behaviour, and that is perfectly normal, to an extent.
 
-Far and few are conferences that prevent dangerous behaviours rather than protect themselves from their effects. Even fewer have a moral contract, let alone a written one, with you as a speaker, to give you due diligence. When faced with a problem, there are few incentives for them to understand the circumstances in which a problem happened, it's easier to apply the code of conduct blindly. Why bother asking for a drug test if a speaker has been spiked, when they can blame alcohol and throw them out quietly, just as some of the organisers get trashed at the open bar? Why respond to various reports of inappropriate sexual behaviours, or psychological bullying,  when you have no one on the floor to check on people and be there for attendees and speakers that may feel distressed? 
+Far and few are conferences that prevent dangerous behaviours rather than protect themselves from their effects. Even fewer have a moral contract, let alone a written one, with you as a speaker, to give you due diligence. When faced with a problem, there are few incentives for them to understand the circumstances in which a problem happened, it's easier to apply the code of conduct blindly. Why bother asking for a drug test if a speaker has been spiked, when they can blame alcohol and throw them out quietly, just as some of the organisers get trashed at the open bar? Why respond to various reports of inappropriate sexual behaviours, or psychological bullying,  when you have no one on the floor to check on people and be there for attendees and speakers that may feel distressed?
 
 So you have to protect yourself, because some conferences won't. And because the rule is that we don't talk about the rule, you won't know what conferences are damn right dangerous and which ones promote a healthier environment. Check the schedule, and read the code-of-conduct they provide before submitting.
 
 Keep your drinks protected at all times, don't accept drinks from strangers, keep a phone number of someone in case you face inappropriate behaviour, and try not to be alone in any group. If the conference is irresponsible enough to organise open bars with no food and no sober organiser, eat first, or don't go, or don't stay late. There's always a hotel bar to go hang out in a less charged environment. And make sure that there are sober organisers at the events you attend.
 
-Note: if you're in the majority of entitled middle-class straight men that have never seen or heard of a problem in any conference, or worse, you consider it to be all bullshit because you do what you want and no one ever stopped you, those tips are not for you. 
+Note: if you're in the majority of entitled middle-class straight men that have never seen or heard of a problem in any conference, or worse, you consider it to be all bullshit because you do what you want and no one ever stopped you, those tips are not for you.
 
 ### When is inappropriate behaviour an issue?
 
