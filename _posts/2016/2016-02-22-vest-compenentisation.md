@@ -25,7 +25,7 @@ On the right side, we have what this component needs to communicate with, say, a
 
 The goal of designing the system in this way is to reduce reliance on on-the-spot mocks, kill interaction testing if it has no visible benefits, and allow both ourselves and the consumers of our APIs to start testing against our systems as quickly as possible.
 
-As such, any other component our component under test uses, probalby has a contract, be it that it's HTTP, a .net interface or some wsdl somewhere. Defining the contract is not enough.
+Other component our component-under-test uses has a contract, be it HTTP, a .net interface, or some wsdl somewhere. But relying on contract definitions only is rarely enough. To encode additional expectations, we need to encode the knowledge in code, as the single source of truth.
 
 The *mains* in the diagram is an implementation of the contract on top of the system we actually want to talk to.
 
