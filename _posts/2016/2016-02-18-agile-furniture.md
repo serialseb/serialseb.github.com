@@ -1,11 +1,12 @@
 ---
-title: Agile furniture building 
+title: Agile furniture building
 layout: post
 comments: true
 image:
   feature: officehead.jpg
   alt: Deconstructing a desk
 date: 2016-02-18 17:48:00
+tags: [agile]
 ---
 After the sudden loss of a friend to cancer, I took some time off posting on here. I'm back, so you shall have your daily dose of Seb again from Monday.
 

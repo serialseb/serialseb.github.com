@@ -1,21 +1,4 @@
-$accentdark: darken($accentcolor, 20%);
-a[rel='tag'] {
-  display: inline-block;
-  background: lighten($accentcolor, 30%);
-  border: solid 1px $accentcolor;
-  border-radius: 3px;
-  color: $accentdark;
-  white-space: nowrap;
-  padding: 0.1em;
-  margin: 2px;
-  @extend .icon;
-  @include font-rem(11);
-  &::before {
-    font-size: base;
-    content: '\f292';
-    color: $accentdark;
-  }
-}
+
 
 .flat {
  display:block;

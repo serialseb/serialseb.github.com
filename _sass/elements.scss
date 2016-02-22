@@ -13,6 +13,29 @@ hr {
 	color: $accentcolor;
 }
 
+
+a[rel='tag'] {
+  display: inline-block;
+  background: $accentlight;
+  border: solid 1px $accentcolor;
+  border-radius: 3px;
+  color: $accentdark;
+  white-space: nowrap;
+  padding: 0.1em;
+
+  margin: 2px;
+	margin-top: -0.1em;
+	vertical-align: text-top;
+
+  @extend .icon;
+  @include font-rem(11);
+  &::before {
+    font-size: base;
+    content: '\f292';
+    color: $accentdark;
+  }
+}
+
 /*
    Figures and images
    ========================================================================== */
