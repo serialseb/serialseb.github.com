@@ -69,6 +69,7 @@ owner:
     ad-slot:
   bing-verify:
   social:
+    feed: http://feeds.feedburner.com/SerialSeb
     email: seb@serialseb.com
     twitter: serialseb
     linkedin: serialseb
