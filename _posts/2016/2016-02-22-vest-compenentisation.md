@@ -31,7 +31,7 @@ The *mains* in the diagram is an implementation of the contract on top of the sy
 
 The *simulator* is another component, usually running in-memory, that encodes all the behaviours that we understand about the contract. Very often, APIs have idiosyncrasies that are not reflected in their description formats, and more often than not, that knowledge gets lost in the usual turnover our teams suffer at the hand of short-sighted resource planners. An example here would be an in-memory module that simulates the semantics of mongodb's driver, but ensure any documet gets serialised to BSON.
 
-The *test rig* is an encoding of our expectations of the contract for anyone implementing another *main* or another *simulator*. This is the reusable test that others can use to make sure their implementations behave in the way that is expected by our system.
+The *test rig* is an encoding of our expectations of the contract for anyone implementing another *main* or another *simulator*. This is a set of reusable tests that others can use to make sure their implementations behave in the way that is expected by our system, aka respecting the contract, both as encoded in code, and encoding behavior as described in prose.
 
 And of course, the goal is to ship the *mains*, the *simulator* and the *test rig*, and use in our own development the *test rig* to make sure the *simulator* and the *mains* implement the same contract.
 
