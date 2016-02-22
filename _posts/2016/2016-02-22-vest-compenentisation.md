@@ -1,8 +1,10 @@
 ---
+title: VeST Redux – Components, mains, simulators and test rigs
 comments: true
-title: VeST Redux – Components, simulators and test rigs
 serial: vest-redux
-date: 2016-02-22 15:00
+date: 2016-02-22 15:00:00
+published: true
+tags: [vest]
 ---
 
 My introduction post, from way back when, focused on the idea that testing each class independently in the conventional TDD way had significant costs, and that I preferred to only test components that I expect to be used or replaced, or are out of the control of my team, or have some independent usage interface.
