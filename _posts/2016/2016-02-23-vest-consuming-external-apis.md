@@ -4,6 +4,7 @@ comments: true
 date: 2016-02-23 11:55:00 +0000
 title: VeST Redux – Test rigs and external APIs
 serial: vest-redux
+tags: [vest]
 ---
 
 In my previous post, we touched on the concept of test rigs, reusable tests that can be ran against many implementations. When using VeST for your systems, you'd build all of those components alongside your mains.
