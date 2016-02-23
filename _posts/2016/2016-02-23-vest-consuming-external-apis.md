@@ -1,7 +1,6 @@
 ---
 layout: post
 comments: true
-published: false
 date: 2016-02-23 11:55:00 +0000
 title: VeST Redux – Test rigs and external APIs
 serial: vest-redux
