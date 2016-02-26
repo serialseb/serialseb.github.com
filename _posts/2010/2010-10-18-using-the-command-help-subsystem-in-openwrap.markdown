@@ -1,29 +1,29 @@
 ---
-
 comments: true
 date: 2010-10-18 14:44:20+00:00
 layout: post
 slug: using-the-command-help-subsystem-in-openwrap
 title: Using the command help subsystem in OpenWrap
 wordpress_id: 10
+tags: [openwrap]
 ---
 
 Documentation in a command-line tool is important. My latest push (as of a few minutes ago) implements a much improved get-help command. This should let you discover a lot of the functionality of OpenWrap without needing my blog posts.
 
- 
+
 
 ### Updating OpenWrap
 
- 
+
 
 I assume that you’re using the sources to run OpenWrap. Now is time to update your local copy with the latest changes, rebuild and reinstall. Difficult? We shall see.
 
- 
+
 
 To update, you simply issue a standard git command.
 
- 
-    
+
+
     <div><b>PS C:\src\openwrap></b><i> git pull origin master</i></div>
 
 
@@ -35,7 +35,7 @@ Then, you need to rebuild OpenWrap. As OpenWrap uses OpenWrap to build itself, i
 
 
 
-    
+
     <div><b>PS C:\src\openwrap></b><i> o build-wrap</i></div>
 
 
@@ -49,7 +49,7 @@ That should produce a package in your current directory, all ready for update, w
 
 
 
-    
+
     <div><b>PS C:\src\openwrap></b><i> o update-wrap</i></div>
 
 
@@ -73,13 +73,13 @@ So let’s see what we now have in our help system.
 
 
 
-    
+
     <div><b>PS C:\src\openwrap></b><i> o get-help</i></div>
     # OpenWrap v1.0.0.0 ['C:\src\openwrap\wraps\_cache\openwrap-1.0.0.19057598\bin-net35\OpenWrap.dll']
-    
+
     List of available commands
     --------------------------
-    
+
     wrap update:
             Updates packages to their latest versions in local repositories.
 
@@ -92,25 +92,25 @@ Note that I’ve removed most of the content so this blog entry doesn’t get to
 
 
 
-    
+
     <div><b>PS C:\src\openwrap></b><i> o get-help clean-wrap</i></div>
     # OpenWrap v1.0.0.0 ['C:\src\openwrap\wraps\_cache\openwrap-1.0.0.19057598\bin-net35\OpenWrap.dll']
     COMMAND
             clean-wrap
-    
+
     DESCRIPTION
             Removes packages no longer in use in the local repositories.
-    
+
     USAGE
             clean-wrap [[-System] <Boolean>] [[-Project] <Boolean>] [[-Name] <String>]
-    
+
     PARAMETERS
             -System <Boolean>
                     Limits the cleaning to the system repository.
-    
+
             -Project <Boolean>
                     Limits the cleaning to the project repository.
-    
+
             -Name <String>
                     Specifies the name of the package for which to remove unused versions. If omitted, the clean will affect all packages.
 

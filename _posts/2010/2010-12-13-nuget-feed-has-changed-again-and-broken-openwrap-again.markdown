@@ -6,6 +6,7 @@ layout: post
 slug: nuget-feed-has-changed-again-and-broken-openwrap-again
 title: NuGet feed has changed again, and broken OpenWrap again.
 wordpress_id: 28
+tags: [openwrap]
 ---
 
 Just a quick note that the NuGet feed has had some more changes that have broken OpenWrap once more. As usual, this wasn’t quite documented anywhere nor did we get told about it in time for their release.

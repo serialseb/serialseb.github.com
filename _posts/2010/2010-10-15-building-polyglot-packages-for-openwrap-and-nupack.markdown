@@ -1,5 +1,5 @@
 ---
-
+tags: [openwrap]
 comments: true
 date: 2010-10-15 08:43:01+00:00
 layout: post
@@ -10,20 +10,20 @@ wordpress_id: 6
 
 As we approach a first full-featured OpenWrap release, it’s time to provide package builders some guidance in how to build good packages.
 
- 
+
 
 For a week now, the OpenWrap client has supported the NuPack package and feed format for assemblies. We don’t support powershell scripts so far, as OpenWrap doesn’t have a dependency on it, but assemblies in the /lib folder are fully supported.
 
- 
+
 
 ### Test your packages
 
- 
+
 
 The easiest way to test a nupack package is to use the convert-nupack command available in OpenWrap.
 
- 
-    
+
+
     <div><b>PS C:\tmp></b><i> o convert-nupack .\Castle.Core.1.1.0.nupkg.zip Castle.Core.1.1.0.wrap</i></div>
     # OpenWrap v1.0.0.0 ['C:\Users\sebastien.lambla\AppData\Local\OpenWrap\wraps\_cache\openwrap-1.0.0.18826071\bin-net35\OpenWrap.dll']
     Package successfully converted.
@@ -93,30 +93,30 @@ NuPack
 
 
 
-  
-  * /lib 
-    
-      
-    * /20 
-        
-          
-      * Newtonsoft.Json.dll (formerly /lib/20/Newtonsoft.Json.Net20.dll) 
 
-        
-      
+  * /lib
 
 
-      
-    * /35 
-        
-          
-      * Newtonsoft.Json.dll (formerly /lib/35/Newtonsoft.Json.dll) 
+    * /20
 
-        
-      
 
-    
-  
+      * Newtonsoft.Json.dll (formerly /lib/20/Newtonsoft.Json.Net20.dll)
+
+
+
+
+
+
+    * /35
+
+
+      * Newtonsoft.Json.dll (formerly /lib/35/Newtonsoft.Json.dll)
+
+
+
+
+
+
 
 
 
@@ -129,24 +129,24 @@ OpenWrap
 
 
 
-  
-  * /bin-net20 
-    
-      
-    * Newtonsoft.Json.dll (formerly /lib/20/Newtonsoft.Json.Net20.dll) 
 
-    
-  
+  * /bin-net20
 
 
-  
-  * /bin-net35 
-    
-      
-    * Newtonsoft.Json.dll (formerly /lib/35/Newtonsoft.Json.dll) 
+    * Newtonsoft.Json.dll (formerly /lib/20/Newtonsoft.Json.Net20.dll)
 
-    
-  
+
+
+
+
+
+  * /bin-net35
+
+
+    * Newtonsoft.Json.dll (formerly /lib/35/Newtonsoft.Json.dll)
+
+
+
 
 
 
@@ -181,7 +181,7 @@ Let’s take an example. Let’s push a package to a remote repository.
 
 
 
-    
+
     <div><b>PS C:\tmp></b><i> o publish-wrap server .\castle.core-2.5.1.0.wrap -debug</i></div>
     # OpenWrap v1.0.0.0 ['C:\Users\sebastien.lambla\AppData\Local\OpenWrap\wraps\_cache\openwrap-1.0.0.18839165\bin-net35\OpenWrap.dll']
     Publishing package 'castle.core-2.5.1.0.wrap' to 'server'
@@ -207,7 +207,7 @@ And I ask OpenWrap to fetch the latest packages.
 
 
 
-    
+
     <div><b>PS C:\tmp\castle.user></b><i> o update-wrap</i></div>
     # OpenWrap v1.0.0.0 ['C:\tmp\castle.user\wraps\_cache\openwrap-1.0.0.18839165\bin-net35\OpenWrap.dll']
     'Project repository' up-to-date as 'openwrap-1.0.0.18839165' <= 'openwrap-1.0.0.18839165'.
@@ -240,27 +240,27 @@ To recap:
 
 
 
-  
-  * Do change the revision part to deploy hot fixes to your package so people don’t have to update their dependency files 
+
+  * Do change the revision part to deploy hot fixes to your package so people don’t have to update their dependency files
 
 
-  
-  * Do change the build, minor or major components when you want to let people depend on a different version of your API**.** 
 
-    
-      
-    * Update the build component when you **add** new classes or method 
+  * Do change the build, minor or major components when you want to let people depend on a different version of your API**.**
 
 
-      
-    * Update the minor component when you **rename**, **remove** or **change the signature** on your API. 
+
+    * Update the build component when you **add** new classes or method
 
 
-      
-    * Update the major as you wish. 
 
-    
-  
+    * Update the minor component when you **rename**, **remove** or **change the signature** on your API.
+
+
+
+    * Update the major as you wish.
+
+
+
 
 
 

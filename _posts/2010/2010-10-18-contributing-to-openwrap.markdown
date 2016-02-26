@@ -6,24 +6,25 @@ layout: post
 slug: contributing-to-openwrap
 title: Contributing to OpenWrap
 wordpress_id: 11
+tags: [openwrap]
 ---
 
 I’ve already detailed how to [fork OpenWrap to your github account](http://codebetter.com/blogs/sebastien_lambla/archive/2010/10/17/installing-openwrap-from-the-sources.aspx). Now you want to make some changes. Here’s a small guide of the main things you need to do, and a quick intro to git as well to make sure everybody can contribute.
 
- 
+
 
 [pre-emptive-strike] You should always use branching when working on something. This is a 5 minutes intro on how to get on with git, not a best-practice guide. [/pre-emptive-strike]
 
- 
+
 
 First things first, make sure your auto.crlf settings are set. This is important so the line endings stay the same across all developers, and** if you forget this, I won’t be able to take the pull request at all**.
 
- 
+
 
 In the directory in which you have your clone of OpenWrap, you can issue the following command.
 
- 
-    
+
+
     <div><b>PS C:\src\openwrap></b><i> git config core.autocrlf false</i></div>
 
 
@@ -35,7 +36,7 @@ Now you can start working on the code. Once you have made the changes you want, 
 
 
 
-    
+
     <div><b>PS C:\src\openwrap></b><i> o build-wrap</i></div>
 
 
@@ -47,7 +48,7 @@ Which you can then follow by updating your local copy of openwrap with another o
 
 
 
-    
+
     <div><b>PS C:\src\openwrap></b><i> o update-wrap</i></div>
 
 
@@ -89,7 +90,7 @@ First, each time you build, a new package is added to the current directory. Del
 
 
 
-    
+
     <div><b>PS C:\src\openwrap></b><i> del *.wrap</i></div>
 
 
@@ -101,7 +102,7 @@ Now, you also want to clean-up old packages that are no longer in use. Again, it
 
 
 
-    
+
     <div><b>PS C:\src\openwrap></b><i> o clean-wrap</i></div>
 
 
@@ -125,7 +126,7 @@ First, you can always have a look at the changed files you have using the git st
 
 
 
-    
+
     <div><b>PS C:\src\openwrap></b><i> git status</i></div>
     # On branch edge
     # Changed but not updated:
@@ -151,7 +152,7 @@ You now just need to add those files to your _staging area_, aka the things you 
 
 
 
-    
+
     <div><b>PS C:\src\openwrap></b><i> git add src/OpenWrap.Commands/Wrap/PackageDescriptionOutput.cs</i></div>
 
 
@@ -163,7 +164,7 @@ Once that is done, you simply need to commit your changes. Make your git commit 
 
 
 
-    
+
     <div><b>PS C:\src\openwrap></b><i> git commit -m "Writes the nuke property of a pacakge in list. Closes #999."</i></div>
 
 
@@ -175,7 +176,7 @@ When you’re ready to publish to github what you have, you simply need to do a 
 
 
 
-    
+
     <div><b>PS C:\src\openwrap></b><i> git push origin master</i></div>
 
 

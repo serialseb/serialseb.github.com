@@ -1,5 +1,5 @@
 ---
-
+tags: [openwrap]
 comments: true
 date: 2010-10-17 17:44:10+00:00
 layout: post
@@ -10,20 +10,20 @@ wordpress_id: 7
 
 OpenWrap normally relies on a central server for providing the initial shell and its associated packages. However, when you get on a new machine, you don’t necessarily want to get the release server, or it’s down.
 
- 
+
 
 Fear not, for the process is dead easy.
 
- 
+
 
 ### Get the sources
 
- 
+
 
 First things first, you need to get yourself the source code. It’s at [http://github.com/openrasta/openwrap](http://github.com/openrasta/openwrap). If you don’t know how to use git, go install [msysgit](http://code.google.com/p/msysgit/downloads/list), open yourself a github account, fork OpenWrap to your account (by clicking on the _fork_ command from the project’s page), and at a command line, type the following command to clone your fresh new repository.
 
- 
-    
+
+
     <div><b>PS C:\tmp></b><i> git clone git://github.com/yourusername/openwrap.git</i></div>
 
 
@@ -71,7 +71,7 @@ Go to the _/wraps_ folder, and use the _add-wrap openwrap –system_ command. Th
 
 
 
-    
+
     <div><b>PS C:\src\openwrap\wraps></b><i> o add-wrap openwrap -system</i></div>
     # OpenWrap v1.0.0.0 ['C:\src\openwrap\wraps\_cache\openwrap-1.0.0.18871048\bin-net35\OpenWrap.dll']
     Wrap descriptor found.

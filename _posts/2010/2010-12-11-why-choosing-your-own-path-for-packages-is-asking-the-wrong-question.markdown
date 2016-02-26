@@ -6,6 +6,7 @@ layout: post
 slug: why-choosing-your-own-path-for-packages-is-asking-the-wrong-question
 title: Why choosing your own path for packages is asking the wrong question
 wordpress_id: 27
+tags: [openwrap]
 ---
 
 I've had a couple of people asking me if we could change where packages get stored from the /wrap folder to their own folder. I'm not the only one with that feature request, the NuGet guys have had that question asked and even partially implemented a feature for it. I think responding to those requests is not the right thing to do, and this post is to explain why.

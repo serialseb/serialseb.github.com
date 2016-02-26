@@ -1,11 +1,11 @@
 ---
-
 comments: true
 date: 2010-10-22 01:12:00+00:00
 layout: post
 slug: building-packages-with-openwrap
 title: Building packages with OpenWrap
 wordpress_id: 13
+tags: [openwrap]
 ---
 
 So, I was reading this [entry about how to build packages for NuPack](http://markkemper1.blogspot.com/2010/10/creating-nupack-package-using-build.html). That is something people need to know about for OpenWrap too, so this is the documentation of what you *can* do.
@@ -22,7 +22,7 @@ If you have built your first project, and followed the default conventions, you'
 
 
 
-    
+
     <div><strong>PS C:\src\wraps\Castle.Services.Transaction></strong><i> o build-wrap -quiet</i></div>
     # OpenWrap v1.0.0.0 ['C:\src\wraps\Castle.Services.Transaction\wraps\_cache\openwrap-1.0.0.19333731\bin-net35\OpenWrap.dll']
     Copying: bin-net35 - C:\src\wraps\Castle.Services.Transaction\wraps\_cache\log4net-1.2.10\bin-net20\log4net.xml
@@ -62,7 +62,7 @@ You can do that easily by modifying your .wrapdesc file and add a build entry.
 
 
 
-    
+
     build: msbuild;project=src\Castle.Services.Transaction\Castle.Services.Transaction-vs2010.csproj
 
 
@@ -82,7 +82,7 @@ In some projects, you may end up wanting to build your project once per version 
 
 
 
-    
+
     build: msbuild;profile=net20;profile=net35
 
 
@@ -132,7 +132,7 @@ In the very close future, another build provider will be created to let you run 
 
 
 
-    
+
     build: command;line=lib\nant\nant.exe build\nant-build
 
 

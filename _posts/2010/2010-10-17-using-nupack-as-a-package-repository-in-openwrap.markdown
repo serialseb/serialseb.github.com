@@ -1,5 +1,5 @@
 ---
-
+tags: [openwrap]
 comments: true
 date: 2010-10-17 20:06:15+00:00
 layout: post
@@ -10,16 +10,16 @@ wordpress_id: 8
 
 NuPack came out a short while ago. While NuPack is only a subset of what OpenWrap was built to solve, a lot of libraries have already been added to their repositories, probably for the sole reason that it’s Microsoft and some people get excited about them doing anything having to do with Visual Studio.
 
- 
+
 
 But in the OpenWrap team, we think that packages are good, that’s why we’ve worked hard on our system for so many months. And we think you should, as a dedicated OpenWrap users, be able to import those packages until such a time the world adopt OpenWrap as the main way to deliver dependencies to you.
 
- 
+
 
 So you can do this now. At a command line, add nupack as a repository through the usual remote command.
 
- 
-    
+
+
     <div><b>PS C:\src\demo></b><i> o add-remote nu nupack://go.microsoft.com/fwlink/?LinkID=199193</i></div>
     # OpenWrap v1.0.0.0 ['C:\src\demo\wraps\_cache\openwrap-1.0.0.18871048\bin-net35\OpenWrap.dll']
     Remote repository 'nu' added.
@@ -39,7 +39,7 @@ You can query packages on that new server using the list-wrap –query command.
 
 
 
-    
+
     <div><b>PS C:\src\demo></b><i> o list-wrap -query *castle* -remote nu</i></div>
     # OpenWrap v1.0.0.0 ['C:\src\demo\wraps\_cache\openwrap-1.0.0.18871048\bin-net35\OpenWrap.dll']
      - Castle.Components.Validator
@@ -72,7 +72,7 @@ And add one to the package, say the latest castle.core version:
 
 
 
-    
+
     <div><b>PS C:\src\demo></b><i> o add-wrap castle.core</i></div>
     # OpenWrap v1.0.0.0 ['C:\src\demo\wraps\_cache\openwrap-1.0.0.18871048\bin-net35\OpenWrap.dll']
     Wrap descriptor found.

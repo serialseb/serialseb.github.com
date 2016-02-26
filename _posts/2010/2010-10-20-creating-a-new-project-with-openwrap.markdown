@@ -6,24 +6,16 @@ layout: post
 slug: creating-a-new-project-with-openwrap
 title: Creating a new project with OpenWrap
 wordpress_id: 12
+tags: [openwrap]
 ---
 
 With all this discussion of OpenWrap stuff, we've not covered yet how easy it is to create a new project in OpenWrap and get it off the ground.
 
-
-
-
 For OpenWrap to function, you don't need much. You need a /wraps folder at the root of your code, a descriptor file, and optionally a version file.
-
-
-
 
 ### Creating a new package
 
-
-
-
-The easiest way to create a new project is to use the _init-wrap _command with a name for your new package or project. As I use git, I'll also ask it to generate the .gitignore files for me.
+The easiest way to create a new project is to use the _init-wrap_ command with a name for your new package or project. As I use git, I'll also ask it to generate the .gitignore files for me.
 
 
 
