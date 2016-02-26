@@ -5,6 +5,7 @@ date: 2013-04-14 06:30:25+00:00
 layout: post
 slug: relaunching-serialseb-practical-rest-and-then-some
 title: Relaunching SerialSeb - Practical ReST and then some
+tags: rest
 wordpress_id: 160
 ---
 

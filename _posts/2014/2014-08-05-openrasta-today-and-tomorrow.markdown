@@ -5,6 +5,7 @@ layout: post
 slug: openrasta-today-and-tomorrow
 title: 'OpenRasta: Today and tomorrow'
 wordpress_id: 174
+tags: [openrasta]
 ---
 
 The OpenRasta community has experienced a bit of a renaissance. And so it should, for there is much to rejoice about, and really cool stuff happening in the pipeline.

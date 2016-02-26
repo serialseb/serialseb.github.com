@@ -2,12 +2,11 @@
 layout: post
 title: PowerShell one-liners for svn
 date: '2008-02-18T17:00:00.001Z'
-
-tags: 
+tags: [powershell]
 modified_time: '2008-02-20T00:40:47.797Z'
 blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-377812925669508769
 comments: true
 blogger_orig_url: http://serialseb.blogspot.com/2008/02/powershell-one-liners-for-svn.html
 ---
 
-<p>A bit of CLI love (and I'm sure my readers will correct me fairly quickly with something much smaller and better!), for those like me that wish they never had to use tortoise.</p>  <p>Adding all files that are not in the repository</p>  <p><strong>svn st | %{ if ($_ -match &quot;\?\s+(.*)&quot;) { svn add $matches[1] } }</strong></p>  <p>Removing the dreaded bin and obj folders if you did an add by accident</p>  <p><strong>ls -i bin,obj -recurse | % { svn revert $_ -R }</strong></p>  <p>And to exclude all the stuff you put in your .svnignore (and that one works with any shell)</p>  <p><strong>svn propset svn:external . -F .svnignore -R</strong></p>  <p>Enjoy!</p>  
+<p>A bit of CLI love (and I'm sure my readers will correct me fairly quickly with something much smaller and better!), for those like me that wish they never had to use tortoise.</p>  <p>Adding all files that are not in the repository</p>  <p><strong>svn st | %{ if ($_ -match &quot;\?\s+(.*)&quot;) { svn add $matches[1] } }</strong></p>  <p>Removing the dreaded bin and obj folders if you did an add by accident</p>  <p><strong>ls -i bin,obj -recurse | % { svn revert $_ -R }</strong></p>  <p>And to exclude all the stuff you put in your .svnignore (and that one works with any shell)</p>  <p><strong>svn propset svn:external . -F .svnignore -R</strong></p>  <p>Enjoy!</p>

@@ -6,6 +6,7 @@ layout: post
 slug: unit-testing-is-out-vertical-slice-testing-is-in
 title: Unit testing is out, Vertical Slice Testing is in
 wordpress_id: 169
+tags: vest
 ---
 
 We have been doing testing for a long time. Some people are practicing TDD, but I think that’s only 46 people in the world and [they all follow my twitter feed](http://poll.pollcode.com/pdolm_result?v).
