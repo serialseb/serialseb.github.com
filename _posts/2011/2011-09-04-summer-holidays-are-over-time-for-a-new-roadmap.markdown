@@ -6,6 +6,7 @@ layout: post
 slug: summer-holidays-are-over-time-for-a-new-roadmap
 title: Summer holidays are over, time for a new roadmap
 wordpress_id: 66
+tags: [openrasta, openwrap]
 ---
 
 As many of you many have noticed, things have stalled a bit over the summer on the master branches of openrasta and openwrap. While our amazing contributors are still sending pull requests and development has continued, as the owner of the master branches I’ve not been there to maintain the new packages, as I decided to take the summer slow and learn how to*rest*.

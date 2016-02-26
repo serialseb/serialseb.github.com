@@ -1,11 +1,11 @@
 ---
-
 comments: true
 date: 2012-01-30 11:51:44+00:00
 layout: post
 slug: the-new-openeverything-organization-2
 title: The new OpenEverything organization
 wordpress_id: 122
+tags: [openrasta]
 ---
 
 OpenRasta has been there for many years, and is the most widely used alternative framework for ReST applications.

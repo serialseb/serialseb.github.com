@@ -6,6 +6,7 @@ layout: post
 slug: openwrap-2-0package-locking
 title: OpenWrap 2.0–Package locking
 wordpress_id: 83
+tags: [openwrap]
 ---
 
 Well, this one was scheduled for much later in the development process of OpenWrap, but ended up being built last week.
@@ -44,7 +45,7 @@ With locking, you can specify that a package, a list of packages or all of your 
 
 Say I have a new project that depends on OpenWrap 2.0.
 
-    
+
     C:\demos\testlock> o list-wrap
      - Mono.Cecil (available: 0.9.4.1)
      - openfilesystem (available: 1.0.0.61263243)
@@ -53,7 +54,7 @@ Say I have a new project that depends on OpenWrap 2.0.
 
 If a new version of OpenWrap becomes available, updating OpenWrap is going to be automatic.
 
-    
+
     C:\demos\testlock> o update-wrap openwrap -proj
     Updating project packages...
     Project repository: openwrap updated [2.0.0.84854337 -> 2.0.0.84856266].
@@ -63,7 +64,7 @@ If a new version of OpenWrap becomes available, updating OpenWrap is going to be
 
 I can lock all my current packages by issuing the lock-wrap command.
 
-    
+
     C:\demos\testlock> o lock-wrap
     Package 'openwrap' locked at version '2.0.0.84856266'.
     Package 'SharpZipLib' locked at version '0.86.0'.
@@ -74,7 +75,7 @@ I can lock all my current packages by issuing the lock-wrap command.
 
 Now all my packages are locked. Attempting to update any of those packages will do nothing. All the same, if I attempt to remove a locked package.
 
-    
+
     C:\demos\testlock> o remove-wrap openwrap
     Cannont remove package 'openwrap' as it is currently locked. Unlock the package with 'unlock-wrap openwrap' first, then
     remove.
@@ -88,7 +89,7 @@ Of course, you can decide to lock only one package with the –Name input on the
 
 As simple as locking, the other way around, but I’ll just unlock openwrap and leave its dependencies locked.
 
-    
+
     C:\demos\testlock> o unlock-wrap openwrap -ignoredependencies
     Package 'openwrap' unlocked.
 

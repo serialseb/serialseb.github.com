@@ -1,11 +1,11 @@
 ---
-
 comments: true
 date: 2011-10-28 11:32:22+00:00
 layout: post
 slug: openwrap-2-0-1a-better-way-to-look-at-dependencies
-title: OpenWrap 2.0.1–a better way to look at dependencies
+title: OpenWrap 2.0.1 – a better way to look at dependencies
 wordpress_id: 103
+tags: [openwrap]
 ---
 
 There are many many features in OpenWrap 2.0, and at this rate it will take me many weeks before we go through them all. As such, I shall only blog about the things that are fully finished (and why you’ve not seen anything about remotes in 2.0 yet, that’s coming, you’ll like it, trust me).
@@ -24,7 +24,7 @@ The first change is when you issue a list-wrap command within a project.
 
 <table border="0" > <tbody > <tr >
 <td >
-    
+
     <b><span>C:\src\openwrap [exp_list_wrap +5 ~25 -4 !]></span></b><i><span> o list-wrap</span></i>
     # OpenWrap Shell 2.0.0.10
     # Copyright © naughtyProd Limited 2009-2011
@@ -42,8 +42,8 @@ The first change is when you issue a list-wrap command within a project.
      ├─openwrap 2.0.0.86438072
      ├─tdnet-framework 2.0.0.48555719
      └─Mono.Cecil 0.9.4.1
-    
-    
+
+
 
 </td></tr></tbody></table>  
 A couple of things are visibly different 1.0.
@@ -84,12 +84,12 @@ So now we can look at the whole of the resolution tree by adding an –includeDe
 <tr >
 
 <td >
-    
+
     <b><span>C:\src\openwrap [exp_list_wrap +5 ~25 -4 !]></span></b><i><span> o list-wrap -iD</span></i>
     # OpenWrap Shell 2.0.0.10
     # Copyright © naughtyProd Limited 2009-2011
     # Using C:\src\openwrap\wraps\_cache\openwrap-2.0.0.86438072\bin-net35\OpenWrap.dll (2.0.0.1)
-    
+
     ─default scope
      ├─depends: sharpziplib = 0.86
      │ └─SharpZipLib 0.86.0
@@ -129,10 +129,10 @@ So now we can look at the whole of the resolution tree by adding an –includeDe
      │ └─tdnet-framework 2.0.0.48555719
      └─depends: Mono.Cecil = 0.9.4
        └─Mono.Cecil 0.9.4.1
-    
-    
-    
-    
+
+
+
+
 
 </td></tr></tbody></table>
 
@@ -170,21 +170,21 @@ Second, we’ve changed the displaying to show you what packages were found in w
 <tr >
 
 <td >
-    
+
     <b><span>C:\src\openwrap [master]></span></b><i><span> o ls-wrap -query openwrap -rem</span></i>
     local
     └─openwrap (1.0.2, 1.0.1, 1.0.0)
     └─openwrap-bootstrap (1.0.0)
-    
+
     local
     └─openwrap (2.0.1, 2.0.0, 1.1.0)
-    
-    
+
+
 
 </td></tr></tbody></table>
 
 
-Couple of things have changed. 
+Couple of things have changed.
 
 
 

@@ -6,6 +6,7 @@ layout: post
 slug: coming-up-next-in-openwrap
 title: Coming up next in OpenWrap…
 wordpress_id: 36
+tags: [openwrap]
 ---
 
 [![image](http://codebetter.com/sebastienlambla/files/2011/01/image_thumb.png)](http://codebetter.com/sebastienlambla/files/2011/01/image.png)

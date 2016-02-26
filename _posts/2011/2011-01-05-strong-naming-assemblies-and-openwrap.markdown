@@ -6,6 +6,7 @@ layout: post
 slug: strong-naming-assemblies-and-openwrap
 title: Strong-naming assemblies and OpenWrap
 wordpress_id: 32
+tags: [openwrap]
 ---
 
 One of the design principles of OpenWrap is not only to be a glorified _Add Reference_ dialog, but to provide a better way of dealing with dependencies, both at compile-time and at run-time.

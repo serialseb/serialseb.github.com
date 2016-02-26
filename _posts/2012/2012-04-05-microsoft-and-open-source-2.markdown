@@ -6,6 +6,7 @@ layout: post
 slug: microsoft-and-open-source-2
 title: Microsoft and Open Source
 wordpress_id: 143
+tags: [open-source]
 ---
 
 I have been a vocal, and sometimes harsh, critic of Microsoft’s approach to Open Source Software. I call that activism, some call it whining, ranting or _pisser dans la soupe._ People are entitled to their opinion, and mine has been formed after working in the Microsoft sphere for more or less 14 years.

@@ -6,6 +6,7 @@ layout: post
 slug: trying-out-openwrap-2-0-2
 title: Trying out OpenWrap 2.0
 wordpress_id: 71
+tags: [openwrap]
 ---
 
 _[Update 3: github is not pushing the changes to openwrap.org properly, I’ve updated the link to the shell in the post to point to the correct file.]_
@@ -21,19 +22,19 @@ We now have ReSharper 6 support and a whole lot of new features, and we’re 50 
 First, the shell has been updated to 2.0, and bring back the possibility of deleting your /wraps folder when something goes bad to force an update, as well as fix a bunch of bugs that existed in the 1.1 release. Go [download it now](http://github.com/OpenWrap/openwrap.github.com/raw/master/o.exe).
 
 The second thing is that test packages of OpenWrap 2.0 are available for testing, but not on the main repository. If you have OpenWrap 1.0 installed, you can upgrade a specific project to OpenWrap 2.0 by adding the beta repository.
-    
+
     C:\src> o add-remote beta http://wraps.openwrap.org/beta/
     # OpenWrap Shell 2.0.0.8
     # Copyright © naughtyProd Limited 2009-2011
     # Using C:\Users\sebastien.lambla\AppData\Local\openwrap\wraps\_cache\openwrap-2.0.0.81133579\bin-net35\OpenWrap.dll (2.0.0.0)
     Remote repository 'beta' added.
-    
+
     <font color="#444444" face="Georgia" size="3">Then you can update your project to the new test version.</font>
-    
-    <font color="#444444" face="Georgia" size="3"></font> 
-    
+
+    <font color="#444444" face="Georgia" size="3"></font>
+
     C:\src\myProject> o update-wrap openwrap -project
-    
+
 
 
 
@@ -48,11 +49,11 @@ If you want to install 2.0 in your system repository, and at this stage it is no
 
 
 
-  * Change your wrap descriptor to force 1.0, so “depends: openwrap content” should be changed to “depends: openwrap = 1.0 content” 
+  * Change your wrap descriptor to force 1.0, so “depends: openwrap content” should be changed to “depends: openwrap = 1.0 content”
 
-  * Force an update to 1.0.1 by doing “o update-wrap openwrap –proj –usesystem” 
+  * Force an update to 1.0.1 by doing “o update-wrap openwrap –proj –usesystem”
 
-  * If this fails, let us know how, then simply reset your system repository to a known state using the –shellpanic flag before executing your update-wrap command. 
+  * If this fails, let us know how, then simply reset your system repository to a known state using the –shellpanic flag before executing your update-wrap command.
 
 
 

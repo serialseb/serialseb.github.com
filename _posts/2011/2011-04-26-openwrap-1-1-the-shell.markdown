@@ -6,6 +6,7 @@ layout: post
 slug: openwrap-1-1-the-shell
 title: OpenWrap 1.1 – The Shell
 wordpress_id: 41
+tags: [openwrap]
 ---
 
 OpenWrap 1.1 is around the corner, and has a *lot* of new features and improvements that I’ll be blogging about as they land.

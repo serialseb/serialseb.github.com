@@ -6,6 +6,7 @@ layout: post
 slug: developing-multiple-packages-in-one-go
 title: Developing multiple packages in one go
 wordpress_id: 82
+tags: [openwrap]
 ---
 
 Very often, it is the case that you are working on multiple packages at the same time. Keeping dependencies up-to-date in those scenarios can be a very tedious process.
@@ -21,9 +22,9 @@ Let’s say that your project has the following layout:
 Let’s say that you also work on a reusable library called MyLib. The simplest thing is for you to add a reference to the code in a separate folder. I’m going to put a link in a folder within wraps called etc/MyLib. You can do that with an svn:external, a git submodule, an ntfs junction, whatever you want.
 
 Now when you’re at the command line, building that dependency is rather simple.
-    
+
     o build-wrap -from wraps/etc/MyLib -quiet -incremental -debug
-    
+
 
 
 
@@ -37,9 +38,9 @@ This instructs OpenWrap to use the project in there and build a package in your 
 
 
 Only thing you now need is to update the library. OpenWrap has supported updating packages from the current directory since day one, so it’s as simple as doing:
-    
+
     o update-wrap MyLib
-    
+
 
 
 
@@ -48,12 +49,12 @@ Only thing you now need is to update the library. OpenWrap has supported updatin
 
 
 Now you may have a bunch of those libraries, so maybe doing a little script would make things easier. Powershell to the rescue.
-    
+
     ls wraps/etc | %{
       o build-wrap -from $_.FullName -quiet -incremental -debug
     }
     o update-wrap
-    
+
 
 
 

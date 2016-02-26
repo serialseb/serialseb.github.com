@@ -1,11 +1,11 @@
 ---
-
 comments: false
 date: 2011-06-18 21:16:30+00:00
 layout: post
 slug: whats-new-in-openwrap-1-1
 title: What’s new in OpenWrap 2.0?
 wordpress_id: 50
+tags: [openwrap]
 ---
 
 _[Update: I’ve bumped the version number to 2.0. After discussing on twitter with people, it seems much more in spirit with semver.org and the vast amount of new features / breaking API changes this version contains. I’ve also added some notes on reliability, as a huge amount of work went into making OpenWrap more reliable than ever before.]_

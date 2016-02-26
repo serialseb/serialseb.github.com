@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Bringing ReST to Warsaw
+tags: [rest, training]
 redirect_from: "rest/2013/04/12/Warsaw-class-planned.html"
 ---
 

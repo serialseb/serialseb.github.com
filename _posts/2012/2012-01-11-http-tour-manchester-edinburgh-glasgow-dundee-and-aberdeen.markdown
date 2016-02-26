@@ -1,11 +1,11 @@
 ---
-
 comments: true
 date: 2012-01-11 18:52:49+00:00
 layout: post
 slug: http-tour-manchester-edinburgh-glasgow-dundee-and-aberdeen
 title: 'HTTP tour: Manchester, Edinburgh, Glasgow, Dundee and Aberdeen.'
 wordpress_id: 114
+tags: [user-groups, http, rest]
 ---
 
 I’ll be touring the north of Britain from the 18th of January with two talks: HTTP caching 101 and _Links, forms and Unicorns._

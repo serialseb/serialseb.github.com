@@ -6,6 +6,7 @@ layout: post
 slug: extending-configuration-in-openrasta-2-1
 title: Extending configuration in OpenRasta 2.1
 wordpress_id: 79
+tags: [openrasta]
 ---
 
 _[Updated to clarify what the configuration meta-model actually is.]_

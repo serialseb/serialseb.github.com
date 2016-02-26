@@ -6,6 +6,7 @@ layout: post
 slug: one-step-closer-still-2
 title: One step closer still
 wordpress_id: 64
+tags: [openwrap]
 ---
 
 One of the things that OpenWrap 2.0 will feature is dynamic loading and unloading of “solution plugins”, components that load up when you start working on a solution, and unload cleanly when you move to another solution.
@@ -13,7 +14,7 @@ One of the things that OpenWrap 2.0 will feature is dynamic loading and unloadin
 One of the side-effects of implementing this is a very cool feature for ReSharper I’m just not ready to announce yet, but that will make sharing ReSharper plugins with your team so easy you’ll wonder how you ever lived without it.
 
 So now this is what happens when you update a package your solution depends on.
-    
+
     Loading packages...
     Loading package C:\demos\soladd2\wraps\_cache\openwrap-1.1.0.71250693
     Loading package C:\demos\soladd2\wraps\_cache\SharpZipLib-0.86.0
@@ -46,7 +47,7 @@ So now this is what happens when you update a package your solution depends on.
     Solution opened ClassLibrary1
     All solution plugins started.
     ReSharper test runner starting.
-    
+
 
 
 

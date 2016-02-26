@@ -1,11 +1,11 @@
 ---
-
 comments: true
 date: 2011-12-09 02:12:08+00:00
 layout: post
 slug: free-openwrap-workshop-saturday-10th-december-in-lier-belgium
 title: Free OpenWrap workshop Saturday 10th December in Lier, Belgium
 wordpress_id: 111
+tags: [openwrap]
 ---
 
 You get 4 hours and a lunch (complimentary from PeopleWare) to come and talk about package management and how it can change the way you build software. It’s completely free, you just need to register on [eventbrite](http://www.eventbrite.com/event/2561950864).

@@ -6,6 +6,7 @@ layout: post
 slug: minting-new-internet-media-type-identifiers
 title: Minting new Internet Media Type Identifiers
 wordpress_id: 38
+tags: [rest]
 ---
 
 A lot of conversations have been had at #restunconf about minting a new media type, when you should do it and how. I’ll try to blog about it in the closer future, but a recent discussion on twitter is triggering a quick and dirty run-through of how, when you create a new Internet Media Type (sometimes inaccurately call content type or MIME type), you should create a media type identifier.

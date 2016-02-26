@@ -6,6 +6,7 @@ layout: post
 slug: free-openwrap-workshop-cambridge-5th-of-november
 title: Free OpenWrap workshop, Cambridge, 5th of November
 wordpress_id: 100
+tags: [openwrap, training]
 ---
 
 If you want to know what package management is, how it can help you and how you can use the latest OpenWrap version to solve your dependency needs, I’m giving a free workshop for the [Cambridge Developers’ user group](http://www.camdug.com/events/36907332/?eventId=36907332&action=detail).
