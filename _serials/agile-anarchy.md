@@ -1,6 +1,6 @@
 ---
-title: Agile is dead
-name: agile-dead
+title: Agile Anarchy
+name: agile-anarchy
 image:
   thumb: pyramids.thumb.jpg
   feature: pyramids.jpg
