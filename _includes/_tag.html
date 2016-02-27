@@ -1,0 +1,7 @@
+{%
+assign tag_page = site.tag_pages | where: 'id', include.tag | first         %}{%
+assign href = ""                                                            %}{%
+if tag_page                                                                 %}{%
+  assign href = tag_page.url | prepend: 'href="' | append: '"'        %}{%
+endif
+%}<a rel="tag" {{href}}>{{include.tag}}</a>

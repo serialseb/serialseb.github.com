@@ -1,20 +1,15 @@
 ---
 tags: [openwrap]
 comments: true
-date: 2010-10-17 23:31:38+00:00
+date: 2010-10-17 23:31:38 +0100
 layout: post
 slug: creating-your-own-openwrap-repository-on-a-file-share
 title: Creating your own OpenWrap repository on a file-share
 wordpress_id: 9
 ---
-
 I’m feeling in a blogging mood. There are so many things that are cool in OpenWrap that you can expect quite a bit of content in the next few days.
 
-
-
 One of the features we have in OpenWrap, and have had for a while, is using a simple file share as a remote repository.
-
-
 
 From a command line, add a remote repository by providing a name and a path. I’ll do that a mythical server I’ll call cherenkov.
 

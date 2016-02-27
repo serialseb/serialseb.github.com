@@ -68,6 +68,7 @@ owner:
     ad-client:
     ad-slot:
   bing-verify:
+  amazon: seri005-21
   social:
     feed: http://feeds.feedburner.com/SerialSeb
     email: seb@serialseb.com
@@ -97,18 +98,21 @@ paginate: 3
 paginate_path: "/blog/page:num"
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
-  -
-    scope:
+  - scope:
       path: ""
       type: serials
     values:
       layout: serial
+  - scope:
+      path: ""
+      type: tag_pages
+    values:
+      layout: tag
 
 collections:
   projects:
@@ -116,3 +120,6 @@ collections:
   serials:
     output: true
     permalink: /serials/:name/
+  tag_pages:
+    output: true
+    permalink: /tags/:path/

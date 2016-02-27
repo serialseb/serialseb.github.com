@@ -1,0 +1,72 @@
+{%
+
+for tag in site.tags                                                        %}{%
+  if tag[0] == page.id                                                      %}{%
+    assign current_tag = tag                                                %}{%
+  endif                                                                     %}{%
+endfor                                                                      %}{%
+
+assign posts = current_tag[1]                                               %}{%
+assign post_count = current_tag[1] | size                                   %}{%
+if post_count > 1                                                           %}{%
+  assign post_label = "posts"                                               %}{%
+else                                                                        %}{%
+  assign post_label = "post"                                                %}{%
+endif                                                                       %}{%
+
+assign first = posts | map: 'date' | last                                   %}{%
+
+assign link_count = page.links | size                                       %}{%
+
+capture body
+
+%}<main>
+  <header>
+    <h2>{{page.title}}</a></h2>
+    <p class="byline">
+      <a rel="tag">{{page.id}}</a>{% if page.synonyms %}{% for synonym in page.synonyms %}<a rel="tag">{{synonym}}</a>{% endfor %}{% endif %}
+      <span class="icon fa-sticky-note-o">{{ post_count }} {{ post_label }} since {{ first | date: '%B %d, %Y' }}</span>
+      <span class="icon fa-microphone">0 talks</span>
+      <span class="icon fa-link">0 links</span>
+
+    </p>
+    {{content}}
+  </header>
+  <h3>Posts</h3>
+  <ul>{%
+
+for post in posts
+                                                                              %}
+    <li><a href="{{site.url}}{{post.url}}">{{post.title}}</a></li>{%
+
+endfor
+                                                                              %}
+  </ul>{%
+
+if page.books.size > 0
+                                                                              %}
+  <h3>Books</h3>
+  <ul>{%
+  for book in page.books                                                      %}
+    <li><a href="https://amazon.co.uk/dp/{{book.asin}}?tag={{site.owner.amazon}}">{{book.title}}</a>{%if book.description %}<br>{{book.description | markdownify}}{% endif %}</li>{%
+  endfor                                                                      %}
+  </ul>{%
+
+endif                                                                       %}{%
+if talks.size > 0
+                                                                              %}
+  <h3>Book Recommendations</h3>{%
+
+endif                                                                       %}{%
+if page.links.size > 0
+                                                                              %}
+  <h3>Links</h3>
+  <p>Useful links for this tag</p>{%
+
+endif
+                                                                              %}
+
+</main>{%
+
+endcapture                                                                  %}{%
+include _master.html name="page"                                              %}
