@@ -1,13 +1,14 @@
 ---
 layout: post
 title: Getting dasBlog to support Transparent HTTP Content Negociation
+tags: [http]
 ---
 
 <div class="Section1">
    <p>
       I started this entry as part of the <a href="http://blog.thetechnologist.net/EditEntry.aspx?guid=f2608d83-b55e-4971-acc3-e0b9b31a9806">Making
       dasBlog XHTML 1.0 Strict Compliant</a>, but the subject is different enough that it
-      really deserves a separate entry. 
+      really deserves a separate entry.
    </p>
    <p>
       I’m a strong supporter of HTTP transparent content negotiation. What is it? In short,
@@ -18,40 +19,40 @@ title: Getting dasBlog to support Transparent HTTP Content Negociation
       The old URLs are remapped dynamically to the new scheme. And I just didn’t want to
       expose the .aspx extension, as it looks awkward to me (as a URI should point to a
       resource, and as these resources are dynamic, it’s architecturally just plain wrong
-      to expose a file extension). 
+      to expose a file extension).
    </p>
    <p>
       Whenever a user-agent sends a GET on this URL using the Accept header, the server
-      will deliver either: 
+      will deliver either:
    </p>
    <ul>
       <li class="MsoNormal">
-         <span style="font-family: &quot;Courier New&quot;;">text/html</span> 
+         <span style="font-family: &quot;Courier New&quot;;">text/html</span>
       </li>
       <li class="MsoNormal">
-         <span style="font-family: &quot;Courier New&quot;;">application/xhtml+xml</span> 
+         <span style="font-family: &quot;Courier New&quot;;">application/xhtml+xml</span>
       </li>
       <li class="MsoNormal">
-         <span style="font-family: &quot;Courier New&quot;;">application/rss+xml</span> 
+         <span style="font-family: &quot;Courier New&quot;;">application/rss+xml</span>
       </li>
       <li class="MsoNormal">
-         <span style="font-family: &quot;Courier New&quot;;">application/atom+xml</span> 
+         <span style="font-family: &quot;Courier New&quot;;">application/atom+xml</span>
       </li>
    </ul>
    <p>
-      That’s right, on the same URL. 
+      That’s right, on the same URL.
    </p>
    <p>
       Why would you want to serve aggregation formats per entry, I hear you ask. Well, first
       because I can! But more to the point, because I think it’s a big limitation not to
-      be able to retrieve any item in a specific blog by its URL and read it in your aggregator. 
+      be able to retrieve any item in a specific blog by its URL and read it in your aggregator.
    </p>
    <p>
       But how do you find the url in an aggregator to retrieve it? Very easy really, as
       each component of the URL I gave earlier is actually served using content negotiation
       as well! Just do a GET on <a href="http://blog.thetechnologist.net/year/month/" title="http://blog.thetechnologist.net/year/month/">http://blog.thetechnologist.net/year/month/</a> and
       you will get a feed with the list of entries for that month. Or an XHtml 1.0 page.
-      Or simple HTML. 
+      Or simple HTML.
    </p>
    <p>
       Of course, most agents don’t support content negotiation right now (and many actually
@@ -62,7 +63,7 @@ title: Getting dasBlog to support Transparent HTTP Content Negociation
       Taking the previous example, from a browser not supporting content negotiation, you
       can get a pdf document of the entry as <a href="http://blog.thetechnologist.net/year/month/day/TitleOfYourEntry@accept:application/pdf" title="http://blog.thetechnologist.net/year/month/day/TitleOfYourEntry@accept:application/pdf">http://blog.thetechnologist.net/year/month/day/TitleOfYourEntry@accept:application/pdf</a> .
       I’ve chosen the separator character @ because it doesn’t require escaping in a URL
-      and because in these xml days, it means attribute. 
+      and because in these xml days, it means attribute.
    </p>
    <p>
       I also wanted a way to translate different entries in different languages. Ideally,
@@ -70,7 +71,7 @@ title: Getting dasBlog to support Transparent HTTP Content Negociation
       for that is already available in dasBlog, but there is no correlation between two
       posts in different languages, dasBlog treats them differently. This involves a bit
       more modifications to the engine, but considering what have already been done, I see
-      no reason not to do it! In this context, the URL for the French version will be <a href="http://blog.thetechnologist.net/year/month/day/TitleOfYourEntry@accept:application/pdf@accept-language:fr-fr" title="http://blog.thetechnologist.net/year/month/day/TitleOfYourEntry@accept:application/pdf@accept-language:fr-fr">http://blog.thetechnologist.net/year/month/day/TitleOfYourEntry@accept:application/pdf@accept-language:fr-fr</a> 
+      no reason not to do it! In this context, the URL for the French version will be <a href="http://blog.thetechnologist.net/year/month/day/TitleOfYourEntry@accept:application/pdf@accept-language:fr-fr" title="http://blog.thetechnologist.net/year/month/day/TitleOfYourEntry@accept:application/pdf@accept-language:fr-fr">http://blog.thetechnologist.net/year/month/day/TitleOfYourEntry@accept:application/pdf@accept-language:fr-fr</a>
    </p>
    <p>
       There is a flaw there: in a translated entry, the title would also be translated.
@@ -79,62 +80,62 @@ title: Getting dasBlog to support Transparent HTTP Content Negociation
       Note that because I link several URLs to the same entry, I also expose an id based
       entry as <a href="http://blog.thetechnologist.net/1176f9ea" title="http://blog.thetechnologist.net/1176f9ea">http://blog.thetechnologist.net/1176f9ea</a>.
       The id itself is served in the default language / content type, just like the rest
-      of the titles. 
+      of the titles.
    </p>
    <p>
-      I do describe the alternative urls for each entry as follow: 
+      I do describe the alternative urls for each entry as follow:
    </p>
    <ul>
       <li>
          In the Xhtml version, I publish <span class="codechar"><span style="font-family: &quot;Courier New&quot;;"></span></span> and
-         leverage both the <span style="font-family: &quot;Courier New&quot;;">hreflang</span> and <span style="font-family: &quot;Courier New&quot;;">type</span> attributes. 
+         leverage both the <span style="font-family: &quot;Courier New&quot;;">hreflang</span> and <span style="font-family: &quot;Courier New&quot;;">type</span> attributes.
       </li>
       <li>
          In all versions, I publish <span class="codechar"><span style="font-family: &quot;Courier New&quot;;">X-Alternate</span></span> headers
          containing the same <span class="codechar"><span style="font-family: &quot;Courier New&quot;;">link</span></span> element
          (although this may change). That way, if the format doesn’t support showing the alterative
-         urls (like pdf documents), the information is still available to the agent. 
+         urls (like pdf documents), the information is still available to the agent.
       </li>
       <li>
          In SOAP endpoints… Well the SOAP part is not very much advanced yet, but let’s just
-         say that I consider each entry to be a resource addressable individually. 
+         say that I consider each entry to be a resource addressable individually.
       </li>
    </ul>
    <p>
       The last rather smart thing done is to leverage to link all the different variations
-      of one entry to it’s id url. This is what you would get: 
+      of one entry to it’s id url. This is what you would get:
    </p>
    <p>
-      <a href="http://blog.thetechnologist.net/year/month/day/TitleOfYourEntry" title="http://blog.thetechnologist.net/year/month/day/TitleOfYourEntry">http://blog.thetechnologist.net/year/month/day/TitleOfYourEntry</a> 
+      <a href="http://blog.thetechnologist.net/year/month/day/TitleOfYourEntry" title="http://blog.thetechnologist.net/year/month/day/TitleOfYourEntry">http://blog.thetechnologist.net/year/month/day/TitleOfYourEntry</a>
    </p>
    <p style="margin-left: 36pt;">
       <span style="font-family: &quot;Courier New&quot;;"> &lt;link rev="alternate" href="href="http://blog.thetechnologist.net/1176f9ea"
-      /&gt;</span> 
+      /&gt;</span>
    </p>
    <p>
-      <a href="http://blog.thetechnologist.net/1176f9ea" title="http://blog.thetechnologist.net/1176f9ea">http://blog.thetechnologist.net/1176f9ea</a> 
+      <a href="http://blog.thetechnologist.net/1176f9ea" title="http://blog.thetechnologist.net/1176f9ea">http://blog.thetechnologist.net/1176f9ea</a>
    </p>
    <p style="margin-left: 36pt;">
       <span style="font-family: &quot;Courier New&quot;;"> &lt;link rel="alternate" href="http://blog.thetechnologist.net/year/month/day/TitleOfYourEntry"
-      /&gt;</span> 
+      /&gt;</span>
    </p>
    <p>
-      Using this system, it’s possible to detect which URIs are primary and which are aliases. 
+      Using this system, it’s possible to detect which URIs are primary and which are aliases.
    </p>
    <p>
       I’m still considering providing some form of RDF for the rdf junkies out there to
       have fun, but I’m not an expert and would need to study a lot before I could make
-      a fit between rdf and the content I’m exposing. 
+      a fit between rdf and the content I’m exposing.
    </p>
    <p>
       The scope of what can be achieved with this type of negotiation is huge! It means
       that you’d possibly be able to request an entry in audio format that would either
-      give you a podcast or a text-to-speech representation of an entry. 
+      give you a podcast or a text-to-speech representation of an entry.
    </p>
    <p>
       This will also be the subject of an article, as the infrastructure I’m building to
       support content negotiation (the URL mapper, and associated IContentProvider interfaces
-      that support each type) can be reused on a wide variety of web applications. 
+      that support each type) can be reused on a wide variety of web applications.
    </p>
 </div>
 <img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=f0f31b80-7597-4c46-92f2-8c03b108a328">
