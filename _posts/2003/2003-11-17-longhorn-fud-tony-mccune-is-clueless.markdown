@@ -1,12 +1,7 @@
 ---
 layout: post
 title: "Longhorn FUD: Tony McCune Is Clueless"
-modified:
-categories:
-excerpt:
-tags: [Longhorn]
-image:
-  feature:
+tags: [longhorn]
 date: 2003-11-17T17:32:34+00:00
 ---
 [This](http://zdnet.com.com/2100-1107_2-5108026.html?tag=zdfd.newsfeed) article is one of the THE most stupid article I’ve ever read.

@@ -1,12 +1,7 @@
 ---
 layout: post
 title: The Peer 2 Peer History, Part 1
-modified:
-categories:
-excerpt:
-tags: []
-image:
-  feature:
+tags: [p2p]
 date: 2003-11-15T12:07:38+00:00
 ---
 

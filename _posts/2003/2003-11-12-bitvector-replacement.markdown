@@ -4,7 +4,7 @@ title: BitVector Replacement
 modified:
 categories:
 excerpt:
-tags: []
+tags: [.net]
 image:
   feature:
 date: 2003-11-12T13:02:30+00:00

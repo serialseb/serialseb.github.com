@@ -4,7 +4,7 @@ title: Versionning and WinFS
 modified:
 categories:
 excerpt:
-tags: []
+tags: [winfs]
 image:
   feature:
 date: 2003-11-27T09:59:51+00:00

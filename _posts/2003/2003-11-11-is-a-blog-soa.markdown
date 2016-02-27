@@ -4,7 +4,7 @@ title: Is a Blog SOA?
 modified:
 categories:
 excerpt:
-tags: []
+tags: [soa]
 image:
   feature:
 date: 2003-11-11T12:15:51+00:00

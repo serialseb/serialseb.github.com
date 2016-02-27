@@ -4,7 +4,7 @@ title: Lease Management, Remoting and Technical Reviews?
 modified:
 categories:
 excerpt:
-tags: []
+tags: [remoting, .net]
 image:
   feature:
 date: 2003-12-09T15:50:10+00:00

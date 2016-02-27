@@ -1,12 +1,7 @@
 ---
 layout: post
 title: The Most Frightening Pattern in .net
-modified:
-categories:
-excerpt:
-tags: []
-image:
-  feature:
+tags: [patterns]
 date: 2003-11-14T12:01:38+00:00
 ---
 Am finishing my Task based MVC modifications to the excellent User Interface Process today, and here is one thing that comes over and over in my code. This pattern is absolutely frightening. Let’s go through it together:

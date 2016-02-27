@@ -1,12 +1,6 @@
 ---
 layout: post
 title: Software Development Process and Marketing Bullshit
-modified:
-categories:
-excerpt:
-tags: []
-image:
-  feature:
 date: 2003-12-03T00:12:26+00:00
 ---
 

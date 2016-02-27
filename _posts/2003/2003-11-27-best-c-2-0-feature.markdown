@@ -4,7 +4,7 @@ title: Best C# 2.0 Feature
 modified:
 categories:
 excerpt:
-tags: []
+tags: [csharp]
 image:
   feature:
 date: 2003-11-27T11:26:08+00:00
