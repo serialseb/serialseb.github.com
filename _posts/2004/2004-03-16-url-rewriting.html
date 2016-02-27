@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Url Rewriting
+tags: [iis, asp.net]
 ---
 
 <div class="Section1">
@@ -10,13 +11,13 @@ title: Url Rewriting
       from, but there&rsquo;s a much much easier way to handle it. I will detail it in my
       master template architecture paper (yes, I&rsquo;m getting late in article writing
       these days) but you really just need to implement an IHttpHandler and compile the
-      aspx page yourself&hellip; 
+      aspx page yourself&hellip;
    </p>
    <p>
       Obviously the process (taking one url, changing it to call another url) is different
       than doing the work yourself, but you achieve the same goal, as it&rsquo;s exactly
       what .net is there for. And the HttpContext being constructed on the <b>original</b> URL,
-      no need to change anything, it will just work. 
+      no need to change anything, it will just work.
    </p>
 </div>
 <img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=3c3d4d87-4b01-4828-b005-68a80b2b9452">

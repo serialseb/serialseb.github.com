@@ -1,12 +1,6 @@
 ---
 layout: post
 title: Back Online - New Server
-modified:
-categories:
-excerpt:
-tags: []
-image:
-  feature:
 date: 2004-01-30T14:23:24+00:00
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: XAML and asp.net
+tags: [avalon]
 ---
 
 <p>
@@ -18,42 +19,42 @@ title: XAML and asp.net
    <b>Sebastien:</b>
    <br />
    Also note that because of the custom device renderers included in asp.net, it [should]
-   be possible to serve nearly transparently XAML data from an asp.net page. 
+   be possible to serve nearly transparently XAML data from an asp.net page.
 </p>
 <p>
    <b>Chris Sells [MSFT] (VIP):</b>
    <br />
-   That sounds interesting, Sebastien. Care to elaborate? 
+   That sounds interesting, Sebastien. Care to elaborate?
 </p>
 <p>
    <b>Sebastien:</b>
    <br />
 <p>
    Well, I didn't investigate the feasibility fully yet, which should only be next week,
-   but: 
+   but:
 </p>
 <p>
    ASP.net support the idea of web controls using device renderers to intelligently render
    content to any format. As it goes, it should be possible to target completely different
    languages, like SVG or XAML, from the control. I could even go as far as saying there's
    nothing preventing, AFAIK, pure code being generated, but that would be a pain to
-   code. 
+   code.
 </p>
 <p>
    Now, using this adapter, it is possible to target XAML, and provide a rich XAML based
    rendering technology on top of the ASP.net controls, and effectively switch automatically
-   from HTML to XAML rendering. 
+   from HTML to XAML rendering.
 </p>
 <p>
    Now there are a few limitations: 1. Internet exlorer doesn't compile on the fly. This
    should definitly be resolved by using SSE, compile on run time on the client side
    and analyze security on the fly, for embed code. This pauses the same problem as scripting
-   languages. IMO, the correct way to do it would be either of the following: 
+   languages. IMO, the correct way to do it would be either of the following:
 </p>
 <p>
    XAML is generated from the ASP.net controls, but has a contract with the code behind
    that can be pre compiled by the developer and loaded in real time over the wire for
-   execution. SSE plays its role there too. 
+   execution. SSE plays its role there too.
 </p>
 <p>
    Avalon/ASP.net compatible controls, where the control can either work on the server
@@ -62,7 +63,7 @@ title: XAML and asp.net
    on the client to provide for more avalon like features (3d, etc). What I'm talking
    about here is a full merge between web based and windows based controls, for the goal
    of defining one interface, and have it execute seemlessly as a compiled application,
-   a web application and an http exe. Without the associated problems. 
+   a web application and an http exe. Without the associated problems.
 </p>
 <p>
    2. Internet explorer doesn't have, as of now, integrated namespace dependent rendering

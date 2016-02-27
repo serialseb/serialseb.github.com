@@ -1,6 +1,7 @@
 ---
 layout: post
 title: SOA Debate continues
+tags: [soa]
 ---
 
 <div class="Section1">
@@ -8,12 +9,12 @@ title: SOA Debate continues
       &#160;Benjamin shares with us <a href="http://benjaminm.net/PermaLink.aspx?guid=b211d08d-109f-442b-b6ee-e5a63d86b8ca" title="http://benjaminm.net/PermaLink.aspx?guid=b211d08d-109f-442b-b6ee-e5a63d86b8ca">his
       views</a> on the great debate about what is a service.&#160;So the question is, what
       can be considered a service and what can&#8217;t be? Several proposals for a correct
-      definition are worthwhile commenting: 
+      definition are worthwhile commenting:
    </p>
    <p style='margin-left:36.0pt;text-indent:-18.0pt'>
       <span style='font-family: Symbol'>&middot;<span style='font:7.0pt "Times New Roman"'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </span></span><i>A
       service is a program that you can communicate with using messages</i> &#8211; <b>Don
-      Box</b> 
+      Box</b>
       <br />
       While I highly respect Don for his views, this just doesn&#8217;t get anywhere to
       give a definition. First, a service is not necessarily a program. What is a program?
@@ -47,9 +48,9 @@ title: SOA Debate continues
       can wire up those services at run time and different hostings of that service can
       have diffent policies.&#160; The services can be called over a queue, tcp, HTTP etc.&#160;
       Eventually, you can even discover the service using WS-Discovery at runtime using
-      UDDI or some other advanced repository.</i> &#8211; <b><a href="http://weblogs.asp.net/sjsmith/archive/2004/02/24/78957.aspx">Allthings.net</a></b> 
+      UDDI or some other advanced repository.</i> &#8211; <b><a href="http://weblogs.asp.net/sjsmith/archive/2004/02/24/78957.aspx">Allthings.net</a></b>
       <br />
-      Ok we&#8217;re getting closer there, at least closer to my own definition. 
+      Ok we&#8217;re getting closer there, at least closer to my own definition.
    </p>
    <p>
       What is a service, and in what context we think about a service is the point that
@@ -58,20 +59,20 @@ title: SOA Debate continues
       that the bright minds are absolutely and completely blurring the two with web services,
       and for one reason: Message Oriented Architecture is <b>one of the best ways</b> to
       deliver a Service Oriented Architecture. Let&#8217;s separate for a second the qualities
-      of each of these architectures. 
+      of each of these architectures.
    </p>
-   <h3>Message Oriented Architecture 
+   <h3>Message Oriented Architecture
    </h3>
    <p class="MsoNormal">
       A message-oriented architecture imply that communication can be done asynchronously
-      through a message based communication protocol. Let me put it clearly: 
+      through a message based communication protocol. Let me put it clearly:
    </p>
    <ul style='margin-top:0cm' type="disc">
       <li class="MsoNormal">
-         <b>Asynchronous</b> 
+         <b>Asynchronous</b>
       </li>
       <li class="MsoNormal">
-         <b>Message based</b> 
+         <b>Message based</b>
       </li>
    </ul>
    <p class="MsoNormal">
@@ -79,43 +80,43 @@ title: SOA Debate continues
       knows it. We use a message queue on one side, and get the other side to process the
       data from the queue. It is asynchronous and is scalable, and we love it. Seeing my
       queue growing and getting smaller even have some kind of an erotic appeals, late at
-      nights. But now no one said I was normal either. 
+      nights. But now no one said I was normal either.
    </p>
    <p class="MsoNormal">
-      &#160; 
+      &#160;
    </p>
-   <h3>Service Oriented Architecture 
+   <h3>Service Oriented Architecture
    </h3>
    <p class="MsoNormal">
       A service oriented architecture relies on <b>services</b>. Well sometimes you have
       to state the obvious. What is a service? By definition, a service is any piece of
       software that provides a service to you, without you knowing anything about how it
       provides it. Actually, without you <b>knowing</b> how it does it. If you do you&#8217;ll
-      always get a higher salary. Anyway. 
+      always get a higher salary. Anyway.
    </p>
    <p class="MsoNormal">
       The other thing we can say about services is that they are <b>independent bricks</b> that
       can work <b>on their own</b>. A service is a logical cut of functionality that only
       relies on itself to ensure proper communication with its users. If not, it definitely
-      is a bug. 
+      is a bug.
    </p>
    <p class="MsoNormal">
       The service itself is autonomous, both on the way it works, but also on the way you
       communicate with him. The definition is that a service needs a <b>contract</b> you
       have to agree upon to communicate. This contract is the <b>protocol</b> you&#8217;re
-      using. 
+      using.
    </p>
    <p class="MsoNormal">
       A service can also be called synchronously or asynchronously, and that&#8217;s to
       be agreed upon. It&#8217;s a <b>behavior</b> contract you need to have with the service
-      to use it properly. 
+      to use it properly.
    </p>
    <p class="MsoNormal">
       This definition in itself can cover nearly every single piece of reusable software
-      code. To match the blurry definitions, you have to add a few ingredients: 
+      code. To match the blurry definitions, you have to add a few ingredients:
    </p>
    <p class="MsoNormal">
-      &#160; 
+      &#160;
    </p>
    <ul style='margin-top:0cm' type="disc">
       <li class="MsoNormal">
@@ -137,10 +138,10 @@ title: SOA Debate continues
          process in a transparent way.</li>
    </ul>
    <p class="MsoNormal">
-      &#160; 
+      &#160;
    </p>
    <p class="MsoNormal">
-      So how, from this definition, does MOA fits? It answers all three requirements: 
+      So how, from this definition, does MOA fits? It answers all three requirements:
    </p>
    <ul style='margin-top:0cm' type="disc">
       <li class="MsoNormal">
@@ -152,29 +153,29 @@ title: SOA Debate continues
          A Message is a self contained independent entity.</li>
    </ul>
    <p class="MsoNormal">
-      &#160; 
+      &#160;
    </p>
    <p class="MsoNormal">
       The last question, which conveniently is the last piece needed to get to our current
       definition of SOA, is how in hell do you define all these three components in a standard
-      way&#8230; 
+      way&#8230;
    </p>
-   <h3>The XML Infoset &#8211; The inside 
+   <h3>The XML Infoset &#8211; The inside
    </h3>
    <p class="MsoNormal">
       The XML Infoset is not about <b>how</b> you format your messages, but how do you represent
       in an abstract way your document. The square brackets are just one of the possible
       serializations of this Infoset. The Infoset itself can then be transparently converted
       between all the different serializations by only changing the formatting, and preserving
-      the semantics. 
+      the semantics.
    </p>
    <p class="MsoNormal">
       With this data model, that is defined with an XSD document to provide rich semantics
       to a document (rules about what an Infoset is and what it can contain), you can achieve
       our first goal, that the message is self contained and independent on the transport
-      or on the format. 
+      or on the format.
    </p>
-   <h3>SOAP &#8211; The Outside 
+   <h3>SOAP &#8211; The Outside
    </h3>
    <p class="MsoNormal">
       Soap is an encapsulation mechanism for a processing unit. It contains a body with
@@ -183,54 +184,54 @@ title: SOA Debate continues
       with the next brick, the behavior contract, by providing, again, a protocol and format
       independent way to add anything behavior related, in a call context. This call context
       is a sort of sphere that flows through all your services with your message, a bit
-      like dolphins follows boats when they cross different seas. 
+      like dolphins follows boats when they cross different seas.
    </p>
-   <h3>The call context followers &#8211; The dolphins 
+   <h3>The call context followers &#8211; The dolphins
    </h3>
    <p class="MsoNormal">
       This is everything related to, and necessary and / or mandatory for the message based
       communication to happen while responding to our <b>behavior contract</b>. This is
       where you add the information, the instance data, of everything you defined in your
-      out of band definition files (WSDL, WS-Policy to some extent, UDDI). 
+      out of band definition files (WSDL, WS-Policy to some extent, UDDI).
    </p>
    <p class="MsoNormal">
-      &#160; 
+      &#160;
    </p>
-   <h3>My definition of SOA 
+   <h3>My definition of SOA
    </h3>
    <p class="MsoNormal">
       My definition of SOA would be: &#8220;Any protocol independent processing unit that
       can be talked to without relying on knowledge of the specifics of the conditions of
       execution of the unit, through an agreed behavioral contract, and that can be used
       without relying on anything outside of that unit, in an asynchronous manner. PS: If
-      it could be messaged based as well that&#8217;s always a plus&#8221;. 
+      it could be messaged based as well that&#8217;s always a plus&#8221;.
    </p>
    <p class="MsoNormal">
-      &#160; 
+      &#160;
    </p>
    <p class="MsoNormal">
       An other definition which could also be valid would be the following: &#8220;Any processing
       unit that can be communicated with using abstract representations not tied to any
       specific technology.&#8221; I&#8217;m not fond of it, but it makes you look smart
-      with some people. Please don&#8217;t try this at home. 
+      with some people. Please don&#8217;t try this at home.
    </p>
    <p class="MsoNormal">
-      &#160; 
+      &#160;
    </p>
    <p class="MsoNormal">
       Now if you followed my position on what SOA is all about, the difference between an
       RPC style and a Message style SOA (as long as we&#8217;re talking about proper xsd
       use for the RPC mechanism, not outdated on crack formatting of type information at
-      the container level) is how clean the message pattern and behavioral contract is designed. 
+      the container level) is how clean the message pattern and behavioral contract is designed.
    </p>
    <p class="MsoNormal">
-      &#160; 
+      &#160;
    </p>
    <p class="MsoNormal">
-      The good thing is that architects still have a few years before being put out of jobs. <span style='font-family:Wingdings'>J</span> 
+      The good thing is that architects still have a few years before being put out of jobs. <span style='font-family:Wingdings'>J</span>
    </p>
    <p class="MsoNormal">
-      The bad thing is that Whitehorse and Indigo might just kill us again. 
+      The bad thing is that Whitehorse and Indigo might just kill us again.
    </p>
 </div>
 <img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=0dc52f8a-da9f-4eb1-ba91-b7b28248fb8d">

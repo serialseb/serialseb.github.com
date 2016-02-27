@@ -1,13 +1,14 @@
 ---
 layout: post
 title: SOA Debate still hot
+tags: [soa]
 ---
 
 <div class="Section1">
    <p>
       In his post, <a href="http://dotnetjunkies.com/WebLog/seichert/archive/2004/02/26/8038.aspx">Steve
       Eichert</a> talks about whether objects used in SOA may or may not contain behavior.
-      I&rsquo;m just reproducing the comment I was nearly going to make on his post: 
+      I&rsquo;m just reproducing the comment I was nearly going to make on his post:
    </p>
    <p>
       It seems to me that this debate is absolutely wrong in the first place. You don't
@@ -15,19 +16,19 @@ title: SOA Debate still hot
       must not be included is absolutely faulty. As a matter of fact, because objects are
       used on the inside boundary, you can use them or not, with behavior or not, and you
       can even use batch scripts to execute something on your message. That&rsquo;s right,
-      nothing prevents that. 
+      nothing prevents that.
    </p>
    <p>
       If you do use objects on the back end to "map" your messages, then certainly you can
       include whatever you want in them. This is an implementation detail on the inside
-      frontier of your SOA, it is not a valid architecture question. 
+      frontier of your SOA, it is not a valid architecture question.
    </p>
    <p>
       But this doesn&rsquo;t really answer any question. The fact is, are we tightly coupled
       inside the service? Yes, we use types, version binding, in a .net environment. Whatever
       we do, the inside boundary of the service is extremely tightly coupled compared to
       the outside. But as always, doesn&rsquo;t mean you don&rsquo;t have to be layered
-      and as loosely coupled as possible in the inside. 
+      and as loosely coupled as possible in the inside.
    </p>
 </div>
 <img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=35b9d67f-2368-431d-ab70-7ca90596239f">

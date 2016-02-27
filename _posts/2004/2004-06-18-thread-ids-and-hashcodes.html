@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Thread ids and Hashcodes
+tags: [.net]
 ---
 
 <div class="Section1">
@@ -8,24 +9,24 @@ title: Thread ids and Hashcodes
       dasBlonde is <a href="http://www.dasblonde.net/PermaLink.aspx?guid=df113dbc-a7b3-43b2-88aa-95281177461e">blogging</a> about
       the GetHashCode vs GetCurrentThreadId way of getting a thread id. Without knowing
       what exactly she is trying to accomplish, it seems to me that GetHashCode shouldn&rsquo;t
-      be used in the same way as the GetCurrentThreadId. 
+      be used in the same way as the GetCurrentThreadId.
    </p>
    <p>
       <i>Did I mention how much I love her blog? A very technical and very classy woman,
-      and a must read for anyone!</i> 
+      and a must read for anyone!</i>
    </p>
    <p>
       If you&rsquo;re trying to get the <b>logical thread id</b>, GetCurrentThreadId gives
       you that, and you can rely on it to be stable for the lifetime of your process. Very
-      useful for tracking code execution path for example. 
+      useful for tracking code execution path for example.
    </p>
    <p>
-      GetHashCode on the other hand gives you something else (from the MSDN documentation): 
+      GetHashCode on the other hand gives you something else (from the MSDN documentation):
    </p>
    <div style='border:solid blue 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt'>
       <p style='border:none;padding:0cm'>
          Serves as a hash function for a particular type, suitable for use in hashing algorithms
-         and data structures like a hash table. 
+         and data structures like a hash table.
       </p>
    </div>
    <p>
@@ -34,14 +35,14 @@ title: Thread ids and Hashcodes
       post</a>. What does it tells us? That the contract on the GetHashCode method is to
       provide a reasonably random value, but that <b>could be negative or duplicated for
       multiple values</b>. The guarantee is even getting weaker (or the lack of getting
-      stronger) in v2. 
+      stronger) in v2.
    </p>
    <p>
       What else can we know about the GetHashCode functionality defined on the <i>Object</i> class?
       I had a nice email chat with Brian Grunkemeyer back in October, and I actually learnt
       something that I didn&rsquo;t foresee: <b>A hashcode can be duplicated (it is non
       unique) AND it may change during the lifetime of an object, no guarantee is made.</b> I
-      quote him here (hope he doesn&rsquo;t mind): 
+      quote him here (hope he doesn&rsquo;t mind):
    </p>
    <div style='border:solid blue 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt'>
       <p class="MsoNormal" style='border:none;padding:0cm'>
@@ -52,14 +53,14 @@ title: Thread ids and Hashcodes
          hash table expects collisions in a bucket and has to do an equality check on the two
          objects first, using Object::Equals(Object) or an equality method provided by another
          comparison interface, like IComparer.&#160; So normal hashing shouldn't be affected
-         by this.&#160;</span> 
+         by this.&#160;</span>
       </p>
    </div>
    <p>
       There you go. GetHashCode has a pretty weak contract that suits mostly the developers
       of the Hashtable, full stop. Thread Id on the other hand gives you the guarantee that
       your thread id is going to be unique to this thread. Just imagine if two threads were
-      sharing the same Id? Thread Id collision would be a real disaster! 
+      sharing the same Id? Thread Id collision would be a real disaster!
    </p>
    <p>
       And finally, to complete this post with yet another API (what wouldn&rsquo;t anyone
@@ -67,7 +68,7 @@ title: Thread ids and Hashcodes
       ProcessThread objects which do have ThreadId. As <a href="http://blogs.gotdotnet.com/cbrumme/permalink.aspx/9fd9222c-ee65-424d-867e-8e4e52ea394b">this
       post</a> from Chris Brumme explains, u shouldn&rsquo;t ever rely on that at all, as
       the CLR is actually &ldquo;virtualizing&rdquo; the OS threads, and you may also encounter
-      the garbage collection thread, and additional internal CLR threads&hellip; 
+      the garbage collection thread, and additional internal CLR threads&hellip;
    </p>
 </div>
 <img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=476c8e8f-8608-4925-8caa-47f187fd1eca">

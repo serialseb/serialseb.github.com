@@ -1,6 +1,7 @@
 ---
 layout: post
 title: myApp.vshost.exe or when Visual Studio wanna be funky
+tags: [visual-studio]
 ---
 
 <div class="Section1">
@@ -8,7 +9,7 @@ title: myApp.vshost.exe or when Visual Studio wanna be funky
       <a href="http://dotnetjunkies.com/WebLog/jcmag/archive/2004/07/29/20673.aspx">JC asks</a> what
       this new funky myAppName.vshost.exe is created at the same time as myAppName.exe&hellip;
       Well, this is used for debugger support. If you look at the content of that file,
-      what you will see is mostly a dumb assembly containing only the following: 
+      what you will see is mostly a dumb assembly containing only the following:
    </p>
    <pre>
 [DebuggerNonUserCode]
@@ -28,10 +29,10 @@ title: myApp.vshost.exe or when Visual Studio wanna be funky
       proc1.EventRunAssembly.WaitOne();
 </pre>
    <p class="MsoNormal">
-      } 
+      }
    </p>
    <pre>
- 
+
 </pre>
    <p>
       What this does is simply use the new hosting model by using the VsHostAppDomainManager
@@ -39,10 +40,10 @@ title: myApp.vshost.exe or when Visual Studio wanna be funky
       8\Common7\IDE. It inherit from the new System.AppDomainManager in mscorlib.dll. It
       obviously controls the security settings (letting you run your debug code in any trust
       level you want) and other nifty things, including redirecting the console input and
-      output to the nice little Console window in visual studio. 
+      output to the nice little Console window in visual studio.
    </p>
    <p>
       A confirmation <a href="http://blogs.msdn.com/dtemp/archive/2004/08/17/215764.aspx">here</a>.
-      Once again brought to you first by the technologist :-) 
+      Once again brought to you first by the technologist :-)
 </div>
 <img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=f629c611-339a-4e16-8601-da3d8de3cb42">

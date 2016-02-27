@@ -1,27 +1,28 @@
 ---
 layout: post
 title: Internationalization of applications
+tags: [i8n]
 ---
 
 <div class="Section1">
    <p>
       I was going over my backlog today (about 5k unread posts that I&rsquo;m going to try
       and finish reading in the next few days), and noticed an <a href="http://weblogs.asp.net/oldnewthing/archive/2004/03/09/86555.aspx">interesting
-      post</a> from Raymond (well, one of many, but one I can blog about). 
+      post</a> from Raymond (well, one of many, but one I can blog about).
    </p>
    <p>
       The subject of internationalization is highly more complex than just using resource
       files and letting applications use the ToString() method with a culture. Numbers can
       be different. In some languages, &ldquo;I&rdquo; is <b>not</b> the uppercase of &ldquo;i&rdquo;.
       Digits are not between 0-9. This subject is important to understand, and CultureInfo.InvariantCulture
-      is your friend. 
+      is your friend.
    </p>
    <p>
       For that matter, one of my early .net projects was a batch parser. I was thinking,
       well, if (command.ToUpper() == &ldquo;IN&rdquo;), it failed miserably, my Turkish
       customers thought I didn&rsquo;t care about them. They were nice enough to say that
       setting the English culture for the application resolved the issue, and I had a chance
-      to correct the bug. 
+      to correct the bug.
    </p>
 </div>
 <img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=1158bc52-f739-4e80-acce-5e797d9c9508">

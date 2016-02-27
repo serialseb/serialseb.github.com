@@ -1,6 +1,7 @@
 ---
 layout: post
 title: ReaderWriterLock, Dispose pattern can also increase reliability
+tags: [threading]
 ---
 
 <div class=Section1>
@@ -30,40 +31,40 @@ title: ReaderWriterLock, Dispose pattern can also increase reliability
       it becomes <img height=1 src="cid:image001.png@01C42933.A2D5AD80" width=1 border=0><b>very<img height=1 src="cid:image001.png@01C42933.A2D5AD80" width=1 border=0></b> unreadable&#8230;
       And multi threaded unreadable code is an absolute no-go.<br>
       <br>
-      Let&#8217;s see what the methods are:</span> 
+      Let&#8217;s see what the methods are:</span>
    </p>
    <ul style="MARGIN-TOP: 0cm" type=disc>
       <li class=MsoNormal style="MARGIN-BOTTOM: 12pt">
          <b><span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">AcquireReaderLock</span></b> <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">to
-         acquire a reader lock and provide a TimeSpan as a timeout value.</span> 
+         acquire a reader lock and provide a TimeSpan as a timeout value.</span>
       <li class=MsoNormal style="MARGIN-BOTTOM: 12pt">
          <b><span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">AcquireWriterLock</span></b> <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">to
-         acquire a writer lock, and provide a TimeSpan as a timeout value.</span> 
+         acquire a writer lock, and provide a TimeSpan as a timeout value.</span>
       <li class=MsoNormal style="MARGIN-BOTTOM: 12pt">
          <b><span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">ReleaseReaderLock</span></b> <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">to
-         release a reader lock.</span> 
+         release a reader lock.</span>
       <li class=MsoNormal style="MARGIN-BOTTOM: 12pt">
          <b><span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">ReleaseWriterLock</span></b> <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">to
-         release a writer lock.</span> 
+         release a writer lock.</span>
       </li>
    </ul>
    <p class=MsoNormal style="MARGIN-BOTTOM: 12pt">
       <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">
       <br>
-      Quite simple isn&#8217;t it? Now let&#8217;s see a few others as well:</span> 
+      Quite simple isn&#8217;t it? Now let&#8217;s see a few others as well:</span>
    </p>
    <ul style="MARGIN-TOP: 0cm" type=disc>
       <li class=MsoNormal style="MARGIN-BOTTOM: 12pt">
          <b><span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">UpgradeToWriterLock</span></b> <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">gets
          tricky, it lets you switch from your reader lock to a writer lock (and of course only
-         if you&#8217;re the only reader does it return immediately)</span> 
+         if you&#8217;re the only reader does it return immediately)</span>
       <li class=MsoNormal style="MARGIN-BOTTOM: 12pt">
          <b><span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">DowngradeFromWriterLock</span></b> <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">let&#8217;s
-         you release this upgrade.</span> 
+         you release this upgrade.</span>
       <li class=MsoNormal style="MARGIN-BOTTOM: 12pt">
          <b><span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">ReleaseLock, RestoreLock</span></b> <span lang=EN-GB style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">you
          don&#8217;t really want to know about them, won&#8217;t need them, they are evil because
-         they don&#8217;t timeout. If you want to know more, msdn is your friend.</span> 
+         they don&#8217;t timeout. If you want to know more, msdn is your friend.</span>
       </li>
    </ul>
    <p class=MsoNormal style="MARGIN-BOTTOM: 12pt">
@@ -72,7 +73,7 @@ title: ReaderWriterLock, Dispose pattern can also increase reliability
       So why exactly can&#8217;t I just <b>AcquireWriterLock</b> when I already have <b>AcquireReaderLock</b>?
       Remember that I said the ReaderWriterLock doesn&#8217;t let you acquire a writer lock
       unless <b>all</b> reader locks have been released&#8230; Which is why you have a different
-      path! So my typical code would look like that:</span> 
+      path! So my typical code would look like that:</span>
    </p>
    <div style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 4pt; BACKGROUND: #ffff99; PADDING-BOTTOM: 1pt; BORDER-LEFT: windowtext 1pt solid; PADDING-TOP: 1pt; BORDER-BOTTOM: windowtext 1pt solid">
       <p class=MsoNormal style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; BACKGROUND: #ffff99; MARGIN-BOTTOM: 12pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">
@@ -132,7 +133,7 @@ title: ReaderWriterLock, Dispose pattern can also increase reliability
          myLock.ReleaseReaderLock();<br>
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          }<br>
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span> 
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span>
       </p>
    </div>
    <p class=MsoNormal style="MARGIN-BOTTOM: 12pt">
@@ -151,7 +152,7 @@ title: ReaderWriterLock, Dispose pattern can also increase reliability
       (acquiring a reader lock) before calling your method. Not a good thing<sup>TM</sup>.<br>
       <br>
       The best way to go is obviously to detect if when called, the method is already under
-      a reader lock or not. This is the code doing it:</span> 
+      a reader lock or not. This is the code doing it:</span>
    </p>
    <div style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 4pt; BACKGROUND: #ffff99; PADDING-BOTTOM: 1pt; BORDER-LEFT: windowtext 1pt solid; PADDING-TOP: 1pt; BORDER-BOTTOM: windowtext 1pt solid">
       <p class=MsoNormal style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; BACKGROUND: #ffff99; MARGIN-BOTTOM: 12pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">
@@ -189,7 +190,7 @@ title: ReaderWriterLock, Dispose pattern can also increase reliability
          myLock.ReleaseWriterLock();<br>
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          }<br>
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span> 
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span>
       </p>
    </div>
    <p class=MsoNormal style="MARGIN-BOTTOM: 12pt">
@@ -198,7 +199,7 @@ title: ReaderWriterLock, Dispose pattern can also increase reliability
       readable by mortal people anymore.<br>
       <br>
       Which is why I implemented the RWLock object following Ian&#8217;s code. With it,
-      you can rewrite the code as:</span> 
+      you can rewrite the code as:</span>
    </p>
    <div style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 4pt; BACKGROUND: #ffff99; PADDING-BOTTOM: 1pt; BORDER-LEFT: windowtext 1pt solid; PADDING-TOP: 1pt; BORDER-BOTTOM: windowtext 1pt solid">
       <p class=MsoNormal style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; BACKGROUND: #ffff99; MARGIN-BOTTOM: 12pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">
@@ -217,7 +218,7 @@ title: ReaderWriterLock, Dispose pattern can also increase reliability
          myNewObject;<br>
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          }<br>
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span> 
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span>
       </p>
    </div>
    <p class=MsoNormal style="MARGIN-BOTTOM: 12pt">
@@ -230,9 +231,9 @@ title: ReaderWriterLock, Dispose pattern can also increase reliability
       when the method was called. Now you can ensure good synchronization, and neither have
       to have a lot of code or leave the caller to deal himself with setting the locks right.<br>
       <br>
-      The full code for the class (also attached as a .zip file)</span> 
+      The full code for the class (also attached as a .zip file)</span>
    </p>
-   <div style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 4pt; BACKGROUND: #ffff99; PADDING-BOTTOM: 1pt; BORDER-LEFT: windowtext 1pt solid; PADDING-TOP: 1pt; BORDER-BOTTOM: windowtext 1pt solid"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial"> 
+   <div style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 4pt; BACKGROUND: #ffff99; PADDING-BOTTOM: 1pt; BORDER-LEFT: windowtext 1pt solid; PADDING-TOP: 1pt; BORDER-BOTTOM: windowtext 1pt solid"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">
       <p class=MsoNormal style="MARGIN: 0cm 0cm 0pt; mso-layout-grid-align: none">
          <span style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 'Courier New'">using</span><span style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><font color=#000000><?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" /> System;<o:p></o:p>
          </font></span>

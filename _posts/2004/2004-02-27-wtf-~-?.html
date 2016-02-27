@@ -1,6 +1,7 @@
 ---
 layout: post
 title: WTF ~ ?
+tags: [csharp]
 ---
 
 <div class="Section1">
@@ -10,7 +11,7 @@ title: WTF ~ ?
       problem for the bitshift operators (&gt;&gt; and &lt;&lt;). What&rsquo;s the official
       rationale? That it doesn&rsquo;t make any sense, as the processor is faster doing
       these operations on 32bit types than it is on 8bit ones. If you prefer, the processor
-      would convert these types to 32bit anyway. 
+      would convert these types to 32bit anyway.
    </p>
    <p>
       Only way if you want to define these at the language level is to either let the compiler
@@ -18,7 +19,7 @@ title: WTF ~ ?
       My guess is that hiding the slowness of byte operations by slowing down with implicit
       casting prevent the developer from knowing that what he&rsquo;s doing has performance
       implications. A warning at the compiler level could resolve this in a clean way. What
-      do you think? Should we always be honest to the developer? 
+      do you think? Should we always be honest to the developer?
    </p>
 </div>
 <img width="0" height="0" src="http://blog.thetechnologist.net/aggbug.ashx?id=e573f554-fea7-4419-b106-614eee71d581">
