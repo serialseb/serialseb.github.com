@@ -2,8 +2,7 @@
 layout: post
 title: Internal DSLs, method chaining and discoverability
 date: '2009-05-31T15:46:00.001+01:00'
-
-tags: 
+tags: [design-patterns]
 modified_time: '2009-05-31T15:46:34.830+01:00'
 blogger_id: tag:blogger.com,1999:blog-4015568221071268916.post-6232867212464561365
 comments: true
@@ -123,4 +122,4 @@ blogger_orig_url: http://serialseb.blogspot.com/2009/05/internal-dsls-method-cha
 
 <p>The main difference here is the introduction of scoping operators. The Server method returns two properties, And which closes the current Server scope, and Had Has which open a new service-specific scope.</p>
 
-<p>I find this kind of API much more readable, and they introduce less syntax noise (aka no lambda operators or blocks). There is also no need to introduce external points of references, be them be properties or static classes, except for the original entry point. Arguably, they’re harder to write, but I think the effort is worth the benefits.</p>  
+<p>I find this kind of API much more readable, and they introduce less syntax noise (aka no lambda operators or blocks). There is also no need to introduce external points of references, be them be properties or static classes, except for the original entry point. Arguably, they’re harder to write, but I think the effort is worth the benefits.</p>
