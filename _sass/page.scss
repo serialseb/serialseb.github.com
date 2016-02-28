@@ -7,15 +7,6 @@ body {
 	font-family: $base-font;
 	text-transform: none;
 	color: $text-color;
-	background-image: url(/assets/logo128.png);
-	background-image: -webkit-image-set(
-  url(/assets/logo128.png) 1x,
-	url(/assets/logo256.png) 2x,
-  url(/assets/logo512.png) 4x
-	);
-	background-repeat: no-repeat;
-	background-position: right bottom;
-	background-attachment: fixed;
 }
 
 li p {
