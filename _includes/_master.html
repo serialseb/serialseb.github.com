@@ -14,23 +14,19 @@
 
 {% include _navigation.html %}
 {% include _feature.html %}
-{% unless include.bare %}
-<div role="main" id="main">
-{% endunless %}
-  {% if include.nav == 'author' %}
-  <aside class="article-author-side">
+  <aside class="left{%if.nav == 'author'%} article-author-side{%endif%}">
+    {% if include.nav == 'author' %}
     {% include _author-bio.html %}
+    {% else %}
+    &nbsp;
+    {% endif %}
   </aside>
-  {% endif %}
   {{ body }}
 
   <footer class="footer-wrap">
     {{ footer_before }}
     {% include _footer.html %}
   </footer>
-{% unless include.bare %}
-</div>
-{% endunless %}
 {% include _scripts.html %}
 {% include _jsonld.html %}
 

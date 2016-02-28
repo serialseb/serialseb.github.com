@@ -385,83 +385,25 @@ $button-size: 1.5rem;
 }
 
 /* Main content */
-#main {
-	counter-reset: captions;
-		@include container;
-		@include grid(12,10);
-		@include prefix(12,1);
-		@include suffix(12,1);
-		margin-bottom: 2em;
-		@media #{$small} {
-			@include grid(12,6);
-			@include prefix(12,0);
-			@include suffix(12,0);
-		}
-		@media #{$x-large} {
-			@include grid(12,4.5);
-		}
-	clear: both;
-	margin-top: 2em;
-	h1 {
-		margin-top: 0;
-	}
-	.post,
-	.page,
-	main,
-	article {
-		@include container;
-		@include grid(12,10);
-		@include prefix(12,1);
-		@include suffix(12,1);
-		margin-bottom: 2em;
-		@media #{$small} {
-			@include grid(12,6);
-			@include prefix(12,3);
-			@include suffix(12,3);
-		}
-		@media #{$x-large} {
-			@include grid(12,4.5);
-		}
-	}
-	nav.pagination {
-		left: auto;
-		right: auto;
-		text-align: center;
-    color: $disabledcolor;
-		.fa {
-			vertical-align: bottom;
-		}
-		a { color: $text-color; }
-		a .fa {
-			color: $accentcolor;
-		}
-	}
-}
-/* Main content */
-#main {
+
+body > main,
+body > article {
 	counter-reset: captions;
 	@include container;
-	@include clearfix;
-	clear: both;
+	@include grid(12,10);
+	@include prefix(12,1);
+	margin-bottom: 2em;
+	@media #{$small} {
+		@include prefix(12,0);
+		@include grid(12,6);
+	}
+	@media #{$x-large} {
+		@include grid(12,4.5);
+	}
 	margin-top: 2em;
+	margin-bottom: 2em;
 	h1 {
 		margin-top: 0;
-	}
-	.post,
-	.page {
-		@include container;
-		@include grid(12,10);
-		@include prefix(12,1);
-		@include suffix(12,1);
-		margin-bottom: 2em;
-		@media #{$small} {
-			@include grid(12,6);
-			@include prefix(12,0);
-			@include suffix(12,0);
-		}
-		@media #{$x-large} {
-			@include grid(12,4.5);
-		}
 	}
 	nav.pagination {
 		left: auto;
@@ -480,19 +422,6 @@ $button-size: 1.5rem;
 
 /* Index listing specific styling */
 #index {
-	@include container;
-	@include grid(12,10);
-	@include prefix(12,1);
-	@include suffix(12,1);
-	margin-bottom: 2em;
-	@media #{$small} {
-		@include grid(12,6);
-		@include prefix(12,0);
-		@include suffix(12,0);
-	}
-	@media #{$x-large} {
-		@include grid(12,4.5);
-	}
 	h3 {
 		margin: 0;
 		padding-bottom: .5em;
@@ -517,6 +446,26 @@ $button-size: 1.5rem;
 
 	}
 }
+/* Main content */
+#main {
+	h1 {
+		margin-top: 0;
+	}
+	nav.pagination {
+		left: auto;
+		right: auto;
+		text-align: center;
+    color: $disabledcolor;
+		.fa {
+			vertical-align: bottom;
+		}
+		a { color: $text-color; }
+		a .fa {
+			color: $accentcolor;
+		}
+	}
+}
+
 
 /* Large feature header image */
 .image-wrap {
@@ -607,7 +556,7 @@ $button-size: 1.5rem;
 }
 
 /* Author sidebar */
-.article-author-side {
+body>aside.left {
 	display: none;
 	.bio-photo {
 		max-width: 110px;

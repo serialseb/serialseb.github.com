@@ -1,5 +1,5 @@
 {% capture body %}
-  <div id="index">
+  <main>
     <h1>{{ page.title }}</h1>
     {% for post in site.posts %}
       {% unless post.next %}
@@ -14,6 +14,6 @@
       {% endunless %}
       {%include blogEntry.html post=post excerpt=true comments=false content=post.content %}
     {% endfor %}
-  </div><!-- /#index -->
+  </main><!-- /#index -->
 {% endcapture %}
 {% include _master.html name="post-index" nav="author" %}

@@ -6,8 +6,10 @@
  li { display: inline-block; list-style: none;}
 }
 
-article.cv {
+main.cv {
   text-align: center;
+  @include grid(12,12);
+  @include prefix(12,0);
   header h1 { @include font-size(30); }
   .projects h2 { text-align: left;}
   header li { list-style: none;}
@@ -24,15 +26,11 @@ article.cv {
   & > *, & > .projects > * {
   	@include grid(12,10);
   	@include prefix(12,1);
-  	@include suffix(12,1);
   	@media #{$small} {
   		@include grid(12,8);
   		@include prefix(12,2);
-  		@include suffix(12,2);
   	}
   	@media #{$x-large} {
-  		@include grid(12,1.5);
-  		@include prefix(12,2);
   	}
   }
   @media #{$small} {
@@ -40,19 +38,19 @@ article.cv {
     	@include grid(12,4);
       display: inline-block;
     }
-    section.technologies{
+    section.technologies {
       @include prefix(12,2);
-      	@include suffix(12,0);
-      }
-      section.clients{
-        @include prefix(12,0);
-      	@include suffix(12,2);
+      @include suffix(12,0);
+    }
+    section.clients{
+      @include prefix(12,0);
+    	@include suffix(12,2);
     }
   }
   & > .projects {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    @include grid(12,12);
+    @include prefix(12,0);
+    @include suffix(12,0);
   }
   .clients img, .job img {
     margin: 10px;
