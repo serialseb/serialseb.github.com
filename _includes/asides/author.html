@@ -1,0 +1,31 @@
+{%
+if page.author                                                              %}{%
+  assign author = site.data.authors[page.author]                            %}{%
+else                                                                        %}{%
+   assign author = site.owner                                               %}{%
+endif                                                                       %}{%
+if author.avatar contains 'http'                                            %}{%
+  assign avatarUri = author.avatar                                          %}{%
+else                                                                        %}{%
+  assign avatarUri = site.url | append: "/images/" | append: author.avatar  %}{%
+endif
+                                                                            %}
+<div>
+	<img src="{{avatarUri}}" class="bio-photo" alt="{{ author.name }} bio photo">
+  <h3><a href="{{ author.url }}" rel="me">{{ author.name }}</a></h3>
+  <p>{{ author.bio }}</p>
+  {%for social in author.social%}
+    {%assign key = social[0]%}
+    {%assign username = social[1] %}
+    {%if username %}
+    {%assign socialNet = site.data.social[key] %}
+    {%capture icon%}{%if socialNet.fa %}{{socialNet.fa}}{%else%}{{key}}{%endif%}{%endcapture%}
+    {%capture title%}{%if socialNet.title%}{{socialNet.title}}{%else%}{{key | capitalize}}{%endif%}{%endcapture%}
+    <a href="{{socialNet.template | replace: "username",username}}" class="icon fa-fw fa-{{icon}} author-social" rel="me">{{title}}</a>
+    {% endif %}
+  {%endfor%}
+</div>
+
+<script type="application/ld+json">
+{% include semweb/author.ldjson %}
+</script>
