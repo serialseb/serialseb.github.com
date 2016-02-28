@@ -1,0 +1,22 @@
+{%
+assign recent_posts = include.recent_posts | default: true                  %}{%
+assign recent_serials = include.recent_serials | default: false             %}{%
+assign recent_tagged = include.recent_tags | default: false                 %}{%
+if recent_tagged                                                            %}
+<h3>Related Posts</h3>
+
+{%
+endif                                                                       %}{%
+if recent_posts == true                                                     %}
+  <h3>Recent Posts</h3>
+  <ol>{%
+
+  for post in site.posts limit: 5                                             %}
+    <li><a href="{{site.url}}{{post.url}}">{{post.title}}</a></li>{%
+  endfor                                                                    %}
+  </ol>{%
+endif                                                                       %}{%
+if recent_serials                                                           %}
+  <h3>Recent Serials</h3>
+{%
+endif                                                                       %}

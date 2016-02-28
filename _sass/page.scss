@@ -554,36 +554,32 @@ body > article {
 		margin-right: 5px;
 	}
 }
-
-/* Author sidebar */
-body>aside.left {
+aside.right ol {
+	padding-left: 0.5em;
+	list-style: none;
+}
+aside.right li{
+	 margin: 0;
+	 margin-bottom: 1em;
+ }
+body > aside{
 	display: none;
-	.bio-photo {
-		max-width: 110px;
-		@include rounded(150px);
-	}
+	font-size: 80%;
 	@media #{$small} {
 		display: block;
 		@include grid(12,2);
 		@include prefix(12,0.5);
 		@include suffix(12,0.5);
-		h3,
-		p,
-		.author-social {
-			display: block;
-			max-width: 125px;
-		}
-		h3 {
-			margin-top: 10px;
-			margin-bottom: 10px;
-		}
-		p {
-			margin-bottom: 20px;
-		}
-		.author-social {
-			margin-bottom: 5px;
-		}
 	}
+
+	@media #{$x-large} {
+		@include grid(12,1.5);
+		&.left{ @include prefix(12,1.5); }
+		&.right {@include suffix(12,1.5);}
+	}
+}
+/* Author sidebar */
+body > aside.left {
 	@media #{$large} {
 		h3,
 		.bio-photo,
@@ -592,9 +588,24 @@ body>aside.left {
 			max-width: 150px;
 		}
 	}
-	@media #{$x-large} {
-		@include grid(12,1.5);
-		@include prefix(12,2);
+
+	h3,
+	p,
+	.author-social {
+		display: block;
+		max-width: 125px;
+		margin-bottom: 5px;
+	}
+	h3 {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	p {
+		margin-bottom: 20px;
+	}
+	.bio-photo {
+		max-width: 110px;
+		@include rounded(150px);
 	}
 }
 
