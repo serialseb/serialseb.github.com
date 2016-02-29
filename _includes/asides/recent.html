@@ -1,10 +1,24 @@
 {%
 assign recent_posts = include.recent_posts | default: true                  %}{%
 assign recent_serials = include.recent_serials | default: false             %}{%
-assign recent_tagged = include.recent_tags | default: false                 %}{%
-if recent_tagged                                                            %}
-<h3>Related Posts</h3>
+assign recent_tagged = include.recent_tags | default: true                  %}{%
+assign tagged = '' | split: ''                                              %}{%
+if recent_tagged and page.tags                                              %}{%
+  for current_tag in page.tags                                              %}{%
+    for anypost in site.posts                                               %}{%
+      if anypost.tags contains current_tag %}{%
+        assign tagged = tagged | push: anypost %}{%
+      endif %}{%
+    endfor  %}{%
+  endfor  %}{%
+  assign tagged = tagged | sort: "date"  %}{%
+endif %}
 
+{%if tagged.size > 0 %}
+<h3>Related Posts</h3>
+<ol>{% for post in tagged limit: 5 %}
+  <li><a href="{{site.url}}{{post.url}}">{{post.title}}</a></li>{% endfor %}
+</ol>
 {%
 endif                                                                       %}{%
 if recent_posts == true                                                     %}
