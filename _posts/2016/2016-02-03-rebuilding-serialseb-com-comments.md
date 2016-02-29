@@ -2,6 +2,7 @@
 date: 2016-02-03 15:20
 comments: true
 title: Rebuilding SerialSeb.com – Comments
+redirect_from: "/blog/2016/01/15/rebuilding-serialseb-com-3-comments/"
 serial: rebuilding-serialseb-com
 published: true
 layout: post

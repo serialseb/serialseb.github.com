@@ -25,7 +25,7 @@ From a command line, add a remote repository by providing a name and a path. I�
 
 
 
-Note that I could’ve created a local repository (one on my hard drive) by using [_file:///c:/tmp/remoterepo/_](/tmp/remoterepo/) instead.
+Note that I could’ve created a local repository (one on my hard drive) by using _file:///c:/tmp/remoterepo/_ instead.
 
 
 
