@@ -1,30 +1,30 @@
 {%
 assign totalEvents = 0                                                      %}{%
-assign cities = '' | split: '' %}{%
-assign countries = '' | split: '' %}{%
+assign cities = '' | split: ''                                              %}{%
+assign countries = '' | split: ''                                           %}{%
 assign all = site.talks | map: "deliveries"                                 %}{%
 for deliveries in all                                                       %}{%
   assign totalEvents = totalEvents | plus: deliveries.size                  %}{%
   for delivery in deliveries                                                %}{%
-    if delivery.location %}{%
-      assign city = delivery.location | split: ',' | first | trim         %}{%
-      assign country = delivery.location | split: ',' | last | trim       %}{%
-      unless cities contains city                                %}{%
-        assign cities = cities | push: city                      %}{%
-      endunless %}{%
-      unless countries contains country                                %}{%
-        assign countries = countries | push: country                      %}{%
-      endunless %}{%
-    endif %}{%
-  endfor %}{%
-endfor %}
+    if delivery.location                                                    %}{%
+      assign city = delivery.location | split: ',' | first | trim           %}{%
+      assign country = delivery.location | split: ',' | last | trim         %}{%
+      unless cities contains city                                           %}{%
+        assign cities = cities | push: city                                 %}{%
+      endunless                                                             %}{%
+      unless countries contains country                                     %}{%
+        assign countries = countries | push: country                        %}{%
+      endunless                                                             %}{%
+    endif                                                                   %}{%
+  endfor                                                                    %}{%
+endfor                                                                       %}
 <h3>Statistics</h3>
 <ol>
   <li>{{site.talks.size}} talks</li>
   <li>{{totalEvents}} presentations</li>
   <li>
     <details>
-      <summary>{{cities.size}} cities<summary>
+      <summary>{{cities.size}} cities</summary>
       <ul>{%for city in cities%}
         <li>{{city}}</li>{%endfor%}
       </ul>
