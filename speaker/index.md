@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Talks and Workshops
+right: speaker-stats
 ---
 {%
 assign cities = '' | split: ''                                              %}{%
@@ -13,7 +14,7 @@ assign all = site.talks | map: "deliveries"                                 %}{%
 for deliveries in all                                                       %}{%
   assign totalEvents = totalEvents | plus: deliveries.size                  %}{%
   for delivery in deliveries                                                %}{%
-    unless cities contains delivery.location %}{%
+    unless cities contains delivery.location                                %}{%
     assign cities = cities | push: delivery.location                        %}{%
     endunless %}{%
   endfor %}{%

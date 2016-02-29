@@ -11,7 +11,7 @@ if recent_tagged and page.tags                                              %}{%
       endif %}{%
     endfor  %}{%
   endfor  %}{%
-  assign tagged = tagged | sort: "date"  %}{%
+  assign tagged = tagged | sort: "date" | reverse  %}{%
 endif %}
 
 {%if tagged.size > 0 %}
