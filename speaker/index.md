@@ -20,10 +20,6 @@ for deliveries in all                                                       %}{%
   endfor %}{%
 endfor %}
 
-### Overview
-
-I have given {{ site.talks.size }} talks and workshops a total of {{totalEvents}} times in {{ cities.size}} cities.
-
 ### Talks
 
 {%for talk in active %}
