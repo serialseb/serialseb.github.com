@@ -113,6 +113,14 @@ defaults:
       type: tag_pages
     values:
       layout: tag
+  - scope:
+      path: ""
+      type: talks
+    values:
+      layout: talk
+      active: true
+      comments: true
+      type: talk
 
 collections:
   projects:
@@ -123,3 +131,6 @@ collections:
   tag_pages:
     output: true
     permalink: /tags/:path/
+  talks:
+    output: true
+    permalink: /speaker/:path/

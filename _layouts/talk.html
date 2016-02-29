@@ -1,48 +1,55 @@
-{% capture body %}
-  <article class="page">
-      {%for last in page.deliveries limit:1 %}
-      <h1>{{ page.title }}
-      <h2>{% if last.url %}<a href="{{last.url}}">{%endif%}{{last.conf}}{%if last.url%}</a>{%endif%}
-      </h2>
-      <time>{{last.date}}</time>
-      {% if last.links %}
-        <aside>
-            <h2>Links</h2>
-            <ul>
-                {%for link in last.links %}
-                <li><a href="{{ link.url }}">{{link.title}}</a></li>
-                {%endfor%}
-            </ul>
-        </aside>
-      {% endif %}
-      {{ content }}
-      <div>
-          {%if last.slides %}<a href="{{last.slides}}">Slides</a>{%endif%}
-          {%if last.samples %}<a href="{{last.samples}}">Samples</a>{%endif%}
-          {%if last.video %}<a href="{{last.video}}">Video</a>{%endif%}
-      </div>
-      {% if last.quotes %}
-          <h2>Quotes</h2>
-          {% for quote in last.quotes %}
-          <q>{{ quote }}</q>
-          {% endfor %}
-      {% endif %}
+{% capture body %}{%
+assign last = page.deliveries | first %}
+<main>
+    <h1>{{ page.title }}</h1>
+    <p class="byLine">
+      {%if last.date %}<time datetime="{{ last.date | date_to_xmlschema }}" class="icon fa-microphone">{{ last.date | date: "%B %d, %Y" }}</time>{%endif%}
+      {% for current_tag in page.tags %}{% include _tag.html tag=current_tag %}{%endfor%}
+    </p>
+    <h2>{% if last.href %}<a href="{{last.href}}">{%endif%}{{last.conf}}{%if last.href%}</a>{%endif%}</h2>
+    {% if last.video.embedded %}
+    <iframe src="{{last.video.embedded}}" width="{{last.video.width}}" height="{{last.video.height}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    {% endif %}
+
+    {% if page.summary %}
+    <h2>Summary</h2>
+    {{ page.summary | markdownify }}
+    {%endif%}
 
 
-  {% endfor %}
-  </article>
-  {% if page.deliveries > 1 %}
-  <h2>Also presented at</h2>
-  {% endif %}
-  {% for cur in page.deliveries offset:1 %}
-  <article class="previous-talk">
-      <header>
-        {%if cur.title %}<h3>Title: {{cur.title}}</h3>{%endif%}
-          <h3>{{cur.conf}}</h3>
-          <time>{{cur.date}}</time>
-          <address>{{cur.location}}</address>
-      </header>
-  </article>
-  {% endfor %}
+    {{ content }}
+
+
+    {% if last.quotes %}
+    <h2>Quotes</h2>
+    {% for quote in last.quotes %}
+    <q>{{ quote }}</q>
+    {% endfor %}
+    {% endif %}
+
+    <h2>Links</h2>
+    <ul>
+    {%if last.slides %}<li><a href="{{last.slides}}">Slides</a></li>{%endif%}
+    {%if last.samples %}<li><a href="{{last.samples}}">Code Samples</a></li>{%endif%}
+    {%if last.video.href %}<li><a href="{{last.video.href}}">Video</a></li>{%endif%}
+    {%for link in last.links %}<li><a href="{{ link.url }}">{{link.title}}</a></li>{%endfor%}
+    </ul>
+
+{% if page.deliveries.size > 1 %}
+<h2>Also presented at</h2>
+<ul>
+{% for cur in page.deliveries offset:1 %}
+  <li>
+
+    <h3>{%if cur.href %}<a href="{{cur.href}}">{%endif%}{{cur.conf}}{%if cur.href %}</a>{%endif%}{%if cur.title %} ({{cur.title}}){%endif%}</h3>
+    <p class="byLine">
+      <time datetime="{{ cur.date | date_to_xmlschema }}">{{cur.date | date: "%B %d, %Y"}}</time>
+      <address>{{cur.location}}</address>
+    </p>
+  </li>
+{% endfor %}
+</ul>
+{% endif %}
+</main>
 {% endcapture %}
 {% include _master.html name="talk" nav="author" bare="true" %}
