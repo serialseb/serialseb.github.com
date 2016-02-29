@@ -15,9 +15,9 @@ You can now find descriptions, slides and videos for any of the 33 talks and wor
 
 The numbers were very fun to generate. How it's done is pretty simple.
 
-Each talk is part of a custom collection, as you'd expect, and I created a little yaml language that maps the information I found useful. This was already partly done in the old site, using one page per talk, but collections made it all easier.
+Each talk is part of a custom collection, as you'd expect, and I created a little YAML language that maps the information I found useful. This was already partly done in the old site, using one page per talk, but collections made it all easier.
 
-The stats themselves, due to having poor support for maps, was calculated using arrays and nested loops, whcih reminded me of how we used to code in the 90s.
+The stats themselves, due to having poor support for maps, was calculated using arrays and nested loops, which reminded me of how we used to code in the 90s.
 
 ```liquid
 
