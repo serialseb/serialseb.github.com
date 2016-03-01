@@ -1,0 +1,20 @@
+{%
+assign all_serials = site.posts | map: "serial"                           %}{%
+assign unique_serials = ''|split:''                                       %}{%
+for serial in all_serials                                                 %}{%
+  if serial %}{%
+    unless unique_serials contains serial                                 %}{%
+      assign unique_serials = unique_serials | push: serial               %}{%
+    endunless                                                             %}{%
+  endif %}{%
+endfor                                                                    %}{%
+if unique_serials.size > 0                                                    %}
+  <h3>Recent Serials</h3>
+  <ol>{%
+for serial_name in unique_serials limit: 5   %}{%
+  assign current_serial = site.serials | where: "name", serial_name | first   %}
+    <li>
+      <a href="{{site.url}}{{current_serial.url}}">{{current_serial.title}}</a></li>{%
+endfor %}
+  </ol>{%
+endif                                                                         %}

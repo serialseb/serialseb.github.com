@@ -1,0 +1,9 @@
+{%
+assign post_limit = include.limit | default: 5                           %}{%
+assign current = site.posts | where: "url", page.url | first %}{%
+
+assign posts_without_this = site.posts %}
+<h3>Recent Posts</h3>
+<ol>{% for post in posts_without_this limit: post_limit  %}
+  <li><a href="{{site.url}}{{post.url}}">{{post.title}}</a></li>{% endfor %}
+</ol>

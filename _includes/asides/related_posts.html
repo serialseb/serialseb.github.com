@@ -1,0 +1,21 @@
+{%
+assign limit = include.limit | default: 5                                   %}{%
+assign tagged = '' | split: ''                                              %}{%
+if page.tags                                                                %}{%
+  for current_tag in page.tags                                              %}{%
+    for anypost in site.posts                                               %}{%
+      if anypost.tags contains current_tag                                  %}{%
+        unless tagged contains anypost or page.url == anypost.url           %}{%
+          assign tagged = tagged | push: anypost                            %}{%
+        endunless                                                           %}{%
+      endif                                                                 %}{%
+    endfor                                                                  %}{%
+  endfor                                                                    %}{%
+  assign tagged = tagged | sort: "date" | reverse                           %}{%
+endif                                                                       %}{%
+if tagged.size > 0                                                            %}
+<h3>Related Posts</h3>
+<ol>{% for post in tagged limit: limit %}
+  <li><a href="{{site.url}}{{post.url}}">{{post.title}}</a></li>{% endfor %}
+</ol>{%
+endif                                                                         %}
