@@ -5,6 +5,7 @@ title: Rebuilding SerialSeb.com – Talks
 serial: rebuilding-serialseb-com
 tags: [jekyll, liquid, conferences, user-groups]
 ---
+
 I've been recovering from man-flu, and today is the first day where my brain has cleared enough to start coding again.
 
 As I couldn't focus on doing development, and I was bored in bed and running out of Netflix stuff to watch, I finally revamped the [talks section](/speaker/) of this site.
