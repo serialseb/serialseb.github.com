@@ -3,6 +3,7 @@ title: VeST Redux – Testing strategy for aggregates in DDD
 comments: true
 serial: vest-redux
 date: 2016-03-01 17:57:00 +0000
+tags: [cqrs, ddd, vest]
 ---
 A main part of VeST is the belief that, while unit testing at the class level can be useful, testing at the scenario level provides the same benefits with less cost of maintenance. How does that apply to root aggregates and CQRS?
 
@@ -20,7 +21,7 @@ A testing strategy was needed, to put the weeds under control and manage to make
 
 Our aggregates were classes, with public methods on them, generating events which projected current state in internal private fields.
 
-Commands were responsible for de-duping, ensuring idemptotency, and calling those methods.
+Commands were responsible for de-duping, ensuring idempotency, and calling those methods.
 
 Event streams collected the various results of the method calls triggered by the commands.
 
@@ -39,4 +40,3 @@ Now how do we assert? Well, you cannot break encapsulation, so what do you do? W
 So we run entity methods as givens, commands as when's, and we test projections as then's. If you can't test your assertions through projections, then there is nothing to test.
 
 That said, as event streams evolve over time, especially in poorly designed systems, things change and different rules apply. I shall cover this in a future post.
-

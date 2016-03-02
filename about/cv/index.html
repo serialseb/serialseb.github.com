@@ -121,7 +121,7 @@ redirect_from: "/cv/"
 
 <section class="projects">
 <h2>Projects</h2>
-<input type="checkbox" class="timeline toggle" id="enableTimeline" checked>
+<input type="checkbox" class="timeline toggle" id="enableTimeline">
 <label for="enableTimeline"><span class="icon fa-toggle-on checked">Timeline</span><span class="icon fa-toggle-off">Timeline</span></label>
 
 <div class="timeline">
@@ -153,7 +153,8 @@ redirect_from: "/cv/"
 {%   assign length = length|append: "1 month"                   %}
 {% endif                                                        %}
   <div class="job{%if project.highlight%} highlight{%endif%}">
-    <time>{{from | date: "%b %y"}} – {{length}}</time>
+    <time>{{from | date: "%b %Y"}}</time><br>
+     <time>{{length}}</time>
 
 {% if site.data.clients[client]                                 %}
 {%   if site.data.clients[client].image                         %}
