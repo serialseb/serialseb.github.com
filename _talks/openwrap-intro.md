@@ -16,6 +16,9 @@ deliveries:
         embedded: https://player.vimeo.com/video/14570246
         width: 500
         height: 375
+    - conf: Workshop
+      location: Lier, Belgium
+      date: 2011-12-10
     - conf: NDC Oslo 2011
       title: Package Management deep-dive with OpenWrap
       location: Oslo, Norway

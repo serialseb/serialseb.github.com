@@ -1,5 +1,6 @@
 ---
 title: WPF Tips n‘ Tricks
+active: false
 deliveries:
  - conf: DDD7
    location: Reading, United Kingdom

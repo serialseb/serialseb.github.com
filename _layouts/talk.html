@@ -1,16 +1,22 @@
 {% capture body %}{%
-assign last = page.deliveries | first %}
+for event in page.deliveries %}{%
+  if event.video.embedded  %}{%
+    assign last = event  %}{%
+    break %}{%
+  endif  %}{%
+endfor %}
 <main>
     <h1>{{ page.title }}</h1>
+    {% if last %}
+    <h2>{% if last.href %}<a href="{{last.href}}">{%endif%}{{last.conf}}{%if last.href%}</a>{%endif%}</h2>
     <p class="byLine">
       {%if last.date %}<time datetime="{{ last.date | date_to_xmlschema }}" class="icon fa-microphone">{{ last.date | date: "%B %d, %Y" }}</time>{%endif%}
       {% for current_tag in page.tags %}{% include _tag.html tag=current_tag %}{%endfor%}
     </p>
-    <h2>{% if last.href %}<a href="{{last.href}}">{%endif%}{{last.conf}}{%if last.href%}</a>{%endif%}</h2>
     {% if last.video.embedded %}
     <iframe src="{{last.video.embedded}}" width="{{last.video.width}}" height="{{last.video.height}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     {% endif %}
-
+    {% endif %}
     {% if page.summary %}
     <h2>Summary</h2>
     {{ page.summary | markdownify }}
@@ -27,13 +33,15 @@ assign last = page.deliveries | first %}
     {% endfor %}
     {% endif %}
 
+    {% if last.slides or last.samples or last.video or page.links.size > 0 %}
     <h2>Links</h2>
     <ul>
     {%if last.slides %}<li><a href="{{last.slides}}">Slides</a></li>{%endif%}
     {%if last.samples %}<li><a href="{{last.samples}}">Code Samples</a></li>{%endif%}
     {%if last.video.href %}<li><a href="{{last.video.href}}">Video</a></li>{%endif%}
-    {%for link in last.links %}<li><a href="{{ link.url }}">{{link.title}}</a></li>{%endfor%}
+    {%for link in page.links %}<li><a href="{{ link.url }}">{{link.title}}</a></li>{%endfor%}
     </ul>
+    {%endif%}
 
 {% if page.deliveries.size > 1 %}
 <h2>Also presented at</h2>
