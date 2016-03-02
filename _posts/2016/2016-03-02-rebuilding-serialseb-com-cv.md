@@ -38,4 +38,4 @@ We then add the styling using a combination of `inline-block` displays for each 
 }
 ```
 
-If you want to check out the original, it's at 
+If you want to check out the original, it's on [GitHub](https://github.com/serialseb/serialseb.github.com/blob/master/_sass/cv.scss)
