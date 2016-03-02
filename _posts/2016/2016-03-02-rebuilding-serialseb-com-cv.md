@@ -4,7 +4,8 @@ serial: rebuilding-serialseb-com
 date: 2016-03-02
 tags: [css, html]
 comments: true
-–--
+---
+
 One of the most difficult times in the life of a contractor is having to prepare his CV, linked.in profile and all the other things that you need to do to hope getting your next interview. I've only recently had to start doing that, as I'm looking for my next contract, and realised my existing CV needed a full rebuild.
 
 ## The what
