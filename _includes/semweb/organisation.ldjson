@@ -8,9 +8,9 @@
   "brand": ["Caffeine IT","SerialSeb.com"],
   "logo": {
     "@type": "ImageObject",
-    "url": "http://serialseb.com/assets/logo512.png",
+    "url": "https://serialseb.com/assets/logo512.png",
     "width": "512 px",
     "height": "512 px"
   },
-  "founder": {"@id": "http://serialseb.com/#me"}
+  "founder": {"@id": "https://serialseb.com/#me"}
 }

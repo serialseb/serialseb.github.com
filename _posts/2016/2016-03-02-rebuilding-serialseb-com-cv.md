@@ -17,7 +17,7 @@ I decided to get my CV in YAML form, to contain all the information recruiters, 
   - One HTML page that could be viewed traditionally, or in a timeline, or printed
   - Brush off on my SASS/CSS and grids system by making it no-javascript
 
-The first iteration is [now live](http://serialseb.com/about/cv/). There is still a bunch of tweaking I want to do, and maybe clarify the text in each of the projects. Role titles are specifically omitted, as it is just easier to have that conversation over the phone, I hope. But if you have tips on how to write this stuff down without started everything with "designed, developed and deployed" that'd be great :)
+The first iteration is [now live](https://serialseb.com/about/cv/). There is still a bunch of tweaking I want to do, and maybe clarify the text in each of the projects. Role titles are specifically omitted, as it is just easier to have that conversation over the phone, I hope. But if you have tips on how to write this stuff down without started everything with "designed, developed and deployed" that'd be great :)
 
 ## CSS frenzy
 

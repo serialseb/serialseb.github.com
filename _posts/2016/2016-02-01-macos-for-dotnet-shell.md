@@ -36,7 +36,7 @@ Cherenkov is my machine name, and like all my computers is named after anything 
 
 `cd` still works, but like most modern operating systems (and technically NT too, but we never use that), things are not in the same place, because everyting starts at `/`, which is the root.
 
-Thankfully, you already know that, because when you go to a website, say, `http://serialseb.com`, it's actually `http://serialseb.com/`, so you should already be comfy with the idea of a root.
+Thankfully, you already know that, because when you go to a website, say, `https://serialseb.com`, it's actually `https://serialseb.com/`, so you should already be comfy with the idea of a root.
 
 There is no place like __home__ however, and you'll probably end up in your home directory often. This is the equivalent of `C:\Users\yourusername\`, and we can navigate to it using `cd ~`, which is equivalent to `cd ~/`, where `~` is your home directory. Makes all those websites of the 90 that were at `http://corp.example/~username` much more understandable! And thanks to @jasonimison, you can just use `cd` for the same thing.
 

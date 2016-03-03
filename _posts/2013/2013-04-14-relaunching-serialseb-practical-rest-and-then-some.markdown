@@ -27,7 +27,7 @@ Writing a book in itself is a big challenge, and the scope is very ambitious. Bu
 
 I've been giving a ReST class for a while, but I'm rewriting it so it follows the same structure as the book, and make it open to people with many technological backgrounds.
 
-First date should be in [May in London](http://serialseb.com/rest/2013/04/09/London-class-May-2013.html), and I expect [Warsaw](http://serialseb.com/rest/2013/04/12/Warsaw-class-planned.html), Vilnius and other locations to pop up this year.
+First date should be in [May in London](https://serialseb.com/rest/2013/04/09/London-class-May-2013.html), and I expect [Warsaw](https://serialseb.com/rest/2013/04/12/Warsaw-class-planned.html), Vilnius and other locations to pop up this year.
 
 If you want to see a workshop organised in your city (or your company), pop me an email.
 
@@ -46,10 +46,10 @@ Scott was nice enough to have me on his show this week, talking about Practical 
 You may remember that I asked for your contributions to help me raise money for cancer research UK. I can now announced that we raised more than 700£, and that both my objectives of non-drinking were achieved. I cannot thank you all enough for your generosity.
 
 
-# [serialseb.com](http://serialseb.com)
+# [serialseb.com](https://serialseb.com)
 
 
-It had to happen. I now have my own web site. You cannot imagine how difficult it is for me to put work and effort in talking about what I did rather than what I want to do. But you will find on there a link to [all my previous talks](http://serialseb.com/speaker/), with videos and slides (where applicable), as well as where you'll find me next, my future talks and where classes will be delivered next.
+It had to happen. I now have my own web site. You cannot imagine how difficult it is for me to put work and effort in talking about what I did rather than what I want to do. But you will find on there a link to [all my previous talks](https://serialseb.com/speaker/), with videos and slides (where applicable), as well as where you'll find me next, my future talks and where classes will be delivered next.
 
 
 # What next?

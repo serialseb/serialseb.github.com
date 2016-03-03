@@ -1,3 +1,3 @@
 ---
-redirect_to: http://serialseb.com/about/cv/
+redirect_to: https://serialseb.com/about/cv/
 ---

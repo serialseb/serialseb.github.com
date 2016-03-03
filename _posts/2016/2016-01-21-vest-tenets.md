@@ -32,4 +32,4 @@ This blog post serial will deep dive in _how to_ build a system that follows tho
 
 Thanks for all the reviewers that have spent some time giving me feedback on this entry, you know who you are.
 
-[designing-systems]:<http://serialseb.com/blog/2013/07/11/unit-testing-is-out-vertical-slice-testing-is-in/>
+[designing-systems]:<https://serialseb.com/blog/2013/07/11/unit-testing-is-out-vertical-slice-testing-is-in/>

@@ -26,39 +26,14 @@ gems:
 whitelist:
   - jekyll-redirect-from
 
-rest_kickstarter_url: http://www.kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems
-toplinks:
-    - url: http://www.kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems
-      title: Buy "Practical ReST"
-    - url: http://serialseb.com
-      title: SerialSeb
-    - url: http://openrasta.org
-      title: OpenRasta
-    - url: http://openwrap.org
-      title: OpenWrap
-leftlinks:
-    - url: /
-      title: Home
-    - url: http://codebetter.com/sebastienlambla/
-      title: Blog
-    - url: /bio/index.html
-      title: Bio
-    - url: /rest/
-      title: Practical ReST
-    - url: /speaker/
-      title: Speaker
-    - url: /media/
-      title: Media pack
-    - url: /testimonials.html
-      title: Testimonials
 author:
   name: Sebastien Lambla
   email: seb@serialseb.com
-  about: http://serialseb.com/about
+  about: https://serialseb.com/about
 # Site owner
 owner:
-  id: http://serialseb.com/#me
-  url: http://serialseb.com/about/
+  id: https://serialseb.com/#me
+  url: https://serialseb.com/about/
   name: Sebastien Lambla
   avatar: bio-seb.jpg
   bio: "Passionately distributed systems, continuously improving."
