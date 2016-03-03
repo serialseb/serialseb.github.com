@@ -6,7 +6,7 @@ lsi: false
 highlighter: rouge
 locale: en_GB
 lang: en-gb
-url: http://serialseb.com
+url: https://serialseb.com
 timezone: Europe/London
 kramdown:
    syntax_highlighter: rouge
