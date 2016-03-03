@@ -15,7 +15,7 @@ if page.tags                                                                %}{%
 endif                                                                       %}{%
 if tagged.size > 0                                                            %}
 <h3>Related Posts</h3>
-<ol>{% for post in tagged limit: limit %}
+<ol id="related_posts">{% for post in tagged limit: limit %}
   <li><a href="{{site.url}}{{post.url}}">{{post.title}}</a></li>{% endfor %}
 </ol>{%
 endif                                                                         %}
