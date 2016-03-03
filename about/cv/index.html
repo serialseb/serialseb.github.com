@@ -1,6 +1,5 @@
 ---
 layout: base
-redirect_from: "/cv/"
 ---
 <main class="cv">
   <header>
@@ -26,48 +25,74 @@ redirect_from: "/cv/"
 
 
 <section class="technologies">
-  <h2>Technologies</h2>
-{% assign uniq = "" | split: ""                                 %}
-{% assign all = "" | split: ""                                  %}
-{% for contract in site.data.cv.contracts                       %}
-{%   for proj in contract.projects                              %}
-{%     for tech in proj.tech                                    %}
-{%       assign all = all | push: tech                          %}
-{%       unless uniq contains tech                              %}
-{%         assign uniq = uniq | push: tech                      %}
-{%       endunless                                              %}
-{%     endfor                                                   %}
-{%   endfor                                                     %}
-{% endfor                                                       %}
-
-<ul class="tagcloud">
-{% for tag in uniq                                              %}
-{%   assign count = 0                                           %}
-{%   for any in all                                             %}
-{%     if any == tag                                            %}
-{%       assign count = count | plus: 1                         %}
-{%     endif                                                    %}
-{%   endfor                                                     %}
-{%   if count > 1                                               %}
-  <li><a rel="tag" data-count="{{count}}">{{tag}}</a></li>
+  <h2>Technologies</h2>{%
+assign uniq = "" | split: ""                                                %}{%
+assign uniq_count = ''|split:''%}{%
+assign uniq_days = ''|split:''%}{%
+assign all = "" | split: ""                                  %}{%
+for contract in site.data.cv.contracts                       %}{%
+  for proj in contract.projects                              %}{%
+    for tech in proj.tech                                    %}{%
+      assign all = all | push: tech                          %}{%
+      unless uniq contains tech                              %}{%
+        assign uniq = uniq | push: tech                      %}{%
+      endunless                                              %}{%
+    endfor                                                   %}{%
+  endfor                                                     %}{%
+endfor                                                       %}{%
+for tag in uniq                                              %}{%
+  assign count = 0                                           %}{%
+  for any in all                                             %}{%
+    if any == tag                                            %}{%
+      assign count = count | plus: 1                         %}{%
+    endif                                                    %}{%
+  endfor                                                     %}{%
+  assign begin = '' | date: '%s' %}{%
+  assign end = '' | date: '%s' %}{%
+  for contract in site.data.cv.contracts %}{%
+    for proj in contract.projects %}{%
+      if proj.tech contains tag %}{%
+        assign from_ts = proj.from | date: '%s' %}{%
+        assign to_ts = proj.to | date: '%s' %}{%
+        if begin == '' or from_ts < begin %}{%
+          assign begin = from_ts %}{%
+        endif %}{%
+        if to == '' or to_ts > end %}{%
+          assign end = to_ts %}{%
+        endif %}{%
+      endif %}{%
+    endfor %}{%
+  endfor %}{%
+  assign tagLength = end | minus: begin %}{%
+  assign days = tagLength | divided_by:3600 | divided_by: 24 %}{%
+  assign uniq_count = uniq_count | push: count               %}{%
+  assign uniq_days = uniq_days | push: days %}{%
+endfor                                                       %}
+<ul class="tagcloud">{%
+for tag in uniq %}{%
+  if uniq_count[forloop.index0] > 1       %}{%
+    assign years = uniq_days[forloop.index0] | divided_by: 365 %}{%
+    if years < 1 %}{%
+      assign years = "< 1 year" %}{%
+    elsif years == 1 %}{%
+      assign years = years | append: " year" %}{%
+    else %}{%
+      assign years = years | append: " years" %}{%
+    endif %}{%
+    assign label = tag | append: " (" | append: years | append: ")" %}
+  <li>{%include _tag.html tag=tag label=label %}</li>
 {%   endif                                                      %}
 {% endfor                                                       %}
 </ul>
   <details>
-    <summary>And also...</summary>
-    <ul class="flat">
-  {% for tag in uniq                                             %}
-  {%   assign count = 0                                          %}
-  {%   for any in all                                            %}
-  {%     if any == tag                                           %}
-  {%       assign count = count | plus: 1                        %}
-  {%     endif                                                   %}
-  {%   endfor                                                    %}
-  {%   if count == 1                                             %}
-      <li><a rel="tag" data-count="{{count}}">{{tag}}</a></li>
-  {%   endif                                                     %}
-  {% endfor                                                      %}
-</ul>
+    <summary>More...</summary>
+    <ul class="flat">{%
+for tag in uniq                                             %}{%
+  if uniq_count[forloop.index0] == 1                        %}
+      <li><a rel="tag" data-count="{{count}}">{{tag}}</a></li>{%
+  endif                                                     %}{%
+endfor                                                      %}
+    </ul>
   </details>
 </section>
 
@@ -120,13 +145,14 @@ redirect_from: "/cv/"
 
 
 <section class="projects">
-<h2>Projects</h2>
+<h2>Client Projects</h2>
 <input type="checkbox" class="timeline toggle" id="enableTimeline">
 <label for="enableTimeline"><span class="icon fa-toggle-on checked">Timeline</span><span class="icon fa-toggle-off">Timeline</span></label>
 
 <div class="timeline">
   <input type="checkbox" class="highlights toggle" id="enableHighlights" checked>
   <label for="enableHighlights"><span class="icon fa-toggle-off checked">Show all</span><span class="icon fa-toggle-on">Show all</span></label>
+  <p class="short notification">Only some projects are currently displayed. To see the whole list, use the "Show all" button above.</p>
 {% for contract in site.data.cv.contracts                       %}
 {% for project in contract.projects                             %}
 {% if project.client                                            %}

@@ -1,7 +1,18 @@
 {%
-assign tag_page = site.tag_pages | where: 'id', include.tag | first         %}{%
+assign tag_id = include.tag | downcase %}{%
+assign tag_page = '' %}{%
+for current_tag_page in site.tag_pages %}{%
+  assign tag_page_id = current_tag_page.id | downcase %}{%
+  if tag_page_id == tag_id %}{%
+    assign tag_page = current_tag_page %}{%
+  endif %}{%
+endfor %}{%
 assign href = ""                                                            %}{%
-if tag_page                                                                 %}{%
+if tag_page != ''                                                        %}{%
   assign href = tag_page.url | prepend: 'href="' | append: '"'        %}{%
+endif %}{%
+assign text = include.tag %}{%
+if include.label %}{%
+  assign text = label %}{%
 endif
-%}<a rel="tag" {{href}}>{{include.tag}}</a>
+%}<a rel="tag" {{href}}>{{text}}</a>

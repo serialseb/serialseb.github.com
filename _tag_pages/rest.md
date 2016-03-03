@@ -1,5 +1,5 @@
 ---
 title: Representational State Transfer
-id: rest
+id: ReST
 ---
 ReST
