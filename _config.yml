@@ -6,7 +6,7 @@ lsi: false
 highlighter: rouge
 locale: en_GB
 lang: en-gb
-url: http://serialseb.com/
+url: http://serialseb.com
 timezone: Europe/London
 kramdown:
    syntax_highlighter: rouge
@@ -25,7 +25,7 @@ gems:
   - jekyll-gist
 whitelist:
   - jekyll-redirect-from
-  
+
 rest_kickstarter_url: http://www.kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems
 toplinks:
     - url: http://www.kickstarter.com/projects/serialseb/practical-rest-building-hypermedia-systems
