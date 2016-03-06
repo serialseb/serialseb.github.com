@@ -1,10 +1,11 @@
 ---
 
 comments: true
-date: 2011-09-04 23:52:06+00:00
+date: 2011-09-04 23:52:06 +0100
 layout: post
 slug: summer-holidays-are-over-time-for-a-new-roadmap
 title: Summer holidays are over, time for a new roadmap
+redirect_from: "/blog/2011/09/05/summer-holidays-are-over-time-for-a-new-roadmap/"
 wordpress_id: 66
 tags: [openrasta, openwrap]
 ---
