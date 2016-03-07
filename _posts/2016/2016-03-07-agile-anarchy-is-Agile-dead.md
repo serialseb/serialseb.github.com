@@ -1,5 +1,5 @@
 ---
-title: Agile Anarchy – is Agile dead?
+title: Agile Anarchy – Is Agile dead?
 date: 2016-03-07 13:07:00 +0000
 serial: agile-anarchy
 tags: [agile]
