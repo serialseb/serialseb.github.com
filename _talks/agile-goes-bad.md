@@ -44,12 +44,10 @@ deliveries:
       location: Nuneaton, United Kingdom
       date: 2009-07-14
       href: http://www.developerfusion.com/event/42400/when-agile-goes-bad-how-to-stay-calm-and-move-forward-with-sebastien-lambla/
-    - conf: Agile Ireland
-      location: Dublin, Ireland
-      date: 2009-06-25
     - conf: IT@Cork Agile Breakfast
       location: Cork, Ireland
-      date: 2009-06-24
+      date: 2009-06-25
+      href: http://www.itcork.ie/event/agile-breakfast-when-agile-goes-bad-how-to-stay-calm-and-move-forward/
     - conf: VBUG Bracknell
       location: Bracknell, United Kingdom
       date: 2009-06-23

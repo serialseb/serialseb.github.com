@@ -4,7 +4,7 @@ assign tagged = '' | split: ''                                              %}{%
 if page.tags                                                                %}{%
   for current_tag in page.tags                                              %}{%
     for anypost in site.posts                                               %}{%
-      if anypost.tags contains current_tag                                  %}{%
+      if anypost.tags contains current_tag and anypost.serial != page.serial%}{%
         unless tagged contains anypost or page.url == anypost.url           %}{%
           assign tagged = tagged | push: anypost                            %}{%
         endunless                                                           %}{%

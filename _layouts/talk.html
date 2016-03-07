@@ -1,21 +1,25 @@
 {% capture body %}{%
 for event in page.deliveries %}{%
   if event.video.embedded  %}{%
-    assign last = event  %}{%
+    assign with_video = event  %}{%
     break %}{%
   endif  %}{%
-endfor %}
+endfor %}{%
+assign last = page.deliveries.first %}{%
+assign quotes = ''|split:'' %}{%
+for event in page.deliveries %}{%
+  for quote in event.quotes %}{%
+    assign quotes = quotes | push: quote %}{%
+  endfor  %}{%
+endfor  %}
 <main>
     <h1>{{ page.title }}</h1>
-    {% if last %}
-    <h2>{% if last.href %}<a href="{{last.href}}">{%endif%}{{last.conf}}{%if last.href%}</a>{%endif%}</h2>
     <p class="byLine">
       {%if last.date %}<time datetime="{{ last.date | date_to_xmlschema }}" class="icon fa-microphone">{{ last.date | date: "%B %d, %Y" }}</time>{%endif%}
       {% for current_tag in page.tags %}{% include _tag.html tag=current_tag %}{%endfor%}
     </p>
-    {% if last.video.embedded %}
-    <iframe src="{{last.video.embedded}}" width="{{last.video.width}}" height="{{last.video.height}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    {% endif %}
+    {% if with_video %}
+    <iframe src="{{with_video.video.embedded}}" width="{{with_video.video.width}}" height="{{with_video.video.height}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     {% endif %}
     {% if page.summary %}
     <h2>Summary</h2>
@@ -26,12 +30,13 @@ endfor %}
     {{ content }}
 
 
-    {% if last.quotes %}
+    {% if quotes.size > 0 %}
     <h2>Quotes</h2>
-    {% for quote in last.quotes %}
+    {% for quote in quotes %}
     <q>{{ quote }}</q>
     {% endfor %}
     {% endif %}
+
 
     {% if last.slides or last.samples or last.video or page.links.size > 0 %}
     <h2>Links</h2>
@@ -44,9 +49,9 @@ endfor %}
     {%endif%}
 
 {% if page.deliveries.size > 1 %}
-<h2>Also presented at</h2>
+<h2>Where</h2>
 <ul>
-{% for cur in page.deliveries offset:1 %}
+{% for cur in page.deliveries %}
   <li>
 
     <h3>{%if cur.href %}<a href="{{cur.href}}">{%endif%}{{cur.conf}}{%if cur.href %}</a>{%endif%}{%if cur.title %} ({{cur.title}}){%endif%}</h3>
