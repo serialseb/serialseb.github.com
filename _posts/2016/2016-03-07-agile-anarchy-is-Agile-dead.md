@@ -5,6 +5,7 @@ serial: agile-anarchy
 tags: [agile]
 comments: true
 ---
+
 With a previous client, we started out in a traditional SCRUM environment. We had a wall with columns, estimations, there was some SCRUMs of SCRUMs, we had bimonthly retrospectives, we were pairing, we had all the traditional checkboxes of Agile checked. What could possibly go wrong?
 
 ## Pair programming
