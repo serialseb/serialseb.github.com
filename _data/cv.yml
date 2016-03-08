@@ -1,10 +1,11 @@
 summary: |
   Keen open-source advocate and contributor, I'm also a ReST proponent, long-time agilist, distributed systems aficionado, and involved in all things .net.
+
   Code has been my passion for 20 years, since the 90s and the glorious days of Netscape 1.1, when I wrote my first website.
 
-  I've worked with companies large and small, and delivered from large-scale public-facing websites all the way to boutique applications and financial systems.
+  I've worked with companies large and small, and delivered large-scale public-facing systems, boutique applications and financial systems.
 
-  Learning and sharing is fundamental to what I do, so I give lots of talks and attend many conferences. As an added bonus, _je parle également francais_.
+  Learning and sharing is fundamental to what I do, so I've given many talks and attend conferences. As an added bonus, _je parle également francais_ (I'm also fluent in French).
 
 contracts:
   - client: sitemorse
@@ -14,7 +15,7 @@ contracts:
         to: 2015-12-15
         tech: [asp.net, asp.net-web-api, umbraco, angular]
         description: >
-          An Umbraco plugin to capture edited content before publication, and validate it for conformance using Sitemorse's sytems, including front-end UI code and back-end implementation services.
+          Development of an Umbraco plugin to capture edited content before publication, and validate it for conformance using Sitemorse's sytems, including front-end UI code and back-end implementation services.
   - client: comparethemarket
     projects:
       - title: Data Aggregation Platform
@@ -22,13 +23,20 @@ contracts:
         from: 2014-05-12
         to: 2015-07-30
         description: |
-         A new ReSTful microservices platform, gathering information from customers and collecting data in response from hundreds of providers.
-        tech: [ mongodb, rabbitmq, csharp, .net, asp.net-mvc, asp.net-web-api, javascript, angular, terraform, packerio, octopus-deploy, aws, ReST, json-ld, microservices, xml, xsl-t, cqrs, autofac, nunit, cloud, tdd, mobprogramming, pairprogramming, agile, kanban, vest, bdd ]
+           New ReSTful microservices platform, gathering information from customers and aggregating data from hundreds of providers.
+
+           - Architected the platform
+           - Designed and developed, alongside the team, the platform, the services and the ops.
+           - Replaced and enhanced agile methodologies with the team
+        tech: [ mongodb, rabbitmq, csharp, .net, asp.net-mvc, asp.net-web-api, javascript, devops, angular, terraform, packerio, octopus-deploy, aws, ReST, json-ld, microservices, xml, xsl-t, cqrs, autofac, nunit, cloud, tdd, mobprogramming, pairprogramming, agile, kanban, vest, bdd ]
       - title: Account and Profile Management
         from: 2013-11-04
         to: 2014-10-01
+        highlight: true
         description: |
-          Responsible for implementing quote sharing between members of a family, the first implementation of secure login capability for users, and revamp of best-practices and check-lists for improving the quality and frequency of releases of the myCTM platform.
+          - Leading of the team in designing and implementing new features, including quote sharing between members of a family
+          - designed and developed the first implementation of secure login capability for customers
+          - revamped development practices through check-lists for improving the quality and frequency of releases of the product.
         tech: [ csharp, .net, mongodb, rabbitmq, neventstore, cqrs, event-sourcing, autofac, nunit, pairprogramming, tdd, vest, bdd, scrum ]
   - client: mckinsey
     projects:
@@ -38,42 +46,45 @@ contracts:
         highlight: true
         tech: [mssql, nodejs, expressjs, mocha, cakes, handlebars, html5]
         description: |
-          Planning and development, in collaboration with on-site developers, of a next-generation platform to migrate from Microsoft’s Silverlight to HTML5 and nodejs.
+          Design and development, in collaboration with on-site developers, of a next-generation platform to migrate from Microsoft’s Silverlight to HTML5 and nodejs.
       - title: Secure Presentations for iPad
         from: 2012-03-03
         to: 2012-11-16
         tech: [mobile, javascript, html5, iOS, crypto]
         description: |
-          Advisory and development work on the development of mobile applications for sensitive presentations used by consultants, integrating with the existing platform.
+          Avisor on the technical architecture and development  of a mobile applications for very sensitive data and presentations used by consultants, integrating with the existing platform solutions.
       - title: Big-data and Maps
         from: 2011-10-17
         to: 2012-03-03
         tech: [mssql, csharp, .net, asp.net-mvc, asp.net-web-api, geodata, silverlight]
         description: |
-          Responsible for the representation of large statistical datasets for decision-makers in the banking industry, using maps and rich interactive user experiences.
+          Design and development of components for displaying large statistical datasets for decision-makers in the banking industry, using maps and rich interactive user experiences.
   - client: creditsuisse
     projects:
       - title: Book Management
         from: 2011-06-13
         to: 2011-09-25
-        tech: [ReST, OpenRasta, OpenSearch, http-caching, winforms, grids, csharp, asp.net, tdd]
+        tech: [ReST, OpenRasta, OpenSearch, http-caching, winforms, grids, csharp, asp.net, tdd, xhtml]
         description: |
-          Allowing for the editing and access to book information across heterogeneous systems, by exposing existing data as ReSTful services using XHTML, coupled with a front-end part developed as a reusable winforms control.
+          Trading portofolio information sharing across heterogeneous systems
+
+           - Architecture and design of the system
+           - Lead a team of developers, implementing ReSTful services and front-end winforms components.
       - title: Front-office WPF Development Platform
         from: 2010-04-19
         to: 2011-03-15
         highlight: true
-        tech: [wpf,csharp, .net, wcf, web-services, ReST, OpenRasta, OpenWrap, package-management, mef]
+        tech: [wpf, csharp, .net, wcf, web-services, ReST, OpenRasta, OpenWrap, package-management, mef]
         description: |
-          In charge of the ADAPT project, a custom development envrironment for .net developers building WPF line-of-business applications. The system was based on a custom package-management system, a deployment infrastructure, APIs for UI development and a local message-passing queue, and migration of WCF services to a new ReST architecture.
+          As a lead on the ADAPT project, a custom development envrironment for .net developers building WPF line-of-business applications, I desinged a new architecture for both a rich client, based on a custom package-management system, and on the server, including a deployment infrastructure, APIs for UI development and a local message-passing queue, and migration of WCF services to a new ReST architecture.
   - client: reactive
     projects:
       - title: Betting App
         from: 2009-08-01
         to: 2009-11-01
-        tech: [betfair, betwin, xml, asp.net-mvc, OpenRasta, OAuth, OpenID, csharp,.net]
+        tech: [betfair, betwin, xml, asp.net-mvc, OpenRasta, OAuth, csharp,.net]
         description: |
-          MVC front-end for users wanting to compare odds across various betting platforms, with social logging using OAuth, twitter and facebook. Back-end aggregation platform to collect and index odds against events.
+          I design and developed an MVC front-end for users wanting to compare odds across various betting platforms, with social logging using OAuth, twitter and facebook, as well as the back-end aggregation platform to collect and index odds against events.
   - client: fnz
     projects:
       - title: ReST for Insurance
@@ -83,7 +94,7 @@ contracts:
         highlight: true
         tech: [wcf, wcf-rest, ReST]
         description: |
-          In charge of the development of a custom framework for exposing rich ReST services using WCF.
+          As part of a team, I designed and developed a custom framework for exposing rich ReST services using WCF.
       - title: ISA Financial website
         client: jpmasset
         from: 2009-01-16
@@ -91,15 +102,15 @@ contracts:
         highlight: true
         tech: [vb.net, csharp, .net, castle-project, castle-windsor, asp.net-mvc, claims]
         description: |
-          Responsible for the design and development of an ISA management system, based on claim-based authorization, a custom LINQ provider on top of existing legacy systems, for a high-traffic public site.
+          As a design lead, I was responsible for the design and development of an ISA management system, based on claim-based authorization, a custom LINQ provider on top of existing legacy systems, for a high-traffic public site.
   - client: wildbunch
     projects:
       - title: b2b website
         from: 2008-12-01
         to: 2015-06-22
-        tech: [.net, csharp, ReST, OpenRasta, aws, castle-windsor ]
+        tech: [.net, csharp, ReST, OpenRasta, aws, castle-windsor,jQuery ]
         description: |
-          In charge of the design and development of a new website for a DVD distributor company, with associated front-end, back-end and ops.
+          The client wanted a new website to publish all the movies they were distributing across Europe. I architected, designed and developed the front-end and back-end using OpenRasta, restful servies, and developed an ops strategy for the maintenance of the site.
   - client: signaturetech
     projects:
       - title: Gaming Platform
@@ -123,21 +134,21 @@ contracts:
         highlight: true
         tech: [wpf, rfid, ms-sync, embedded, csharp, .net]
         description: |
-          Development of a multi-tenancy platform for many Nike applications for on-site sport event management, including user registration and account management, RFID identification for athletes, and leaderboard display, including automation of connectivity on-device.
+          Design and development of a multi-tenancy platform for many Nike applications for on-site sport event management, including user registration and account management, RFID identification for athletes, and leaderboard display, including automation of connectivity on-device.
       - title: Nike 1-1
         client: nike
         from: 2008-01-28
         to: 2008-03-28
         tech: [powershell, ffmpeg, csharp, .net, csharp, OpenRasta, asp.net,ReST]
         description: |
-          Using a first-of-it's-kind ReST-based toolkit, resposible for the development of a social sharing platform, including a video uploading and encoding system.
+          Using a first-of-it's-kind ReST-based toolkit, I was resposible for the development of a social sharing platform, including a video uploading and encoding system.
       - title: ActiveKids 08
         client: sainsburys
         from: 2007-12-03
         to: 2008-01-29
         tech: [ajax, asp.net, ms-cms, .net, csharp]
         description: |
-          Development of a new AJAX-enabled registration system, bridging the existing Sainsbury's investment in Microsoft CMS and the newer WebForms UpdatePanel AJAX technology.
+          Development of a new AJAX-enabled registration system, bridging the existing Sainsbury's investment in Microsoft CMS with the newer WebForms UpdatePanel AJAX technology.
   - client: bbcworldwide
     projects:
       - title: Showcase
@@ -175,8 +186,22 @@ contracts:
         description: |
           Development of a Policy Renewal Engine to renew policies across business units, introducing acceptance-driven FIT tests for the first time in the business.
       - title: Data Maintenance
-        tech: [model-view-presenter, asp.net, .net, csharp, nant, fit]
+        tech: [model-view-presenter, asp.net, .net, csharp, nant, fit, wcf]
         from: 2006-05-01
         to: 2006-06-01
         description: |
           Development of part of the data administration website for reference data, used across various business units.
+  - client: morganstanley
+    dispaly: false
+    projects:
+      - title: irrelevant
+        tech: []
+        from: 2004-08-09
+        to: 2005-05-03
+  - client: cubiks
+    display: false
+    projects:
+      - title: irrelevant
+        from: 2003-05-15
+        to: 2005-05-03
+        tech: [csharp, asp.net, mssql, model-view-presenter]
