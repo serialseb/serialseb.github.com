@@ -44,7 +44,7 @@ contracts:
         from: 2012-03-03
         to: 2012-11-16
         highlight: true
-        tech: [mssql, nodejs, expressjs, mocha, cakes, handlebars, html5]
+        tech: [mssql, nodejs, expressjs, mocha, cakes, handlebars, html5, silverlight]
         description: |
           Design and development, in collaboration with on-site developers, of a next-generation platform to migrate from Microsoft’s Silverlight to HTML5 and nodejs.
       - title: Secure Presentations for iPad
@@ -82,7 +82,7 @@ contracts:
       - title: Betting App
         from: 2009-08-01
         to: 2009-11-01
-        tech: [betfair, betwin, xml, asp.net-mvc, OpenRasta, OAuth, csharp,.net]
+        tech: [betfair, betwin, xml, asp.net-mvc, OpenRasta, OAuth, csharp,.net, msbuild]
         description: |
           I design and developed an MVC front-end for users wanting to compare odds across various betting platforms, with social logging using OAuth, twitter and facebook, as well as the back-end aggregation platform to collect and index odds against events.
   - client: fnz
@@ -108,7 +108,7 @@ contracts:
       - title: b2b website
         from: 2008-12-01
         to: 2015-06-22
-        tech: [.net, csharp, ReST, OpenRasta, aws, castle-windsor,jQuery ]
+        tech: [.net, csharp, ReST, OpenRasta, aws, castle-windsor,jQuery, msbuild]
         description: |
           The client wanted a new website to publish all the movies they were distributing across Europe. I architected, designed and developed the front-end and back-end using OpenRasta, restful servies, and developed an ops strategy for the maintenance of the site.
   - client: signaturetech
@@ -116,13 +116,13 @@ contracts:
       - title: Gaming Platform
         from: 2008-09-30
         to: 2008-10-10
-        tech: [msmq, nservicebus, msmq, castle-windsor, nhibernate, fluent-nhibernate, nServicebus, silverlight, OpenRasta, ajax]
+        tech: [msmq, nservicebus, msmq, castle-windsor, nhibernate, fluent-nhibernate, nServicebus, silverlight, OpenRasta, ajax, msbuild]
         description: |
           Building of a platform for high scalability high-performance online interactive gaming website, using nServiceBus.
       - title: Payment Processing
         from: 2008-07-23
         to: 2008-09-30
-        tech: [msmq, nhibernate, castle-windsor, nservicebus, fit, fitnesse]
+        tech: [msmq, nhibernate, castle-windsor, nservicebus, fit, fitnesse, msbuild]
         description: |
           Payment engine system and fraud-prevention mechanism for large scale online gaming for U.S. clients.
   - client: akqa
@@ -132,21 +132,21 @@ contracts:
         from: 2008-03-28
         to: 2008-07-14
         highlight: true
-        tech: [wpf, rfid, ms-sync, embedded, csharp, .net]
+        tech: [wpf, rfid, ms-sync, embedded, csharp, .net, msbuild]
         description: |
           Design and development of a multi-tenancy platform for many Nike applications for on-site sport event management, including user registration and account management, RFID identification for athletes, and leaderboard display, including automation of connectivity on-device.
       - title: Nike 1-1
         client: nike
         from: 2008-01-28
         to: 2008-03-28
-        tech: [powershell, ffmpeg, csharp, .net, csharp, OpenRasta, asp.net,ReST]
+        tech: [powershell, ffmpeg, csharp, .net, csharp, OpenRasta, asp.net, ReST, msbuild]
         description: |
           Using a first-of-it's-kind ReST-based toolkit, I was resposible for the development of a social sharing platform, including a video uploading and encoding system.
       - title: ActiveKids 08
         client: sainsburys
         from: 2007-12-03
         to: 2008-01-29
-        tech: [ajax, asp.net, ms-cms, .net, csharp]
+        tech: [ajax, asp.net, ms-cms, .net, csharp, msbuid]
         description: |
           Development of a new AJAX-enabled registration system, bridging the existing Sainsbury's investment in Microsoft CMS with the newer WebForms UpdatePanel AJAX technology.
   - client: bbcworldwide
@@ -155,7 +155,7 @@ contracts:
         from: 2007-07-30
         to: 2007-11-22
         highlight: true
-        tech: [wpf, nhibernate, directshow, asp.net, model-view-presenter]
+        tech: [wpf, nhibernate, directshow, asp.net, model-view-presenter, nant]
         description: |
           Maintenance and hardening of a rich media application for the displaying of HD video to propsective consumers, focusing on increasing the quality of the codebase to a maintainable level, and the scalability needs of several hundred workstations streaming video silmutanuously.
   - client: akqa
@@ -164,7 +164,7 @@ contracts:
         client: nike
         from: 2007-05-29
         to: 2007-07-24
-        tech: [asp.net, model-view-presenter, tdd, poweshell, .net, csharp, ajax, winforms, powershell]
+        tech: [asp.net, model-view-presenter, tdd, poweshell, .net, csharp, ajax, winforms, powershell, msbuild]
         description: |
           Development of a core framework and associated websites for user profile management, pictures upload and running statistics, as well as reusable quick-turnaround templates for future web development.
   - client: netstore
@@ -192,16 +192,18 @@ contracts:
         description: |
           Development of part of the data administration website for reference data, used across various business units.
   - client: morganstanley
-    dispaly: false
+    display: false
     projects:
       - title: irrelevant
-        tech: []
+        tech: [csharp]
         from: 2004-08-09
         to: 2005-05-03
+        description: none
   - client: cubiks
     display: false
     projects:
       - title: irrelevant
         from: 2003-05-15
         to: 2005-05-03
-        tech: [csharp, asp.net, mssql, model-view-presenter]
+        tech: [csharp, .net, asp.net, mssql, model-view-presenter, msmq, nant]
+        description: none

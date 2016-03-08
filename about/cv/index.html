@@ -154,13 +154,14 @@ endfor                                                      %}
   <label for="enableHighlights"><span class="icon fa-toggle-off checked">Show all</span><span class="icon fa-toggle-on">Show all</span></label>
   <p class="short notification">Only some projects are currently displayed. To see the whole list, use the "Show all" button above.</p>
 {% for contract in site.data.cv.contracts                       %}
-{% for project in contract.projects                             %}
-{% if project.client                                            %}
-{%   assign client=project.client                               %}
-{% else                                                         %}
-{%   assign client = contract.client                            %}
-{% endif                                                        %}
-{% assign from = project.from | date: '%s'                      %}
+{%   if contract.display != false                                 %}
+{%   for project in contract.projects                             %}
+{%     if project.client                                            %}
+{%       assign client=project.client                               %}
+{%     else                                                         %}
+{%       assign client = contract.client                            %}
+{%     endif                                                        %}
+{%     assign from = project.from | date: '%s'                      %}
 {% assign to = project.to | date: '%s'                          %}
 {% assign ts = to | minus: from                                 %}
 {% assign days = ts | divided_by:3600 | divided_by: 24          %}
@@ -205,6 +206,7 @@ endfor                                                      %}
     </details>
   </div>
 {% endfor                                                       %}
+{% endif %}
 {% endfor                                                       %}
 </div>
 </section>
