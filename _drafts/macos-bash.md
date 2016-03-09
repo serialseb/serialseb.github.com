@@ -16,3 +16,5 @@ I'm still absolutely terrible at this, so feel free to suggest any changes in th
 
 | To do... | bash | Powershell |
 | ---      | ---  | ---        |
+| List ports and their pid |
+| Profile.ps1 | 

@@ -1,6 +1,6 @@
 ---
 title: Agile Anarchy – Null Design
-date: 2016-03-08 21:30:00 +0000
+date: 2016-03-09 21:45:00 +0000
 serial: agile-anarchy
 tags: [agile, mobprogramming]
 comments: true
