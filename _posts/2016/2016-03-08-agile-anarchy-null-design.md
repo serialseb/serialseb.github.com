@@ -2,7 +2,7 @@
 title: Agile Anarchy – Null Design
 date: 2016-03-07 17:53:00 +0000
 serial: agile-anarchy
-tags: [agile]
+tags: [agile, vest, microservices]
 comments: true
 ---
 
@@ -24,7 +24,7 @@ So we forgot everything, and started with one user story. By the virtue of VeST 
 
 Mind you, temporary amnesia is hard to do: it's an iterative process by which each story leads to whiteboard conversations and a model being discovered. I annoyed my colleagues many times in such conversations by refusing to hear any discussion about "there is also...". Not that existing knowledge is not useful, it is. What is not is looking forward many stories ahead and altering our understanding of the required behaviour by including concepts only half of the people had an understanding of.
 
-Instead of optimising up-front design, we optimise for the capacity to change the design later, cheaply. Developing software is a journey, in which learning is the hardest part. By being voluntarily naive, we got from segregated knowledge to rebuilding a shared understanding, one story at a time. And like pyramid builders before us, we started work after choosing the sharpest and best tools for the job.
+Instead of optimising up-front design, we optimise for the capacity to change the design later, cheaply. Developing software is a journey, in which learning is the hardest part. By being voluntarily naïve, we got from segregated knowledge to rebuilding a shared understanding, one story at a time. And like pyramid builders before us, we started work after choosing the sharpest and best tools for the job.
 
 [conway-law]: <https://en.wikipedia.org/wiki/Conway%27s_law>
 [vest]: <https://serialseb.com/serials/vest-redux/>
