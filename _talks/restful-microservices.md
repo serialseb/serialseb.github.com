@@ -13,8 +13,7 @@ deliveries:
   - conf: BuildStuff'15
     date: 2015-11-18
     location: Vilnius, Lithuania
-    href: |
-      https://buildstuff15lithuania.sched.org/event/4P2E/sebastien-lambla-serialseb-the-simple-life-of-restful-microshellip
+    href: http://www.infoq.com/presentations/microservices-rest
   - conf: Bitshift
     location: Bergen, Norway
     date: 2015-10-28
