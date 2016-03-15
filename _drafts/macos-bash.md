@@ -18,3 +18,5 @@ I'm still absolutely terrible at this, so feel free to suggest any changes in th
 | ---      | ---  | ---        |
 | List ports and their pid |
 | Profile.ps1 | 
+
+alias tf='terraform'
