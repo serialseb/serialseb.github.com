@@ -1,0 +1,1 @@
+Keen open-source advocate and contributor, Sebastien is also a long-time ReST proponent, and distributed systems aficionado With a career spanning over 20 years and many platforms, he's a keen speaker and trainer, and has been known to talk a lot about technical things and unicorns.

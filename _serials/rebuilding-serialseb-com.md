@@ -1,7 +1,6 @@
 ---
 title: Rebuilding SerialSeb.com
 name: rebuilding-serialseb-com
-layout: serial
 image:
   feature: construction.jpg
   alt: A wall covered in plaster

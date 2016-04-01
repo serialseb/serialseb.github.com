@@ -1,7 +1,6 @@
 ---
 title: macOS for the .net guy
 name: macos-for-dotnet
-layout: serial
 image:
   feature: macos.jpg
   thumb: macos.thumb.jpg
