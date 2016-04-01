@@ -25,6 +25,7 @@ gems:
   - jekyll-gist
 whitelist:
   - jekyll-redirect-from
+  - jekyll-gist
 
 author:
   name: Sebastien Lambla
@@ -96,25 +97,6 @@ defaults:
     values:
       layout: talk
       active: true
-      status: active
-      comments: true
-      type: talk
-  - scope:
-      path: "planned"
-      type: talks
-    values:
-      layout: talk
-      active: true
-      status: planned
-      comments: true
-      type: talk
-  - scope:
-      path: "retired"
-      type: talks
-    values:
-      layout: talk
-      active: true
-      status: retired
       comments: true
       type: talk
 
