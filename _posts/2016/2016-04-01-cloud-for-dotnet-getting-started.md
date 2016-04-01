@@ -169,7 +169,7 @@ infrastructure, so keep it safe. To inspect the complete state
 use the `terraform show` command.
 
 State path: terraform.tfstate
-``
+```
 
 And voila, you have your first windows server, all in source control.
 
