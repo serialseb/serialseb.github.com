@@ -1,9 +1,10 @@
 ---
 title: Cloud for .net – Infrastructure in source control
+date: 2016-04-01 21:30:00 +0200
 serial: cloud-for-dotnet
-tags: [devops, terraform, packer]
 comments: true
-date: 2016-04-01 21:07:00 +0100
+published: true
+tags: [devops, terraform, packer]
 ---
 
 More and more clients are deploying their applications to the cloud. This presents many challenges for .net developers: Windows has had a poor story for remote management compared to the *nix world, AWS is less common than Azure, and the move to managing infrastructure in the cloud often comes with the extra challenge of deployment of heterogeneous environments.
@@ -91,7 +92,6 @@ Bring back your command line, and issue the plan command.
 
 ```
 $ tf plan
-
 Refreshing Terraform state prior to plan...
 
 
