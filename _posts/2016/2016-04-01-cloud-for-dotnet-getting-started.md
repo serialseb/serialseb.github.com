@@ -4,7 +4,7 @@ date: 2016-04-01 21:30:00 +0200
 serial: cloud-for-dotnet
 comments: true
 published: true
-tags: [devops, terraform, packer]
+tags: [devops, terraform, aws]
 ---
 
 More and more clients are deploying their applications to the cloud. This presents many challenges for .net developers: Windows has had a poor story for remote management compared to the *nix world, AWS is less common than Azure, and the move to managing infrastructure in the cloud often comes with the extra challenge of deployment of heterogeneous environments.
