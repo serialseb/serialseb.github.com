@@ -1,5 +1,5 @@
 ---
-title: Cloud for .net – RDP'ing into a Windows box
+title: Cloud for .net – RDP’ing into a Windows box
 date: 2016-04-05 22:32:00 +0100
 serial: cloud-for-dotnet
 comments: true
