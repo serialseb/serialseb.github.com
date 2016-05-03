@@ -1,6 +1,6 @@
 ---
 title: Ignoring files in git, but only locally
-date: 2015-05-03 11:50:00 +0200
+date: 2015-05-03 11:50:00 +0100
 comments: true
 tags: [git]
 ---
