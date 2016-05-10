@@ -2,7 +2,7 @@
 title: Passing empty arrays to resource arguments in Terraform
 date: '2016-05-10 15:04:00 +0100;
 comments: true
-tags: [terraform, devops]
+tags: [terraform, devops, aws]
 ---
 The interpolation syntax of terraform allows you to do many other things to make your modules reuseable, but one of the common problems we find is passing empty strings from variables in arrays.
 
