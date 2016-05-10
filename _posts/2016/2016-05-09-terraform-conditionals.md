@@ -1,8 +1,8 @@
 ---
 title: Creating Terraform resources conditionally
-date: 2016-05-09 18:30:00 +0100
+date: '2016-05-09 18:30:00 +0100'
 comments: true
-tags: [terraform, devops]
+tags: [terraform, devops, aws]
 ---
 Terraform has modules, and they are both insanely great and absolutely infuriating at times.
 

@@ -1,6 +1,6 @@
 ---
 title: Passing empty arrays to resource arguments in Terraform
-date: '2016-05-10 15:04:00 +0100;
+date: '2016-05-10 15:04:00 +0100'
 comments: true
 tags: [terraform, devops, aws]
 ---
