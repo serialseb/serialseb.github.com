@@ -1,6 +1,6 @@
 ---
 title: Working around the lack of count in Terraform modules
-date: '2016-05-11 16:50:00 +0100'
+date: 2016-05-11 15:50:00 +0000
 comments: true
 tags: [terraform, devops, aws]
 ---
