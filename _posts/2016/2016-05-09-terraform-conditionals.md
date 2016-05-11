@@ -1,6 +1,6 @@
 ---
 title: Creating Terraform resources conditionally
-date: '2016-05-09 18:30:00 +0100'
+date: '2016-05-09 18:30:00 +0200'
 comments: true
 tags: [terraform, devops, aws]
 ---
