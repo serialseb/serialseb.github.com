@@ -44,7 +44,7 @@ endfor  %}
     {%if last.slides %}<li><a href="{{last.slides}}">Slides</a></li>{%endif%}
     {%if last.samples %}<li><a href="{{last.samples}}">Code Samples</a></li>{%endif%}
     {%if last.video.href %}<li><a href="{{last.video.href}}">Video</a></li>{%endif%}
-    {%for link in page.links %}<li><a href="{{ link.url }}">{{link.title}}</a></li>{%endfor%}
+    {%for link in page.links %}<li><a href="{{ link.href }}">{{link.title}}</a></li>{%endfor%}
     </ul>
     {%endif%}
 
