@@ -13,9 +13,9 @@ deliveries:
     href: http://ndc-london.com/talk/versions-are-evil-how-to-do-without-in-your-api/
     date: 2016-01-15
     video:
-      embedded: https://www.youtube.com/embed/bzXlE3RvcQg
-      width: 560
-      height: 315
+      embedded: https://player.vimeo.com/video/156264107
+      width: 640
+      height: 360
   - conf: MonkeySpace 2013
     date: 2013-07-24
     location: Chicago, U.S.A.
