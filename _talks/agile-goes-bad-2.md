@@ -11,5 +11,5 @@ deliveries:
  - conf: DDD Scotland '16
    date: 2016-05-14
    location: Edinburgh, United Kingdom
-   
+comments: true
 ---
