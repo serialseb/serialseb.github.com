@@ -48,7 +48,12 @@ endfor  %}
     </ul>
     {%endif%}
 
-{% if page.deliveries.size > 1 %}
+    {% if site.owner.disqus-shortname and page.comments == true %}
+    <h2>Comments</h2>
+      <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    {% endif %}
+
+{% if page.deliveries.size > 0 %}
 <h2>Where</h2>
 <ul>
 {% for cur in page.deliveries %}
