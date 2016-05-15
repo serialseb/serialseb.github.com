@@ -8,6 +8,7 @@ summary: |
 deliveries:
   - conf: DDD Scotland 2016
     location: Edinburgh, United Kingdom
+    date: 2016-05-14
     href: http://ddd.scot/conference/dddscot16/talk/01444604-eded-4302-910c-5717b03df4d1
   - conf: NDC Oslo 2016
     location: Oslo, Norway
