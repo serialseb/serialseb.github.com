@@ -1,0 +1,1 @@
+Blog about having conversations, shared history, social norms in the development community.
