@@ -8,7 +8,9 @@ status: active
 redirect_from: /speaker/agile-goes-bad-2/
 tags: [aliceagile, agile]
 links:
- - title: Lanyrd
+ - title: Slides
+   href: https://speakerdeck.com/serialseb/alice-in-agile-wonderland
+ - title: Lanyrd Talk Page DDD Scotland
    href: http://lanyrd.com/2016/dddscot/sfbyyh/
 deliveries:
  - conf: DDD Scotland '16
