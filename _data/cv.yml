@@ -8,6 +8,17 @@ summary: |
   Learning and sharing is fundamental to what I do, so I've given many talks and attend conferences. As an added bonus, _je parle également francais_ (I'm also fluent in French).
 
 contracts:
+  - client: rubysoft
+    projects:
+      - title: Lloyds List Intelligence
+        from: 2016-03-14
+        to: 2016-05-29
+        tech: [terraform, packerio, aws, asp.net,wasp.net-web-api,elasticsearch,csharp, immutable-infrastructure, rabbitmq, kibana, logstash]
+        description: |
+          In charge of DevOps, building of an automated immutable infraustrcture for the deployment of ElasticSearch, RabbitMQ, Windows servers and .net applications, and of a global monitoring system using the ELK stack.
+           - Development of the infrastructure
+           - Development of monitoring for .net applications (C#)
+           - Management of the monitoring cluster and other associated servers
   - client: sitemorse
     projects:
       - title: Umbraco Plugin
