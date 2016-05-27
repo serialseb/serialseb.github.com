@@ -6,7 +6,7 @@ tags: [terraform, devops, aws]
 ---
 Terraform has modules, and they are both insanely great and absolutely infuriating at times.
 
-When you split your logical resources in modules, you often want to make sure you make them configurable, bh aving some resources only generated when you set a flag in a variable.
+When you split your logical resources in modules, you often want to make sure you make them configurable, by having some resources only generated when you set a flag in a variable.
 
 ```tf
 variable "create_server" { default = true }
@@ -15,7 +15,7 @@ resource "aws_instance" "insanely_great_server" {
 }
 ```
 
-This works throught the magic of variables of type boolean being parsed as 0 or 1 when `ints` are involved, such as in count. So far so good. But what if you want to create a resource only when a variable is *not* set, say, if you wanted to pass an elastic IP address to a resource, or let it create one.
+This works through the magic of variables of type boolean being parsed as 0 or 1 when `ints` are involved, such as in count. So far so good. But what if you want to create a resource only when a variable is *not* set, say, if you wanted to pass an elastic IP address to a resource, or let it create one.
 
 ```tf
 // let's create the variable, defaults to nothing
