@@ -15,7 +15,7 @@ contracts:
         to: 2016-05-29
         tech: [terraform, packerio, aws, asp.net,wasp.net-web-api,elasticsearch,csharp, immutable-infrastructure, rabbitmq, kibana, logstash]
         description: |
-          In charge of DevOps, building of an automated immutable infraustrcture for the deployment of ElasticSearch, RabbitMQ, Windows servers and .net applications, and of a global monitoring system using the ELK stack.
+          In charge of DevOps, building of an automated immutable infrastructure for the deployment of ElasticSearch, RabbitMQ, Windows servers and .net applications, and of a global monitoring system using the ELK stack.
            - Development of the infrastructure
            - Development of monitoring for .net applications (C#)
            - Management of the monitoring cluster and other associated servers
@@ -26,7 +26,7 @@ contracts:
         to: 2015-12-15
         tech: [asp.net, asp.net-web-api, umbraco, angular]
         description: >
-          Development of an Umbraco plugin to capture edited content before publication, and validate it for conformance using Sitemorse's sytems, including front-end UI code and back-end implementation services.
+          Development of an Umbraco plugin to capture edited content before publication, and validate it for conformance using Sitemorse's systems, including front-end UI code and back-end implementation services.
   - client: comparethemarket
     projects:
       - title: Data Aggregation Platform
@@ -63,7 +63,7 @@ contracts:
         to: 2012-11-16
         tech: [mobile, javascript, html5, iOS, crypto]
         description: |
-          Avisor on the technical architecture and development  of a mobile applications for very sensitive data and presentations used by consultants, integrating with the existing platform solutions.
+          Advisor on the technical architecture and development  of a mobile applications for very sensitive data and presentations used by consultants, integrating with the existing platform solutions.
       - title: Big-data and Maps
         from: 2011-10-17
         to: 2012-03-03
@@ -77,7 +77,7 @@ contracts:
         to: 2011-09-25
         tech: [ReST, OpenRasta, OpenSearch, http-caching, winforms, grids, csharp, asp.net, tdd, xhtml]
         description: |
-          Trading portofolio information sharing across heterogeneous systems
+          Trading portfolio information sharing across heterogeneous systems
 
            - Architecture and design of the system
            - Lead a team of developers, implementing ReSTful services and front-end winforms components.
@@ -87,7 +87,7 @@ contracts:
         highlight: true
         tech: [wpf, csharp, .net, wcf, web-services, ReST, OpenRasta, OpenWrap, package-management, mef]
         description: |
-          As a lead on the ADAPT project, a custom development envrironment for .net developers building WPF line-of-business applications, I desinged a new architecture for both a rich client, based on a custom package-management system, and on the server, including a deployment infrastructure, APIs for UI development and a local message-passing queue, and migration of WCF services to a new ReST architecture.
+          As a lead on the ADAPT project, a custom development environment for .net developers building WPF line-of-business applications, I designed a new architecture for both a rich client, based on a custom package-management system, and on the server, including a deployment infrastructure, APIs for UI development and a local message-passing queue, and migration of WCF services to a new ReST architecture.
   - client: reactive
     projects:
       - title: Betting App
@@ -121,7 +121,7 @@ contracts:
         to: 2015-06-22
         tech: [.net, csharp, ReST, OpenRasta, aws, castle-windsor,jQuery, msbuild]
         description: |
-          The client wanted a new website to publish all the movies they were distributing across Europe. I architected, designed and developed the front-end and back-end using OpenRasta, restful servies, and developed an ops strategy for the maintenance of the site.
+          The client wanted a new website to publish all the movies they were distributing across Europe. I architected, designed and developed the front-end and back-end using OpenRasta, restful services, and developed an ops strategy for the maintenance of the site.
   - client: signaturetech
     projects:
       - title: Gaming Platform
@@ -152,12 +152,12 @@ contracts:
         to: 2008-03-28
         tech: [powershell, ffmpeg, csharp, .net, csharp, OpenRasta, asp.net, ReST, msbuild]
         description: |
-          Using a first-of-it's-kind ReST-based toolkit, I was resposible for the development of a social sharing platform, including a video uploading and encoding system.
+          Using a first-of-it's-kind ReST-based toolkit, I was responsible for the development of a social sharing platform, including a video uploading and encoding system.
       - title: ActiveKids 08
         client: sainsburys
         from: 2007-12-03
         to: 2008-01-29
-        tech: [ajax, asp.net, ms-cms, .net, csharp, msbuid]
+        tech: [ajax, asp.net, ms-cms, .net, csharp, msbuild]
         description: |
           Development of a new AJAX-enabled registration system, bridging the existing Sainsbury's investment in Microsoft CMS with the newer WebForms UpdatePanel AJAX technology.
   - client: bbcworldwide
@@ -168,14 +168,14 @@ contracts:
         highlight: true
         tech: [wpf, nhibernate, directshow, asp.net, model-view-presenter, nant]
         description: |
-          Maintenance and hardening of a rich media application for the displaying of HD video to propsective consumers, focusing on increasing the quality of the codebase to a maintainable level, and the scalability needs of several hundred workstations streaming video silmutanuously.
+          Maintenance and hardening of a rich media application for the displaying of HD video to prospective consumers, focusing on increasing the quality of the codebase to a maintainable level, and the scalability needs of several hundred workstations streaming video simultaneously.
   - client: akqa
     projects:
       - title: Nike+
         client: nike
         from: 2007-05-29
         to: 2007-07-24
-        tech: [asp.net, model-view-presenter, tdd, poweshell, .net, csharp, ajax, winforms, powershell, msbuild]
+        tech: [asp.net, model-view-presenter, tdd, powershell, .net, csharp, ajax, winforms, powershell, msbuild]
         description: |
           Development of a core framework and associated websites for user profile management, pictures upload and running statistics, as well as reusable quick-turnaround templates for future web development.
   - client: netstore
