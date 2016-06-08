@@ -13,6 +13,7 @@ deliveries:
   - conf: NDC Oslo 2016
     location: Oslo, Norway
     date: 2016-06-08
+    href: http://ndcoslo.com/talk/versions-are-evil-how-to-do-without-in-your-api/
   - conf: NDC London 2016
     location: London, United Kingdom
     href: http://ndc-london.com/talk/versions-are-evil-how-to-do-without-in-your-api/
