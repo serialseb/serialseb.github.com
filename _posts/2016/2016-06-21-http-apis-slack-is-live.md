@@ -1,5 +1,5 @@
 ---
-title: HTTP APIs' Slack room is live!
+title: HTTP APIs’ Slack room is live!
 date: 2016-06-21 13:29:00 +0200
 comments: true
 tags: [http,rest]
