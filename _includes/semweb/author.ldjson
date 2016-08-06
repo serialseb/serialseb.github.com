@@ -3,6 +3,7 @@
   "@context" : "http://schema.org",
   "@type" : "Person",
   "name" : "{{author.name}}",
+  "@id": "{{author.url}}",
   "url" : "{{author.url}}",
   "email": "{{author.email}}",
   "image": "{{avatarUri}}",
