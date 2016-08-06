@@ -1,17 +1,10 @@
 {
   "@context": "http://schema.org",
   "@type": "WebSite",
-  {% unless include.noid %}
-  "@id": "https://serialseb.com/",
-  {% endunless %}
   "url": "https://serialseb.com/",
-  "creator": {"@id": "https://serialseb.com/#me"},
+  "creator": {"@id": "https://serialseb.com/about/"},
   "inLanguage": "{{site.lang}}",
-  "copyrightHolder":[
-    {"@id": "http://caffeine-it.com/#company"},
-    {"@id": "https://serialseb.com/#me"}
-  ],
-  "sourceOrganization": {"@id":"http://caffeine-it.com/#company"},
+  "sourceOrganization": {"@id":"http://caffeine-it.com/"},
   "name": "SerialSeb",
   "potentialAction": {
     "@type": "SearchAction",

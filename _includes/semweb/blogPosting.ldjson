@@ -5,7 +5,7 @@
 {
   "@context":"http://schema.org",
   "@type":"BlogPosting",
-  "@id":"{{ site.url }}{{ include.post.url }}#post",
+  "@id":"{{ site.url }}{{ include.post.url |  remove:'index.html' }}",
   "url": "{{ site.url }}{{ include.post.url |  remove:'index.html' }}",
   "mainEntityOfPage":{"@id": "{{ site.url }}{{ include.post.url |  remove:'index.html' }}"},
   "author": {"@id": "{{author.id}}"},
@@ -16,7 +16,6 @@
   "dateModified": "{{ include.post.date  | date_to_xmlschema }}",
   {%endif%}
   "headline":"{{include.post.title}}",
-  "url":"{{ site.url }}{{ include.post.url }}",
   "copyrightHolder": {"@id": "{{author.id}}"},
   "copyrightYear": {{include.post.date | date: "%Y" }},
   "inLanguage": "{{ include.post.lang ? include.post.lang : site.lang }}",
@@ -37,6 +36,6 @@
     "height": "1200 px"
     {% endif %}
   },
-  "publisher": {"@id": "http://caffeine-it.com/#company"}
+  "publisher": {"@id": "http://caffeine-it.com/"}
 
 }

@@ -2,7 +2,6 @@
 {
   "@context" : "http://schema.org",
   "@type" : "Person",
-  "@id": "{{ author.id }}",
   "name" : "{{author.name}}",
   "url" : "{{author.url}}",
   "email": "{{author.email}}",

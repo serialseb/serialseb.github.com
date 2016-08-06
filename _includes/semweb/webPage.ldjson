@@ -5,10 +5,8 @@
   "@context": "http://schema.org",
   "url":"{{ site.url }}{{ page.url |  remove:'index.html' }}",
   "@type": "WebPage",
-  "@id": "{{ site.url }}{{ page.url |  remove:'index.html' }}",
   "headline":"{{page.title}}",
-  "isPartOf": {"@id": "https://serialseb.com/"},
   "author": {"@id": "{{author.id}}" },
-  "sourceOrganization": {"@id":"http://caffeine-it.com/#company"},
-  "publisher": {"@id":"http://caffeine-it.com/#company"}
+  "sourceOrganization": {"@id":"http://caffeine-it.com/"},
+  "publisher": {"@id":"http://caffeine-it.com/"}
 }

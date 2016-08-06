@@ -1,7 +1,7 @@
 {
   "@context": "http://schema.org",
   "@type": "Organization",
-  "@id": "http://caffeine-it.com/#company",
+  "@id": "http://caffeine-it.com/",
   "url": "http://caffeine-it.com/",
   "name": "Caffeine IT",
   "legalName": "naughtyProd Limited",
@@ -12,5 +12,5 @@
     "width": "512 px",
     "height": "512 px"
   },
-  "founder": {"@id": "https://serialseb.com/#me"}
+  "founder": {"@id": "https://serialseb.com/about/"}
 }
