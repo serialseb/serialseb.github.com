@@ -2,7 +2,9 @@
 [
   {% include semweb/organisation.ldjson %},
   {% include semweb/webSite.ldjson %},
-  {% include semweb/webPage.ldjson %},
+
+  {% if include.type != "blogEntry" %}{% include semweb/webPage.ldjson %},{%endif%}
+  
   {% include semweb/blog.ldjson %}
 ]
 </script>

@@ -10,7 +10,7 @@
   "sameAs" : [
     {% assign social = "" | split: "" | pop %}
     "{{author.id}}"
-    {%for social in author.social%}
+    {% for social in author.social%}
       {%assign key = social[0]%}
       {%assign username = social[1] %}
       {%if username %}

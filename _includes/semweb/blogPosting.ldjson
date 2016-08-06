@@ -7,7 +7,6 @@
   "@type":"BlogPosting",
   "@id":"{{ site.url }}{{ include.post.url |  remove:'index.html' }}",
   "url": "{{ site.url }}{{ include.post.url |  remove:'index.html' }}",
-  "mainEntityOfPage":{"@id": "{{ site.url }}{{ include.post.url |  remove:'index.html' }}"},
   "author": {"@id": "{{author.id}}"},
   "datePublished": "{{ include.post.date | date_to_xmlschema }}",
   {% if include.post.modified %}
