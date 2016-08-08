@@ -12,7 +12,8 @@
           <h3 id="year-{{ post.date | date: '%Y' }}">{{ post.date | date: '%Y' }}</h3>
         {% endif %}
       {% endunless %}
+      {%include blogEntry.html post=post excerpt=true comments=false content=post.content %}
     {% endfor %}
   </main><!-- /#index -->
 {% endcapture %}
-{% include _master.html name="post-index" nav="author" robots="noindex" %}
+{% include _master.html name="post-index" type="post-index" nav="author" robots="noindex" %}
