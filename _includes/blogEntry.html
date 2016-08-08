@@ -9,7 +9,7 @@
         <time class="icon fa-pencil-square-o" datetime="{{ include.post.modified | date: "%Y-%m-%d" }}">{{ include.post.modified | date: "%B %d, %Y" }}</time>
         {% endif %}
         {% if include.post.comments == true %}{%unless include.comments %} <a class="icon fa-commenting-o" href="{{ site.url }}{{ include.post.url }}#disqus_thread">Comments</a>{% endunless %}{%endif%}
-        <a class="icon fa-edit" href="{{site.github.repository_url}}/blob/gh-pages/{{include.post.relative_path}}">Edit</a>
+        <a class="icon fa-edit" href="{{site.github.repository_url}}/blob/master/{{include.post.relative_path}}">Edit</a>
         {%for tag in include.post.tags %}{%include _tag.html tag=tag %}{%endfor%}
       </p>
     </header>
