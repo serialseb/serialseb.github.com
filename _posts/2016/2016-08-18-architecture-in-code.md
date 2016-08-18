@@ -83,3 +83,5 @@ else you may need to spin up the software.
 If your model is not rich enough to generate all the plumbing from it, then
 your model is insufficient to document what your software does. And when you
 need something that your model can't cope with, update your model.
+
+[simonbrown]: <http://www.codingthearchitecture.com/blogentries/1.html>
