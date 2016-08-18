@@ -5,6 +5,7 @@ comments: true
 tags: [architecture]
 image:
   feature: architecture.jpg
+  credit: Sebastien Lambbla
 ---
 
 When we build systems, we model the world around us: models, commands, events,
