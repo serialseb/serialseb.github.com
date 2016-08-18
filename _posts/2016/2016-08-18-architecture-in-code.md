@@ -3,6 +3,8 @@ title: Architecture in code
 date: 2016-08-18 19:38:00 +0100
 comments: true
 tags: [architecture]
+image:
+  feature: architecture.jpg
 ---
 
 When we build systems, we model the world around us: models, commands, events,
