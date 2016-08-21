@@ -78,7 +78,7 @@ public interface IListenToExternalEvent<T> {
 ```
 
 Going one step further, both OpenRasta and FubuMvc used to favour the idea of
-a configuration mdoel, where all information about your system are pulled into
+a configuration model, where all information about your system are pulled into
 before you actually spin up the system. This allows any further component to
 have enough information to configure queues, add http handlers, and everything
 else you may need to spin up the software.
