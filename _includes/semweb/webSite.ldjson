@@ -6,6 +6,7 @@
   "inLanguage": "{{site.lang}}",
   "sourceOrganization": {"@id":"http://caffeine-it.com/"},
   "name": "SerialSeb",
+  "alternateName": "SerialSeb.com",
   "potentialAction": {
     "@type": "SearchAction",
     "target": "https://serialseb.com/search/?q={search_term_string}",

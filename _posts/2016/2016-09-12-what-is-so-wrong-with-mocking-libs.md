@@ -1,7 +1,7 @@
 ---
 title:  VeST Redux – What’s so wrong with mocking frameworks?
 comments: true
-date: 2016-09-10 19:12:00 +0200
+date: 2016-09-13 09:00:00 +0100
 tags: [vest, mocking]
 serial: vest-redux
 ---
@@ -122,9 +122,8 @@ Mocking frameworks are nearly always the wrong choice: they are not a good way
 to write classes, they lead to the path of brittleness, badly factored code,
 unwildly class hiearchies, and code duplication.
 
-Do yourself a favour, write in-memory fakes and ship them with your assemblies.
-
+Do yourself a favour, write in-memory fakes and ship them alongside your code.
 
 [mocking-sucks]: <https://serialseb.com/blog/2007/12/13/why-mock-frameworks-suck-and-how-to/>
-[telldontask]: <>
-[pitoffailure]: <>
+[telldontask]: <http://martinfowler.com/bliki/TellDontAsk.html>
+[pitoffailure]: <http://martinfowler.com/bliki/TellDontAsk.html>

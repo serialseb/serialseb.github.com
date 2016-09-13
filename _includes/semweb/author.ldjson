@@ -4,7 +4,7 @@
   "@type" : "Person",
   "name" : "{{author.name}}",
   "@id": "{{author.url}}",
-  "url" : "{{author.url}}",
+  "url" : "https://serialseb.com",
   "email": "{{author.email}}",
   "image": "{{avatarUri}}",
   "sameAs" : [
