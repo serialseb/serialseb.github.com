@@ -1,10 +1,11 @@
 ---
-title:  VeST Redux – What’s so wrong with mocking frameworks?
+title: VeST Redux – What’s so wrong with mocking frameworks?
 comments: true
 date: 2016-09-13 09:00:00 +0100
 tags: [vest, mocking]
 serial: vest-redux
 ---
+
 While working on a project, on a nice summer day, and after many hours of
 frustration and disbelief at my incapacity to make sense of some test code
 using a mocking framework, I expressed an opinion I wanted to share with you.
