@@ -1,0 +1,22 @@
+---
+---
+{
+  "@context": "http://www.w3.org/ns/activitystreams",
+  "name": "Blog articles",
+  "type": "Collection",
+  "items": [
+    {% for post in site.posts %}
+    {
+      "published": "{{ post.date | date_to_xmlschema }}",
+      "type": "Article",
+      "url": "{{ site.url }}{{ post.url }}",
+      "name": "{{post.title}}"
+    }{% unless post.next %},{% endunless %}
+    {% endfor %}
+  ],
+  "target" : {
+   "id": "http://example.org/blog/",
+   "type": "OrderedCollection",
+   "name": "Martin's Blog"
+  }
+}
