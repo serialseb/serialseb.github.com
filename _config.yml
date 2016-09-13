@@ -102,8 +102,6 @@ defaults:
       type: talk
 
 collections:
-  projects:
-    permalink: /projects/:id/
   serials:
     output: true
     permalink: /serials/:name/
