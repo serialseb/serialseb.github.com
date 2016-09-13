@@ -23,4 +23,4 @@ Unfortunately, this brushed many feathers and was seen by some as a desire to di
 Could other teams have invaded rooms themselves? Probably. Some even did for a few days here and there, but the practice only spread to one other team. I strongly believe that this wasn't due to a lack of desire, but by the power of the norm. No one wants to be different, probably to avoid the difficulties that not following orthodoxy brings to a team in a sometimes hostile and often fearful environment. And yet, teams that do not feel afraid have the highest retention rates.
 
 
-[agile-building]: <{% post_url 2016/2016-02-18-agile-furniture %}>
+[agile-building]: <{% post_url 2016-02-18-agile-furniture %}>
