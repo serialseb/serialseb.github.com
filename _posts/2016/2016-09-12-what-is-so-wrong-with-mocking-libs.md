@@ -10,7 +10,7 @@ While working on a project, on a nice summer day, and after many hours of
 frustration and disbelief at my incapacity to make sense of some test code
 using a mocking framework, I expressed an opinion I wanted to share with you.
 
-**Mocking frameworks are actively harmful, and probably infringe on my human
+> **Mocking frameworks are actively harmful, and probably infringe on my human
 rights.**
 
 It's not just a matter of taste, there are fundamental issues that make it
