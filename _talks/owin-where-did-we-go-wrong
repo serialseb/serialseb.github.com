@@ -1,0 +1,14 @@
+---
+title: OWIN, where did we go wrong?
+summary: |
+  OWIN is a set of open interfaces for web components on .net. It was supposed
+    to provide framework and library-independent reusable components. From the
+    early days of the specification to Katana, what is the current state of
+    affairs, is it still something to use? What about asp.net core? Are unicorns
+    real? Come find out.
+deliveries:
+ - conf: got.net
+   location: Las Vegas, United States
+   date: 2016-11-03
+   href: http://www.404.digital/
+---
