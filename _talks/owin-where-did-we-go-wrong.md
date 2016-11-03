@@ -1,5 +1,6 @@
 ---
 title: OWIN, where did we go wrong?
+redirect_from: "/owinisdead/"
 summary: |
   OWIN is a set of open interfaces for web components on .net. It was supposed
     to provide framework and library-independent reusable components. From the
