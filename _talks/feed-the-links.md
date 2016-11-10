@@ -10,8 +10,8 @@ tags: [feedthelinks, hypermedia, semweb]
 deliveries:
  - conf: Øredev 2016
    date: 2016-11-10
-   location: Malmo, Sweden
    href: http://oredev.org/2016/sessions/feed-the-links-tuples-a-bag--an-introduction-to-linked-data-apis
+   location: Malmo, Sweden
  - conf: DotNetFringe 2016
    href: http://lanyrd.com/2016/netfringe/sfcxpy/
    date: 2016-07-12
