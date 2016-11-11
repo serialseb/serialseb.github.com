@@ -1,5 +1,6 @@
 ---
 title: Testing what matters with VEST
+redirect_from: /vest/
 tags: [vest]
 summary: >
   Tired of projects where the wrong thing is tested? Finding TDD too time-consuming or too hard? High test coverage and your users still find bugs? Don’t understand if your tests are unit, integration, automation? InVEST in your future; come and discover how vertical slice technology helps to write those tests that matter. The hyperboles are included for free.
