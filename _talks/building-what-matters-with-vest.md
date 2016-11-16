@@ -19,3 +19,4 @@ deliveries:
     date: 2013-06-27 19:00:00 +0300
     location: Vilnius, Lithuania
 ---
+There is also an [article serial](https://serialseb.com/serials/vest-redux/) about the topic where you can find more details in some of the approaches developed in the talk.
