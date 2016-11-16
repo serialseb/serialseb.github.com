@@ -12,6 +12,10 @@ deliveries:
    date: 2016-11-10
    href: http://oredev.org/2016/sessions/feed-the-links-tuples-a-bag--an-introduction-to-linked-data-apis
    location: Malmo, Sweden
+   video:
+      embedded: https://player.vimeo.com/video/191060590
+      width: 640
+      height: 360
  - conf: DotNetFringe 2016
    href: http://lanyrd.com/2016/netfringe/sfcxpy/
    date: 2016-07-12
