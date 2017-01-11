@@ -8,6 +8,9 @@ redirect_from: /speaker/planned/Hypermedia-is-so-last-year/
 redirect_from: /feedthelinks/
 tags: [feedthelinks, hypermedia, semweb]
 deliveries:
+ - conf: Expert Talks Cambridge
+   date: 2017-01-11
+   location: Cambride, United Kingdom
  - conf: Øredev 2016
    date: 2016-11-10
    href: http://oredev.org/2016/sessions/feed-the-links-tuples-a-bag--an-introduction-to-linked-data-apis
