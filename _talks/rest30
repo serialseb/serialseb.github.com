@@ -1,0 +1,5 @@
+---
+title: ReST 3.0 – A lap around HTTP Apis' next generation
+summary: We've been building hypermedia APIs in one shape or another for a long time. As JSON continues to take over the world, many new specifications promise to deliver an easier way to create and evolve our APIs. After covering what problems ReST 3.0 tries to solve, we'll evaluate the specifications and tools we can leverage. To the cloud and beyond!
+---
+
