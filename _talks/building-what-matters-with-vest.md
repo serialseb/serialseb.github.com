@@ -4,13 +4,14 @@ redirect_from: /vest/
 redirect_from: /speaker/testing-what-matters-with-vest/
 tags: [vest]
 redirect_from: "/vest/"
-summary: >
-  Tired of projects where the wrong thing is tested? Finding TDD too time-consuming or too hard? High test coverage and your users still find bugs? Don’t understand if your tests are unit, integration, automation? InVEST in your future; come and discover how vertical slice technology helps to write those tests that matter. The hyperboles are included for free.
+summary: > Building applications at speed is more and more demanding on teams. You can deploy your whole infrastructure in a few minutes, but simple features still take days to build, and half an hour to run. With vertical slice technologies, you can reduce developoment time, increase quality, work more reliably with people using your code, and increase scenario coverrage while reducing how many tests you run. It's not a silver bullet, but at speed, you can't really see colours anyway.
   
 deliveries:
   - conf: Øredev 2016
     href: http://oredev.org/2016/sessions/testing-what-matters-with-vest
     date: 2016-11-11 13:20:00 +0100
+    summary: >
+  Tired of projects where the wrong thing is tested? Finding TDD too time-consuming or too hard? High test coverage and your users still find bugs? Don’t understand if your tests are unit, integration, automation? InVEST in your future; come and discover how vertical slice technology helps to write those tests that matter. The hyperboles are included for free.
     video:
       embedded: https://player.vimeo.com/video/191483212
       width: 640
