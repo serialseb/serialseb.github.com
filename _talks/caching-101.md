@@ -2,6 +2,7 @@
 title: HTTP caching for ponies and unicorns
 main_tag: caching101
 tags: [caching101, http, http-caching, rest]
+redirect_from: "/caching/"
 summary: |
     Caching is one of the most powerful feature of HTTP and ReSTful architecture, and also one of the most
     misunderstood. This session will review what can be done with HTTP, debunk a few myths and show some
