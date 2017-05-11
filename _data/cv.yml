@@ -15,7 +15,7 @@ contracts:
         to: 2017-03-30
         tech: [aws, cloudformation, csharp, asp.net-web-api, dynamodb, elasticsearch, kibana, grafana, devops, consul]
         description: |
-          Part of a team enhancing the restaurant search for Just-Eat
+          Part of a team enhancing the restaurant search for JUST EAT
            - Replacement of the scoring engine with a new model
            - Implementation of a/b tested new metrics to provide better and more
              personal results for users

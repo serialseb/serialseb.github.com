@@ -10,40 +10,33 @@ image:
   feature: officehead.jpg
 ---
 
-_Section under construction, bear with..._
+## Hello and welcome!
 
-Confused about what ReST is? Have a project where quality issues are preventing you from releasing? In need of a
-fantastic trainer? Want to validate your architecture and coding practices to ensure the best possible use of your
-existing development teams? Or maybe you want an exciting and vibrant speaker for your conference?
+I'm Sebastien and I love building software. I split my time between open-source
+contributions, training, speaking, and building distributed systems for
+clients all over the world.
 
-Look no further. With over 15 years of experience at the wheels of projects large and small, I can help you become the best you can be.
+Open-Source is now an essential part of our industry. I contribute as much as I
+can, with projects such as [ConsulStructure][consul], [OpenRasta][openrasta] and
+many other [side projects][side], both to advance the state of our industry, and to
+experiment and keep my coding as sharp as possible.
 
-## Who is Sebastien Lambla
+Theres little value in learning if you don't share it back. I train developers
+in modern development practices, ReST architectures and distributed systems.
 
-Sebastien Lambla has been involved in software development since receiving his first web browser, back in the days
- of Netscape Navigator 1.2. After a few years of hacking on javascript, he turned his attention to the .net platform,
- on which he would spend the next few years building software in many companies.
+Another way to teach is to speak at conferences, an essential part in motivating
+the industry, and floating new ideas. With [over 100 talk deliveries][talks]
+over 10 years, I've been lucky enough to travel extensively to share my passion.
 
-From 2006, Sebastien has been running Caffeine IT, a consultancy helping clients from all over Europe implement
- first-grade and innovative solutions.
+Publishing content for people to read at home is the last part of this sharing
+equation. [My blog][blog] goes back to 2003, and in a commitment to integrity, I've
+even left the embarassing material.
 
-Keen Open-Source promoter, Sebastien has created multiple high-profile open-source projects that are in use in many
-Fortune 500 companies, including OpenRasta (2008), the most popular resource-oriented framework on .net, and OpenWrap (2010), an
- alternative package manager for the .net platform.
-
-Long-time advocate of the ReST architectural style and resource-oriented computing, Sebastien has delivered over the
-years new platforms leveraging the architecture of the web, from small independent companies to Enterprise-scale
-architectures.
-
-An [enticing and motivational speaker](/speaker/), Sebastien has delivered hundreds of talks, from small user-groups to
- some of the largest running European conferences.
-
-Attentive and knowlegeable, Sebastien has also delivered hundreds of hours of training to classes of all sizes and
-skills, on nHibernate, ReST, web technologies, distributed architectures and many other subjects.
-
-Since April 2013, building on his experience designing and delivering resource-oriented architectures and his training
-classes, Sebastien has started the writing of a book on the subject, Practical Rest, a project that is being restarted after a long hiatus.
-
+[blog]: <https://serialseb.com/blog/>
+[consul]: <https://github.com/serialseb/ConsulStructure/>
+[openrasta]: <https://github.com/OpenRasta/openrasta-core/>
+[side]: <https://github.com/serialseb/>
+[talks]: <https://serialseb.com/speaker/>
 ## What people say
 
 
