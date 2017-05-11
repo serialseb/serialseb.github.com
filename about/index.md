@@ -32,11 +32,6 @@ Publishing content for people to read at home is the last part of this sharing
 equation. [My blog][blog] goes back to 2003, and in a commitment to integrity, I've
 even left the embarassing material.
 
-[blog]: <https://serialseb.com/blog/>
-[consul]: <https://github.com/serialseb/ConsulStructure/>
-[openrasta]: <https://github.com/OpenRasta/openrasta-core/>
-[side]: <https://github.com/serialseb/>
-[talks]: <https://serialseb.com/speaker/>
 ## What people say
 
 
@@ -97,3 +92,10 @@ Daniel Fernandes, developer
 > great application for our client.
 
 Neil Mosafi, developer
+
+ 
+[blog]: <https://serialseb.com/blog/>
+[consul]: <https://github.com/serialseb/ConsulStructure/>
+[openrasta]: <https://github.com/OpenRasta/openrasta-core/>
+[side]: <https://github.com/serialseb/>
+[talks]: <https://serialseb.com/speaker/>
