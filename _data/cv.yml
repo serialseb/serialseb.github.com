@@ -8,14 +8,27 @@ summary: |
   Learning and sharing is fundamental to what I do, so I've given many talks and attend conferences. As an added bonus, _je parle également francais_ (I'm also fluent in French).
 
 contracts:
+  - client: justeat
+    projects:
+      - title: Just Eat Search
+        from: 2016-07-19
+        to: 2017-03-30
+        tech: [aws, cloudformation, csharp, asp.net-web-api, dynamodb, elasticsearch, kibana, grafana, devops, consul]
+        description: |
+          Part of a team enhancing the restaurant search for Just-Eat
+           - Replacement of the scoring engine with a new model
+           - Implementation of a/b tested new metrics to provide better and more
+             personal results for users
+           - Move to a multi-tenant architecture to consolidate multiple countries
+             on the same global systems
   - client: rubysoft
     projects:
       - title: Lloyds List Intelligence
         from: 2016-03-14
         to: 2016-05-29
-        tech: [terraform, packerio, aws, asp.net,wasp.net-web-api,elasticsearch,csharp, immutable-infrastructure, rabbitmq, kibana, logstash]
+        tech: [terraform, packerio, aws, asp.net,asp.net-web-api,elasticsearch,csharp, immutable-infrastructure, rabbitmq, kibana, logstash]
         description: |
-          In charge of DevOps, building of an automated immutable infrastructure for the deployment of ElasticSearch, RabbitMQ, Windows servers and .net applications, and of a global monitoring system using the ELK stack.
+          In charge of "DevOps", building of an automated immutable infrastructure for the deployment of ElasticSearch, RabbitMQ, Windows servers and .net applications, and of a global monitoring system using the ELK stack.
            - Development of the infrastructure
            - Development of monitoring for .net applications (C#)
            - Management of the monitoring cluster and other associated servers
