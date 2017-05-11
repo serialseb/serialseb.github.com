@@ -13,5 +13,7 @@ links:
    href: https://brew.sh
  - title: dotnetcore
    href: https://www.microsoft.com/net/core#macos
-
+ - title: DTrace oneliners
+   href: http://www.brendangregg.com/DTrace/dtrace_oneliners.txt
+ 
 ---
