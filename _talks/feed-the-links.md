@@ -12,7 +12,6 @@ deliveries:
    date: 2017-01-19
    href: https://web.archive.org/web/20170512152750/http://ndc-london.com/talk/feed-the-links-tuples-a-bag-intro-to-linked-data-apis/
  - conf: Expert Talks Cambridge
- - conf: Expert Talks Cambridge
    date: 2017-01-11
    location: Cambride, United Kingdom
  - conf: Øredev 2016
