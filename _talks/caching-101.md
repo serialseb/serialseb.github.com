@@ -14,6 +14,10 @@ links:
   - title: openrasta-caching
     url: http://github.com/openrasta/openrasta-caching/
 deliveries:
+    - conf: Codeeurope.pl
+      location: Krakow, Poland
+      date: 2017-04-26
+      href: https://www.codeeurope.pl/en/speakers/sebastien-lambla
     - conf: CodeMotion Tel Aviv
       location: Tel Aviv, Israel
       date: 2015-12-17

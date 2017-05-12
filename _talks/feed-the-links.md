@@ -8,6 +8,10 @@ redirect_from: /speaker/planned/Hypermedia-is-so-last-year/
 redirect_from: /feedthelinks/
 tags: [feedthelinks, hypermedia, semweb]
 deliveries:
+ - conf: NDC London
+   date: 2017-01-19
+   href: https://web.archive.org/web/20170512152750/http://ndc-london.com/talk/feed-the-links-tuples-a-bag-intro-to-linked-data-apis/
+ - conf: Expert Talks Cambridge
  - conf: Expert Talks Cambridge
    date: 2017-01-11
    location: Cambride, United Kingdom

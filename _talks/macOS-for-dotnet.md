@@ -7,6 +7,7 @@ deliveries:
  - conf: ConFoo Vancouver 2016
    date: 2016-12-06
    location: Vancouver, Canada
+   href: http://web.archive.org/web/20170512153130/https://confoo.ca/en/yvr2016/session/macos-for-the-net-dev
 redirect_from: "/macdotnet/"
 links:
  - title: Brew

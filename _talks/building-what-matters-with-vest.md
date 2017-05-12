@@ -6,6 +6,14 @@ tags: [vest]
 redirect_from: "/vest/"
 summary: Building applications at speed is more and more demanding on teams. You can deploy your whole infrastructure in a few minutes, but simple features still take days to build, and half an hour to run. With vertical slice technologies, you can reduce developoment time, increase quality, work more reliably with people using your code, and increase scenario coverrage while reducing how many tests you run. It's not a silver bullet, but at speed, you can't really see colours anyway.
 deliveries:
+  - conf: New Crafts
+    location: Paris, France
+    href: http://ncrafts.io/speaker/serialseb
+    date: 2017-05-18
+  - conf: ConFoo Vancouver 2016
+    date: 2016-12-06
+    location: Vancouver, Canada
+    href: http://web.archive.org/web/20170512153247/https://confoo.ca/en/yvr2016/session/testing-what-matters-with-vest
   - conf: Øredev 2016
     href: http://oredev.org/2016/sessions/testing-what-matters-with-vest
     date: 2016-11-11 13:20:00 +0100
