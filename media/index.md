@@ -3,33 +3,48 @@ title: Media packs
 layout: baseline
 ---
 
-# Speaker bios
-Here you can find a few bios you can use for your conference, in different styles and oriented on different aspects
-of the services I offer.
+# Speaker bio
+Here you can find a few bios you can use for your conference.
 
-## Web / ReST - short
-Sebastien Lambla runs Caffeine IT, a consultancy helping clients from all over Europe implement first-grade and
-nnovative solutions, from brushing up software design skills to implementing enterprise-ready resource-oriented
-architectures.
-In his spare time, Sebastien writes a book on ReST, contributes to OSS projects, and is still in a secret love affair
-with javascript and nodejs.
+## Short
+Sebastien, open-source adovcate, defender of diversity, promoter of not too bad
+architecture, does what he can to build software that is "not too shabby".
 
-## Web / ReST - long
-Sebastien Lambla has been involved in software development since receiving his first web browser, back in the days of Netsape Navigator 1.2. After a few years of hacking on javascript, he turned his attention to the .net platform, on which he would spend the next few years building software in many companies.
-From 2006, Sebastien has been running Caffeine IT, a consultancy helping clients from all over Europe implement first-grade and innovative solutions.
-Keen Open-Source promoter, Sebastien has created multiple high-profile open-source projects that are in use in many Fortune 500 companies, including OpenRasta, at a time the most popular resource-oriented framework on .net.
-Long-time advocate of the ReST architectural style and resource-oriented computing, Sebastien has delivered over the years new platforms leveraging the architecture of the web, from small independents to Fortune 500s.
+## Longer
+Sebastien has been clogging the internet tubes since 1994, when he started on a long journey of discussing technical matters and unicorns.
+He is known for having been a keen open-source advocate, sometimes even contributor, a distributed systems aficionado, a ReST proponent, a speaker, a trainer, an architect, a diversity advocate, and anything that he's managed to put his hands on.
+His passion has lead him to creating bugs in most languages.
+
+## Much longer or something else
+
+Please contact me.
 
 # Pictures
 
 All these pictures are exclusive copyright of their owners. Redistribution and usage is only allowed to registered
 parties with a contractual relationship with Sebastien Lambla or Caffeine IT.
 
-Portrait
+When I was young...
 ![Head shot](/lib/img/profile.jpg)
 
-Portrait sunny funky
+Short hair suits me...
+![Head shot with shorter hair](/lib/img/shorthair.jpg)
+
+Sunny funky
 ![Head shot under the sun](/lib/img/sunface.jpg)
 
-Portrait passport
-![Head shot passport-style](/lib/img/face.jpg)
+Laughing always
+![Head shot while laughing](/lib/img/laugh.jpg)
+
+Smiling sometimes
+![Head shot whiel smiling](/lib/img/smile.jpg)
+
+Presenting something serious
+![Hoead shot while presenting in Israel](/lib/img/present.jpg)
+
+Presenting something less serious
+![Head shot while presenting Alice in Agile Wonderland](/lib/img/storytell.jpg)
+
+Me in the summer
+![Head shot while enjoying the southern sun](/lib/img/summer.png)
+
