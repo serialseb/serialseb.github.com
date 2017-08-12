@@ -8,6 +8,7 @@ locale: en_GB
 lang: en-gb
 url: https://serialseb.com
 timezone: Europe/London
+exclude: [vendor]
 kramdown:
    syntax_highlighter: rouge
 
