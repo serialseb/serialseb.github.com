@@ -6,7 +6,7 @@ right: speaker-stats
 {%
 assign cities = '' | split: ''                                              %}{%
 assign active = site.talks | where: "active","true"                         %}{%
-assign talks = active |  | where: "type", "talk"                            %}{%
+assign talks = active | where: "type", "talk"                            %}{%
 assign retired_talks = site.talks | where: "active", "false"                %}{%
 assign workshops = active | where: "type","workshop"                        %}{%
 assign totalEvents = 0                                                      %}{%
