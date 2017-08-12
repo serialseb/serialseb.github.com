@@ -1,12 +1,6 @@
 ---
 layout: post
 title: Googlejuice
-modified:
-categories:
-excerpt:
-tags: []
-image:
-  feature:
 date: 2003-12-18T14:38:20+00:00
 ---
 

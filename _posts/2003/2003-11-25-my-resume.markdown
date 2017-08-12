@@ -1,10 +1,6 @@
 ---
 layout: post
 title: My Resume
-modified:
-categories:
-excerpt:
-tags: []
 published: false
 date: 2003-11-25T13:14:09+00:00
 ---

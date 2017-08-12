@@ -1,12 +1,6 @@
 ---
 layout: post
 title: "Blogging, How and Why : Metablogging"
-modified:
-categories:
-excerpt:
-tags: []
-image:
-  feature:
 date: 2003-12-02T23:04:47+00:00
 ---
 

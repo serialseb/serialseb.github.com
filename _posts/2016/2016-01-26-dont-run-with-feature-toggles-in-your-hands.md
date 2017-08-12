@@ -4,6 +4,7 @@ date: 2016-01-26 12:06
 title: Don‘t run with Feature Toggles in your hands
 comments: true
 image:
+  path: '/404'
   feature: scissors.jpg
   credit: FlutterSpeed
   creditlink: http://www.flutterspeed.com/2010/12/rusty-but-pretty.html

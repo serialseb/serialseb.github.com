@@ -1,12 +1,6 @@
 ---
 layout: post
 title: Low Blogging
-modified:
-categories:
-excerpt:
-tags: []
-image:
-  feature:
 date: 2003-11-30T10:10:11+00:00
 ---
 

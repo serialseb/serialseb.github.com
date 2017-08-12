@@ -1,12 +1,6 @@
 ---
 layout: post
 title: Life of a Longhorn Blogger
-modified:
-categories:
-excerpt:
-tags: [longhorn]
-image:
-  feature:
 date: 2003-11-13T23:23:12+00:00
 ---
 

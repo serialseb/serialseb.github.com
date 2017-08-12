@@ -1,12 +1,7 @@
 ---
 layout: post
 title: The IDE of the Future, the Discussion Continues
-modified:
-categories:
-excerpt:
 tags: []
-image:
-  feature:
 date: 2003-11-09T13:48:10+00:00
 ---
 

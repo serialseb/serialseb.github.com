@@ -1,12 +1,6 @@
 ---
 layout: post
 title: Multiple Screens? Bring Some More\!
-modified:
-categories:
-excerpt:
-tags: []
-image:
-  feature:
 date: 2003-11-11T15:53:33+00:00
 ---
 

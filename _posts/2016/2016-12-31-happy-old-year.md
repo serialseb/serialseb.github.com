@@ -3,6 +3,7 @@ title: Happy old year
 comments: true
 date: 2016-12-31 12:00:00 +0100
 image:
+  path: '/404'
   feature: happyoldyear.png
 ---
 

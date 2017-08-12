@@ -1,12 +1,6 @@
 ---
 layout: post
 title: View Your Site Under Safari
-modified:
-categories:
-excerpt:
-tags: []
-image:
-  feature:
 date: 2003-11-27T11:07:21+00:00
 ---
 

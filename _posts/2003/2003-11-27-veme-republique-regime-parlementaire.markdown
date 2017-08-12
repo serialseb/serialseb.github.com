@@ -1,12 +1,6 @@
 ---
 layout: post
 title: Veme Republique, Regime Parlementaire
-modified:
-categories:
-excerpt:
-tags: []
-image:
-  feature:
 date: 2003-11-27T10:44:41+00:00
 ---
 

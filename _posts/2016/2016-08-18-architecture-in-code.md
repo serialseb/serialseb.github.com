@@ -4,6 +4,7 @@ date: 2016-08-18 19:38:00 +0100
 comments: true
 tags: [architecture]
 image:
+  path: '/404'
   feature: architecture.jpg
   credit: Sebastien Lambbla
 ---

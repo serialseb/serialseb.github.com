@@ -1,12 +1,7 @@
 ---
 layout: post
 title: ISA Server 2004
-modified:
-categories:
-excerpt:
 tags: [microsoft]
-image:
-  feature:
 date: 2004-01-30T15:05:48+00:00
 ---
 

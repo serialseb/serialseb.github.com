@@ -1,12 +1,6 @@
 ---
 layout: post
 title: SharpReader 0.9.3.1
-modified:
-categories:
-excerpt:
-tags: []
-image:
-  feature:
 date: 2003-11-12T11:07:07+00:00
 ---
 

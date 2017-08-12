@@ -4,6 +4,7 @@ comments: true
 title: Now you 403 see it, now you 404 don‘t
 date: 2016-01-29 16:18:00
 image:
+  path: '/404'
   feature: seedvault.jpg
   creditlink: https://commons.m.wikimedia.org/wiki/File:Svalbard_seed_vault_IMG_8750.JPG
   credit: Erlend Bjørtvedt

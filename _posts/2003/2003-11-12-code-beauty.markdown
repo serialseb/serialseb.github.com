@@ -1,12 +1,6 @@
 ---
 layout: post
 title: Code Beauty
-modified:
-categories:
-excerpt:
-tags: []
-image:
-  feature:
 date: 2003-11-12T00:22:30+00:00
 ---
 

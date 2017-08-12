@@ -1,12 +1,7 @@
 ---
 layout: post
 title: Longhorn DVD Are There
-modified:
-categories:
-excerpt:
 tags: [longhorn]
-image:
-  feature:
 date: 2003-11-14T16:35:26+00:00
 ---
 

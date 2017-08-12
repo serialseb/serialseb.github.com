@@ -1,12 +1,6 @@
 ---
 layout: post
 title: Virtual CD for Free - From Microsoft
-modified:
-categories:
-excerpt:
-tags: []
-image:
-  feature:
 date: 2003-12-03T16:29:50+00:00
 ---
 

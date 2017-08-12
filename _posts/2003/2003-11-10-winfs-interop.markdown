@@ -1,12 +1,7 @@
 ---
 layout: post
 title: WinFS Interop
-modified:
-categories:
-excerpt:
 tags: [longhorn, winfs]
-image:
-  feature:
 date: 2003-11-10T14:32:25+00:00
 ---
 

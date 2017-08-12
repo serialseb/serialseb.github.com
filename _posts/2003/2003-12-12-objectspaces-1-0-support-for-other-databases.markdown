@@ -1,12 +1,6 @@
 ---
 layout: post
 title: ObjectSpaces 1.0 Support for Other Databases
-modified:
-categories:
-excerpt:
-tags: []
-image:
-  feature:
 date: 2003-12-12T08:35:00+00:00
 ---
 

@@ -1,12 +1,6 @@
 ---
 layout: post
 title: Road Trip Amusement
-modified:
-categories:
-excerpt:
-tags: []
-image:
-  feature:
 date: 2003-12-02T23:46:33+00:00
 ---
 

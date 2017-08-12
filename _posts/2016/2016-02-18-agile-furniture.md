@@ -3,6 +3,7 @@ title: Agile furniture building
 layout: post
 comments: true
 image:
+  path: '/404'
   feature: officehead.jpg
   alt: Deconstructing a desk
 date: 2016-02-18 17:48:00
