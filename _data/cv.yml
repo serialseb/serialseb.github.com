@@ -11,7 +11,7 @@ contracts:
   - client: whenfresh
     projects:
       - title: Acting head of API development
-        from: 01--5-2017
+        from: 01-05-2017
         description: |
           Built a team creating a cutting-edge API to expose trillions of data points about UK properties.
   - client: justeat
