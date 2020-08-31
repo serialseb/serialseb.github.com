@@ -8,6 +8,12 @@ summary: |
   Learning and sharing is fundamental to what I do, so I've given many talks and attend conferences. As an added bonus, _je parle également francais_ (I'm also fluent in French).
 
 contracts:
+  - client: whenfresh
+    projects:
+      - title: Acting head of API development
+        from: 01--5-2017
+        description: |
+          Built a team creating a cutting-edge API to expose trillions of data points about UK properties.
   - client: justeat
     projects:
       - title: Just Eat Search
