@@ -1,8 +1,7 @@
 ---
 layout: page
-title: Sebastien Lambla
+title: About me
 tags: [about, serialseb, Sebastien, distributed-systems,architect,developer]
-modified: 2014-08-08T20:53:07.573882-04:00
 comments: true
 redirect_from: "/bio"
 redirect_from: testimonials.html
@@ -10,7 +9,10 @@ image:
   feature: officehead.jpg
 ---
 
-## Hello and welcome!
+- [View my CV][cv]
+- [Contact details][vcard]
+
+## Introduction
 
 I'm Sebastien and I love building software. I split my time between open-source
 contributions, training, speaking, and building distributed systems for
@@ -30,10 +32,9 @@ over 10 years, I've been lucky enough to travel extensively to share my passion.
 
 Publishing content for people to read at home is the last part of this sharing
 equation. [My blog][blog] goes back to 2003, and in a commitment to integrity, I've
-even left the embarassing material.
+even left the embarassing material for your enjoyment.
 
 ## What people say
-
 
  > Seb is amazing. I've had him speak at my events and been lucky enough to hear him. He has an amazing way of enthusing passionately about a subject, that he obviously knows inside out, and is able to relate that to listners in a way they can understand. Seb really knows what he's doing in terms of heading up a team and taking them in a direction. He's a brilliant catalyst for change. His vision and architecture will take a team in a direction they'd have never dreamed of, on a journey to delivering valuable, incredible software. A leader in his field.
 
@@ -99,3 +100,5 @@ Neil Mosafi, developer
 [openrasta]: <https://github.com/OpenRasta/openrasta-core/>
 [side]: <https://github.com/serialseb/>
 [talks]: <https://serialseb.com/speaker/>
+[cv]: <https://serialseb.com/about/cv>
+[vcard]: <https://serialseb.com/about/serialseb.vcf>

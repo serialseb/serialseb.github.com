@@ -2,14 +2,17 @@
 - title: Blog
   url: /blog/
 
-- title: Serials
+- title: Series
   url: /serials/
 
-- title: Talks
+- title: Conferences
   url: /speaker/
 
 - title: About
   url: /about/
+
+- title: CV
+  url: /about/cv
 
 - title: Search
   url: /search/
