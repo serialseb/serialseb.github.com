@@ -11,8 +11,9 @@ contracts:
   - client: whenfresh
     projects:
       - title: Acting head of development
-        from: 2017-05-01
-        to: 2020-08-01
+        from: 2020-08-01
+        to: 2024-11-22
+        highlight: true
         tech: [aws, csharp, net-core, containers, fargate, lambda, observability, rest, dynamodb, packer, cloudwatch, devops, consul]
         description: |
           Returned to my previous client to continue our previous innovation
@@ -23,8 +24,9 @@ contracts:
   - client: douxvillage
     projects:
       - title: Director & Head of development
-        from: 2020-08-02
+        from: 2020-08-01
         to: 2021-09-01
+        highlight: true
         description: |
           Built the first marketplace for shopping local, using Monaco to prove the validity of the concept.
             - Commercial, by recruiting small businesses and helping them create their online store
