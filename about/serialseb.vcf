@@ -3,6 +3,7 @@ VERSION:3.0
 PRODID:-//Apple Inc.//macOS 15.3//EN
 N:Lambla;Sebastien;;;
 FN:Sebastien Lambla
+NICKNAME:SerialSeb
 EMAIL;type=INTERNET;type=WORK;type=pref:seb@serialseb.com
 TEL;type=WORK;type=VOICE;type=pref:+33 7 84 54 61 9
 URL;type=WORK;type=pref:https://serialseb.com
