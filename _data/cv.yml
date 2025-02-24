@@ -8,18 +8,18 @@ summary: |
   Learning and sharing is fundamental to what I do, so I've given many talks and attend conferences. As an added bonus, _je parle également francais_ (I'm also fluent in French).
 
 contracts:
-- client: whenfresh
-  projects:
-    - title: Acting head of development
-      from: 2017-05-01
-      to: 2020-08-01
-      tech: [aws, csharp, net-core, containers, fargate, lambda, observability, rest, dynamodb, packer, cloudwatch, devops, consul]
-      description: |
-        Returned to my previous client to continue our previous innovation
-        - Grew the team to integrate and train new developers, pre and post acquisition
-        - Integrated with various services, continued to evolve our observable custom deployment and monitoring solution
-        - Started migration of legacy services from Rackspace VMs and bare metal to a cloud-friendly environment
-        - Reduced cloud monthly spend by moving our deployment strategy to dynamic stateless services running on x86 and ARM depending on load and availability, and by consolidating services
+  - client: whenfresh
+    projects:
+      - title: Acting head of development
+        from: 2017-05-01
+        to: 2020-08-01
+        tech: [aws, csharp, net-core, containers, fargate, lambda, observability, rest, dynamodb, packer, cloudwatch, devops, consul]
+        description: |
+          Returned to my previous client to continue our previous innovation
+          - Grew the team to integrate and train new developers, pre and post acquisition
+          - Integrated with various services, continued to evolve our observable custom deployment and monitoring solution
+          - Started migration of legacy services from Rackspace VMs and bare metal to a cloud-friendly environment
+          - Reduced cloud monthly spend by moving our deployment strategy to dynamic stateless services running on x86 and ARM depending on load and availability, and by consolidating services
   - client: douxvillage
     projects:
       - title: Director & Head of development
