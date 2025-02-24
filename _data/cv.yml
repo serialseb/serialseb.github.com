@@ -9,21 +9,21 @@ summary: |
 
 contracts:
 - client: whenfresh
-    projects:
-      - title: Acting head of development
-        from: 2017-05-01
-        to: 2020-08-01
-        tech: [aws, csharp, .net-core, containers, fargate, lambda, observability, rest, dynamodb, packer, cloudwatch, devops, consul]
-        description: |
-          Returned to my previous client to continue our previous innovation
-          - Grew the team to integrate and train new developers, pre and post acquisition
-          - Integrated with various services, continued to evolve our observable custom deployment and monitoring solution
-          - Started migration of legacy services from Rackspace VMs and bare metal to a cloud-friendly environment
-          - Reduced cloud monthly spend by moving our deployment strategy to dynamic stateless services running on x86 and ARM depending on load and availability, and by consolidating services
+  projects:
+    - title: Acting head of development
+      from: 2017-05-01
+      to: 2020-08-01
+      tech: [aws, csharp, net-core, containers, fargate, lambda, observability, rest, dynamodb, packer, cloudwatch, devops, consul]
+      description: |
+        Returned to my previous client to continue our previous innovation
+        - Grew the team to integrate and train new developers, pre and post acquisition
+        - Integrated with various services, continued to evolve our observable custom deployment and monitoring solution
+        - Started migration of legacy services from Rackspace VMs and bare metal to a cloud-friendly environment
+        - Reduced cloud monthly spend by moving our deployment strategy to dynamic stateless services running on x86 and ARM depending on load and availability, and by consolidating services
   - client: douxvillage
     projects:
       - title: Director & Head of development
-        from: 2020-08-01
+        from: 2020-08-02
         to: 2021-09-01
         description: |
           Built the first marketplace for shopping local, using Monaco to prove the validity of the concept.
@@ -37,7 +37,7 @@ contracts:
       - title: Acting head of API development
         from: 2017-05-01
         to: 2020-08-01
-        tech: [aws, csharp, .net-core, containersm, observability, rest, dynamodb, packer, cloudwatch, devops, consul]
+        tech: [aws, csharp, net-core, containers, observability, rest, dynamodb, packer, cloudwatch, devops, consul]
         description: |
           Built a team creating a cutting-edge API to expose trillions of data points about UK properties.
   - client: justeat
